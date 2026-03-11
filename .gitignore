@@ -1,0 +1,17 @@
+# User-specific path overrides (contains local paths)
+hon_paths_override.ps1
+
+# QC / Humanize result directories (generated, can be large)
+bundle/qc_*/
+bundle/humanize_*/
+
+# Temp / test files
+bundle/_test_*
+
+# Build artifacts
+dist/
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
