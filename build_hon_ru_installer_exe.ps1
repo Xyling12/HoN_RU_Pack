@@ -70,158 +70,39 @@ for ($i = 0; $i -lt $chunks.Count; $i++) {
 }
 $payloadCode = $payloadBuilder.ToString()
 
-$programTemplate = @"
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.IO.Compression;
+# Load WinForms C# template from external file
+$templatePath = Join-Path $PackageRoot "installer_template.cs"
+if (-not (Test-Path $templatePath)) { throw "C# template not found: $templatePath" }
+$programTemplate = Get-Content -Path $templatePath -Raw
 
-internal static class Program
-{
-    private static int Main()
-    {
-        Console.Title = "HoN RU Pack Installer";
-        string tempRoot = Path.Combine(Path.GetTempPath(), "HoN_RU_Pack_Install_" + Guid.NewGuid().ToString("N"));
-
-        try
-        {
-            Directory.CreateDirectory(tempRoot);
-            ExtractPayload(tempRoot);
-
-            Console.WriteLine("HoN RU Pack Installer");
-            Console.WriteLine("---------------------");
-            Console.WriteLine("1) Auto detect game folder (recommended)");
-            Console.WriteLine("2) Enter game folder manually");
-            Console.WriteLine();
-            Console.Write("Select mode [1/2]: ");
-            string mode = (Console.ReadLine() ?? "").Trim();
-
-            string installRoot = "";
-            if (mode == "2")
-            {
-                Console.Write("Enter full game folder path (where resources0.jz is): ");
-                installRoot = (Console.ReadLine() ?? "").Trim();
-            }
-
-            int code = RunInstall(tempRoot, installRoot);
-            Console.WriteLine();
-            if (code == 0)
-            {
-                Console.WriteLine("Installation completed.");
-            }
-            else
-            {
-                Console.WriteLine("Installation failed with exit code: " + code);
-            }
-
-            WaitForClose();
-            return code;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("ERROR: " + ex.Message);
-            WaitForClose();
-            return 1;
-        }
-        finally
-        {
-            TryDelete(tempRoot);
-        }
-    }
-
-    private static void ExtractPayload(string tempRoot)
-    {
-__PAYLOAD__
-        byte[] zipBytes = Convert.FromBase64String(payloadBase64);
-        string zipPath = Path.Combine(tempRoot, "payload.zip");
-        File.WriteAllBytes(zipPath, zipBytes);
-        ZipFile.ExtractToDirectory(zipPath, tempRoot);
-    }
-
-    private static int RunInstall(string sourceRoot, string installRoot)
-    {
-        string script = Path.Combine(sourceRoot, "install_hon_ru_pack.ps1");
-        if (!File.Exists(script))
-        {
-            throw new FileNotFoundException("install_hon_ru_pack.ps1 not found.", script);
-        }
-
-        string args = "-NoProfile -ExecutionPolicy Bypass -File \"" + script + "\" -SourceRoot \"" + sourceRoot + "\"";
-        if (!string.IsNullOrWhiteSpace(installRoot))
-        {
-            args += " -InstallRoot \"" + installRoot + "\"";
-        }
-
-        ProcessStartInfo psi = new ProcessStartInfo();
-        psi.FileName = "powershell.exe";
-        psi.Arguments = args;
-        psi.UseShellExecute = false;
-        psi.RedirectStandardOutput = true;
-        psi.RedirectStandardError = true;
-        psi.CreateNoWindow = false;
-
-        Process proc = Process.Start(psi);
-        if (proc == null)
-        {
-            throw new InvalidOperationException("Failed to start powershell installer process.");
-        }
-
-        proc.OutputDataReceived += delegate (object sender, DataReceivedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(e.Data)) Console.WriteLine(e.Data);
-        };
-        proc.ErrorDataReceived += delegate (object sender, DataReceivedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(e.Data)) Console.WriteLine(e.Data);
-        };
-
-        proc.BeginOutputReadLine();
-        proc.BeginErrorReadLine();
-        proc.WaitForExit();
-        return proc.ExitCode;
-    }
-
-    private static void TryDelete(string path)
-    {
-        try
-        {
-            if (Directory.Exists(path))
-            {
-                Directory.Delete(path, true);
-            }
-        }
-        catch
-        {
-            // ignore cleanup errors
-        }
-    }
-
-    private static void WaitForClose()
-    {
-        Console.WriteLine("Press Enter to close...");
-        try
-        {
-            Console.ReadLine();
-        }
-        catch
-        {
-            // ignore close wait errors in redirected sessions
-        }
-    }
-}
-"@
-
-$programCode = $programTemplate.Replace("__PAYLOAD__", $payloadCode)
+# Inject payload and version
+$version = (Get-Content (Join-Path $PackageRoot "version.txt") -Raw).Trim()
+$programCode = $programTemplate.Replace("__PAYLOAD__", $payloadCode).Replace("__VERSION__", $version)
 Set-Content -Path $sourceDump -Value $programCode -Encoding UTF8
 
 if (Test-Path $OutputExe) { Remove-Item -Path $OutputExe -Force }
 
-Add-Type `
-    -TypeDefinition $programCode `
-    -Language CSharp `
-    -OutputAssembly $OutputExe `
-    -OutputType ConsoleApplication `
-    -ReferencedAssemblies @("System.IO.Compression.dll", "System.IO.Compression.FileSystem.dll")
+# Find csc.exe from .NET Framework
+$cscPath = Join-Path ([System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) "csc.exe"
+if (-not (Test-Path $cscPath)) { throw "csc.exe not found at: $cscPath" }
+
+$iconPath = Join-Path $distRoot "installer_icon.ico"
+$cscArgs = @(
+    "/target:winexe",
+    "/out:`"$OutputExe`"",
+    "/reference:System.Windows.Forms.dll",
+    "/reference:System.Drawing.dll",
+    "/reference:System.IO.Compression.dll",
+    "/reference:System.IO.Compression.FileSystem.dll",
+    "/optimize+"
+)
+if (Test-Path $iconPath) { $cscArgs += "/win32icon:`"$iconPath`"" }
+$cscArgs += "`"$sourceDump`""
+
+Write-Host "Compiling with: $cscPath"
+$cscResult = & $cscPath $cscArgs 2>&1
+$cscResult | ForEach-Object { Write-Host $_ }
+if ($LASTEXITCODE -ne 0) { throw "csc.exe compilation failed with exit code $LASTEXITCODE" }
 
 Write-Host "Installer built: $OutputExe"
 Write-Host "Payload zip: $payloadZip"

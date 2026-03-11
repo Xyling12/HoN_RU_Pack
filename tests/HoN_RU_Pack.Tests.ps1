@@ -257,13 +257,13 @@ Describe "Login banner script" {
 # ============================================================
 Describe "Installer EXE" {
 
-    It "dist/HoN_RU_Pack_Installer_NEW.exe exists" {
-        $exe = Join-Path $ProjectRoot "dist\HoN_RU_Pack_Installer_NEW.exe"
+    It "dist/HoN_RU_Pack_Installer.exe exists" {
+        $exe = Join-Path $ProjectRoot "dist\HoN_RU_Pack_Installer.exe"
         $exe | Should Exist
     }
 
     It "installer EXE is at least 500 KB (contains payload)" {
-        $exe = Join-Path $ProjectRoot "dist\HoN_RU_Pack_Installer_NEW.exe"
+        $exe = Join-Path $ProjectRoot "dist\HoN_RU_Pack_Installer.exe"
         if (-not (Test-Path $exe)) { return }
         (Get-Item $exe).Length | Should BeGreaterThan 500000
     }
