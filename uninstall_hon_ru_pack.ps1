@@ -26,7 +26,7 @@ if (Test-Path $startupCmd) {
     Remove-Item -Path $startupCmd -Force
 }
 
-Start-Process -FilePath "cmd.exe" -ArgumentList '/c schtasks /Delete /TN "HoN_RU_Pack_AutoAgent" /F >nul 2>nul' -Wait -NoNewWindow
+Unregister-ScheduledTask -TaskName "HoN_RU_Pack_AutoAgent" -Confirm:$false -ErrorAction SilentlyContinue
 
 $runningAgents = Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" |
     Where-Object {
@@ -47,7 +47,7 @@ if (-not $KeepFiles -and (Test-Path $dataRoot)) {
 }
 
 Write-Host "Uninstall completed."
-Write-Host "Startup entry removed: $startupCmd"
+Write-Host "Scheduled task removed: HoN_RU_Pack_AutoAgent"
 if ($KeepFiles) {
     Write-Host "Files kept at: $modRoot"
     Write-Host "Files kept at: $dataRoot"

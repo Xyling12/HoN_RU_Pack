@@ -14,6 +14,7 @@ if (-not (Test-Path $PackageRoot)) {
 
 $requiredScripts = @(
     "install_hon_ru_pack.ps1",
+    "hon_common.ps1",
     "hon_auto_agent.ps1",
     "set_login_banner.ps1",
     "hon_paths_override.example.ps1",
