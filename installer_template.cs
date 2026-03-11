@@ -21,6 +21,7 @@ internal class InstallerForm : Form
 {
     private RadioButton rbAuto, rbManual;
     private TextBox txtPath;
+    private CheckBox cbDns;
     private Button btnBrowse, btnInstall;
     private RichTextBox rtbLog;
     private ProgressBar progress;
@@ -48,11 +49,20 @@ internal class InstallerForm : Form
         btnBrowse = new Button { Text = "...", Location = new Point(478, 61), Size = new Size(40, 25), Enabled = false, FlatStyle = FlatStyle.Flat, BackColor = Color.FromArgb(60, 60, 80), ForeColor = Color.White };
         pnl.Controls.AddRange(new Control[] { rbAuto, rbManual, txtPath, btnBrowse });
 
-        rtbLog = new RichTextBox { Location = new Point(15, 180), Size = new Size(574, 230), ReadOnly = true, BackColor = Color.FromArgb(15, 15, 30), ForeColor = Color.FromArgb(180, 255, 180), Font = new Font("Consolas", 9f), BorderStyle = BorderStyle.None };
-        progress = new ProgressBar { Location = new Point(15, 418), Size = new Size(574, 22), Style = ProgressBarStyle.Marquee, MarqueeAnimationSpeed = 30, Visible = false };
-        btnInstall = new Button { Text = "Установить", Location = new Point(15, 448), Size = new Size(574, 38), FlatStyle = FlatStyle.Flat, BackColor = Color.FromArgb(200, 166, 74), ForeColor = Color.FromArgb(26, 26, 46), Font = new Font("Segoe UI", 11f, FontStyle.Bold) };
+        bool dnsVisible = __DNS_VISIBLE__;
+        if (dnsVisible)
+        {
+            cbDns = new CheckBox { Text = "\u26a1 Установить обход блокировки Zapret (рекомендуется для РФ)", Checked = true, ForeColor = Color.FromArgb(255, 200, 100), Font = new Font("Segoe UI", 9f, FontStyle.Bold), AutoSize = true, Location = new Point(15, 178) };
+        }
+
+        int logTop = dnsVisible ? 206 : 180;
+        int logHeight = dnsVisible ? 206 : 230;
+        rtbLog = new RichTextBox { Location = new Point(15, logTop), Size = new Size(574, logHeight), ReadOnly = true, BackColor = Color.FromArgb(15, 15, 30), ForeColor = Color.FromArgb(180, 255, 180), Font = new Font("Consolas", 9f), BorderStyle = BorderStyle.None };
+        progress = new ProgressBar { Location = new Point(15, 420), Size = new Size(574, 22), Style = ProgressBarStyle.Marquee, MarqueeAnimationSpeed = 30, Visible = false };
+        btnInstall = new Button { Text = "Установить", Location = new Point(15, 450), Size = new Size(574, 38), FlatStyle = FlatStyle.Flat, BackColor = Color.FromArgb(200, 166, 74), ForeColor = Color.FromArgb(26, 26, 46), Font = new Font("Segoe UI", 11f, FontStyle.Bold) };
 
         Controls.AddRange(new Control[] { lblTitle, lblVersion, pnl, rtbLog, progress, btnInstall });
+        if (dnsVisible) Controls.Add(cbDns);
 
         rbManual.CheckedChanged += (s, e) => { txtPath.Enabled = rbManual.Checked; btnBrowse.Enabled = rbManual.Checked; };
         btnBrowse.Click += (s, e) => { using (var d = new FolderBrowserDialog()) { if (d.ShowDialog() == DialogResult.OK) txtPath.Text = d.SelectedPath; } };
@@ -74,12 +84,13 @@ internal class InstallerForm : Form
         rtbLog.Clear();
 
         string manualPath = rbManual.Checked ? txtPath.Text.Trim() : "";
-        var worker = new Thread(() => RunInstallThread(manualPath));
+        bool setupDns = cbDns != null && cbDns.Checked;
+        var worker = new Thread(() => RunInstallThread(manualPath, setupDns));
         worker.IsBackground = true;
         worker.Start();
     }
 
-    private void RunInstallThread(string manualPath)
+    private void RunInstallThread(string manualPath, bool setupDns)
     {
         string tempRoot = Path.Combine(Path.GetTempPath(), "HoN_RU_Pack_Install_" + Guid.NewGuid().ToString("N"));
         try
@@ -93,6 +104,7 @@ internal class InstallerForm : Form
 
             string args = "-NoProfile -ExecutionPolicy Bypass -File \"" + script + "\" -SourceRoot \"" + tempRoot + "\"";
             if (!string.IsNullOrWhiteSpace(manualPath)) args += " -InstallRoot \"" + manualPath + "\"";
+            if (setupDns) args += " -SetupBypass";
 
             var psi = new ProcessStartInfo { FileName = "powershell.exe", Arguments = args, UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true, CreateNoWindow = true };
             var proc = Process.Start(psi);
@@ -105,8 +117,9 @@ internal class InstallerForm : Form
 
             Invoke(new Action(() => {
                 progress.Visible = false;
-                if (exitCode == 0) { btnInstall.Text = "Готово ✓"; btnInstall.BackColor = Color.FromArgb(80, 180, 80); Log("\nInstallation completed successfully!"); }
-                else { btnInstall.Text = "Ошибка ✗"; btnInstall.BackColor = Color.FromArgb(180, 60, 60); Log("\nInstallation failed (exit code " + exitCode + ")"); }
+                btnInstall.Enabled = true;
+                if (exitCode == 0) { btnInstall.Text = "Готово \u2713"; btnInstall.BackColor = Color.FromArgb(80, 180, 80); Log("\nInstallation completed successfully!"); btnInstall.Click += (s2, e2) => Close(); }
+                else { btnInstall.Text = "Ошибка \u2717"; btnInstall.BackColor = Color.FromArgb(180, 60, 60); Log("\nInstallation failed (exit code " + exitCode + ")"); btnInstall.Click += (s2, e2) => Close(); }
             }));
         }
         catch (Exception ex) { Log("ERROR: " + ex.Message); Invoke(new Action(() => { progress.Visible = false; btnInstall.Text = "Ошибка"; btnInstall.BackColor = Color.FromArgb(180, 60, 60); })); }

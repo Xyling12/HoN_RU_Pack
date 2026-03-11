@@ -39,6 +39,36 @@ foreach ($proc in $runningAgents) {
     Stop-Process -Id $proc.ProcessId -Force -ErrorAction SilentlyContinue
 }
 
+# Remove Zapret service if installed
+$zapretDir = Join-Path $dataRoot "zapret"
+if (Test-Path $zapretDir) {
+    $removeZapret = Join-Path $PSScriptRoot "remove_zapret.ps1"
+    if (-not (Test-Path $removeZapret)) {
+        $removeZapret = Join-Path $dataRoot "remove_zapret.ps1"
+    }
+    if (Test-Path $removeZapret) {
+        Write-Host "Removing Zapret..."
+        & powershell -NoProfile -ExecutionPolicy Bypass -File $removeZapret -DataRoot $dataRoot
+    } else {
+        Write-Host "[Zapret] remove_zapret.ps1 not found, skipping."
+    }
+}
+
+# Restore DNS settings if backup exists
+$dnsBackup = Join-Path $dataRoot "dns_backup.json"
+if (Test-Path $dnsBackup) {
+    $restoreScript = Join-Path $PSScriptRoot "restore_dns.ps1"
+    if (-not (Test-Path $restoreScript)) {
+        $restoreScript = Join-Path $dataRoot "restore_dns.ps1"
+    }
+    if (Test-Path $restoreScript) {
+        Write-Host "Restoring DNS settings..."
+        & powershell -NoProfile -ExecutionPolicy Bypass -File $restoreScript -DataRoot $dataRoot
+    } else {
+        Write-Host "[DNS] restore_dns.ps1 not found, skipping DNS restore."
+    }
+}
+
 if (-not $KeepFiles -and (Test-Path $modRoot)) {
     Remove-Item -Path $modRoot -Recurse -Force
 }

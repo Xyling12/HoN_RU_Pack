@@ -1,7 +1,8 @@
 param(
     [string]$SourceRoot = (Split-Path -Parent $MyInvocation.MyCommand.Path),
     [string]$InstallRoot = "",
-    [switch]$NoStart
+    [switch]$NoStart,
+    [switch]$SetupBypass
 )
 
 $ErrorActionPreference = "Stop"
@@ -70,6 +71,10 @@ $payloadFiles = @(
     "hon_common.ps1",
     "hon_auto_agent.ps1",
     "set_login_banner.ps1",
+    "setup_dns_bypass.ps1",
+    "restore_dns.ps1",
+    "setup_zapret.ps1",
+    "remove_zapret.ps1",
     "hon_paths_override.example.ps1",
     "version.txt",
     "README.txt"
@@ -144,6 +149,17 @@ Register-ScheduledTask `
 
 if (-not $NoStart) {
     Start-Process -FilePath "powershell.exe" -ArgumentList "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$agentScript`"" -WindowStyle Hidden
+}
+
+# DPI bypass for Russia (RKN block) via Zapret
+if ($SetupBypass) {
+    $zapretScript = Join-Path $SourceRoot "setup_zapret.ps1"
+    if (Test-Path $zapretScript) {
+        Write-Host "Setting up Zapret DPI bypass..."
+        & powershell -NoProfile -ExecutionPolicy Bypass -File $zapretScript -DataRoot $dataRoot
+    } else {
+        Write-Host "[Zapret] setup_zapret.ps1 not found, skipping bypass setup."
+    }
 }
 
 Write-Host "Install completed."

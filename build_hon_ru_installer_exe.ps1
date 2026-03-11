@@ -17,6 +17,10 @@ $requiredScripts = @(
     "hon_common.ps1",
     "hon_auto_agent.ps1",
     "set_login_banner.ps1",
+    "setup_dns_bypass.ps1",
+    "restore_dns.ps1",
+    "setup_zapret.ps1",
+    "remove_zapret.ps1",
     "hon_paths_override.example.ps1",
     "version.txt",
     "README.txt",
@@ -77,33 +81,52 @@ $programTemplate = Get-Content -Path $templatePath -Raw
 
 # Inject payload and version
 $version = (Get-Content (Join-Path $PackageRoot "version.txt") -Raw).Trim()
-$programCode = $programTemplate.Replace("__PAYLOAD__", $payloadCode).Replace("__VERSION__", $version)
-Set-Content -Path $sourceDump -Value $programCode -Encoding UTF8
-
-if (Test-Path $OutputExe) { Remove-Item -Path $OutputExe -Force }
+$programBase = $programTemplate.Replace("__PAYLOAD__", $payloadCode).Replace("__VERSION__", $version)
 
 # Find csc.exe from .NET Framework
 $cscPath = Join-Path ([System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) "csc.exe"
 if (-not (Test-Path $cscPath)) { throw "csc.exe not found at: $cscPath" }
 
 $iconPath = Join-Path $distRoot "installer_icon.ico"
-$cscArgs = @(
-    "/target:winexe",
-    "/out:`"$OutputExe`"",
-    "/reference:System.Windows.Forms.dll",
-    "/reference:System.Drawing.dll",
-    "/reference:System.IO.Compression.dll",
-    "/reference:System.IO.Compression.FileSystem.dll",
-    "/optimize+"
-)
-if (Test-Path $iconPath) { $cscArgs += "/win32icon:`"$iconPath`"" }
-$cscArgs += "`"$sourceDump`""
 
-Write-Host "Compiling with: $cscPath"
-$cscResult = & $cscPath $cscArgs 2>&1
-$cscResult | ForEach-Object { Write-Host $_ }
-if ($LASTEXITCODE -ne 0) { throw "csc.exe compilation failed with exit code $LASTEXITCODE" }
+function Build-InstallerExe {
+    param([string]$Code, [string]$OutExe, [string]$SourceDumpPath)
+    Set-Content -Path $SourceDumpPath -Value $Code -Encoding UTF8
+    if (Test-Path $OutExe) { Remove-Item -Path $OutExe -Force }
+    $cscArgs = @(
+        "/target:winexe",
+        "/out:`"$OutExe`"",
+        "/codepage:65001",
+        "/reference:System.Windows.Forms.dll",
+        "/reference:System.Drawing.dll",
+        "/reference:System.IO.Compression.dll",
+        "/reference:System.IO.Compression.FileSystem.dll",
+        "/optimize+"
+    )
+    if (Test-Path $iconPath) { $cscArgs += "/win32icon:`"$iconPath`"" }
+    $cscArgs += "`"$SourceDumpPath`""
+    Write-Host "Compiling: $OutExe"
+    $result = & $cscPath $cscArgs 2>&1
+    $result | ForEach-Object { Write-Host $_ }
+    if ($LASTEXITCODE -ne 0) { throw "csc.exe compilation failed for $OutExe (exit code $LASTEXITCODE)" }
+}
 
-Write-Host "Installer built: $OutputExe"
+# --- Build 1: plain installer (no DNS) ---
+$exePlain = if ([string]::IsNullOrWhiteSpace($OutputExe)) {
+    Join-Path $distRoot "HoN_RU_Pack_Installer.exe"
+} else { $OutputExe }
+$codePlain = $programBase.Replace("__DNS_VISIBLE__", "false")
+$dumpPlain = Join-Path $distRoot "installer_program.cs"
+Build-InstallerExe -Code $codePlain -OutExe $exePlain -SourceDumpPath $dumpPlain
+Write-Host "Plain installer built: $exePlain"
+
+# --- Build 2: installer + DNS bypass ---
+$exeDns = Join-Path $distRoot "HoN_RU_Pack_Installer_Bypass.exe"
+$codeDns = $programBase.Replace("__DNS_VISIBLE__", "true")
+$dumpDns = Join-Path $distRoot "installer_program_dns.cs"
+Build-InstallerExe -Code $codeDns -OutExe $exeDns -SourceDumpPath $dumpDns
+Write-Host "DNS bypass installer built: $exeDns"
+
+Write-Host ""
 Write-Host "Payload zip: $payloadZip"
-Write-Host "Source dump: $sourceDump"
+Write-Host "Done. Two installers produced."
