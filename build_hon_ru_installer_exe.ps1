@@ -77,7 +77,7 @@ $payloadCode = $payloadBuilder.ToString()
 # Load WinForms C# template from external file
 $templatePath = Join-Path $PackageRoot "installer_template.cs"
 if (-not (Test-Path $templatePath)) { throw "C# template not found: $templatePath" }
-$programTemplate = Get-Content -Path $templatePath -Raw
+$programTemplate = [System.IO.File]::ReadAllText($templatePath, [System.Text.Encoding]::UTF8)
 
 # Inject payload and version
 $version = (Get-Content (Join-Path $PackageRoot "version.txt") -Raw).Trim()

@@ -70,10 +70,34 @@ if (Test-Path $dnsBackup) {
 }
 
 if (-not $KeepFiles -and (Test-Path $modRoot)) {
-    Remove-Item -Path $modRoot -Recurse -Force
+    Remove-Item -Path $modRoot -Recurse -Force -ErrorAction SilentlyContinue
 }
 if (-not $KeepFiles -and (Test-Path $dataRoot)) {
-    Remove-Item -Path $dataRoot -Recurse -Force
+    # Retry with delay - Zapret cygwin1.dll may still be locked after service stop
+    $maxRetries = 3
+    for ($i = 1; $i -le $maxRetries; $i++) {
+        try {
+            Remove-Item -Path $dataRoot -Recurse -Force -ErrorAction Stop
+            break
+        } catch {
+            if ($i -lt $maxRetries) {
+                Write-Host "[Cleanup] Retry $i/$maxRetries - waiting for file locks to release..."
+                Start-Sleep -Seconds 2
+            } else {
+                Write-Host "[Cleanup] WARNING: Some files could not be deleted (may be locked)."
+                Write-Host "[Cleanup] Removing what we can..."
+                Get-ChildItem -Path $dataRoot -Recurse -Force -ErrorAction SilentlyContinue |
+                    Sort-Object -Property FullName -Descending |
+                    ForEach-Object {
+                        Remove-Item -Path $_.FullName -Force -ErrorAction SilentlyContinue
+                    }
+                Remove-Item -Path $dataRoot -Recurse -Force -ErrorAction SilentlyContinue
+                if (Test-Path $dataRoot) {
+                    Write-Host "[Cleanup] Locked files will be removed after reboot: $dataRoot"
+                }
+            }
+        }
+    }
 }
 
 Write-Host "Uninstall completed."
