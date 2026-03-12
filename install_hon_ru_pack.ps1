@@ -97,6 +97,58 @@ if ((-not (Test-Path $overrideDst)) -and (Test-Path $legacyOverride)) {
     Copy-Item -Path $legacyOverride -Destination $overrideDst -Force
 }
 
+# --- Pre-install .str files into game stringtables (so Russian works on first launch) ---
+. "$PSScriptRoot\hon_common.ps1"
+$docsRoot = Find-HoNDocsRoot
+if (-not $docsRoot) { $docsRoot = Join-Path $env:USERPROFILE "Documents\Juvio\Heroes of Newerth" }
+
+$strTargets = @(
+    (Join-Path $docsRoot "stringtables"),
+    (Join-Path $docsRoot "game\stringtables"),
+    (Join-Path $InstallRoot "stringtables"),
+    (Join-Path $InstallRoot "game\stringtables")
+)
+
+$localeVariants = @(".str", "_en.str", "_ru.str", "_th.str")
+$strBases = @("entities", "interface", "client_messages", "game_messages", "bot_messages")
+
+foreach ($target in $strTargets) {
+    New-Item -ItemType Directory -Path $target -Force | Out-Null
+    foreach ($base in $strBases) {
+        $src = Join-Path $bundleSrc ($base + "_en.str")
+        if (Test-Path $src) {
+            foreach ($suffix in $localeVariants) {
+                Copy-Item -Path $src -Destination (Join-Path $target ($base + $suffix)) -Force
+            }
+        }
+    }
+}
+Write-Host "[Install] Placed .str files in game stringtables."
+
+# Force locale to English in startup.cfg (game loads _en.str variant)
+$startupCfg = Join-Path $docsRoot "startup.cfg"
+if (Test-Path $startupCfg) {
+    $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+    $cfgText = [System.IO.File]::ReadAllText($startupCfg)
+    $cfgUpdated = $cfgText
+    $cfgUpdated = [Regex]::Replace($cfgUpdated, 'SetSave "host_locale" "[^"]*"', 'SetSave "host_locale" "en"')
+    $cfgUpdated = [Regex]::Replace($cfgUpdated, 'SetSave "host_backuplocale" "[^"]*"', 'SetSave "host_backuplocale" "en"')
+    $cfgUpdated = [Regex]::Replace($cfgUpdated, 'SetSave "language" "[^"]*"', 'SetSave "language" "en"')
+    if ($cfgUpdated -ne $cfgText) {
+        [System.IO.File]::WriteAllText($startupCfg, $cfgUpdated, $utf8NoBom)
+        Write-Host "[Install] startup.cfg locale set to English."
+    }
+}
+
+# Clear game caches so HoN reads fresh .str files
+foreach ($cacheName in @("filecache", "webcache")) {
+    $cacheDir = Join-Path $docsRoot $cacheName
+    if (Test-Path $cacheDir) {
+        Get-ChildItem -Path $cacheDir -Force | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+        Write-Host "[Install] Cleared game $cacheName."
+    }
+}
+
 $bannerScript = Join-Path $dataRoot "set_login_banner.ps1"
 if (Test-Path $bannerScript) {
     & powershell -NoProfile -ExecutionPolicy Bypass -File $bannerScript -PackageRoot $dataRoot
