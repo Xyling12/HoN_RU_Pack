@@ -80,7 +80,7 @@ internal class InstallerForm : Form
 
     private RadioButton rbAuto, rbManual;
     private TextBox txtPath;
-    private CheckBox cbDns;
+    private CheckBox cbHon, cbYoutube, cbDiscord;
     private FlatButton btnBrowse, btnInstall;
     private Button btnClose, btnMin;
     private RichTextBox rtbLog;
@@ -147,21 +147,39 @@ internal class InstallerForm : Form
         btnBrowse.ForeColor = TEXT_PRIMARY;
         pnlOptions.Controls.AddRange(new Control[] { rbAuto, rbManual, txtPath, btnBrowse });
 
-        // DNS/Zapret checkbox
+        // Bypass checkboxes (per-service routing)
         bool dnsVisible = __DNS_VISIBLE__;
         int logTop = 225;
         if (dnsVisible)
         {
-            cbDns = new CheckBox
+            cbHon = new CheckBox
             {
-                Text = "\u26a1 \u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c \u043e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438 Zapret (\u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u0435\u0442\u0441\u044f \u0434\u043b\u044f \u0420\u0424)",
+                Text = "\u26a1 \u041e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438 HoN (\u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u0435\u0442\u0441\u044f \u0434\u043b\u044f \u0420\u0424)",
                 Checked = true,
                 ForeColor = Color.FromArgb(255, 200, 100),
                 Font = new Font("Segoe UI", 9.5f, FontStyle.Bold),
                 AutoSize = true,
                 Location = new Point(20, 220)
             };
-            logTop = 250;
+            cbYoutube = new CheckBox
+            {
+                Text = "\ud83d\udcfa YouTube \u0447\u0435\u0440\u0435\u0437 \u043e\u0431\u0445\u043e\u0434",
+                Checked = false,
+                ForeColor = Color.FromArgb(200, 200, 220),
+                Font = new Font("Segoe UI", 9.5f),
+                AutoSize = true,
+                Location = new Point(20, 246)
+            };
+            cbDiscord = new CheckBox
+            {
+                Text = "\ud83d\udcac Discord \u0447\u0435\u0440\u0435\u0437 \u043e\u0431\u0445\u043e\u0434",
+                Checked = false,
+                ForeColor = Color.FromArgb(200, 200, 220),
+                Font = new Font("Segoe UI", 9.5f),
+                AutoSize = true,
+                Location = new Point(20, 272)
+            };
+            logTop = 300;
         }
 
         // Log
@@ -176,7 +194,7 @@ internal class InstallerForm : Form
         btnInstall.ForeColor = TEXT_ON_ACCENT;
 
         Controls.AddRange(new Control[] { pnlHeader, lblVersion, lblSubtitle, pnlOptions, rtbLog, btnInstall });
-        if (dnsVisible) Controls.Add(cbDns);
+        if (dnsVisible) { Controls.Add(cbHon); Controls.Add(cbYoutube); Controls.Add(cbDiscord); }
 
         rbManual.CheckedChanged += (s, e) => { txtPath.Enabled = rbManual.Checked; btnBrowse.Enabled = rbManual.Checked; };
         btnBrowse.Click += (s, e) => { using (var d = new FolderBrowserDialog()) { if (d.ShowDialog() == DialogResult.OK) txtPath.Text = d.SelectedPath; } };
@@ -203,13 +221,15 @@ internal class InstallerForm : Form
         rtbLog.Clear();
 
         string manualPath = rbManual.Checked ? txtPath.Text.Trim() : "";
-        bool setupDns = cbDns != null && cbDns.Checked;
-        var worker = new Thread(() => RunInstallThread(manualPath, setupDns));
+        bool routeHon = cbHon != null && cbHon.Checked;
+        bool routeYoutube = cbYoutube != null && cbYoutube.Checked;
+        bool routeDiscord = cbDiscord != null && cbDiscord.Checked;
+        var worker = new Thread(() => RunInstallThread(manualPath, routeHon, routeYoutube, routeDiscord));
         worker.IsBackground = true;
         worker.Start();
     }
 
-    private void RunInstallThread(string manualPath, bool setupDns)
+    private void RunInstallThread(string manualPath, bool routeHon, bool routeYoutube, bool routeDiscord)
     {
         string tempRoot = Path.Combine(Path.GetTempPath(), "HoN_RU_Pack_Install_" + Guid.NewGuid().ToString("N"));
         try
@@ -223,7 +243,10 @@ internal class InstallerForm : Form
 
             string args = "-NoProfile -ExecutionPolicy Bypass -File \"" + script + "\" -SourceRoot \"" + tempRoot + "\"";
             if (!string.IsNullOrWhiteSpace(manualPath)) args += " -InstallRoot \"" + manualPath + "\"";
-            if (setupDns) args += " -SetupBypass";
+            if (routeHon || routeYoutube || routeDiscord) args += " -SetupBypass";
+            if (routeHon) args += " -RouteHoN";
+            if (routeYoutube) args += " -RouteYouTube";
+            if (routeDiscord) args += " -RouteDiscord";
 
             var psi = new ProcessStartInfo { FileName = "powershell.exe", Arguments = args, UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true, CreateNoWindow = true };
             var proc = Process.Start(psi);

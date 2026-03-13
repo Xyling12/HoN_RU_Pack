@@ -59,8 +59,8 @@ Describe "Project structure" {
         "set_login_banner.ps1",
         "setup_dns_bypass.ps1",
         "restore_dns.ps1",
-        "setup_zapret.ps1",
-        "remove_zapret.ps1",
+        "setup_amneziawg.ps1",
+        "remove_amneziawg.ps1",
         "uninstall_hon_ru_pack.ps1",
         "update.ps1",
         "build_hon_ru_installer_exe.ps1"
@@ -216,8 +216,8 @@ Describe "Build prerequisites" {
         "set_login_banner.ps1",
         "setup_dns_bypass.ps1",
         "restore_dns.ps1",
-        "setup_zapret.ps1",
-        "remove_zapret.ps1",
+        "setup_amneziawg.ps1",
+        "remove_amneziawg.ps1",
         "hon_paths_override.example.ps1",
         "version.txt",
         "README.txt",
@@ -298,12 +298,12 @@ Describe "Bypass scripts" {
         Join-Path $ProjectRoot "restore_dns.ps1" | Should Exist
     }
 
-    It "setup_zapret.ps1 exists" {
-        Join-Path $ProjectRoot "setup_zapret.ps1" | Should Exist
+    It "setup_amneziawg.ps1 exists" {
+        Join-Path $ProjectRoot "setup_amneziawg.ps1" | Should Exist
     }
 
-    It "remove_zapret.ps1 exists" {
-        Join-Path $ProjectRoot "remove_zapret.ps1" | Should Exist
+    It "remove_amneziawg.ps1 exists" {
+        Join-Path $ProjectRoot "remove_amneziawg.ps1" | Should Exist
     }
 
     It "install_hon_ru_pack.ps1 accepts -SetupBypass parameter" {
@@ -311,8 +311,15 @@ Describe "Bypass scripts" {
         $content | Should Match 'SetupBypass'
     }
 
-    It "uninstall_hon_ru_pack.ps1 references zapret" {
+    It "install_hon_ru_pack.ps1 accepts routing parameters" {
+        $content = Get-Content (Join-Path $ProjectRoot "install_hon_ru_pack.ps1") -Raw
+        $content | Should Match 'RouteHoN'
+        $content | Should Match 'RouteYouTube'
+        $content | Should Match 'RouteDiscord'
+    }
+
+    It "uninstall_hon_ru_pack.ps1 references amneziawg" {
         $content = Get-Content (Join-Path $ProjectRoot "uninstall_hon_ru_pack.ps1") -Raw
-        $content | Should Match 'remove_zapret'
+        $content | Should Match 'remove_amneziawg'
     }
 }

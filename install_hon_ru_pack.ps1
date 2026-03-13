@@ -2,7 +2,10 @@ param(
     [string]$SourceRoot = (Split-Path -Parent $MyInvocation.MyCommand.Path),
     [string]$InstallRoot = "",
     [switch]$NoStart,
-    [switch]$SetupBypass
+    [switch]$SetupBypass,
+    [switch]$RouteHoN,
+    [switch]$RouteYouTube,
+    [switch]$RouteDiscord
 )
 
 $ErrorActionPreference = "Stop"
@@ -73,8 +76,8 @@ $payloadFiles = @(
     "set_login_banner.ps1",
     "setup_dns_bypass.ps1",
     "restore_dns.ps1",
-    "setup_zapret.ps1",
-    "remove_zapret.ps1",
+    "setup_amneziawg.ps1",
+    "remove_amneziawg.ps1",
     "hon_paths_override.example.ps1",
     "version.txt",
     "README.txt"
@@ -203,14 +206,18 @@ if (-not $NoStart) {
     Start-Process -FilePath "powershell.exe" -ArgumentList "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$agentScript`"" -WindowStyle Hidden
 }
 
-# DPI bypass for Russia (RKN block) via Zapret
+# DPI bypass for Russia (RKN block)
 if ($SetupBypass) {
-    $zapretScript = Join-Path $SourceRoot "setup_zapret.ps1"
-    if (Test-Path $zapretScript) {
-        Write-Host "Setting up Zapret DPI bypass..."
-        & powershell -NoProfile -ExecutionPolicy Bypass -File $zapretScript -DataRoot $dataRoot
+    $awgScript = Join-Path $SourceRoot "setup_amneziawg.ps1"
+    if (Test-Path $awgScript) {
+        Write-Host "Setting up bypass..."
+        $awgParams = @{ DataRoot = $dataRoot }
+        if ($RouteHoN)     { $awgParams["RouteHoN"]     = $true }
+        if ($RouteYouTube) { $awgParams["RouteYouTube"] = $true }
+        if ($RouteDiscord) { $awgParams["RouteDiscord"] = $true }
+        & $awgScript @awgParams
     } else {
-        Write-Host "[Zapret] setup_zapret.ps1 not found, skipping bypass setup."
+        Write-Host "[Bypass] setup script not found, skipping."
     }
 }
 

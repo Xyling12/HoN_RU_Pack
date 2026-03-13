@@ -49,18 +49,25 @@ New-Item -ItemType Directory -Path $zapretRoot -Force | Out-Null
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $zip = [System.IO.Compression.ZipFile]::OpenRead($zipPath)
 
-# Find the common root prefix in the ZIP (e.g. "zapret-discord-youtube-1.9.7b/")
+# Detect common root prefix: if ALL entries share a top-level folder (e.g. "zapret-discord-youtube-1.9.7b/"),
+# strip it. If entries start with "bin/", "lists/", etc directly — no stripping needed.
 $prefix = ""
-$firstEntry = $zip.Entries | Where-Object { $_.FullName -match '/' } | Select-Object -First 1
-if ($firstEntry) {
-    $prefix = ($firstEntry.FullName -split '/')[0] + "/"
+$topFolders = $zip.Entries | ForEach-Object { ($_.FullName -split '/')[0] } | Sort-Object -Unique
+if ($topFolders.Count -eq 1 -and $zip.Entries[0].FullName -match '^[^/]+/') {
+    $candidate = $topFolders[0] + "/"
+    # Only treat as prefix if it's not a known content folder
+    $knownRoots = @("bin", "lists", "utils", "service")
+    if ($topFolders[0] -notin $knownRoots) {
+        $prefix = $candidate
+    }
 }
+Write-Host "[Zapret] Archive prefix: '$prefix'"
 
 foreach ($entry in $zip.Entries) {
     # Skip directories
     if ($entry.FullName.EndsWith('/')) { continue }
 
-    # Strip the top-level folder prefix
+    # Strip the top-level folder prefix if needed
     $relativePath = $entry.FullName
     if ($prefix -and $relativePath.StartsWith($prefix)) {
         $relativePath = $relativePath.Substring($prefix.Length)
@@ -94,33 +101,38 @@ New-Item -ItemType Directory -Path $utilsDir -Force | Out-Null
 Set-Content -Path (Join-Path $utilsDir "game_filter.enabled") -Value "all" -Encoding ASCII
 Write-Host "[Zapret] Game Filter enabled (all TCP+UDP ports)."
 
-# --- Step 4: Patch ipset-all.txt with HoN server IPs ---
-# HoN/Juvio servers use IPs not in the standard Zapret ipset.
-# These IPs are required for the DPI bypass to cover game traffic.
+# --- Step 4: Create separate IP lists for auth vs game ---
+# Auth (Cloudflare) needs TCP fake,multisplit (TLS) — works great
+# Game servers must NOT have TCP desync — their custom protocol breaks
+# Game servers only need UDP bypass
 $listsPath = Join-Path $zapretRoot "lists"
 New-Item -ItemType Directory -Path $listsPath -Force | Out-Null
-$ipsetFile = Join-Path $listsPath "ipset-all.txt"
 
-# Download standard ipset from GitHub
-$ipsetUrl = "https://raw.githubusercontent.com/Flowseal/zapret-discord-youtube/refs/heads/main/.service/ipset-service.txt"
-Write-Host "[Zapret] Downloading ipset list..."
-try {
-    Invoke-WebRequest -Uri $ipsetUrl -OutFile $ipsetFile -UseBasicParsing -TimeoutSec 15
-} catch {
-    Write-Host "[Zapret] WARNING: Failed to download ipset list: $_"
+# 4a: Juvio Auth IPs (Cloudflare) — for TCP Rule 7
+$authIpsetFile = Join-Path $listsPath "ipset-juvio-auth.txt"
+if (-not (Test-Path $authIpsetFile) -or (Get-Content $authIpsetFile -Raw) -notmatch "Juvio Auth") {
+    $authIPs = @(
+        "# === Juvio Auth IPs (Cloudflare) ==="
+        "104.26.14.0/24"
+        "104.26.15.0/24"
+    )
+    Set-Content -Path $authIpsetFile -Value ($authIPs -join "`n") -Encoding ASCII
+    Write-Host "[Zapret] Created ipset-juvio-auth.txt (Cloudflare only)."
 }
 
-# Append HoN-specific IPs
-$honIPs = @(
-    "# === HoN/Juvio Server IPs ==="
-    "91.98.177.0/24"
-    "157.180.81.53"
-    "45.154.06.104"
-    "104.26.14.10"
-    "185.237.185.232"
-)
-Add-Content -Path $ipsetFile -Value ($honIPs -join "`n") -Encoding ASCII
-Write-Host "[Zapret] Added HoN server IPs to ipset."
+# 4b: HoN Game Server IPs — for UDP Rule 8 only (NO TCP desync!)
+$gameIpsetFile = Join-Path $listsPath "ipset-hon-game.txt"
+if (-not (Test-Path $gameIpsetFile) -or (Get-Content $gameIpsetFile -Raw) -notmatch "HoN Game") {
+    $gameIPs = @(
+        "# === HoN Game Server IPs ==="
+        "91.98.177.0/24"
+        "157.180.81.53"
+        "45.154.6.104"
+        "185.237.185.232"
+    )
+    Set-Content -Path $gameIpsetFile -Value ($gameIPs -join "`n") -Encoding ASCII
+    Write-Host "[Zapret] Created ipset-hon-game.txt (game servers only)."
+}
 
 # --- Step 5: Create user-list placeholder files ---
 $userFiles = @{
@@ -135,6 +147,31 @@ foreach ($kv in $userFiles.GetEnumerator()) {
     }
 }
 Write-Host "[Zapret] User list files ready."
+
+# --- Step 5b: Add Cloudflare WARP IPs to ipset-exclude ---
+# WARP (WireGuard) endpoints must be excluded so Zapret doesn't corrupt tunnel packets.
+# This makes the config universal for providers like dom.ru that need WARP + Zapret.
+$excludeFile = Join-Path $listsPath "ipset-exclude.txt"
+if (Test-Path $excludeFile) {
+    $excludeContent = Get-Content $excludeFile -Raw
+} else {
+    $excludeContent = ""
+}
+if ($excludeContent -notmatch "Cloudflare WARP") {
+    $warpExclude = @(
+        "# === Cloudflare WARP endpoints ==="
+        "162.159.192.0/24"
+        "162.159.193.0/24"
+        "162.159.195.0/24"
+        "162.159.204.0/24"
+        "188.114.96.0/24"
+        "188.114.97.0/24"
+    )
+    Add-Content -Path $excludeFile -Value ("`n" + ($warpExclude -join "`n")) -Encoding ASCII
+    Write-Host "[Zapret] Added Cloudflare WARP IPs to ipset-exclude."
+} else {
+    Write-Host "[Zapret] Cloudflare WARP IPs already in ipset-exclude."
+}
 
 # --- Step 6: Update hosts file ---
 $hostsUrl = "https://raw.githubusercontent.com/Flowseal/zapret-discord-youtube/refs/heads/main/.service/hosts"
@@ -239,23 +276,27 @@ $argsStr = @(
     "--dpi-desync=fake", "--dpi-desync-repeats=11",
     "--dpi-desync-fake-quic=$Q$binDir\quic_initial_www_google_com.bin$Q",
     "--new",
-    # Rule 7: TCP ipset — syndata (HoN servers in ipset)
-    "--filter-tcp=80,443,$GF",
-    "--ipset=$Q$listsPath\ipset-all.txt$Q",
-    "--hostlist-exclude=$Q$listsPath\list-exclude.txt$Q",
+    # Rule 7: TCP — Juvio Auth ONLY (Cloudflare TLS) — fake,multisplit
+    # Game server IPs are NOT here — their custom TCP protocol breaks with any desync
+    "--filter-tcp=80,443",
+    "--ipset=$Q$listsPath\ipset-juvio-auth.txt$Q",
     "--ipset-exclude=$Q$listsPath\ipset-exclude.txt$Q",
-    "--dpi-desync=syndata",
+    "--dpi-desync=fake,multisplit",
+    "--dpi-desync-split-seqovl=654", "--dpi-desync-split-pos=1",
+    "--dpi-desync-fooling=ts", "--dpi-desync-repeats=8",
+    "--dpi-desync-split-seqovl-pattern=$Q$binDir\tls_clienthello_max_ru.bin$Q",
+    "--dpi-desync-fake-tls=$Q$binDir\tls_clienthello_max_ru.bin$Q",
     "--new",
-    # Rule 8: UDP game traffic — any-protocol
+    # Rule 8: UDP — HoN Game Servers — fake+autottl (game traffic)
     "--filter-udp=$GF",
-    "--ipset=$Q$listsPath\ipset-all.txt$Q",
+    "--ipset=$Q$listsPath\ipset-hon-game.txt$Q",
     "--ipset-exclude=$Q$listsPath\ipset-exclude.txt$Q",
     "--dpi-desync=fake", "--dpi-desync-autottl=2", "--dpi-desync-repeats=10",
     "--dpi-desync-any-protocol=1",
     "--dpi-desync-fake-unknown-udp=$Q$binDir\quic_initial_www_google_com.bin$Q",
     "--dpi-desync-cutoff=n2",
     "--new",
-    # Rule 9: HoN-specific UDP ports 10000-10100
+    # Rule 9: HoN-specific UDP ports 10000-10100 (catch-all for unknown game IPs)
     "--filter-udp=10000-10100",
     "--dpi-desync=fake", "--dpi-desync-repeats=6", "--dpi-desync-cutoff=n2",
     "--dpi-desync-fake-quic=$Q$binDir\quic_initial_www_google_com.bin$Q"
@@ -263,7 +304,7 @@ $argsStr = @(
 
 $winwsExe = Join-Path $binDir "winws.exe"
 $binPathArg = "`"$winwsExe`" $argsStr"
-Write-Host "[Zapret] Strategy: HoN ALT11 (syndata + HoN UDP 10000-10100)"
+Write-Host "[Zapret] Strategy: HoN ALT11 (fake + HoN UDP 10000-10100)"
 Write-Host "[Zapret] binPath length: $($binPathArg.Length) chars"
 
 Write-Host "[Zapret] Creating service..."

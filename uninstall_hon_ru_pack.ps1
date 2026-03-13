@@ -39,7 +39,17 @@ foreach ($proc in $runningAgents) {
     Stop-Process -Id $proc.ProcessId -Force -ErrorAction SilentlyContinue
 }
 
-# Remove Zapret service if installed
+# Remove AmneziaWG tunnel if installed (also cleans up legacy WireGuard)
+$removeAmnezia = Join-Path $PSScriptRoot "remove_amneziawg.ps1"
+if (-not (Test-Path $removeAmnezia)) {
+    $removeAmnezia = Join-Path $dataRoot "remove_amneziawg.ps1"
+}
+if (Test-Path $removeAmnezia) {
+    Write-Host "Removing AmneziaWG tunnel..."
+    & powershell -NoProfile -ExecutionPolicy Bypass -File $removeAmnezia -DataRoot $dataRoot
+}
+
+# Legacy: Remove Zapret service if still installed from older version
 $zapretDir = Join-Path $dataRoot "zapret"
 if (Test-Path $zapretDir) {
     $removeZapret = Join-Path $PSScriptRoot "remove_zapret.ps1"
@@ -47,10 +57,8 @@ if (Test-Path $zapretDir) {
         $removeZapret = Join-Path $dataRoot "remove_zapret.ps1"
     }
     if (Test-Path $removeZapret) {
-        Write-Host "Removing Zapret..."
+        Write-Host "Removing legacy Zapret..."
         & powershell -NoProfile -ExecutionPolicy Bypass -File $removeZapret -DataRoot $dataRoot
-    } else {
-        Write-Host "[Zapret] remove_zapret.ps1 not found, skipping."
     }
 }
 
