@@ -56,7 +56,7 @@ $awgConfig = @"
 PrivateKey = wB6yoJjq1DcpetmqaWe5JLpNIKlKS3FwhznN9xTqhEs=
 Address = 10.66.66.2/32
 DNS = 1.1.1.1
-MTU = 1280
+MTU = 1400
 Jc = 4
 Jmin = 50
 Jmax = 1000
