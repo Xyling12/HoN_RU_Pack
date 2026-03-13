@@ -78,7 +78,7 @@ internal class UninstallerForm : Form
     [DllImport("user32.dll")]
     private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-    private CheckBox cbRuPack, cbZapret;
+    private CheckBox cbRuPack, cbBypass;
     private FlatButton btnUninstall;
     private Button btnClose, btnMin;
     private RichTextBox rtbLog;
@@ -146,9 +146,9 @@ internal class UninstallerForm : Form
             Location = new Point(15, 18)
         };
 
-        cbZapret = new CheckBox
+        cbBypass = new CheckBox
         {
-            Text = "\u26a1 \u041e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438 Zapret",
+            Text = "\u26a1 \u041e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438 (AmneziaWG)",
             Checked = true,
             ForeColor = TEXT_PRIMARY,
             Font = new Font("Segoe UI", 10f),
@@ -156,7 +156,7 @@ internal class UninstallerForm : Form
             Location = new Point(15, 56)
         };
 
-        pnlOptions.Controls.AddRange(new Control[] { cbRuPack, cbZapret });
+        pnlOptions.Controls.AddRange(new Control[] { cbRuPack, cbBypass });
 
         // Log
         rtbLog = new RichTextBox { Location = new Point(18, 228), Size = new Size(604, 170), ReadOnly = true, BackColor = Color.FromArgb(8, 8, 18), ForeColor = Color.FromArgb(130, 220, 130), Font = new Font("Cascadia Mono,Consolas", 9f), BorderStyle = BorderStyle.None };
@@ -171,7 +171,7 @@ internal class UninstallerForm : Form
         Controls.AddRange(new Control[] { pnlHeader, lblVersion, lblChoose, pnlOptions, rtbLog, btnUninstall });
 
         cbRuPack.CheckedChanged += (s, e) => UpdateButton();
-        cbZapret.CheckedChanged += (s, e) => UpdateButton();
+        cbBypass.CheckedChanged += (s, e) => UpdateButton();
         btnUninstall.Click += (s, e) => DoUninstall();
     }
 
@@ -183,7 +183,7 @@ internal class UninstallerForm : Form
 
     private void UpdateButton()
     {
-        btnUninstall.Enabled = cbRuPack.Checked || cbZapret.Checked;
+        btnUninstall.Enabled = cbRuPack.Checked || cbBypass.Checked;
     }
 
     private void Log(string msg)
@@ -195,12 +195,12 @@ internal class UninstallerForm : Form
 
     private void DoUninstall()
     {
-        if (!cbRuPack.Checked && !cbZapret.Checked) return;
+        if (!cbRuPack.Checked && !cbBypass.Checked) return;
 
         string what = "";
-        if (cbRuPack.Checked && cbZapret.Checked) what = "\u0420\u0443\u0441\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044e \u0438 Zapret";
+        if (cbRuPack.Checked && cbBypass.Checked) what = "\u0420\u0443\u0441\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044e \u0438 \u043e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438";
         else if (cbRuPack.Checked) what = "\u0420\u0443\u0441\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044e HoN RU Pack";
-        else what = "\u041e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438 Zapret";
+        else what = "\u041e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438 (AmneziaWG)";
 
         var result = MessageBox.Show(
             "\u0423\u0434\u0430\u043b\u0438\u0442\u044c: " + what + "?\n\n\u041e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u044d\u0442\u043e \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u0431\u0443\u0434\u0435\u0442 \u043d\u0435\u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e.",
@@ -213,17 +213,17 @@ internal class UninstallerForm : Form
         btnUninstall.Enabled = false;
         btnUninstall.Text = "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435...";
         cbRuPack.Enabled = false;
-        cbZapret.Enabled = false;
+        cbBypass.Enabled = false;
         rtbLog.Clear();
 
         bool removeRu = cbRuPack.Checked;
-        bool removeZapret = cbZapret.Checked;
-        var worker = new Thread(() => RunUninstallThread(removeRu, removeZapret));
+        bool removeBypass = cbBypass.Checked;
+        var worker = new Thread(() => RunUninstallThread(removeRu, removeBypass));
         worker.IsBackground = true;
         worker.Start();
     }
 
-    private void RunUninstallThread(bool removeRu, bool removeZapret)
+    private void RunUninstallThread(bool removeRu, bool removeBypass)
     {
         string tempRoot = Path.Combine(Path.GetTempPath(), "HoN_RU_Pack_Uninstall_" + Guid.NewGuid().ToString("N"));
         try
@@ -232,15 +232,15 @@ internal class UninstallerForm : Form
             ExtractPayload(tempRoot);
             Log("Payload extracted.");
 
-            if (removeZapret)
+            if (removeBypass)
             {
-                string zapretScript = Path.Combine(tempRoot, "remove_zapret.ps1");
-                if (File.Exists(zapretScript))
+                string bypassScript = Path.Combine(tempRoot, "remove_amneziawg.ps1");
+                if (File.Exists(bypassScript))
                 {
-                    Log("\n--- Removing Zapret ---");
-                    RunPS(zapretScript, "");
+                    Log("\n--- Removing AmneziaWG ---");
+                    RunPS(bypassScript, "");
                 }
-                else { Log("[Zapret] remove_zapret.ps1 not found, skipping."); }
+                else { Log("[Bypass] remove_amneziawg.ps1 not found, skipping."); }
             }
 
             if (removeRu)
@@ -249,7 +249,7 @@ internal class UninstallerForm : Form
                 if (File.Exists(uninstScript))
                 {
                     Log("\n--- Removing RU Pack ---");
-                    string args = removeZapret ? "" : " -KeepFiles";
+                    string args = removeBypass ? "" : " -KeepFiles";
                     RunPS(uninstScript, args);
                 }
                 else { Log("ERROR: uninstall script not found!"); exitCode = 1; }
