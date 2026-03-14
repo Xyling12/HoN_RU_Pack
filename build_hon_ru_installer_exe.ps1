@@ -97,20 +97,20 @@ function Build-InstallerExe {
     if (Test-Path $OutExe) { Remove-Item -Path $OutExe -Force }
     $cscArgs = @(
         "/target:winexe",
-        "/out:`"$OutExe`"",
+        "/out:$OutExe",
         "/codepage:65001",
         "/reference:System.Windows.Forms.dll",
         "/reference:System.Drawing.dll",
         "/reference:System.IO.Compression.dll",
         "/reference:System.IO.Compression.FileSystem.dll",
         "/optimize+",
-        "/resource:`"$payloadZip`",payload.zip"
+        "/resource:$payloadZip,payload.zip"
     )
-    if (Test-Path $iconPath) { $cscArgs += "/win32icon:`"$iconPath`"" }
+    if (Test-Path $iconPath) { $cscArgs += "/win32icon:$iconPath" }
     $manifestPath = Join-Path $assetsRoot "installer.manifest"
     if (-not (Test-Path $manifestPath)) { $manifestPath = Join-Path $distRoot "installer.manifest" }
-    if (Test-Path $manifestPath) { $cscArgs += "/win32manifest:`"$manifestPath`"" }
-    $cscArgs += "`"$SourceDumpPath`""
+    if (Test-Path $manifestPath) { $cscArgs += "/win32manifest:$manifestPath" }
+    $cscArgs += $SourceDumpPath
     Write-Host "Compiling: $OutExe"
     $result = & $cscPath $cscArgs 2>&1
     $result | ForEach-Object { Write-Host $_ }

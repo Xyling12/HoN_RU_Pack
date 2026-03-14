@@ -80,18 +80,18 @@ if (-not (Test-Path $manifestPath)) { $manifestPath = Join-Path $PackageRoot "ad
 
 $cscArgs = @(
     "/target:winexe",
-    "/out:`"$outExe`"",
+    "/out:$outExe",
     "/codepage:65001",
     "/reference:System.Windows.Forms.dll",
     "/reference:System.Drawing.dll",
     "/reference:System.IO.Compression.dll",
     "/reference:System.IO.Compression.FileSystem.dll",
     "/optimize+",
-    "/resource:`"$payloadZip`",payload.zip"
+    "/resource:$payloadZip,payload.zip"
 )
-if (Test-Path $manifestPath) { $cscArgs += "/win32manifest:`"$manifestPath`"" }
-if (Test-Path $iconPath) { $cscArgs += "/win32icon:`"$iconPath`"" }
-$cscArgs += "`"$sourceDump`""
+if (Test-Path $manifestPath) { $cscArgs += "/win32manifest:$manifestPath" }
+if (Test-Path $iconPath) { $cscArgs += "/win32icon:$iconPath" }
+$cscArgs += $sourceDump
 
 Write-Host "Compiling: $outExe"
 $result = & $cscPath $cscArgs 2>&1
