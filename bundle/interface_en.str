@@ -315,7 +315,7 @@ main_button_change_settings_keep			Сохранить изменения
 main_optimal_settings_prompt				Оптимальные настройки
 main_optimal_settings_prompt_body			Мы обнаружили, что ваша производительность может быть выше при более низких настройках, и автоматически изменили ваши настройки.  Хотите ли вы сохранить эти настройки или вернуться к предыдущим настройкам?
 
-main_label_username							RU v1.7 | boosty.to/xyling
+main_label_username							RU v1.7.1 | boosty.to/xyling
 main_label_password							Пароль
 main_checkbox_remember_me					Запомнить меня
 main_checkbox_auto_login					Автоматический вход
