@@ -71,7 +71,22 @@ $programBase = $programTemplate.Replace("__VERSION__", $version).Replace("__VERS
 
 # Find csc.exe from .NET Framework
 $cscPath = Join-Path ([System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) "csc.exe"
-if (-not (Test-Path $cscPath)) { throw "csc.exe not found at: $cscPath" }
+if (-not (Test-Path $cscPath)) {
+    # Fallback: search .NET Framework directories (for CI runners / PowerShell 7)
+    $fwDir = Join-Path $env:SystemRoot "Microsoft.NET\Framework64"
+    if (Test-Path $fwDir) {
+        $cscPath = Get-ChildItem $fwDir -Recurse -Filter "csc.exe" -ErrorAction SilentlyContinue |
+            Sort-Object { $_.Directory.Name } -Descending | Select-Object -First 1 | ForEach-Object { $_.FullName }
+    }
+    if (-not $cscPath -or -not (Test-Path $cscPath)) {
+        $fwDir32 = Join-Path $env:SystemRoot "Microsoft.NET\Framework"
+        if (Test-Path $fwDir32) {
+            $cscPath = Get-ChildItem $fwDir32 -Recurse -Filter "csc.exe" -ErrorAction SilentlyContinue |
+                Sort-Object { $_.Directory.Name } -Descending | Select-Object -First 1 | ForEach-Object { $_.FullName }
+        }
+    }
+}
+if (-not $cscPath -or -not (Test-Path $cscPath)) { throw "csc.exe not found" }
 
 $iconPath = Join-Path $assetsRoot "installer_icon.ico"
 if (-not (Test-Path $iconPath)) { $iconPath = Join-Path $distRoot "installer_icon.ico" }
