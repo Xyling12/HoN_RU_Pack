@@ -6,15 +6,15 @@ kill3								{killer_color}{killer}^* нанес удар по голове {vic
 kill4								{killer_color}{killer}^* нанес удар по голове {victim_color}{victim}^*! за ^y{gold}^* золото!
 first_kill							У {killer_color}{killer}^* ^rжажда крови^*! (^y+{gold}^* золото!)
 first_kill_team						У {killer_color}{killer}^* ^rжажда крови^*! (золота ^y+{gold}^* разделено!)
-killstreak0							{killer_color}{killer}^* — ^082серийный убийца^*!
-killstreak1							{killer_color}{killer}^* — ^204совершенный воин^*!
-killstreak2							{killer_color}{killer}^* — это ^808легендарный^*!
+killstreak0							{killer_color}{killer}^* - ^082серийный убийца^*!
+killstreak1							{killer_color}{killer}^* - ^204совершенный воин^*!
+killstreak2							{killer_color}{killer}^* - это ^808легендарный^*!
 killstreak3							{killer_color}{killer}^* совершает ^840НАТИСК^*!
 killstreak4							{killer_color}{killer}^* ^440жестоко болен^*!!
 killstreak5							{killer_color}{killer}^* ^848доминирует^*!!
-killstreak6							{killer_color}{killer}^* — ^800ЧЕМПИОН НОВЫХ^*!!!
+killstreak6							{killer_color}{killer}^* - ^800ЧЕМПИОН НОВЫХ^*!!!
 killstreak7							{killer_color}{killer}^* устроил ^840КРОВАВУЮ БАНЮ^*! Кто-нибудь, УБЕЙ ИХ!
-killstreak8							{killer_color}{killer}^* — это ^860БЕССМЕРТНЫЙ^*!!
+killstreak8							{killer_color}{killer}^* - это ^860БЕССМЕРТНЫЙ^*!!
 
 streakend0							{killer} только что завершил серию ^082серийных убийц^* {victim}, завоевав золото ^y{gold}^*!!
 streakend1							{killer} только что завершил серию ^204Совершенного Воина^* {victim}, завоевавшую ^y{gold}^* золото!!
@@ -58,9 +58,9 @@ ping_ext_ground_get_back				            {player_color}{player_name} ({player_her
 ping_ext_ground_danger_here				            {player_color}{player_name} ({player_hero_name})^*: Опасность на {ping_tile}
 ping_ext_ground_need_help_here			            {player_color}{player_name} ({player_hero_name})^*: Нужна помощь на {ping_tile}.
 ping_ext_ground_hero_missing			            {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}.
-ping_ext_ground_hero_missing_going_top	            {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идёт на верх
-ping_ext_ground_hero_missing_going_mid	            {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идёт на мид
-ping_ext_ground_hero_missing_going_bot	            {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идёт на бот
+ping_ext_ground_hero_missing_going_top	            {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идет на верх
+ping_ext_ground_hero_missing_going_mid	            {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идет на мид
+ping_ext_ground_hero_missing_going_bot	            {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идет на бот
 ping_ext_ground_fight_here				            {player_color}{player_name} ({player_hero_name})^*: Атакуйте {ping_tile}!
 ping_ext_ground_coming_to_help			            {player_color}{player_name} ({player_hero_name})^*: Приду на помощь в {ping_tile}!
 
@@ -127,7 +127,7 @@ ping_ext_alt_scoreboard_ability 					{player_color}{player_name} ({player_hero_n
 ping_ext_alt_hero									{player_color}{player_name} ({player_hero_name})^*: ^943{hero_name}^* (Уровень {level})
 ping_ext_alt_hero_dead								{player_color}{player_name} ({player_hero_name})^*: ^943{unit_name}^* (уровень {level}) возродится через ^y{time} секунд^*
 ping_ext_alt_hero_missing							{player_color}{player_name} ({player_hero_name})^*: ^943{unit_name}^* отсутствует
-ping_ext_alt_hero_afk								{player_color}{player_name} ({player_hero_name})^*: ^943{unit_name}^* (уровень {param}) — AFK
+ping_ext_alt_hero_afk								{player_color}{player_name} ({player_hero_name})^*: ^943{unit_name}^* (уровень {param}) - AFK
 ping_ext_alt_shop_item_enough_gold					{player_color}{player_name} ({player_hero_name})^*: я могу купить ^667{item}^*
 ping_ext_alt_shop_item_lack_of_gold					{player_color}{player_name} ({player_hero_name})^*: мне нужно ^y{param}g^* для ^667{item}^*
 ping_ext_alt_inventory_item_disabled				{player_color}{player_name} ({player_hero_name})^*: сейчас я не могу использовать ^667{item}^*
@@ -155,11 +155,11 @@ ping_ext_alt_experience_progress					{player_color}{player_name} ({player_hero_n
 ping_ext_alt_experience_max_level					{player_color}{player_name} ({player_hero_name})^*: Мой максимальный уровень ^759^*
 ping_ext_alt_scoreboard_gpm							{player_color}{player_name} ({player_hero_name})^*: ^199{hero_name}^* имеет ^o{gpm}^* GPM
 ping_ext_alt_scoreboard_bounty						{player_color}{player_name} ({player_hero_name})^*: ^199{hero_name}^* имеет награду ^o{bounty}^*
-ping_ext_alt_selected_level							{player_color}{player_name} ({player_hero_name})^*: ^199{selected_hero_name}^* — это уровень ^759{hero_level}^*
-ping_ext_alt_scoreboard_kda							{player_color}{player_name} ({player_hero_name})^*: ^199{hero_name}^* K/D/A — ^o{kills}^*/^o{deaths}^*/^o{assists}^*
-ping_ext_alt_scoreboard_kda_self                    {player_color}{player_name} ({player_hero_name})^*: Мой K/D/A — ^o{kills}^*/^o{deaths}^*/^o{assists}^*
-ping_ext_alt_scoreboard_ck							{player_color}{player_name} ({player_hero_name})^*: CS ^199{hero_name}^* — ^o{ck}^*/^o{cd}^*
-ping_ext_alt_scoreboard_ck_self						{player_color}{player_name} ({player_hero_name})^*: Моя CS — ^o{ck}^*/^o{cd}^*
+ping_ext_alt_selected_level							{player_color}{player_name} ({player_hero_name})^*: ^199{selected_hero_name}^* - это уровень ^759{hero_level}^*
+ping_ext_alt_scoreboard_kda							{player_color}{player_name} ({player_hero_name})^*: ^199{hero_name}^* K/D/A - ^o{kills}^*/^o{deaths}^*/^o{assists}^*
+ping_ext_alt_scoreboard_kda_self                    {player_color}{player_name} ({player_hero_name})^*: Мой K/D/A - ^o{kills}^*/^o{deaths}^*/^o{assists}^*
+ping_ext_alt_scoreboard_ck							{player_color}{player_name} ({player_hero_name})^*: CS ^199{hero_name}^* - ^o{ck}^*/^o{cd}^*
+ping_ext_alt_scoreboard_ck_self						{player_color}{player_name} ({player_hero_name})^*: Моя CS - ^o{ck}^*/^o{cd}^*
 ping_ext_alt_scoreboard_teamgold					{player_color}{player_name} ({player_hero_name})^*: {teamname} средний GPM составляет {teamgold}
 ping_ext_alt_scoreboard_vision					    {player_color}{player_name} ({player_hero_name})^*: {teamname} обзор составляет {vision}%
 ping_ext_alt_scoreboard_boss_respawn_time			{player_color}{player_name} ({player_hero_name})^*: Конгор возродится в {boss_respawn_time}.
@@ -187,12 +187,12 @@ area_phoenix						    Гнездо Феникса
 area_legion_ancient_spawn				Лагерь древних Легиона
 area_hellbourne_ancient_spawn			Лагерь древних Хеллборна
 area_hellbourne_neutral_spawn1			Сложный лагерь Легиона
-area_hellbourne_neutral_spawn2			Лёгкий лагерь Легиона
+area_hellbourne_neutral_spawn2			Легкий лагерь Легиона
 area_hellbourne_neutral_spawn3			Средний лагерь Легиона
 area_hellbourne_neutral_spawn4			Legion jungle medium camp
 area_hellbourne_neutral_spawn5			Legion jungle medium camp
 area_legion_neutral_spawn1				Сложный лагерь Хеллборна
-area_legion_neutral_spawn2				Лёгкий лагерь Хеллборна
+area_legion_neutral_spawn2				Легкий лагерь Хеллборна
 area_legion_neutral_spawn3				Средний лагерь Хеллборна
 area_legion_neutral_spawn4				Hellbourne jungle medium camp
 area_legion_neutral_spawn5				Hellbourne jungle medium camp
@@ -272,7 +272,7 @@ client_connected					{player_color}{player}^* подключился.
 client_reconnected					{player_color}{player}^* повторно подключился. (Оставшееся время отключения: {time})
 client_disconnected					{player_color}{player}^* отключен.
 client_timedout						{player_color}{player}^* истекло.
-client_terminated					{player_color}{player}^* исключён. Его герой удалён, а ресурсы переданы команде.
+client_terminated					{player_color}{player}^* исключен. Его герой удален, а ресурсы переданы команде.
 client_connected_mentor				{player_color}{player}^* связался с вами и стал вашим наставником.
 client_connected_spec				{player_color}{player}^* наблюдает за {spec_color}{spec_player}^*.
 
@@ -370,7 +370,7 @@ purchase_msg_no_money				У вас недостаточно золота.
 purchase_msg_out_of_stock			Нет в наличии.
 
 courier_msg_has_returned			Курьер вернулся к фонтану
-courier_msg_delivering				Курьер несёт ваши предметы
+courier_msg_delivering				Курьер несет ваши предметы
 courier_msg_returning				Курьер возвращается к фонтану
 courier_msg_fetching				Курьер забирает ваши предметы с фонтана
 courier_msg_following				Курьер следует за вами для передачи предметов.
@@ -440,7 +440,7 @@ stunned_duration_mult_bonus 		{value}% Продолжительность огл
 incoming_heal_mult_bonus			{value}% Получено исцеление
 total_heal_mult_bonus				{value}% Исцеление выполнено
 incoming_manaburn_mult_bonus		{value}% получено сжигание маны
-stunned_bonus						Оглушён
+stunned_bonus						Оглушен
 stunned_immunity_bonus				Иммунитет к оглушению
 silenced_bonus						Безмолвие
 silenced_immunity_bonus				Иммунитет к безмолвию
@@ -511,7 +511,7 @@ item_recipe							{name} Рецепт
 
 activate_ability					Нажмите, чтобы активировать эту способность
 activate_item						Нажмите, чтобы активировать этот предмет
-activate_item_no_share				^rОтключено — принадлежит {name}
+activate_item_no_share				^rОтключено - принадлежит {name}
 activate_item_no_share_ownerless	^rОтключено
 activate_item_borrowed				^gЗаимствование из {name}
 activate_passive					^gЭта способность пассивна.
@@ -556,7 +556,7 @@ vote_failed						Голосование провалено
 team_concede					{color}{team}^* пропустил матч
 game_abandoned					Ваши товарищи по команде покинули вас; вы не будете наказаны за выход, и теперь вы можете сдаться.
 afk_warning						Вам грозит пометка как АФК
-afk_message						^199{player}^* — АФК
+afk_message						^199{player}^* - АФК
 afk_message_self				Вы теперь АФК
 afk_return_self 				Вы больше не АФК
 
@@ -564,11 +564,11 @@ lobby_connect					{color}{player}^* подключается.
 lobby_connect_mentor			{color}{player}^* будет вашим наставником.
 lobby_connect_spec				{player_color}{player}^* подключается к наблюдателю {spec_player}.
 lobby_kick						{color}{player}^* удален хостом.
-lobby_kick_spec					{color}{player}^* был исключён.
+lobby_kick_spec					{color}{player}^* был исключен.
 lobby_disconnect				{color}{player}^* отключился.
 lobby_balance					Хост сбалансировал команды.
 lobby_force_swap				Хост поменял местами {slot1_color}{slot1}^* и {slot2_color}{slot2}^*.
-lobby_countdown_cancel			Обратный отсчёт матча отменён.
+lobby_countdown_cancel			Обратный отсчет матча отменен.
 lobby_lock						Хост заблокировал слот {slot_color}{slot}^*.
 lobby_unlock					Хост разблокировал слот {slot_color}{slot}^*.
 lobby_assign_host				{slot_color}{player}^* назначен новым хостом.
@@ -604,9 +604,9 @@ pre_firstblood_reconnect_2		    Сопоставление будет прерв
 pre_firstblood_reconnect_1		    Сопоставление будет прервано, если {player_color}{player}^* не подключится повторно в течение 1 секунды.
 pre_firstblood_reconnect_lobby		Матч будет прерван, если {player_color}{player}^* не подключится повторно до окончания этапа драфта.
 
-user_left_game_lobby_aborted 				Драфт прерван — игрок покинул игру.
+user_left_game_lobby_aborted 				Драфт прерван - игрок покинул игру.
 player_left_game_lobby_aborted 				Draft aborted as a player abandoned the game.
-draft_error_lobby_aborted 					Лобби прервано — произошла ошибка на сервере лобби.
+draft_error_lobby_aborted 					Лобби прервано - произошла ошибка на сервере лобби.
 players_failed_to_connect_lobby_aborted 	Один или несколько игроков так и не подключились к серверу.
 
 spectator_team_name				Наблюдатели
@@ -617,8 +617,8 @@ neutral_team_name				Нейтралы
 neutral_killboard				Нейтралы убили {victim}.
 team_killboard					Команда {team} убила {victim}.
 
-unread_bits					Вы были отключены, поскольку файлы вашего клиента не совпадают с файлами на сервере.\n\nПожалуйста, удалите все изменения клиента и запустите инструмент восстановления (находится в меню «Параметры» в разделе «Устранение неполадок»), прежде чем пытаться присоединиться к другому совпадению.
-bad_snapshot					Вы были отключены, поскольку файлы вашего клиента не совпадают с файлами на сервере.\n\nПожалуйста, удалите все изменения клиента и запустите инструмент восстановления (находится в меню «Параметры» в разделе «Устранение неполадок»), прежде чем пытаться присоединиться к другому совпадению.
+unread_bits					Вы были отключены, поскольку файлы вашего клиента не совпадают с файлами на сервере.\n\nПожалуйста, удалите все изменения клиента и запустите инструмент восстановления (находится в меню "Параметры" в разделе "Устранение неполадок"), прежде чем пытаться присоединиться к другому совпадению.
+bad_snapshot					Вы были отключены, поскольку файлы вашего клиента не совпадают с файлами на сервере.\n\nПожалуйста, удалите все изменения клиента и запустите инструмент восстановления (находится в меню "Параметры" в разделе "Устранение неполадок"), прежде чем пытаться присоединиться к другому совпадению.
 
 masters_legacy_applied				{player1_color}{player1}^* передал ^gНаследие Мастера^* {player2_color}{player2}!
 masters_legacy_removed				{player1_color}{player1}^* удалил ^gНаследие Мастера^* из {player2_color}{player2}!
@@ -636,7 +636,7 @@ game_weather_					Нет
 game_weather_rain				Дождь
 
 // "rain_low.effect" => "game_weather_rain_low"
-game_weather_rain_low			Дождь (лёгкий)
+game_weather_rain_low			Дождь (легкий)
 
 // "snow.effect" => "game_weather_snow"
 game_weather_snow				Снег
@@ -706,7 +706,7 @@ ctf_legion_flagcap						^gГолубой флаг^* был успешно зах
 ctf_hellbourne_flagcap					^rЖелтый флаг^* был успешно захвачен {player1_color}{player1}^*!
 
 ctf_legion_flagpicked					^gГолубой флаг^* был подхвачен противником!
-ctf_hellbourne_flagpicked				^rЖёлтый флаг^* был подхвачен противником!
+ctf_hellbourne_flagpicked				^rЖелтый флаг^* был подхвачен противником!
 
 ctf_legion_flagdrop						^gГолубой флаг^* упал на землю!
 ctf_hellbourne_flagdrop					^rЖелтый флаг^* упал на землю!
@@ -823,10 +823,10 @@ vanity_msg_coffin					{ownerPlayer_color}{ownerPlayer} ^999Танец гроба
 vanity_msg_cleanupcrew				{ownerPlayer_color}{ownerPlayer} ^999Зачистка на острове 4, бригада зачистки уже здесь!
 vanity_msg_goodnight 				{ownerPlayer_color}{ownerPlayer} ^999Время поспать! Спокойной ночи...
 vanity_msg_nerds 					{ownerPlayer_color}{ownerPlayer} ^999PUBTRAINING ^r NERDS!!!
-vanity_msg_rps						{ownerPlayer_color}{ownerPlayer} ^999бросил вызов {targetPlayer_color}{targetPlayer} ^999 в игре «Камень, ножницы, бумага»!
-vanity_msg_rps_owned				{ownerPlayer_color}{ownerPlayer} ^999бросил вызов принадлежащему {targetPlayer_color}{targetPlayer} Entity_color}{ownedEntity} ^999 в игре «Камень-ножницы-бумага»!
-vanity_msg_crybaby					{ownerPlayer_color}{ownerPlayer} ^999думает {targetPlayer_color}{targetPlayer} ^999 — маленькая плаксивая сучка!
-vanity_msg_crybaby_owned			{ownerPlayer_color}{ownerPlayer} ^999думает, что {targetPlayer_color}{targetPlayer} {ownedEntity_color}{ownedEntity} ^999 из {targetPlayer_color}{ownedEntity} ^999 — маленькая плакса!
+vanity_msg_rps						{ownerPlayer_color}{ownerPlayer} ^999бросил вызов {targetPlayer_color}{targetPlayer} ^999 в игре "Камень, ножницы, бумага"!
+vanity_msg_rps_owned				{ownerPlayer_color}{ownerPlayer} ^999бросил вызов принадлежащему {targetPlayer_color}{targetPlayer} Entity_color}{ownedEntity} ^999 в игре "Камень-ножницы-бумага"!
+vanity_msg_crybaby					{ownerPlayer_color}{ownerPlayer} ^999думает {targetPlayer_color}{targetPlayer} ^999 - маленькая плаксивая сучка!
+vanity_msg_crybaby_owned			{ownerPlayer_color}{ownerPlayer} ^999думает, что {targetPlayer_color}{targetPlayer} {ownedEntity_color}{ownedEntity} ^999 из {targetPlayer_color}{ownedEntity} ^999 - маленькая плакса!
 vanity_msg_toxicbarrel				{ownerPlayer_color}{ownerPlayer} ^999Ты такой токсичный...
 vanity_msg_getjuked					{ownerPlayer_color}{ownerPlayer} ^999Держись, сынок!
 vanity_msg_salt						{ownerPlayer_color}{ownerPlayer} ^999Посыпал солью {targetPlayer_color}{targetPlayer}. Такой соленый!
