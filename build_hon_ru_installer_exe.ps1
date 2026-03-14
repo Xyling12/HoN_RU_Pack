@@ -35,6 +35,7 @@ $requiredBundle = @(
 )
 
 $distRoot = Join-Path $PackageRoot "dist"
+$assetsRoot = Join-Path $PackageRoot "assets"
 $stageRoot = Join-Path $distRoot "installer_payload_stage"
 $stageBundle = Join-Path $stageRoot "bundle"
 $payloadZip = Join-Path $distRoot "installer_payload.zip"
@@ -57,37 +58,23 @@ foreach ($name in $requiredBundle) {
 }
 
 Compress-Archive -Path (Join-Path $stageRoot "*") -DestinationPath $payloadZip -Force
-$payloadBase64 = [Convert]::ToBase64String([System.IO.File]::ReadAllBytes($payloadZip))
-
-$chunks = New-Object System.Collections.Generic.List[string]
-$chunkSize = 24000
-for ($offset = 0; $offset -lt $payloadBase64.Length; $offset += $chunkSize) {
-    $len = [Math]::Min($chunkSize, $payloadBase64.Length - $offset)
-    $chunks.Add($payloadBase64.Substring($offset, $len))
-}
-
-$payloadBuilder = New-Object System.Text.StringBuilder
-[void]$payloadBuilder.AppendLine("string payloadBase64 =")
-for ($i = 0; $i -lt $chunks.Count; $i++) {
-    $suffix = if ($i -eq $chunks.Count - 1) { ";" } else { " +" }
-    [void]$payloadBuilder.AppendLine(('    "{0}"{1}' -f $chunks[$i], $suffix))
-}
-$payloadCode = $payloadBuilder.ToString()
 
 # Load WinForms C# template from external file
 $templatePath = Join-Path $PackageRoot "installer_template.cs"
 if (-not (Test-Path $templatePath)) { throw "C# template not found: $templatePath" }
 $programTemplate = [System.IO.File]::ReadAllText($templatePath, [System.Text.Encoding]::UTF8)
 
-# Inject payload and version
+# Inject version
 $version = (Get-Content (Join-Path $PackageRoot "version.txt") -Raw).Trim()
-$programBase = $programTemplate.Replace("__PAYLOAD__", $payloadCode).Replace("__VERSION__", $version)
+$versionFull = "$version.0.0"
+$programBase = $programTemplate.Replace("__VERSION__", $version).Replace("__VERSION_FULL__", $versionFull)
 
 # Find csc.exe from .NET Framework
 $cscPath = Join-Path ([System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) "csc.exe"
 if (-not (Test-Path $cscPath)) { throw "csc.exe not found at: $cscPath" }
 
-$iconPath = Join-Path $distRoot "installer_icon.ico"
+$iconPath = Join-Path $assetsRoot "installer_icon.ico"
+if (-not (Test-Path $iconPath)) { $iconPath = Join-Path $distRoot "installer_icon.ico" }
 
 function Build-InstallerExe {
     param([string]$Code, [string]$OutExe, [string]$SourceDumpPath)
@@ -101,9 +88,13 @@ function Build-InstallerExe {
         "/reference:System.Drawing.dll",
         "/reference:System.IO.Compression.dll",
         "/reference:System.IO.Compression.FileSystem.dll",
-        "/optimize+"
+        "/optimize+",
+        "/resource:`"$payloadZip`",payload.zip"
     )
     if (Test-Path $iconPath) { $cscArgs += "/win32icon:`"$iconPath`"" }
+    $manifestPath = Join-Path $assetsRoot "installer.manifest"
+    if (-not (Test-Path $manifestPath)) { $manifestPath = Join-Path $distRoot "installer.manifest" }
+    if (Test-Path $manifestPath) { $cscArgs += "/win32manifest:`"$manifestPath`"" }
     $cscArgs += "`"$SourceDumpPath`""
     Write-Host "Compiling: $OutExe"
     $result = & $cscPath $cscArgs 2>&1

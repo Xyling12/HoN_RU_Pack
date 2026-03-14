@@ -6,6 +6,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $distRoot = Join-Path $PackageRoot "dist"
+$assetsRoot = Join-Path $PackageRoot "assets"
 New-Item -ItemType Directory -Path $distRoot -Force | Out-Null
 
 # Scripts needed for uninstall
@@ -35,37 +36,23 @@ foreach ($name in $uninstallScripts) {
 }
 
 Compress-Archive -Path (Join-Path $stageRoot "*") -DestinationPath $payloadZip -Force
-$payloadBase64 = [Convert]::ToBase64String([System.IO.File]::ReadAllBytes($payloadZip))
-
-$chunks = New-Object System.Collections.Generic.List[string]
-$chunkSize = 24000
-for ($offset = 0; $offset -lt $payloadBase64.Length; $offset += $chunkSize) {
-    $len = [Math]::Min($chunkSize, $payloadBase64.Length - $offset)
-    $chunks.Add($payloadBase64.Substring($offset, $len))
-}
-
-$payloadBuilder = New-Object System.Text.StringBuilder
-[void]$payloadBuilder.AppendLine("string payloadBase64 =")
-for ($i = 0; $i -lt $chunks.Count; $i++) {
-    $suffix = if ($i -eq $chunks.Count - 1) { ";" } else { " +" }
-    [void]$payloadBuilder.AppendLine(('    "{0}"{1}' -f $chunks[$i], $suffix))
-}
-$payloadCode = $payloadBuilder.ToString()
 
 # Load C# template
 $templatePath = Join-Path $PackageRoot "uninstaller_template.cs"
 if (-not (Test-Path $templatePath)) { throw "C# template not found: $templatePath" }
 $programTemplate = [System.IO.File]::ReadAllText($templatePath, [System.Text.Encoding]::UTF8)
 
-# Inject payload and version
+# Inject version
 $version = (Get-Content (Join-Path $PackageRoot "version.txt") -Raw).Trim()
-$programCode = $programTemplate.Replace("__PAYLOAD__", $payloadCode).Replace("__VERSION__", $version)
+$versionFull = "$version.0.0"
+$programCode = $programTemplate.Replace("__VERSION__", $version).Replace("__VERSION_FULL__", $versionFull)
 
 # Find csc.exe
 $cscPath = Join-Path ([System.Runtime.InteropServices.RuntimeEnvironment]::GetRuntimeDirectory()) "csc.exe"
 if (-not (Test-Path $cscPath)) { throw "csc.exe not found at: $cscPath" }
 
-$iconPath = Join-Path $distRoot "uninstaller_icon.ico"
+$iconPath = Join-Path $assetsRoot "uninstaller_icon.ico"
+if (-not (Test-Path $iconPath)) { $iconPath = Join-Path $distRoot "uninstaller_icon.ico" }
 $outExe = if ([string]::IsNullOrWhiteSpace($OutputExe)) {
     Join-Path $distRoot "HoN_RU_Pack_Uninstaller.exe"
 } else { $OutputExe }
@@ -74,7 +61,8 @@ $sourceDump = Join-Path $distRoot "uninstaller_program.cs"
 Set-Content -Path $sourceDump -Value $programCode -Encoding UTF8
 if (Test-Path $outExe) { Remove-Item -Path $outExe -Force }
 
-$manifestPath = Join-Path $PackageRoot "admin.manifest"
+$manifestPath = Join-Path $assetsRoot "admin.manifest"
+if (-not (Test-Path $manifestPath)) { $manifestPath = Join-Path $PackageRoot "admin.manifest" }
 
 $cscArgs = @(
     "/target:winexe",
@@ -84,7 +72,8 @@ $cscArgs = @(
     "/reference:System.Drawing.dll",
     "/reference:System.IO.Compression.dll",
     "/reference:System.IO.Compression.FileSystem.dll",
-    "/optimize+"
+    "/optimize+",
+    "/resource:`"$payloadZip`",payload.zip"
 )
 if (Test-Path $manifestPath) { $cscArgs += "/win32manifest:`"$manifestPath`"" }
 if (Test-Path $iconPath) { $cscArgs += "/win32icon:`"$iconPath`"" }

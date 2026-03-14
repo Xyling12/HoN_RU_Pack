@@ -8,8 +8,27 @@ bundle/humanize_*/
 # Temp / test files
 bundle/_test_*
 
-# Build artifacts
+# Build artifacts & dist folder
 dist/
+
+# Binaries & large files
+*.exe
+*.apk
+*.msi
+*.zip
+*.idsig
+
+# Images (screenshots etc)
+*.jpg
+*.png
+
+# Unrelated project folders
+Secur_apk/
+_locked/
+release/
+server/
+.agent/
+.agents/
 
 # OS junk
 Thumbs.db

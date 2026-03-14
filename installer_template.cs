@@ -4,9 +4,17 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.IO.Compression;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+
+[assembly: AssemblyTitle("HoN RU Pack Installer")]
+[assembly: AssemblyDescription("Russian language pack installer for Heroes of Newerth")]
+[assembly: AssemblyCompany("HoN RU Community")]
+[assembly: AssemblyProduct("HoN RU Pack")]
+[assembly: AssemblyVersion("__VERSION_FULL__")]
+[assembly: AssemblyFileVersion("__VERSION_FULL__")]
 
 internal static class Program
 {
@@ -80,7 +88,7 @@ internal class InstallerForm : Form
 
     private RadioButton rbAuto, rbManual;
     private TextBox txtPath;
-    private CheckBox cbHon, cbYoutube, cbDiscord;
+    private CheckBox cbHon, cbYoutube, cbDiscord, cbTelegram, cbOpenAI;
     private FlatButton btnBrowse, btnInstall;
     private Button btnClose, btnMin;
     private RichTextBox rtbLog;
@@ -101,7 +109,7 @@ internal class InstallerForm : Form
     public InstallerForm()
     {
         Text = "HoN RU Pack Installer";
-        Size = new Size(640, 560);
+        Size = new Size(640, 610);
         StartPosition = FormStartPosition.CenterScreen;
         FormBorderStyle = FormBorderStyle.None;
         BackColor = BG_DARK;
@@ -179,22 +187,40 @@ internal class InstallerForm : Form
                 AutoSize = true,
                 Location = new Point(20, 272)
             };
-            logTop = 300;
+            cbTelegram = new CheckBox
+            {
+                Text = "\u2708 Telegram \u0447\u0435\u0440\u0435\u0437 \u043e\u0431\u0445\u043e\u0434",
+                Checked = false,
+                ForeColor = Color.FromArgb(200, 200, 220),
+                Font = new Font("Segoe UI", 9.5f),
+                AutoSize = true,
+                Location = new Point(20, 298)
+            };
+            cbOpenAI = new CheckBox
+            {
+                Text = "\ud83e\udde0 ChatGPT/OpenAI \u0447\u0435\u0440\u0435\u0437 \u043e\u0431\u0445\u043e\u0434",
+                Checked = false,
+                ForeColor = Color.FromArgb(200, 200, 220),
+                Font = new Font("Segoe UI", 9.5f),
+                AutoSize = true,
+                Location = new Point(20, 324)
+            };
+            logTop = 352;
         }
 
         // Log
-        int logHeight = 560 - logTop - 90;
+        int logHeight = 610 - logTop - 90;
         rtbLog = new RichTextBox { Location = new Point(18, logTop), Size = new Size(604, logHeight), ReadOnly = true, BackColor = Color.FromArgb(8, 8, 18), ForeColor = Color.FromArgb(130, 220, 130), Font = new Font("Cascadia Mono,Consolas", 9f), BorderStyle = BorderStyle.None };
 
         // Install button
-        btnInstall = new FlatButton { Text = "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c", Location = new Point(18, 560 - 58), Size = new Size(604, 44), Font = new Font("Segoe UI", 12f, FontStyle.Bold) };
+        btnInstall = new FlatButton { Text = "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c", Location = new Point(18, 610 - 58), Size = new Size(604, 44), Font = new Font("Segoe UI", 12f, FontStyle.Bold) };
         btnInstall.NormalColor = ACCENT;
         btnInstall.HoverColor = ACCENT_HOVER;
         btnInstall.PressColor = ACCENT_PRESS;
         btnInstall.ForeColor = TEXT_ON_ACCENT;
 
         Controls.AddRange(new Control[] { pnlHeader, lblVersion, lblSubtitle, pnlOptions, rtbLog, btnInstall });
-        if (dnsVisible) { Controls.Add(cbHon); Controls.Add(cbYoutube); Controls.Add(cbDiscord); }
+        if (dnsVisible) { Controls.Add(cbHon); Controls.Add(cbYoutube); Controls.Add(cbDiscord); Controls.Add(cbTelegram); Controls.Add(cbOpenAI); }
 
         rbManual.CheckedChanged += (s, e) => { txtPath.Enabled = rbManual.Checked; btnBrowse.Enabled = rbManual.Checked; };
         btnBrowse.Click += (s, e) => { using (var d = new FolderBrowserDialog()) { if (d.ShowDialog() == DialogResult.OK) txtPath.Text = d.SelectedPath; } };
@@ -224,12 +250,14 @@ internal class InstallerForm : Form
         bool routeHon = cbHon != null && cbHon.Checked;
         bool routeYoutube = cbYoutube != null && cbYoutube.Checked;
         bool routeDiscord = cbDiscord != null && cbDiscord.Checked;
-        var worker = new Thread(() => RunInstallThread(manualPath, routeHon, routeYoutube, routeDiscord));
+        bool routeTelegram = cbTelegram != null && cbTelegram.Checked;
+        bool routeOpenai = cbOpenAI != null && cbOpenAI.Checked;
+        var worker = new Thread(() => RunInstallThread(manualPath, routeHon, routeYoutube, routeDiscord, routeTelegram, routeOpenai));
         worker.IsBackground = true;
         worker.Start();
     }
 
-    private void RunInstallThread(string manualPath, bool routeHon, bool routeYoutube, bool routeDiscord)
+    private void RunInstallThread(string manualPath, bool routeHon, bool routeYoutube, bool routeDiscord, bool routeTelegram, bool routeOpenai)
     {
         string tempRoot = Path.Combine(Path.GetTempPath(), "HoN_RU_Pack_Install_" + Guid.NewGuid().ToString("N"));
         try
@@ -241,12 +269,14 @@ internal class InstallerForm : Form
             string script = Path.Combine(tempRoot, "install_hon_ru_pack.ps1");
             if (!File.Exists(script)) { Log("ERROR: install script not found!"); return; }
 
-            string args = "-NoProfile -ExecutionPolicy Bypass -File \"" + script + "\" -SourceRoot \"" + tempRoot + "\"";
+            string args = "-NoProfile -EP Bypass -File \"" + script + "\" -SourceRoot \"" + tempRoot + "\"";
             if (!string.IsNullOrWhiteSpace(manualPath)) args += " -InstallRoot \"" + manualPath + "\"";
-            if (routeHon || routeYoutube || routeDiscord) args += " -SetupBypass";
+            if (routeHon || routeYoutube || routeDiscord || routeTelegram || routeOpenai) args += " -SetupBypass";
             if (routeHon) args += " -RouteHoN";
             if (routeYoutube) args += " -RouteYouTube";
             if (routeDiscord) args += " -RouteDiscord";
+            if (routeTelegram) args += " -RouteTelegram";
+            if (routeOpenai) args += " -RouteOpenAI";
 
             var psi = new ProcessStartInfo { FileName = "powershell.exe", Arguments = args, UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true, CreateNoWindow = true };
             var proc = Process.Start(psi);
@@ -287,10 +317,12 @@ internal class InstallerForm : Form
 
     private static void ExtractPayload(string tempRoot)
     {
-__PAYLOAD__
-        byte[] zipBytes = Convert.FromBase64String(payloadBase64);
         string zipPath = Path.Combine(tempRoot, "payload.zip");
-        File.WriteAllBytes(zipPath, zipBytes);
+        using (var rs = Assembly.GetExecutingAssembly().GetManifestResourceStream("payload.zip"))
+        using (var fs = File.Create(zipPath))
+        {
+            rs.CopyTo(fs);
+        }
         ZipFile.ExtractToDirectory(zipPath, tempRoot);
     }
 }

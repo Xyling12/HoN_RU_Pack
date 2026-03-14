@@ -1,4 +1,4 @@
-﻿// Game Mechanics
+// Game Mechanics
 AttackType_none													Нет
 AttackType_melee												Ближний бой
 AttackType_ranged												Дальний бой
@@ -528,7 +528,7 @@ Ability_LoggersHatchet_FRAME_effect:creepdamage_melee	+20 урона по вра
 Item_Raven_name												Raven
 Item_Raven_name:raven_buff_offense							Ворон ^g(RavenBane)^*
 Item_Raven_name:raven_buff_defense							Ворон ^g(RavenSeer)^*
-Item_Raven_name:raven_buff_utility							Ворон ^g(Единство Наблюдателя)^*
+Item_Raven_name:raven_buff_utility							Ворон ^g(Ward Unity)^*
 Item_Raven_description										
 Item_Raven_description_simple								Вызовите ^oRaven^* из своего колодца, приказав ему полететь к целевому дереву. Обеспечивает ^oвидение в радиусе 1000/750^* после приземления, а также прицеливает и обнаруживает ^rвражеских воронов^* в радиусе 600.\n\n^oВороны^* требуют 3 ударов, чтобы убить, действуют в течение 90 секунд, являются скрытными и считаются аодами.
 Item_Raven_description_simple:raven_buff_offense			Вызовите ^oRaven^* из своего колодца, приказав ему полететь к целевому дереву. Обеспечивает ^oвидение в радиусе 1000/750^* и ^gубивает вражеских Воронов в радиусе 800^* после приземления, а также прицеливает и обнаруживает ^rвраждебных Воронов^* в радиусе 600. ^gУбийство Ворона сокращает время восстановления этой способности на 30 секунд.^*\n\n^oВоронам^* требуется 3 удара, чтобы убить, длится 90 секунд, они скрыты и считаются аодами.

@@ -5,7 +5,9 @@ param(
     [switch]$SetupBypass,
     [switch]$RouteHoN,
     [switch]$RouteYouTube,
-    [switch]$RouteDiscord
+    [switch]$RouteDiscord,
+    [switch]$RouteTelegram,
+    [switch]$RouteOpenAI
 )
 
 $ErrorActionPreference = "Stop"
@@ -212,9 +214,11 @@ if ($SetupBypass) {
     if (Test-Path $awgScript) {
         Write-Host "Setting up bypass..."
         $awgParams = @{ DataRoot = $dataRoot }
-        if ($RouteHoN)     { $awgParams["RouteHoN"]     = $true }
-        if ($RouteYouTube) { $awgParams["RouteYouTube"] = $true }
-        if ($RouteDiscord) { $awgParams["RouteDiscord"] = $true }
+        if ($RouteHoN)      { $awgParams["RouteHoN"]      = $true }
+        if ($RouteYouTube)  { $awgParams["RouteYouTube"]  = $true }
+        if ($RouteDiscord)  { $awgParams["RouteDiscord"]  = $true }
+        if ($RouteTelegram) { $awgParams["RouteTelegram"] = $true }
+        if ($RouteOpenAI)   { $awgParams["RouteOpenAI"]   = $true }
         & $awgScript @awgParams
     } else {
         Write-Host "[Bypass] setup script not found, skipping."

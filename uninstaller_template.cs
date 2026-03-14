@@ -4,9 +4,17 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.IO.Compression;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+
+[assembly: AssemblyTitle("HoN RU Pack Uninstaller")]
+[assembly: AssemblyDescription("Uninstaller for HoN RU Pack — Russian localization for Heroes of Newerth")]
+[assembly: AssemblyCompany("HoN RU Community")]
+[assembly: AssemblyProduct("HoN RU Pack")]
+[assembly: AssemblyVersion("__VERSION_FULL__")]
+[assembly: AssemblyFileVersion("__VERSION_FULL__")]
 
 internal static class Program
 {
@@ -281,7 +289,7 @@ internal class UninstallerForm : Form
 
     private void RunPS(string scriptPath, string extraArgs)
     {
-        string args = "-NoProfile -ExecutionPolicy Bypass -File \"" + scriptPath + "\"" + extraArgs;
+        string args = "-NoProfile -EP Bypass -File \"" + scriptPath + "\"" + extraArgs;
         var psi = new ProcessStartInfo { FileName = "powershell.exe", Arguments = args, UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true, CreateNoWindow = true };
         var proc = Process.Start(psi);
         proc.OutputDataReceived += (s, e) => { if (!string.IsNullOrEmpty(e.Data)) Log(e.Data); };
@@ -294,10 +302,12 @@ internal class UninstallerForm : Form
 
     private static void ExtractPayload(string tempRoot)
     {
-__PAYLOAD__
-        byte[] zipBytes = Convert.FromBase64String(payloadBase64);
         string zipPath = Path.Combine(tempRoot, "payload.zip");
-        File.WriteAllBytes(zipPath, zipBytes);
+        using (var rs = Assembly.GetExecutingAssembly().GetManifestResourceStream("payload.zip"))
+        using (var fs = File.Create(zipPath))
+        {
+            rs.CopyTo(fs);
+        }
         ZipFile.ExtractToDirectory(zipPath, tempRoot);
     }
 }

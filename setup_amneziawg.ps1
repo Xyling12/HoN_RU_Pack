@@ -7,7 +7,9 @@ param(
     [string]$DataRoot = (Join-Path $env:LOCALAPPDATA "HoN_RU_Pack"),
     [switch]$RouteHoN,
     [switch]$RouteYouTube,
-    [switch]$RouteDiscord
+    [switch]$RouteDiscord,
+    [switch]$RouteTelegram,
+    [switch]$RouteOpenAI
 )
 
 $ErrorActionPreference = "Stop"
@@ -42,6 +44,22 @@ if ($RouteDiscord) {
         "66.22.192.0/20", "162.159.0.0/16"
     )
 }
+if ($RouteTelegram) {
+    # Telegram IP ranges (ASN 62041)
+    $allowedIPs += @(
+        "91.108.4.0/22", "91.108.8.0/21", "91.108.16.0/21", "91.108.56.0/22",
+        "149.154.160.0/20", "91.105.192.0/23", "95.161.64.0/20",
+        "185.76.151.0/24"
+    )
+}
+if ($RouteOpenAI) {
+    # OpenAI/ChatGPT — Cloudflare-fronted + Azure API ranges
+    $allowedIPs += @(
+        "104.18.0.0/16", "104.16.0.0/14", "172.64.0.0/13",
+        "23.102.140.112/28", "13.66.11.96/28", "104.210.133.240/28",
+        "23.98.142.176/28", "40.84.180.224/28"
+    )
+}
 
 if ($allowedIPs.Count -eq 0) {
     Write-Host "[Bypass] No services selected, skipping bypass setup."
@@ -50,30 +68,54 @@ if ($allowedIPs.Count -eq 0) {
 
 $allowedIPsStr = $allowedIPs -join ", "
 
-# --- HoN Split-Tunnel Config with obfuscation ---
-$awgConfig = @"
-[Interface]
-PrivateKey = wB6yoJjq1DcpetmqaWe5JLpNIKlKS3FwhznN9xTqhEs=
-Address = 10.66.66.2/32
-DNS = 1.1.1.1
-MTU = 1400
-Jc = 4
-Jmin = 50
-Jmax = 1000
-S1 = 68
-S2 = 84
-H1 = 981756423
-H2 = 725841693
-H3 = 412685937
-H4 = 158973264
+# --- Server info (fixed) ---
+$serverPubKey = "DJt5YKkQ2EozLk+VpR2uPQUCD5qL+zFgVwFRASRmqzk="
+$serverEndpoint = "94.103.15.45:51820"
+$registerUrl = "http://94.103.15.45:8085/register"
+$registerToken = "HoNRUPack2026SecretToken"
 
-[Peer]
-PublicKey = DJt5YKkQ2EozLk+VpR2uPQUCD5qL+zFgVwFRASRmqzk=
-PresharedKey = 86Bx0jRcClChx/jV8ECjwNQEy0vIq+oCItx8jk00PMI=
-Endpoint = 94.103.15.45:51820
-AllowedIPs = $allowedIPsStr
-PersistentKeepalive = 25
-"@
+# --- AmneziaWG obfuscation params (must match server) ---
+$awgJc = 4; $awgJmin = 50; $awgJmax = 1000
+$awgS1 = 68; $awgS2 = 84
+$awgH1 = 981756423; $awgH2 = 725841693; $awgH3 = 412685937; $awgH4 = 158973264
+
+# --- Check for existing registration ---
+$regFile = Join-Path $configDir "registration.json"
+$clientPrivKey = $null
+$clientPSK = $null
+$clientIP = $null
+
+if (Test-Path $regFile) {
+    try {
+        $reg = Get-Content $regFile -Raw | ConvertFrom-Json
+        $clientPrivKey = $reg.privkey
+        $clientPSK = $reg.psk
+        $clientIP = $reg.ip
+        Write-Host "[AmneziaWG] Existing registration found: $clientIP"
+    } catch {
+        Write-Host "[AmneziaWG] Invalid registration file, re-registering..."
+    }
+}
+
+if (-not $clientPrivKey) {
+    # --- Generate unique keys ---
+    # AmneziaWG must be installed first (done below), but we need keys now.
+    # Use the awg.exe command-line tool if available, otherwise generate after install.
+    $awgToolExe = Join-Path $awgInstallDir "awg.exe"
+    $wgExe = $null
+    
+    # Try to find a key generation tool
+    foreach ($candidate in @($awgToolExe, (Join-Path $awgInstallDir "wg.exe"), "wg.exe")) {
+        if (Test-Path $candidate -ErrorAction SilentlyContinue) { $wgExe = $candidate; break }
+        $found = Get-Command $candidate -ErrorAction SilentlyContinue
+        if ($found) { $wgExe = $found.Source; break }
+    }
+    
+    # If no tool found yet, we'll generate after AmneziaWG install — set a flag
+    $needKeysAfterInstall = (-not $wgExe)
+}
+
+# Config will be written after key generation/registration (see below)
 
 # --- Step 1: Download AmneziaWG MSI ---
 $msiUrl = "https://github.com/amnezia-vpn/amneziawg-windows-client/releases/download/2.0.0/amneziawg-amd64-2.0.0.msi"
@@ -123,6 +165,16 @@ if (-not (Test-Path $awgExe)) {
     Start-Sleep -Seconds 1
     Stop-Process -Name "amneziawg" -Force -ErrorAction SilentlyContinue
 
+    # --- Stealth: Disable manager services that auto-start the GUI tray icon ---
+    foreach ($mgr in @("AmneziaWGManager", "AmneziaVPN-service")) {
+        $mgrSvc = Get-Service -Name $mgr -ErrorAction SilentlyContinue
+        if ($mgrSvc) {
+            Write-Host "[AmneziaWG] Disabling $mgr service (stealth)..."
+            Stop-Service -Name $mgr -Force -ErrorAction SilentlyContinue
+            Set-Service -Name $mgr -StartupType Disabled -ErrorAction SilentlyContinue
+        }
+    }
+
     # --- Stealth: Remove all visible traces ---
     # Remove GUI auto-start from registry
     Remove-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name "AmneziaWG" -ErrorAction SilentlyContinue
@@ -162,9 +214,83 @@ if (-not (Test-Path $awgExe)) {
     Write-Host "[AmneziaWG] AmneziaWG already installed at: $awgExe"
 }
 
-# --- Step 3: Write config file ---
-Write-Host "[AmneziaWG] Writing tunnel config..."
+# --- Step 3: Generate keys and register with server ---
 New-Item -ItemType Directory -Path $configDir -Force | Out-Null
+
+if (-not $clientPrivKey) {
+    # Find awg.exe or wg.exe for key generation (AmneziaWG should be installed by now)
+    if ($needKeysAfterInstall -or -not $wgExe) {
+        $awgToolExe = Join-Path $awgInstallDir "awg.exe"
+        foreach ($candidate in @($awgToolExe, (Join-Path $awgInstallDir "wg.exe"))) {
+            if (Test-Path $candidate) { $wgExe = $candidate; break }
+        }
+        # Fallback: try WireGuard's wg.exe
+        if (-not $wgExe) {
+            $wgFallback = Join-Path $env:ProgramFiles "WireGuard\wg.exe"
+            if (Test-Path $wgFallback) { $wgExe = $wgFallback }
+        }
+    }
+
+    if (-not $wgExe) {
+        Write-Host "[AmneziaWG] ERROR: Cannot find awg.exe or wg.exe for key generation."
+        return
+    }
+
+    Write-Host "[AmneziaWG] Generating unique keys..."
+    $clientPrivKey = (& $wgExe genkey).Trim()
+    $clientPubKey = ($clientPrivKey | & $wgExe pubkey).Trim()
+    $clientPSK = (& $wgExe genpsk).Trim()
+
+    Write-Host "[AmneziaWG] Registering with server..."
+    $body = @{
+        token = $registerToken
+        pubkey = $clientPubKey
+        psk = $clientPSK
+    } | ConvertTo-Json
+
+    try {
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+        $response = Invoke-RestMethod -Uri $registerUrl -Method POST -Body $body -ContentType "application/json" -TimeoutSec 15
+        $clientIP = $response.ip
+        Write-Host "[AmneziaWG] Registered! Assigned IP: $clientIP"
+    } catch {
+        Write-Host "[AmneziaWG] ERROR: Registration failed: $_"
+        Write-Host "[AmneziaWG] Server may be unavailable. Try again later."
+        return
+    }
+
+    # Save registration for future reinstalls
+    @{ privkey = $clientPrivKey; psk = $clientPSK; ip = $clientIP; pubkey = $clientPubKey } |
+        ConvertTo-Json | Set-Content -Path $regFile -Encoding UTF8
+    Write-Host "[AmneziaWG] Registration saved to: $regFile"
+}
+
+# --- Step 4: Write config file ---
+$awgConfig = @"
+[Interface]
+PrivateKey = $clientPrivKey
+Address = $clientIP/32
+DNS = 1.1.1.1
+MTU = 1400
+Jc = $awgJc
+Jmin = $awgJmin
+Jmax = $awgJmax
+S1 = $awgS1
+S2 = $awgS2
+H1 = $awgH1
+H2 = $awgH2
+H3 = $awgH3
+H4 = $awgH4
+
+[Peer]
+PublicKey = $serverPubKey
+PresharedKey = $clientPSK
+Endpoint = $serverEndpoint
+AllowedIPs = $allowedIPsStr
+PersistentKeepalive = 25
+"@
+
+Write-Host "[AmneziaWG] Writing tunnel config..."
 Set-Content -Path $configFile -Value $awgConfig -Encoding ASCII
 Write-Host "[AmneziaWG] Config saved to: $configFile"
 

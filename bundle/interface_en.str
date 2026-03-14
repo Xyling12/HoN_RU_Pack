@@ -113,7 +113,7 @@ general_time								Время
 general_login								Войти
 general_show								Показать
 general_hide								Скрыть
-general_opacity								Непрозрачность
+general_opacity								Прозрачность
 general_error_login							Ошибка входа
 general_error_sea_deny						Пользователи SEA должны подключаться через клиент Garena.
 general_error_sea_message1					Скоро начнётся бета-тестирование Heroes of Newerth для игроков из Сингапура, Малайзии, Вьетнама и Филиппин. В начале закрытой беты геймеры из этих стран смогут сразу активировать бета-ключ, если они являются золотыми участниками Garena. Остальные ключи будут раздаваться в рамках других активностей сообщества. Обратите внимание: страны, не перечисленные здесь (например, Индонезия, Таиланд), не смогут играть на серверах Garena — им потребуется приобрести платный аккаунт, чтобы играть на международных серверах Frostburn Studios.
@@ -5445,23 +5445,23 @@ mm_auto_region 					АВТО
 mm_auto_region_loading			Поиск серверов с наименьшим временем ответа по цингу {replied} / {total}
 
 // Region Codes
-mm_region_code_unitedstateseast		ИСПОЛЬЗОВАНИЕ
-mm_region_code_unitedstateswest		УШВ
-mm_region_code_europe				Евросоюз
-mm_region_code_australia			АС
-mm_region_code_southamerica			БР
-mm_region_code_russia				РУ
-mm_region_code_southeastasia		МОРЕ
-mm_region_code_singapore			СГ
-mm_region_code_thailand				ТД
-mm_region_code_malaysia				МОЙ
+mm_region_code_unitedstateseast		USE
+mm_region_code_unitedstateswest		USW
+mm_region_code_europe				EU
+mm_region_code_australia			AU
+mm_region_code_southamerica			BR
+mm_region_code_russia				RU
+mm_region_code_southeastasia		SEA
+mm_region_code_singapore			SG
+mm_region_code_thailand				TH
+mm_region_code_malaysia				MY
 mm_region_code_philippines			PH
-mm_region_code_indonesia			идентификатор
-mm_region_code_vietnam				ВН
+mm_region_code_indonesia			ID
+mm_region_code_vietnam				VN
 mm_region_code_china				CN
-mm_region_code_korea				КР
-mm_region_code_turkey				ТР
-mm_region_code_latinamerica			Лат.
+mm_region_code_korea				KR
+mm_region_code_turkey				TR
+mm_region_code_latinamerica			LAT
 
 mm_isleaver_onopen				Невозможно присоединиться к подбору игроков
 mm_isleaver_onopen_body			В настоящее время вам не разрешено присоединяться к подбору игроков из-за вашего статуса выхода из игры.  Учитывая, что на данный момент вы сыграли ^960{gamesplayed}^* и процент выбывших ^922{leaverpercent}^*, вам нужно будет сыграть ^g{matchestoclear}^* больше матчей, не выходя, прежде чем вы сможете играть матчи с помощью системы подбора игроков.
@@ -7738,7 +7738,7 @@ custom_ui_button_OpheliaQuest1_title			^oНаграда Офелии: RavenBane^
 custom_ui_button_OpheliaQuest1_body				^oRaven^* убивает противника ^oRavens^* при приземлении в радиусе 1300. Уменьшите время восстановления ^oRaven^* на 30 за каждого убитого врага ^oRaven^*.
 custom_ui_button_OpheliaQuest2_title			^oНаграда Офелии: RavenSeer^*
 custom_ui_button_OpheliaQuest2_body				^oRaven^* получает +400 к дальности применения. Создайте вокруг своего героя ауру, раскрывающую ^oВоронов^* в радиусе 1000.
-custom_ui_button_OpheliaQuest3_title			^oНаграда Офелии: Единство Наблюдателя^*
+custom_ui_button_OpheliaQuest3_title			^oНаграда Офелии: Ward Unity^*
 custom_ui_button_OpheliaQuest3_body				^oRaven^* получает +300 к дальности обзора, +30 секунд к продолжительности и дает ясное зрение на 10 секунд после приземления.
 
 //Status effect type popups
@@ -7821,9 +7821,9 @@ shop_quickbuy_tip								Купить следующий товар
 shop_requireditems								НЕОБХОДИМЫЕ ПРЕДМЕТЫ
 shop_buildsinto									ВСТРАИВАЕТСЯ В
 shop_add_qb										ДОБАВИТЬ ЭЛЕМЕНТЫ
-shop_add_qb_method								SHIFT + ЛКМ
+shop_add_qb_method								SHIFT + LMB
 shop_remove_qb									УДАЛИТЬ ЭЛЕМЕНТЫ
-shop_remove_qb_method							Shift + ПКМ
+shop_remove_qb_method							Shift + RMB
 shop_select_an_item								Выберите элемент, чтобы просмотреть его компоненты и сборки.
 
 shop_basicitems									ОСНОВНЫЕ ПРЕДМЕТЫ

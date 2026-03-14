@@ -316,6 +316,8 @@ Describe "Bypass scripts" {
         $content | Should Match 'RouteHoN'
         $content | Should Match 'RouteYouTube'
         $content | Should Match 'RouteDiscord'
+        $content | Should Match 'RouteTelegram'
+        $content | Should Match 'RouteOpenAI'
     }
 
     It "uninstall_hon_ru_pack.ps1 references amneziawg" {
