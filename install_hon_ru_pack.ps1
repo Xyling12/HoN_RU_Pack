@@ -114,6 +114,17 @@ $strTargets = @(
     (Join-Path $InstallRoot "game\stringtables")
 )
 
+# Also scan all drives for Juvio installations (e.g. E:\Games\Juvio)
+foreach ($drive in (Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue)) {
+    foreach ($subPath in @("Juvio\heroes of newerth", "Games\Juvio\heroes of newerth", "Games\Games\Juvio\heroes of newerth")) {
+        $tryPath = Join-Path $drive.Root $subPath
+        if ((Test-Path $tryPath) -and ($tryPath -ne $InstallRoot)) {
+            $strTargets += (Join-Path $tryPath "stringtables")
+            $strTargets += (Join-Path $tryPath "game\stringtables")
+        }
+    }
+}
+
 $localeVariants = @(".str", "_en.str", "_ru.str", "_th.str")
 $strBases = @("entities", "interface", "client_messages", "game_messages", "bot_messages")
 

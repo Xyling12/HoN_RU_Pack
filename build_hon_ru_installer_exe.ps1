@@ -66,7 +66,9 @@ $programTemplate = [System.IO.File]::ReadAllText($templatePath, [System.Text.Enc
 
 # Inject version
 $version = (Get-Content (Join-Path $PackageRoot "version.txt") -Raw).Trim()
-$versionFull = "$version.0.0"
+$versionParts = $version.Split('.')
+while ($versionParts.Length -lt 4) { $versionParts += "0" }
+$versionFull = ($versionParts[0..3]) -join "."
 $programBase = $programTemplate.Replace("__VERSION__", $version).Replace("__VERSION_FULL__", $versionFull)
 
 # Find csc.exe from .NET Framework
