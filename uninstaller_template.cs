@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -105,7 +105,7 @@ internal class UninstallerForm : Form
 
     public UninstallerForm()
     {
-        Text = "HoN RU Pack Uninstaller";
+        Text = "Удаление HoN RU Pack";
         Size = new Size(640, 500);
         StartPosition = FormStartPosition.CenterScreen;
         FormBorderStyle = FormBorderStyle.None;
@@ -117,7 +117,7 @@ internal class UninstallerForm : Form
         pnlHeader = new Panel { Dock = DockStyle.Top, Height = 52, BackColor = BG_HEADER };
         pnlHeader.MouseDown += (s, e) => { ReleaseCapture(); SendMessage(Handle, 0xA1, 0x2, 0); };
 
-        lblTitle = new Label { Text = "\u274c  HoN RU Pack Uninstaller", Font = new Font("Segoe UI", 13f, FontStyle.Bold), ForeColor = ACCENT, AutoSize = true, Location = new Point(18, 14), BackColor = Color.Transparent };
+        lblTitle = new Label { Text = "\u274c  \u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 HoN RU Pack", Font = new Font("Segoe UI", 13f, FontStyle.Bold), ForeColor = ACCENT, AutoSize = true, Location = new Point(18, 14), BackColor = Color.Transparent };
         lblTitle.MouseDown += (s, e) => { ReleaseCapture(); SendMessage(Handle, 0xA1, 0x2, 0); };
 
         btnClose = new Button { Text = "\u2715", Size = new Size(46, 52), Location = new Point(594, 0), FlatStyle = FlatStyle.Flat, BackColor = Color.Transparent, ForeColor = TEXT_SECONDARY, Font = new Font("Segoe UI", 11f), Cursor = Cursors.Hand };
@@ -211,7 +211,7 @@ internal class UninstallerForm : Form
         else what = "\u041e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438 (AmneziaWG)";
 
         var result = MessageBox.Show(
-            "\u0423\u0434\u0430\u043b\u0438\u0442\u044c: " + what + "?\n\n\u041e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u044d\u0442\u043e \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u0431\u0443\u0434\u0435\u0442 \u043d\u0435\u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e.",
+            "\u0423\u0434\u0430\u043b\u0438\u0442\u044c: " + what + "?\n\n\u041f\u043e\u0441\u043b\u0435 \u0443\u0434\u0430\u043b\u0435\u043d\u0438\u044f \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u044d\u0442\u043e \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u0431\u0443\u0434\u0435\u0442 \u043d\u0435\u043b\u044c\u0437\u044f.",
             "\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0438\u0435",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Warning
@@ -238,17 +238,17 @@ internal class UninstallerForm : Form
         {
             Directory.CreateDirectory(tempRoot);
             ExtractPayload(tempRoot);
-            Log("Payload extracted.");
+            Log("Пакет распакован.");
 
             if (removeBypass)
             {
                 string bypassScript = Path.Combine(tempRoot, "remove_amneziawg.ps1");
                 if (File.Exists(bypassScript))
                 {
-                    Log("\n--- Removing AmneziaWG ---");
+                    Log("\n--- Удаляю AmneziaWG ---");
                     RunPS(bypassScript, "");
                 }
-                else { Log("[Bypass] remove_amneziawg.ps1 not found, skipping."); }
+                else { Log("[Bypass] remove_amneziawg.ps1 не найден, пропускаю."); }
             }
 
             if (removeRu)
@@ -256,11 +256,11 @@ internal class UninstallerForm : Form
                 string uninstScript = Path.Combine(tempRoot, "uninstall_hon_ru_pack.ps1");
                 if (File.Exists(uninstScript))
                 {
-                    Log("\n--- Removing RU Pack ---");
+                    Log("\n--- Удаляю HoN RU Pack ---");
                     string args = removeBypass ? "" : " -KeepFiles";
                     RunPS(uninstScript, args);
                 }
-                else { Log("ERROR: uninstall script not found!"); exitCode = 1; }
+                else { Log("Ошибка: сценарий удаления не найден."); exitCode = 1; }
             }
 
             Invoke(new Action(() => {
@@ -278,12 +278,12 @@ internal class UninstallerForm : Form
                 {
                     btnUninstall.Text = "\u041e\u0448\u0438\u0431\u043a\u0430 \u2717";
                     btnUninstall.NormalColor = Color.FromArgb(180, 50, 50);
-                    Log("\n\u041e\u0448\u0438\u0431\u043a\u0430 (exit code " + exitCode + ")");
+                    Log("\n\u041e\u0448\u0438\u0431\u043a\u0430 (код \u0432\u044b\u0445\u043e\u0434\u0430 " + exitCode + ")");
                     btnUninstall.Click += (s2, e2) => Close();
                 }
             }));
         }
-        catch (Exception ex) { Log("ERROR: " + ex.Message); Invoke(new Action(() => { btnUninstall.Text = "\u041e\u0448\u0438\u0431\u043a\u0430"; })); }
+        catch (Exception ex) { Log("Ошибка: " + ex.Message); Invoke(new Action(() => { btnUninstall.Text = "\u041e\u0448\u0438\u0431\u043a\u0430"; })); }
         finally { try { if (Directory.Exists(tempRoot)) Directory.Delete(tempRoot, true); } catch { } }
     }
 

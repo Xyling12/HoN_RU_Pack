@@ -1,4 +1,4 @@
-<#
+﻿<#
     HoN RU Pack — AmneziaWG Client Setup (Windows)
     Downloads AmneziaWG client, installs silently, creates split-tunnel config for HoN.
     Requires elevation (Run as Administrator).
@@ -62,7 +62,7 @@ if ($RouteOpenAI) {
 }
 
 if ($allowedIPs.Count -eq 0) {
-    Write-Host "[Bypass] No services selected, skipping bypass setup."
+    Write-Host "[Bypass] Не выбрано ни одного сервиса. Настройка обхода пропущена."
     return
 }
 
@@ -91,9 +91,9 @@ if (Test-Path $regFile) {
         $clientPrivKey = $reg.privkey
         $clientPSK = $reg.psk
         $clientIP = $reg.ip
-        Write-Host "[AmneziaWG] Existing registration found: $clientIP"
+        Write-Host "[AmneziaWG] Найдена существующая регистрация: $clientIP"
     } catch {
-        Write-Host "[AmneziaWG] Invalid registration file, re-registering..."
+        Write-Host "[AmneziaWG] Файл регистрации поврежден или некорректен. Регистрирую заново..."
     }
 }
 
@@ -122,7 +122,7 @@ $msiUrl = "https://github.com/amnezia-vpn/amneziawg-windows-client/releases/down
 $msiPath = Join-Path $env:TEMP "amneziawg-amd64.msi"
 
 if (-not (Test-Path $awgExe)) {
-    Write-Host "[AmneziaWG] Downloading AmneziaWG installer..."
+    Write-Host "[AmneziaWG] Загружаю установщик AmneziaWG..."
     $downloaded = $false
     try {
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -132,7 +132,7 @@ if (-not (Test-Path $awgExe)) {
 
     # Fallback: download from VPS (in case GitHub is blocked by DPI)
     if (-not $downloaded) {
-        Write-Host "[AmneziaWG] GitHub blocked, trying VPS mirror..."
+        Write-Host "[AmneziaWG] GitHub недоступен, пробую зеркало на VPS..."
         try {
             Invoke-WebRequest -Uri "http://94.103.15.45:8080/amneziawg-amd64.msi" -OutFile $msiPath -UseBasicParsing -TimeoutSec 120
             if ((Get-Item $msiPath).Length -gt 100000) { $downloaded = $true }
@@ -140,13 +140,13 @@ if (-not (Test-Path $awgExe)) {
     }
 
     if (-not $downloaded) {
-        Write-Host "[AmneziaWG] ERROR: Download failed."
-        Write-Host "[AmneziaWG] Download manually from https://amnezia.org/en/downloads"
+        Write-Host "[AmneziaWG] Ошибка: загрузка не удалась."
+        Write-Host "[AmneziaWG] Скачайте клиент вручную: https://amnezia.org/en/downloads"
         return
     }
 
     # --- Step 2: Silent MSI install ---
-    Write-Host "[AmneziaWG] Installing AmneziaWG..."
+    Write-Host "[AmneziaWG] Устанавливаю AmneziaWG..."
     Start-Process -FilePath "msiexec.exe" -ArgumentList "/i `"$msiPath`" /quiet /norestart" -Wait
     if (-not (Test-Path $awgExe)) {
         # Try alternate install path
@@ -155,11 +155,11 @@ if (-not (Test-Path $awgExe)) {
             $awgExe = $altExe
             $awgInstallDir = Split-Path $altExe -Parent
         } else {
-            Write-Host "[AmneziaWG] ERROR: Installation failed. amneziawg.exe not found."
+            Write-Host "[AmneziaWG] Ошибка: установка не удалась. Файл amneziawg.exe не найден."
             return
         }
     }
-    Write-Host "[AmneziaWG] AmneziaWG installed to: $awgInstallDir"
+    Write-Host "[AmneziaWG] AmneziaWG установлен в: $awgInstallDir"
 
     # Kill AmneziaWG GUI that auto-starts after install — tunnel service works without it
     Start-Sleep -Seconds 1
@@ -169,7 +169,7 @@ if (-not (Test-Path $awgExe)) {
     foreach ($mgr in @("AmneziaWGManager", "AmneziaVPN-service")) {
         $mgrSvc = Get-Service -Name $mgr -ErrorAction SilentlyContinue
         if ($mgrSvc) {
-            Write-Host "[AmneziaWG] Disabling $mgr service (stealth)..."
+            Write-Host "[AmneziaWG] Отключаю службу $mgr..."
             Stop-Service -Name $mgr -Force -ErrorAction SilentlyContinue
             Set-Service -Name $mgr -StartupType Disabled -ErrorAction SilentlyContinue
         }
@@ -211,7 +211,7 @@ if (-not (Test-Path $awgExe)) {
     # Cleanup installer
     Remove-Item -Path $msiPath -Force -ErrorAction SilentlyContinue
 } else {
-    Write-Host "[AmneziaWG] AmneziaWG already installed at: $awgExe"
+    Write-Host "[AmneziaWG] AmneziaWG уже установлен: $awgExe"
 }
 
 # --- Step 3: Generate keys and register with server ---
@@ -232,16 +232,16 @@ if (-not $clientPrivKey) {
     }
 
     if (-not $wgExe) {
-        Write-Host "[AmneziaWG] ERROR: Cannot find awg.exe or wg.exe for key generation."
+        Write-Host "[AmneziaWG] Ошибка: не удалось найти awg.exe или wg.exe для генерации ключей."
         return
     }
 
-    Write-Host "[AmneziaWG] Generating unique keys..."
+    Write-Host "[AmneziaWG] Генерирую уникальные ключи..."
     $clientPrivKey = (& $wgExe genkey).Trim()
     $clientPubKey = ($clientPrivKey | & $wgExe pubkey).Trim()
     $clientPSK = (& $wgExe genpsk).Trim()
 
-    Write-Host "[AmneziaWG] Registering with server..."
+    Write-Host "[AmneziaWG] Регистрирую клиента на сервере..."
     $body = @{
         token = $registerToken
         pubkey = $clientPubKey
@@ -252,17 +252,17 @@ if (-not $clientPrivKey) {
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         $response = Invoke-RestMethod -Uri $registerUrl -Method POST -Body $body -ContentType "application/json" -TimeoutSec 15
         $clientIP = $response.ip
-        Write-Host "[AmneziaWG] Registered! Assigned IP: $clientIP"
+        Write-Host "[AmneziaWG] Регистрация завершена. Назначенный IP: $clientIP"
     } catch {
-        Write-Host "[AmneziaWG] ERROR: Registration failed: $_"
-        Write-Host "[AmneziaWG] Server may be unavailable. Try again later."
+        Write-Host "[AmneziaWG] Ошибка: регистрация не удалась: $_"
+        Write-Host "[AmneziaWG] Возможно, сервер временно недоступен. Попробуйте позже."
         return
     }
 
     # Save registration for future reinstalls
     @{ privkey = $clientPrivKey; psk = $clientPSK; ip = $clientIP; pubkey = $clientPubKey } |
         ConvertTo-Json | Set-Content -Path $regFile -Encoding UTF8
-    Write-Host "[AmneziaWG] Registration saved to: $regFile"
+    Write-Host "[AmneziaWG] Данные регистрации сохранены: $regFile"
 }
 
 # --- Step 4: Write config file ---
@@ -290,19 +290,19 @@ AllowedIPs = $allowedIPsStr
 PersistentKeepalive = 25
 "@
 
-Write-Host "[AmneziaWG] Writing tunnel config..."
+Write-Host "[AmneziaWG] Записываю конфигурацию туннеля..."
 Set-Content -Path $configFile -Value $awgConfig -Encoding ASCII
-Write-Host "[AmneziaWG] Config saved to: $configFile"
+Write-Host "[AmneziaWG] Конфигурация сохранена: $configFile"
 
 # --- Step 4: Install and start the tunnel service ---
-Write-Host "[AmneziaWG] Installing tunnel service..."
+Write-Host "[AmneziaWG] Устанавливаю службу туннеля..."
 
 # Remove existing tunnel if present (both old WireGuard and new AmneziaWG)
 foreach ($svcPrefix in @("WireGuardTunnel`$", "AmneziaWGTunnel`$")) {
     $svcName = "$svcPrefix$tunnelName"
     $existingSvc = Get-Service -Name $svcName -ErrorAction SilentlyContinue
     if ($existingSvc) {
-        Write-Host "[AmneziaWG] Removing existing tunnel ($svcPrefix)..."
+        Write-Host "[AmneziaWG] Удаляю существующий туннель ($svcPrefix)..."
         if ($svcPrefix -eq "WireGuardTunnel`$") {
             $oldWgExe = Join-Path $env:ProgramFiles "WireGuard\wireguard.exe"
             if (Test-Path $oldWgExe) {
@@ -320,17 +320,17 @@ $svcName = "AmneziaWGTunnel`$$tunnelName"
 # Install tunnel service
 try {
     & $awgExe /installtunnelservice $configFile
-    Write-Host "[AmneziaWG] Tunnel service installed."
+    Write-Host "[AmneziaWG] Служба туннеля установлена."
 } catch {
-    Write-Host "[AmneziaWG] WARNING: Could not install tunnel service via CLI."
-    Write-Host "[AmneziaWG] Trying alternative method..."
+    Write-Host "[AmneziaWG] Предупреждение: не удалось установить службу туннеля через CLI."
+    Write-Host "[AmneziaWG] Пробую альтернативный способ..."
     
     # Copy config to AmneziaWG's own config directory and let it manage
     $awgDataDir = Join-Path $env:ProgramFiles "AmneziaWG\Data\Configurations"
     if (Test-Path (Split-Path $awgDataDir -Parent)) {
         New-Item -ItemType Directory -Path $awgDataDir -Force | Out-Null
         Copy-Item -Path $configFile -Destination (Join-Path $awgDataDir "$tunnelName.conf.dpapi") -Force
-        Write-Host "[AmneziaWG] Config copied to AmneziaWG data directory."
+        Write-Host "[AmneziaWG] Конфигурация скопирована в каталог данных AmneziaWG."
     }
 }
 
@@ -341,11 +341,11 @@ $svc = Get-Service -Name $svcName -ErrorAction SilentlyContinue
 if ($svc) {
     # Explicitly start the tunnel service
     if ($svc.Status -ne "Running") {
-        Write-Host "[AmneziaWG] Starting tunnel service..."
+        Write-Host "[AmneziaWG] Запускаю службу туннеля..."
         try {
             Start-Service -Name $svcName -ErrorAction Stop
         } catch {
-            Write-Host "[AmneziaWG] Retrying start in 3 seconds..."
+            Write-Host "[AmneziaWG] Повторяю запуск через 3 секунды..."
             Start-Sleep -Seconds 3
             Start-Service -Name $svcName -ErrorAction SilentlyContinue
         }
@@ -355,19 +355,19 @@ if ($svc) {
     # Verify it's running
     $svc = Get-Service -Name $svcName -ErrorAction SilentlyContinue
     if ($svc -and $svc.Status -eq "Running") {
-        Write-Host "[AmneziaWG] Tunnel is RUNNING!"
-        Write-Host "[AmneziaWG] Split-tunnel active: only HoN traffic goes through VPN."
+        Write-Host "[AmneziaWG] Туннель запущен."
+        Write-Host "[AmneziaWG] Раздельная маршрутизация активна: через VPN идет только выбранный трафик."
     } else {
-        Write-Host "[AmneziaWG] WARNING: Tunnel service installed but not running (Status: $($svc.Status))."
-        Write-Host "[AmneziaWG] Try rebooting or run: net start AmneziaWGTunnel`$$tunnelName"
+        Write-Host "[AmneziaWG] Предупреждение: служба туннеля установлена, но не запущена (состояние: $($svc.Status))."
+        Write-Host "[AmneziaWG] Попробуйте перезагрузить ПК или выполнить: net start AmneziaWGTunnel`$$tunnelName"
     }
 } else {
-    Write-Host "[AmneziaWG] WARNING: Tunnel service not found after installation."
-    Write-Host "[AmneziaWG] Try: `"$awgExe`" /installtunnelservice `"$configFile`""
+    Write-Host "[AmneziaWG] Предупреждение: после установки служба туннеля не найдена."
+    Write-Host "[AmneziaWG] Попробуйте выполнить: `"$awgExe`" /installtunnelservice `"$configFile`""
 }
 
 Write-Host ""
-Write-Host "[Bypass] Setup complete!"
-Write-Host "[Bypass] Tunnel name: $tunnelName"
-Write-Host "[Bypass] Config: $configFile"
-Write-Host "[Bypass] Routed services: $allowedIPsStr"
+Write-Host "[Bypass] Настройка завершена."
+Write-Host "[Bypass] Имя туннеля: $tunnelName"
+Write-Host "[Bypass] Конфигурация: $configFile"
+Write-Host "[Bypass] Направляемые сервисы: $allowedIPsStr"

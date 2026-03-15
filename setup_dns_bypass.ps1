@@ -1,4 +1,4 @@
-<#
+﻿<#
     HoN RU Pack — DNS Bypass Setup
     Sets DNS servers to Cloudflare + Google to bypass RKN blocks.
     Backs up current DNS settings before making changes.
@@ -12,10 +12,10 @@ $ErrorActionPreference = "Stop"
 
 $backupPath = Join-Path $DataRoot "dns_backup.json"
 
-# Get active network adapters with IP connectivity
+# Получаем активные сетевые адаптеры с IP-подключением
 $adapters = Get-NetAdapter | Where-Object { $_.Status -eq "Up" -and $_.InterfaceDescription -notmatch "Loopback" }
 if (-not $adapters) {
-    Write-Host "[DNS] No active network adapters found. Skipping DNS setup."
+    Write-Host "[DNS] Активные сетевые адаптеры не найдены. Настройка DNS пропущена."
     return
 }
 
@@ -25,7 +25,7 @@ foreach ($adapter in $adapters) {
     $ifIndex = $adapter.InterfaceIndex
     $ifName  = $adapter.Name
 
-    # Read current DNS servers for this adapter
+    # Читаем текущие DNS-серверы для этого адаптера
     $currentDns = Get-DnsClientServerAddress -InterfaceIndex $ifIndex -AddressFamily IPv4 -ErrorAction SilentlyContinue
     $currentServers = @()
     if ($currentDns -and $currentDns.ServerAddresses) {
@@ -38,28 +38,28 @@ foreach ($adapter in $adapters) {
         OriginalDNS    = $currentServers
     }
 
-    # Set DNS to Cloudflare (1.1.1.1) + Google (8.8.8.8)
+    # Устанавливаем DNS Cloudflare (1.1.1.1) и Google (8.8.8.8)
     try {
         Set-DnsClientServerAddress -InterfaceIndex $ifIndex -ServerAddresses @("1.1.1.1", "8.8.8.8")
-        Write-Host "[DNS] Adapter '$ifName': DNS set to 1.1.1.1, 8.8.8.8"
+        Write-Host "[DNS] Адаптер '$ifName': DNS установлен на 1.1.1.1, 8.8.8.8"
     }
     catch {
-        Write-Host "[DNS] WARNING: Failed to set DNS for adapter '$ifName': $_"
+        Write-Host "[DNS] Предупреждение: не удалось настроить DNS для адаптера '$ifName': $_"
     }
 }
 
-# Save backup
+# Сохраняем резервную копию
 New-Item -ItemType Directory -Path $DataRoot -Force | Out-Null
 $backupEntries | ConvertTo-Json -Depth 3 | Set-Content -Path $backupPath -Encoding UTF8
-Write-Host "[DNS] Backup saved to: $backupPath"
+Write-Host "[DNS] Резервная копия сохранена: $backupPath"
 
-# Flush DNS cache
+# Очищаем кэш DNS
 try {
     & ipconfig /flushdns | Out-Null
-    Write-Host "[DNS] DNS cache flushed."
+    Write-Host "[DNS] Кэш DNS очищен."
 }
 catch {
-    Write-Host "[DNS] WARNING: Failed to flush DNS cache."
+    Write-Host "[DNS] Предупреждение: не удалось очистить кэш DNS."
 }
 
-Write-Host "[DNS] DNS bypass setup completed."
+Write-Host "[DNS] Настройка DNS-обхода завершена."
