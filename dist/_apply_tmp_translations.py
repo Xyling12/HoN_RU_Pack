@@ -50,6 +50,13 @@ MANUAL_FIXES = {
     'general_matchmaking': 'Подбор игры',
     'ht_lobby_prompt_right': 'Подбор игры',
     
+    # HUD stat labels - shortened to fit fixed-width boxes (max ~10-12 chars)
+    'hselect_label_hd_move_speed': 'Скор.движ.',   # was "Скорость передвижения" (20ch > 10 max)
+    'hselect_label_hd_attack_speed': 'Скор.атак.',  # fits in 12
+    'hselect_label_hd_attack_range': 'Дальн.атак.', # was "Дальность атаки" (15ch > 12 max)
+    'tpp_movespeed': 'Скор.движ.',                   # same key, different UI element
+    'tpp_attackspeed': 'Скор.атак.',                 # was "Скор.атаки" (14ch > 12 max)
+    
     # Matchmaking Regions (Reverted to English/Abbreviations)
     'mm_region_code_unitedstateseast': 'USE',
     'mm_region_code_unitedstateswest': 'USW',

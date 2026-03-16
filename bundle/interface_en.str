@@ -3602,9 +3602,9 @@ game_hero_select_random_tip					Выбрав случайного героя, в
 hselect_header_hero_details					Подробности о герое
 hselect_label_hd_damage						Урон
 hselect_label_hd_armor						Броня
-hselect_label_hd_move_speed					Скорость перемещения
+hselect_label_hd_move_speed	Скор.движ.
 hselect_label_hd_attack_type				Тип атаки
-hselect_label_hd_attack_range				Дальность атаки
+hselect_label_hd_attack_range	Дальн.атак.
 hselect_label_hd_attack_rate				Скорость атаки
 hselect_label_hd_abilities					Способности
 game_hero_select_mana_cost					Стоимость маны: {value}
@@ -6447,9 +6447,9 @@ tpp_neutrals				Нейтралы
 tpp_kongor					Конгор
 tpp_hero_stats				Статистика героев (переключить)
 tpp_max_hpmp				Макс. HP/MP
-tpp_attackspeed				Скорость атаки
+tpp_attackspeed	Скор.атак.
 tpp_hpmp_regen				Регенерация HP/MP
-tpp_movespeed				Скорость перемещения
+tpp_movespeed	Скор.движ.
 tpp_game_speed				Скорость игры
 tpp_instant_pause			Мгновенная пауза (переключение)
 tpp_disc					Отключить
@@ -8202,3 +8202,4 @@ plinko_resets_in	Обновление через {time}
 plinko_jackpot_name	Джекпот
 plinko_jackpot_desc	Главный приз
 mm_region_code_cis	CIS
+hselect_label_hd_attack_speed		Скор.атак.
