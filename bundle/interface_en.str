@@ -288,7 +288,7 @@ general_hero_list							Герои
 general_itemlist							Предметы
 
 general_game_list							Хостинговые игры
-general_matchmaking							Сватовство
+general_matchmaking	Подбор игры
 general_spectate							Наблюдать
 
 //Currency
