@@ -199,30 +199,24 @@ function Prepare-HoNWebOverride {
     $archivePath = Join-Path $GameRoot "resources0.jz"
     if (-not (Test-Path $archivePath)) { return $false }
 
-    $tarCmd = Get-Command tar -ErrorAction SilentlyContinue
-    if (-not $tarCmd) { return $false }
-
-    $entries = @(
-        "html/auto-load.js",
-        "preact/dist/index.html",
-        "preact/dist/index.js",
-        "preact/dist/assets/index.css",
-        "preact-remote/index.html",
-        "preact-remote/src/main.tsx",
-        "preact-remote/src/app.tsx",
-        "preact-remote/src/compat/engine.ts",
-        "preact-remote/src/components/motd.tsx",
-        "preact-remote/src/components/motd.css",
-        "preact-remote/src/styles/global.css"
-    )
-
-    $extractRoot = Join-Path $env:TEMP "hon_ru_web_override_extract"
-    if (Test-Path $extractRoot) {
-        Remove-Item -Path $extractRoot -Recurse -Force -ErrorAction SilentlyContinue
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+    try {
+        $zip = [System.IO.Compression.ZipFile]::OpenRead($archivePath)
+        foreach ($entry in $zip.Entries) {
+            # Convert backslash to forward slash for standard matching
+            $entryName = $entry.FullName -replace '\\', '/'
+            if ($entries -contains $entryName) {
+                $destFile = Join-Path $extractRoot $entry.FullName
+                $destDir = Split-Path $destFile
+                if (-not (Test-Path $destDir)) { New-Item -ItemType Directory -Path $destDir -Force | Out-Null }
+                [System.IO.Compression.ZipFileExtensions]::ExtractToFile($entry, $destFile, $true)
+            }
+        }
+        $zip.Dispose()
+    } catch {
+        Write-Log "Failed to extract Web UI resources: $_" "WRN"
+        return $false
     }
-    New-Item -ItemType Directory -Path $extractRoot -Force | Out-Null
-
-    & $tarCmd.Source -xf $archivePath -C $extractRoot $entries 2>$null
 
     $srcIndexHtml = Join-Path $extractRoot "preact\dist\index.html"
     $srcIndexJs = Join-Path $extractRoot "preact\dist\index.js"
