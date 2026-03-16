@@ -230,7 +230,7 @@ function Prepare-HoNWebOverride {
         }
         $zip.Dispose()
     } catch {
-        Write-Host "[WRN] Failed to extract Web UI resources: $_"
+        Write-Host "[WRN] Failed to extract Web UI resources (ZStandard/method-93 not supported): $_"
         return $false
     }
 
