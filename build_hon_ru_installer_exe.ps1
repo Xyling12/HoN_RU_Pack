@@ -15,6 +15,7 @@ if (-not (Test-Path $PackageRoot)) {
 $requiredScripts = @(
     "install_hon_ru_pack.ps1",
     "hon_common.ps1",
+    "hon_auto_agent.ps1",
     "set_login_banner.ps1",
     "setup_dns_bypass.ps1",
     "restore_dns.ps1",
@@ -56,11 +57,6 @@ foreach ($name in $requiredBundle) {
     if (-not (Test-Path $src)) { throw "Missing required bundle file: $src" }
     Copy-Item -Path $src -Destination (Join-Path $stageBundle $name) -Force
 }
-
-# Include pre-built resources999.s2z in the payload root
-$s2zSrc = Join-Path $PackageRoot "resources999.s2z"
-if (-not (Test-Path $s2zSrc)) { throw "Missing resources999.s2z - build it first with 7z" }
-Copy-Item -Path $s2zSrc -Destination (Join-Path $stageRoot "resources999.s2z") -Force
 
 Compress-Archive -Path (Join-Path $stageRoot "*") -DestinationPath $payloadZip -Force
 
