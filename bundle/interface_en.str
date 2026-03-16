@@ -6660,7 +6660,7 @@ hontour_select_match				Выбранный матч
 hontour_hontour_available_desc		Вскоре вам предстоит сыграть в матче HoN Tour. Хотите присоединиться к лобби сейчас?
 
 ht_lobby_prompt_left				Матч HoN Tour
-ht_lobby_prompt_right				Сватовство
+ht_lobby_prompt_right	Подбор игры
 
 hontour_multiple_matches			Доступно несколько совпадений
 hontour_multiple_matches_tip		Поскольку в настоящее время вы имеете право участвовать более чем в одном матче, вам нужно выбрать, к какому из них вы хотите присоединиться.

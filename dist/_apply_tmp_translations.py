@@ -46,8 +46,9 @@ MANUAL_FIXES = {
     # Matchmaking badge - shorten "ВЫСОКИЙ СПРОС" to fit button
     'rolepick_highdemand_badge': 'ВЫС. СПРОС',
     
-    # Matchmaking tab label
+    # Matchmaking tab label (multiple keys used in different UI contexts)
     'general_matchmaking': 'Подбор игры',
+    'ht_lobby_prompt_right': 'Подбор игры',
     
     # Matchmaking Regions (Reverted to English/Abbreviations)
     'mm_region_code_unitedstateseast': 'USE',
