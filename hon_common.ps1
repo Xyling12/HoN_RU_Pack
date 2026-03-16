@@ -234,7 +234,7 @@ function Prepare-HoNWebOverride {
         }
         $zip.Dispose()
     } catch {
-        Write-Log "Failed to extract Web UI resources: $_" "WRN"
+        Write-Host "[WRN] Failed to extract Web UI resources: $_"
         return $false
     }
 
