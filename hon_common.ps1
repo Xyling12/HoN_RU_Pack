@@ -199,6 +199,26 @@ function Prepare-HoNWebOverride {
     $archivePath = Join-Path $GameRoot "resources0.jz"
     if (-not (Test-Path $archivePath)) { return $false }
 
+    $entries = @(
+        "html/auto-load.js",
+        "preact/dist/index.html",
+        "preact/dist/index.js",
+        "preact/dist/assets/index.css",
+        "preact-remote/index.html",
+        "preact-remote/src/main.tsx",
+        "preact-remote/src/app.tsx",
+        "preact-remote/src/compat/engine.ts",
+        "preact-remote/src/components/motd.tsx",
+        "preact-remote/src/components/motd.css",
+        "preact-remote/src/styles/global.css"
+    )
+
+    $extractRoot = Join-Path $env:TEMP "hon_ru_web_override_extract"
+    if (Test-Path $extractRoot) {
+        Remove-Item -Path $extractRoot -Recurse -Force -ErrorAction SilentlyContinue
+    }
+    New-Item -ItemType Directory -Path $extractRoot -Force | Out-Null
+
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     try {
         $zip = [System.IO.Compression.ZipFile]::OpenRead($archivePath)
