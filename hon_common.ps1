@@ -19,7 +19,9 @@ function Find-HoNLocalRoot {
         "E:\Juvio\heroes of newerth"
     )
     foreach ($candidate in $searchRoots) {
-        if (Test-Path (Join-Path $candidate "resources0.jz")) { return $candidate }
+        try {
+            if (Test-Path (Join-Path $candidate "resources0.jz") -ErrorAction Stop) { return $candidate }
+        } catch {}
     }
 
     # Drive scan with multiple sub-path patterns
@@ -71,9 +73,11 @@ function Find-AllHoNLocalRoots {
         (Join-Path $env:USERPROFILE  "AppData\LocalLow\Juvio\heroes of newerth")
     )
     foreach ($p in $extraRoots) {
-        if ((Test-Path (Join-Path $p "resources0.jz")) -and ($found -notcontains $p)) {
-            $found.Add($p)
-        }
+        try {
+            if ((Test-Path (Join-Path $p "resources0.jz") -ErrorAction Stop) -and ($found -notcontains $p)) {
+                $found.Add($p)
+            }
+        } catch {}
     }
 
     foreach ($drive in (Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue)) {
