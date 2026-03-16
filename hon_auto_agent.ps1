@@ -220,6 +220,69 @@ function Test-JuvioRunning {
     return [bool](Get-Process -Name "juvio" -ErrorAction SilentlyContinue | Select-Object -First 1)
 }
 
+# --- Version Check & MOTD Notification ---
+$lastVersionCheck = [DateTime]::MinValue
+$versionCheckIntervalHours = 12
+$localVersionFile = Join-Path $PackageRoot "version.txt"
+$cachedUpdateMsg = ""
+
+function Check-RemoteUpdate {
+    if (-not (Test-Path $localVersionFile)) { return }
+    $localVerStr = (Get-Content $localVersionFile -Raw).Trim()
+    
+    try {
+        $wr = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Xyling12/HoN_RU_Pack/master/version.txt" -UseBasicParsing -TimeoutSec 5 -ErrorAction Stop
+        $remoteVerStr = $wr.Content.Trim()
+        
+        $lv = [version]$localVerStr
+        $rv = [version]$remoteVerStr
+        
+        if ($rv -gt $lv) {
+            $msg = "^r[RU Pack] D0ступн0 o6нoвлeниe: v" + $remoteVerStr + " !^* Cкачайте новую версию на ^obooky.to/xyling^*"
+            if ($msg -ne $script:cachedUpdateMsg) {
+                $script:cachedUpdateMsg = $msg
+                Write-Log "Update available: $remoteVerStr (Local: $localVerStr)" "INF"
+                return $true
+            }
+        } else {
+            if ($script:cachedUpdateMsg -ne "") {
+                $script:cachedUpdateMsg = ""
+                return $true
+            }
+        }
+    } catch {
+        Write-Log "Check-RemoteUpdate failed: $_" "WRN"
+    }
+    return $false
+}
+
+function Apply-UpdateMOTD {
+    if ([string]::IsNullOrEmpty($script:cachedUpdateMsg)) { return }
+    
+    foreach ($target in $strTargets) {
+        $interfaceFile = Join-Path $target "interface_en.str"
+        if (Test-Path $interfaceFile) {
+            try {
+                $content = [System.IO.File]::ReadAllText($interfaceFile, [System.Text.Encoding]::UTF8)
+                
+                # We inject into the main menu news ticker or MOTD 
+                $motdLine = "mainlogin_motd_title`t`t$($script:cachedUpdateMsg)"
+                
+                if ($content -notmatch "mainlogin_motd_title") {
+                    $content += "`n$motdLine`n"
+                    [System.IO.File]::WriteAllText($interfaceFile, $content, [System.Text.Encoding]::UTF8)
+                } elseif ($content -notmatch "\[RU Pack\]") {
+                    # Replace existing MOTD
+                    $content = [Regex]::Replace($content, '(?m)^mainlogin_motd_title\s*.*?$', $motdLine)
+                    [System.IO.File]::WriteAllText($interfaceFile, $content, [System.Text.Encoding]::UTF8)
+                }
+            } catch {
+                Write-Log "Apply-UpdateMOTD error: $_" "WRN"
+            }
+        }
+    }
+}
+
 # ─── Bootstrap ────────────────────────────────────────────────────────────────
 $lastLocaleRefresh = [DateTime]::MinValue
 $lastWebOverride   = [DateTime]::MinValue
@@ -230,6 +293,10 @@ Write-Log "Bootstrap sync..." "INF"
 try { Sync-Strings -Force } catch { Write-Log "Bootstrap Sync-Strings error: $_" "WRN" }
 try { Sync-WebOverride -ForceCopy } catch { Write-Log "Bootstrap Sync-WebOverride error: $_" "WRN" }
 try { Sync-LocaleConfig } catch { Write-Log "Bootstrap Sync-LocaleConfig error: $_" "WRN" }
+
+if (Check-RemoteUpdate) { Apply-UpdateMOTD }
+$lastVersionCheck = Get-Date
+
 $lastLocaleRefresh = Get-Date
 Write-Log "Bootstrap done. FSW active. Entering main loop." "INF"
 
@@ -279,6 +346,17 @@ while ($true) {
             } else {
                 # Idle: cheap size-check every 3s keeps strings fresh
                 try { Sync-Strings } catch {}
+                
+                # Update Check (every 12 hours)
+                if (($now - $lastVersionCheck).TotalHours -ge $versionCheckIntervalHours) {
+                    Write-Log "Running periodic version check..." "INF"
+                    if (Check-RemoteUpdate) {
+                        try { Sync-Strings -Force } catch {}
+                        Apply-UpdateMOTD
+                    }
+                    $lastVersionCheck = $now
+                }
+                
                 if (($now - $lastLocaleRefresh).TotalSeconds -ge $LocaleRefreshSeconds) {
                     try { Sync-LocaleConfig } catch {}
                     $lastLocaleRefresh = $now
