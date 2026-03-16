@@ -263,18 +263,25 @@ function Apply-UpdateMOTD {
         $interfaceFile = Join-Path $target "interface_en.str"
         if (Test-Path $interfaceFile) {
             try {
-                $content = [System.IO.File]::ReadAllText($interfaceFile, [System.Text.Encoding]::UTF8)
+                $bytes = [System.IO.File]::ReadAllBytes($interfaceFile)
+                $content = [System.Text.Encoding]::UTF8.GetString($bytes)
                 
-                # We inject into the main menu news ticker or MOTD 
+                # Check if it already has the exact message
+                if ($content -match "\[RU Pack\].*?$($script:cachedUpdateMsg)") { continue }
+                
                 $motdLine = "mainlogin_motd_title`t`t$($script:cachedUpdateMsg)"
                 
                 if ($content -notmatch "mainlogin_motd_title") {
-                    $content += "`n$motdLine`n"
-                    [System.IO.File]::WriteAllText($interfaceFile, $content, [System.Text.Encoding]::UTF8)
-                } elseif ($content -notmatch "\[RU Pack\]") {
-                    # Replace existing MOTD
-                    $content = [Regex]::Replace($content, '(?m)^mainlogin_motd_title\s*.*?$', $motdLine)
-                    [System.IO.File]::WriteAllText($interfaceFile, $content, [System.Text.Encoding]::UTF8)
+                    $motdBytes = [System.Text.Encoding]::UTF8.GetBytes("`n$motdLine`n")
+                    $newBytes = [byte[]]::new($bytes.Length + $motdBytes.Length)
+                    [System.Array]::Copy($bytes, 0, $newBytes, 0, $bytes.Length)
+                    [System.Array]::Copy($motdBytes, 0, $newBytes, $bytes.Length, $motdBytes.Length)
+                    [System.IO.File]::WriteAllBytes($interfaceFile, $newBytes)
+                } else {
+                    $newContent = [Regex]::Replace($content, '(?m)^mainlogin_motd_title\s*.*?$', $motdLine)
+                    # Hack: since we don't have GetBytes that removes BOM reliably, we just write it without BOM
+                    $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+                    [System.IO.File]::WriteAllText($interfaceFile, $newContent, $utf8NoBom)
                 }
             } catch {
                 Write-Log "Apply-UpdateMOTD error: $_" "WRN"
