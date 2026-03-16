@@ -43,6 +43,9 @@ MANUAL_FIXES = {
     'roles_offlane': 'Offlane',
     'roles_solo': 'Solo-Offlane',
     
+    # Matchmaking badge - shorten "ВЫСОКИЙ СПРОС" to fit button
+    'rolepick_highdemand_badge': 'ВЫС. СПРОС',
+    
     # Matchmaking Regions (Reverted to English/Abbreviations)
     'mm_region_code_unitedstateseast': 'USE',
     'mm_region_code_unitedstateswest': 'USW',
