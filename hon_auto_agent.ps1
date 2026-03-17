@@ -234,8 +234,11 @@ function Check-RemoteUpdate {
         $wr = Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Xyling12/HoN_RU_Pack/master/version.txt" -UseBasicParsing -TimeoutSec 5 -ErrorAction Stop
         $remoteVerStr = $wr.Content.Trim()
         
-        $lv = [version]$localVerStr
-        $rv = [version]$remoteVerStr
+        # Strip letter suffix (e.g. '1.9.9l' → '1.9.9') for System.Version compatibility
+        $lvStr = $localVerStr  -replace '[a-zA-Z]+$',''
+        $rvStr = $remoteVerStr -replace '[a-zA-Z]+$',''
+        $lv = [version]$lvStr
+        $rv = [version]$rvStr
         
         if ($rv -gt $lv) {
             $msg = "^r[RU Pack] D0ступн0 o6нoвлeниe: v" + $remoteVerStr + " !^* Cкачайте новую версию на ^obooky.to/xyling^*"
@@ -294,6 +297,7 @@ function Apply-UpdateMOTD {
 $lastLocaleRefresh = [DateTime]::MinValue
 $lastWebOverride   = [DateTime]::MinValue
 $launchBurstUntil  = [DateTime]::MinValue
+$lastIdleSync      = [DateTime]::MinValue
 $wasRunning        = $false
 
 Write-Log "Bootstrap sync..." "INF"
@@ -351,8 +355,11 @@ while ($true) {
                 $lastLocaleRefresh = $now
                 $lastWebOverride   = $now
             } else {
-                # Idle: cheap size-check every 3s keeps strings fresh
-                try { Sync-Strings } catch {}
+                # Idle: size-check sync, but throttled to once every 30s to avoid feedback loop
+                if (($now - $lastIdleSync).TotalSeconds -ge 30) {
+                    try { Sync-Strings } catch {}
+                    $lastIdleSync = $now
+                }
                 
                 # Update Check (every 12 hours)
                 if (($now - $lastVersionCheck).TotalHours -ge $versionCheckIntervalHours) {
