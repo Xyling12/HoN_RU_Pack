@@ -33,21 +33,23 @@ def sanitize_file(filepath):
     # 3) Specific Interface fixes
     if filename == 'interface_en.str':
         # Version bump
-        if b'1.9.9c' in data:
-            data = data.replace(b'1.9.9c', b'1.9.9d')
+        if b'1.9.9d' in data:
+            data = data.replace(b'1.9.9d', b'1.9.9f')
             changed = True
-            print(f"Bumped version to 1.9.9d in {filename}")
+            print(f"Bumped version to 1.9.9f in {filename}")
 
-        # Corrupted Brightness/Vibrance Labels
+        # Vibrance label — correct translation: Насыщенность (not Красочность)
         vibrance_pattern = b'options_label_vibrance[^\r\n]*\r\n'
-        vibrance_target = b'options_label_vibrance                         \t\xd0\x9a\xd1\x80\xd0\xb0\xd1\x81\xd0\xbe\xd1\x87\xd0\xbd\xd0\xbe\xd1\x81\xd1\x82\xd1\x8c: ^w\r\n'
+        # UTF-8: Насыщенность = \xd0\x9d\xd0\xb0\xd1\x81\xd1\x8b\xd1\x89\xd0\xb5\xd0\xbd\xd0\xbd\xd0\xbe\xd1\x81\xd1\x82\xd1\x8c
+        vibrance_target = b'options_label_vibrance                         \t\xd0\x9d\xd0\xb0\xd1\x81\xd1\x8b\xd1\x89\xd0\xb5\xd0\xbd\xd0\xbd\xd0\xbe\xd1\x81\xd1\x82\xd1\x8c: ^w\r\n'
         if re.search(vibrance_pattern, data):
             data = re.sub(vibrance_pattern, vibrance_target, data)
             changed = True
             print(f"Fixed options_label_vibrance in {filename}")
 
         value_pattern = b'options_label_value[^\r\n]*\r\n'
-        value_target = b'options_label_value                         \t\xd0\x9e\xd1\x81\xd0\xb2\xd0\xb5\xd1\x82\xd0\xbb\xd0\xb5\xd0\xbd\xd0\xb8\xd0\xb5: ^w\r\n'
+        # UTF-8: Гамма = \xd0\x93\xd0\xb0\xd0\xbc\xd0\xbc\xd0\xb0
+        value_target = b'options_label_value                         \t\xd0\x93\xd0\xb0\xd0\xbc\xd0\xbc\xd0\xb0: ^w\r\n'
         if re.search(value_pattern, data):
             data = re.sub(value_pattern, value_target, data)
             changed = True

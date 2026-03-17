@@ -3546,7 +3546,7 @@ options_label_ctrlmod_keybind_tooltip		Модификатор Ctrl можно и
 
 
 
-options_label_self_cast_keybind				Модификатор собственного применения
+options_label_self_cast_keybind				Клавиша: Применить на себя
 
 
 
@@ -31490,11 +31490,11 @@ options_saturation_tip                      	Измените, чтобы отр
 
 
 
-options_label_value                         	Осветление: ^w
+options_label_value                         	Гамма: ^w
 
 
 
-options_value_tip_header                    	Светлота
+options_value_tip_header                    	Яркость
 
 
 
@@ -31502,11 +31502,11 @@ options_value_tip                           	Измените, чтобы отр
 
 
 
-options_label_vibrance                         	Красочность: ^w
+options_label_vibrance                         	Насыщенность: ^w
 
 
 
-options_vibrance_tip_header                    	Красочность
+options_vibrance_tip_header                    	Насыщенность цвета
 
 
 
