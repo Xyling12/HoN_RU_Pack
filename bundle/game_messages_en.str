@@ -1,4 +1,4 @@
-﻿deny								{killer_color}{killer}^* отклонено {victim_color}{victim}^*!
+deny								{killer_color}{killer}^* отклонено {victim_color}{victim}^*!
 
 kill0								{killer_color}{killer}^* нанес удар по голове {victim_color}{victim}^*! за ^y{gold}^* золото!!
 
