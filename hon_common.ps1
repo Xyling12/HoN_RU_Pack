@@ -1,4 +1,4 @@
-# hon_common.ps1 - Shared functions for HoN RU Pack scripts
+﻿# hon_common.ps1 - Shared functions for HoN RU Pack scripts
 # Usage: . "$PSScriptRoot\hon_common.ps1"
 
 function Find-HoNLocalRoot {
@@ -20,7 +20,7 @@ function Find-HoNLocalRoot {
     )
     foreach ($candidate in $searchRoots) {
         try {
-            if (Test-Path (Join-Path $candidate "resources0.jz") -ErrorAction Stop) { return $candidate }
+            if (((Test-Path (Join-Path $candidate "resources0.jz") -ErrorAction Stop) -or (Test-Path (Join-Path $candidate "resources0.s2z") -ErrorAction Stop) -or (Test-Path (Join-Path $candidate "game\\resources0.s2z") -ErrorAction Stop))) { return $candidate }
         } catch {}
     }
 
@@ -37,14 +37,14 @@ function Find-HoNLocalRoot {
     foreach ($drive in (Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue)) {
         foreach ($sub in $subPaths) {
             $tryPath = Join-Path $drive.Root $sub
-            if (Test-Path (Join-Path $tryPath "resources0.jz")) { return $tryPath }
+            if (((Test-Path (Join-Path $tryPath "resources0.jz")) -or (Test-Path (Join-Path $tryPath "resources0.s2z")) -or (Test-Path (Join-Path $tryPath "game\\resources0.s2z")))) { return $tryPath }
         }
     }
 
     # Last resort: deep search for resources0.jz (limited depth=5, only game-named dirs)
     foreach ($scanRoot in @("C:\", "D:\", "E:\")) {
         if (-not (Test-Path $scanRoot)) { continue }
-        $hit = Get-ChildItem -Path $scanRoot -Filter "resources0.jz" -Recurse -Depth 5 -ErrorAction SilentlyContinue |
+        $hit = Get-ChildItem -Path $scanRoot -Include "resources0.jz","resources0.s2z" -Recurse -Depth 5 -ErrorAction SilentlyContinue |
             Where-Object { $_.DirectoryName -match "(?i)newerth|juvio" } |
             Select-Object -First 1
         if ($hit) { return $hit.DirectoryName }
@@ -74,7 +74,7 @@ function Find-AllHoNLocalRoots {
     )
     foreach ($p in $extraRoots) {
         try {
-            if ((Test-Path (Join-Path $p "resources0.jz") -ErrorAction Stop) -and ($found -notcontains $p)) {
+            if ((((Test-Path (Join-Path $p "resources0.jz") -ErrorAction Stop) -or (Test-Path (Join-Path $p "resources0.s2z") -ErrorAction Stop) -or (Test-Path (Join-Path $p "game\\resources0.s2z") -ErrorAction Stop))) -and ($found -notcontains $p)) {
                 $found.Add($p)
             }
         } catch {}
@@ -83,7 +83,7 @@ function Find-AllHoNLocalRoots {
     foreach ($drive in (Get-PSDrive -PSProvider FileSystem -ErrorAction SilentlyContinue)) {
         foreach ($sub in $subPaths) {
             $p = Join-Path $drive.Root $sub
-            if ((Test-Path (Join-Path $p "resources0.jz")) -and ($found -notcontains $p)) {
+            if ((((Test-Path (Join-Path $p "resources0.jz")) -or (Test-Path (Join-Path $p "resources0.s2z")) -or (Test-Path (Join-Path $p "game\\resources0.s2z")))) -and ($found -notcontains $p)) {
                 $found.Add($p)
             }
         }
@@ -93,7 +93,7 @@ function Find-AllHoNLocalRoots {
         # Fallback: deep search
         foreach ($scanRoot in @("C:\", "D:\", "E:\", "F:\")) {
             if (-not (Test-Path $scanRoot)) { continue }
-            Get-ChildItem -Path $scanRoot -Filter "resources0.jz" -Recurse -Depth 5 -ErrorAction SilentlyContinue |
+            Get-ChildItem -Path $scanRoot -Include "resources0.jz","resources0.s2z" -Recurse -Depth 5 -ErrorAction SilentlyContinue |
                 Where-Object { $_.DirectoryName -match "(?i)newerth|juvio" } |
                 ForEach-Object { if ($found -notcontains $_.DirectoryName) { $found.Add($_.DirectoryName) } }
         }
@@ -193,7 +193,10 @@ function Prepare-HoNWebOverride {
     )
 
     $archivePath = Join-Path $GameRoot "resources0.jz"
-    if (-not (Test-Path $archivePath)) { return $false }
+    if (-not (Test-Path $archivePath)) {
+        $archivePath = Join-Path $GameRoot "resources0.s2z"
+        if (-not (Test-Path $archivePath)) { return $false }
+    }
 
     $entries = @(
         "html/auto-load.js",

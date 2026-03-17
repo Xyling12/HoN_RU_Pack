@@ -1,4 +1,4 @@
-param(
+﻿param(
     [Alias("PackageRoot")]
     [string]$SourceRoot = (Split-Path -Parent $MyInvocation.MyCommand.Path),
     [string]$InstallRoot = "",
@@ -39,9 +39,14 @@ function Resolve-InstallRoot {
 
 $InstallRoot = Resolve-InstallRoot -RequestedRoot $InstallRoot
 
-$archivePath = Join-Path $InstallRoot "resources0.jz"
-if (-not (Test-Path $archivePath)) {
-    throw "Invalid game folder: resources0.jz not found at $archivePath"
+$archivePathJZ = Join-Path $InstallRoot "resources0.jz"
+$archivePathS2Z = Join-Path $InstallRoot "resources0.s2z"
+if ((-not (Test-Path $archivePathJZ)) -and (-not (Test-Path $archivePathS2Z))) {
+    $gameArchiveJZ = Join-Path $InstallRoot "game\resources0.jz"
+    $gameArchiveS2Z = Join-Path $InstallRoot "game\resources0.s2z"
+    if ((-not (Test-Path $gameArchiveJZ)) -and (-not (Test-Path $gameArchiveS2Z))) {
+        throw "Invalid game folder: resources0.jz or resources0.s2z not found at $InstallRoot or $InstallRoot\game"
+    }
 }
 
 $dataRoot = Join-Path $env:LOCALAPPDATA "HoN_RU_Pack"
