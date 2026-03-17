@@ -1,4 +1,4 @@
-﻿param(
+param(
     [Alias("PackageRoot")]
     [string]$SourceRoot = (Split-Path -Parent $MyInvocation.MyCommand.Path),
     [string]$InstallRoot = "",
@@ -12,6 +12,16 @@
 )
 
 $ErrorActionPreference = "Stop"
+
+# --- KILLS EXISTING BACKGROUND AGENT BEFORE INSTALLATION ---
+# This prevents the old agent's FileSystemWatcher from reverting 
+# .str file modifications while the installer is copying the new files.
+$agentScriptPath = Join-Path (Join-Path $env:LOCALAPPDATA 'HoN_RU_Pack') 'hon_auto_agent.ps1'
+$runningAgents = Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" |
+    Where-Object { $_.CommandLine -and $_.CommandLine -match [regex]::Escape($agentScriptPath) }
+foreach ($proc in $runningAgents) {
+    Stop-Process -Id $proc.ProcessId -Force -ErrorAction SilentlyContinue
+}
 
 . "$PSScriptRoot\hon_common.ps1"
 
@@ -235,12 +245,6 @@ if (Test-Path $bannerScript) {
 $agentScript = Join-Path $dataRoot "hon_auto_agent.ps1"
 if (-not (Test-Path $agentScript)) {
     throw "Agent script not found after copy: $agentScript"
-}
-
-$runningAgents = Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" |
-    Where-Object { $_.CommandLine -and $_.CommandLine -match [regex]::Escape($agentScript) }
-foreach ($proc in $runningAgents) {
-    Stop-Process -Id $proc.ProcessId -Force -ErrorAction SilentlyContinue
 }
 
 $taskName = "HoN_RU_Pack_AutoAgent"

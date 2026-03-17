@@ -1,4 +1,4 @@
-// Buttons
+﻿// Buttons
 
 
 
@@ -2314,7 +2314,7 @@ options_label_brightness					Яркость: ^w
 
 
 
-options_brightness_tip_header				Яркость
+options_brightness_tip_header				Настройка яркости
 
 
 
@@ -31470,7 +31470,7 @@ options_label_hue                            	Оттенок: ^w
 
 
 
-options_hue_tip_header                       	Хюэ
+options_hue_tip_header                       	Оттенок
 
 
 
@@ -31490,11 +31490,11 @@ options_saturation_tip                      	Измените, чтобы отр
 
 
 
-options_label_value                         	Значение: ^w
+options_label_value                         	Светлота: ^w
 
 
 
-options_value_tip_header                    	Яркость
+options_value_tip_header                    	Светлота
 
 
 
@@ -31502,11 +31502,11 @@ options_value_tip                           	Измените, чтобы отр
 
 
 
-options_label_vibrance                         	Яркость: ^w
+options_label_vibrance                         	Красочность: ^w
 
 
 
-options_vibrance_tip_header                    	Яркость
+options_vibrance_tip_header                    	Красочность
 
 
 
