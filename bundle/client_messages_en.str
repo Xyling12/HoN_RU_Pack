@@ -232,7 +232,7 @@ chat_clan_im						^359{name}: ^888
 
 chat_clan_im_sent					^458{name}: ^888
 
-chat_flooding						^279* Сообщение не отправлено — вы отправляете слишком много сообщений. Подождите несколько секунд и попробуйте снова.
+chat_flooding						^279* Сообщение не отправлено — вы отправляете слишком много сообщений. Подождите несколько сек. и попробуйте снова.
 
 chat_max_channels					^279* Вы не можете присоединиться к большему количеству каналов, сначала покиньте один из них.
 
@@ -244,7 +244,7 @@ chat_banned_flooding				^279* Причина: Флуд.
 
 chat_banned_unknown					^279* Причина: Неизвестно.
 
-chat_banned_reconnect				^279* Попытка повторного подключения (Попытка {attempt} из {maxattempts}) через {time} секунд.
+chat_banned_reconnect				^279* Попытка повторного подключения (Попытка {attempt} из {maxattempts}) через {time} сек..
 
 chat_info_not_found					^279* Пользователь "^990{name}^279" не найден.
 
@@ -442,7 +442,7 @@ chat_banned_from_channel			^279* Вы забанены на канале '^990{c
 
 chat_silenced						^279* Вы заглушены на этом канале и не можете говорить.
 
-chat_silence_lifted					^279* Ваше молчание снято на канале '^990{channel}^279'.
+chat_silence_lifted					^279* Ваше безмолвие снято на канале '^990{channel}^279'.
 
 chat_silence_placed					^279* ^990{name}^279 заставил вас замолчать на канале '^990{channel}^279' на {duration} минут.
 
@@ -1256,7 +1256,7 @@ chat_command_help_ban				^279*^707 /ban <user>^279                    — Бан
 
 chat_command_help_unban				^279*^707 /unban <user>^279                  — Разбанивает пользователя на канале (требуются права администратора).
 
-chat_command_help_silence			^279*^707 /silence <user> <duration>^279     — Заглушает пользователя на <duration> минут (требуются права администратора).
+chat_command_help_silence			^279*^707 /silence <user> <duration>^279     — Оглушает пользователя на <duration> минут (требуются права администратора).
 
 chat_command_help_promote			^279*^707 /promote <user>^279                — Повышает пользователя (требуются права администратора)
 
@@ -1304,7 +1304,7 @@ chat_command_help_misc				^279* Введите любую команду без 
 
 
 
-bullet_comment_time_check_fail		^279* Не удалось отправить: подождите {waitSec} секунд.
+bullet_comment_time_check_fail		^279* Не удалось отправить: подождите {waitSec} сек..
 
 bullet_comment_censor_check_fail	^279* Не удалось отправить: содержит нецензурное слово
 
