@@ -1,140 +1,83 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/Heroes%20of%20Newerth-Русская%20локализация-red?style=for-the-badge" alt="HoN RU"/>
-
 # 🇷🇺 HoN RU Pack
 
-Полный русский перевод Heroes of Newerth — имена умений, описания, предметы, интерфейс.
+**Полный русский перевод Heroes of Newerth**
 
-<br/>
-
-[![⬇️ Скачать последнюю версию](https://img.shields.io/github/v/release/Xyling12/HoN_RU_Pack?label=%E2%AC%87%EF%B8%8F%20%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C&color=brightgreen&style=for-the-badge)](https://github.com/Xyling12/HoN_RU_Pack/releases/latest)
+[![⬇️ Скачать](https://img.shields.io/github/v/release/Xyling12/HoN_RU_Pack?label=%E2%AC%87%EF%B8%8F%20%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C&color=brightgreen&style=for-the-badge)](https://github.com/Xyling12/HoN_RU_Pack/releases/latest)
 &nbsp;
-[![☕ Поддержать на Boosty](https://img.shields.io/badge/☕%20Поддержать-Boosty-orange?style=for-the-badge)](https://boosty.to/xyling)
+[![Boosty](https://img.shields.io/badge/☕%20Поддержать-Boosty-orange?style=for-the-badge)](https://boosty.to/xyling)
 
 </div>
 
 ---
 
-## 📋 Содержание
+## ⬇️ Установка
 
-- [Скачать и установить](#-скачать-и-установить)
-- [Что включено](#-что-включено)
-- [Обход блокировок](#-обход-блокировок)
-- [Обновление и удаление](#-обновление-и-удаление)
-- [Нестандартный путь к игре](#️-нестандартный-путь-к-игре)
-- [Помочь с переводом](#-помочь-с-переводом)
-- [История версий](#-история-версий)
+1. Скачай **[HoN_RU_Pack_Installer.exe](https://github.com/Xyling12/HoN_RU_Pack/releases/latest)**
+2. Запусти — папка игры определится автоматически
+3. Запускай Juvio/HoN как обычно — перевод активен
 
----
+> Не подключается к серверам? Скачай **`HoN_RU_Pack_Installer_Bypass.exe`** — с обходом блокировок (Zapret).
 
-## ⬇️ Скачать и установить
-
-### Шаг 1 — Скачай инсталлятор
-
-| Вариант | Когда использовать | Ссылка |
-|---|---|---|
-| 🟢 **Стандартный** | Игра и так работает | [HoN_RU_Pack_Installer.exe](https://github.com/Xyling12/HoN_RU_Pack/releases/latest) |
-| 🔵 **С обходом блокировок** | Нужен обход DPI/блокировок | [HoN_RU_Pack_Installer_Bypass.exe](https://github.com/Xyling12/HoN_RU_Pack/releases/latest) |
-
-### Шаг 2 — Установи
-
-1. Запусти скачанный `.exe`
-2. Нажми **"Установить"** — папка игры определится автоматически
-3. Дождись сообщения `Установка завершена успешно`
-4. Запускай Juvio/HoN как обычно — **перевод активен автоматически**
-
-> ℹ️ Запускай без прав администратора (обычный двойной клик).
+**Удаление:** [HoN_RU_Pack_Uninstaller.exe](https://github.com/Xyling12/HoN_RU_Pack/releases/latest)
 
 ---
 
-## 📦 Что включено
+<details>
+<summary>📦 Что включено</summary>
 
 | Компонент | Статус |
 |---|---|
-| Имена умений всех героев | ✅ Переведено |
-| Описания умений (тултипы) | ✅ Переведено |
-| Предметы — названия и описания | ✅ Переведено |
-| Интерфейс (меню, настройки, кнопки) | ✅ Переведено |
-| Системные сообщения (чат, убийства) | ✅ Переведено |
+| Имена умений всех героев | ✅ |
+| Описания умений (тултипы) | ✅ |
+| Предметы — названия и описания | ✅ |
+| Интерфейс (меню, настройки) | ✅ |
+| Системные сообщения | ✅ |
 | Обход DPI-блокировок (Zapret) | ✅ В Bypass-версии |
-| Автообновление перевода | ✅ Работает |
+| Автообновление перевода | ✅ |
 
----
+</details>
 
-## 🔓 Обход блокировок
+<details>
+<summary>⚙️ Нестандартный путь к игре</summary>
 
-Если игра не подключается — используй **Bypass-версию инсталлятора**. Она включает [Zapret](https://github.com/bol-van/zapret) — обход DPI без VPN.
-
-Настройки после установки:
-- Автоматически запускается как служба Windows
-- Работает в фоне, не требует ручного запуска
-- Не влияет на другой трафик
-
----
-
-## 🔄 Обновление и удаление
-
-**Автообновление:** работает само при каждом запуске игры.
-
-**Ручное обновление:**
+Если игра не в стандартной папке, открой:
 ```
-update.bat
+%LOCALAPPDATA%\HoN_RU_Pack\hon_paths_override.ps1
 ```
+И укажи пути вручную: `$HoNDocsRoot`, `$HoNLocalRoot`, `$HoNArchivePath`.
 
-**Удаление:**
+</details>
 
-Скачай [HoN_RU_Pack_Uninstaller.exe](https://github.com/Xyling12/HoN_RU_Pack/releases/latest) → запусти.
-
----
-
-## ⚙️ Нестандартный путь к игре
-
-Если игра установлена не в стандартную папку:
-
-1. Открой файл:
-   ```
-   %LOCALAPPDATA%\HoN_RU_Pack\hon_paths_override.ps1
-   ```
-2. Укажи пути:
-   ```powershell
-   $HoNDocsRoot    = "C:\Путь\к\документам\HoN"
-   $HoNLocalRoot   = "C:\Путь\к\установке\HoN"
-   $HoNArchivePath = "C:\Путь\к\HoN\game.zip"
-   ```
-
----
-
-## 🤝 Помочь с переводом
-
-Хочешь улучшить перевод?
-
-| Ресурс | Ссылка |
-|---|---|
-| 📖 Гид контрибьютора | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| 📚 Правила перевода и глоссарий | [docs/TRANSLATION_GUIDE.md](docs/TRANSLATION_GUIDE.md) |
-| 🛒 Работа с предметами | [docs/ITEMS_GUIDE.md](docs/ITEMS_GUIDE.md) |
-| 🏗️ Сборка инсталлятора | [docs/BUILD_GUIDE.md](docs/BUILD_GUIDE.md) |
-
----
-
-## 📜 История версий
+<details>
+<summary>📜 История версий</summary>
 
 | Версия | Что изменилось |
 |---|---|
-| **v1.9.9l** | +439 улучшений стиля описаний, термин "Channel" → "концентрация", сборка деинсталлятора |
-| **v1.9.9k** | Убраны машинные фразы из тултипов (`Активируйте, чтобы...` и др.) |
-| **v1.9.9j** | Глубокий проход по именам умений — 105 контекстных исправлений |
-| **v1.9.9i** | Качественный проход по именам — 176 исправлений, опечатки |
-| **v1.9.9h** | Восстановление текстов Посоха Мастера (123 варианта), фиксы |
+| **v1.9.9l** | 439 улучшений описаний, "Channel" → "концентрация" |
+| **v1.9.9k** | Убраны машинные фразы из тултипов |
+| **v1.9.9j** | 105 контекстных исправлений имён умений |
+| **v1.9.9i** | 176 исправлений имён, опечатки |
+| **v1.9.9h** | Восстановление текстов Посоха Мастера |
 
-Полный список: [Releases →](https://github.com/Xyling12/HoN_RU_Pack/releases)
+[Все релизы →](https://github.com/Xyling12/HoN_RU_Pack/releases)
+
+</details>
+
+<details>
+<summary>🤝 Помочь с переводом</summary>
+
+- [Гид контрибьютора](CONTRIBUTING.md)
+- [Правила перевода и глоссарий](docs/TRANSLATION_GUIDE.md)
+- [Работа с предметами](docs/ITEMS_GUIDE.md)
+- [Сборка инсталлятора](docs/BUILD_GUIDE.md)
+
+</details>
 
 ---
 
 <div align="center">
-
-Сделано с ❤️ для русскоязычного сообщества HoN
 
 [boosty.to/xyling](https://boosty.to/xyling)
 
