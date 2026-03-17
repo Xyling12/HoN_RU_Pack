@@ -4,7 +4,7 @@
 
 **Полный русский перевод Heroes of Newerth**
 
-[![⬇️ Скачать](https://img.shields.io/github/v/release/Xyling12/HoN_RU_Pack?label=%E2%AC%87%EF%B8%8F%20%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C&color=brightgreen&style=for-the-badge)](https://github.com/Xyling12/HoN_RU_Pack/releases/latest)
+[![⬇️ Скачать](https://img.shields.io/github/v/tag/Xyling12/HoN_RU_Pack?label=%E2%AC%87%EF%B8%8F%20%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C&color=brightgreen&style=for-the-badge&sort=semver)](https://github.com/Xyling12/HoN_RU_Pack/releases/latest)
 &nbsp;
 [![Boosty](https://img.shields.io/badge/☕%20Поддержать-Boosty-orange?style=for-the-badge)](https://boosty.to/xyling)
 
