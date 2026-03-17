@@ -33,10 +33,14 @@ def sanitize_file(filepath):
     # 3) Specific Interface fixes
     if filename == 'interface_en.str':
         # Version bump
-        if b'1.9.9d' in data:
-            data = data.replace(b'1.9.9d', b'1.9.9f')
+        # Version bump — replace ANY 1.9.x version with the current target
+        import re as _re
+        TARGET_VERSION = b'1.9.9f'
+        new_data = _re.sub(rb'1\.9\.\d+[a-z]?', TARGET_VERSION, data)
+        if new_data != data:
+            data = new_data
             changed = True
-            print(f"Bumped version to 1.9.9f in {filename}")
+            print(f"Bumped version to {TARGET_VERSION.decode()} in {filename}")
 
         # Vibrance label — correct translation: Насыщенность (not Красочность)
         vibrance_pattern = b'options_label_vibrance[^\r\n]*\r\n'
