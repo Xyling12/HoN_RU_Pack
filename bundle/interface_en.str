@@ -30362,7 +30362,7 @@ store2_release_date_desc						Дата выпуска Описание
 
 
 
-store2_release_date_asc							Дата выпуска по возраоглушениеию
+store2_release_date_asc							Дата выпуска по возрастанию
 
 
 
@@ -30370,7 +30370,7 @@ store2_hero_name_desc							Описание имени героя
 
 
 
-store2_hero_name_asc							Имя героя по возраоглушениеию
+store2_hero_name_asc							Имя героя по возрастанию
 
 
 
@@ -30394,11 +30394,11 @@ store2_avatar_name_desc							Описание имени аватара
 
 
 
-store2_avatar_name_asc							Имя аватара по возраоглушениеию
+store2_avatar_name_asc							Имя аватара по возрастанию
 
 
 
-store2_product_name_asc							Имя по возраоглушениеию
+store2_product_name_asc							Имя по возрастанию
 
 
 
@@ -30974,7 +30974,7 @@ custom_ui_button_OpheliaQuest3_body				^oRaven^* получает +300 к дал
 
 
 
-status_effect_stun								Оглушить
+status_effect_stun								Оглушение
 
 
 
@@ -31270,7 +31270,7 @@ shop_search_title								Поиск в магазине...
 
 
 
-shop_quickbuy_title								БЫСТРАЯ КУПИТЬ
+shop_quickbuy_title								КУПИТЬ
 
 
 
@@ -32362,19 +32362,19 @@ ban_pick_clear								Очистить слот
 
 
 
-slowed_title								Замедлено
+slowed_title								Замедл.
 
 
 
-stunned_title								Оглушен
+stunned_title								Оглуш.
 
 
 
-rooted_title								Обездвижен
+rooted_title								Обездвиж.
 
 
 
-silenced_title								Безмолвие
+silenced_title								Молчание
 
 
 
@@ -32390,7 +32390,7 @@ dmg_out_title								Нанесено
 
 
 
-dmg_reduc_title								Уменьшение урона.
+dmg_reduc_title								Ред. урона
 
 
 
