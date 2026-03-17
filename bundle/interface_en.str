@@ -1,4 +1,4 @@
-// Buttons
+﻿// Buttons
 
 
 
@@ -1266,7 +1266,7 @@ main_optimal_settings_prompt_body			Мы обнаружили, что ваша �
 
 
 
-main_label_username							RU v1.9.7 | boosty.to/xyling
+main_label_username							RU v1.9.9b | boosty.to/xyling
 
 
 
@@ -1450,7 +1450,7 @@ main_login_remember_me						Запомнить меня
 
 
 
-main_login_remember_me_tip					RU localization version: v1.9.7. Updates: https://boosty.to/xyling
+main_login_remember_me_tip					RU localization version: v1.9.9b. Updates: https://boosty.to/xyling
 
 
 
@@ -18554,7 +18554,7 @@ tooltip_type								Тип:
 
 
 
-tooltip_range								Диапазон:
+tooltip_range	Дальность:
 
 
 
@@ -22906,7 +22906,7 @@ compendium_type								Тип:
 
 
 
-compendium_range							Диапазон:
+compendium_range	Дальность:
 
 
 
@@ -24038,7 +24038,7 @@ heroinfo_aura								^cAura^*
 
 
 
-heroinfo_range								^cДиапазон:^*
+heroinfo_range	^cДальность:^*
 
 
 
@@ -24046,11 +24046,11 @@ heroinfo_radius								^cРадиус:^*
 
 
 
-heroinfo_mana_cost							^cЗатраты маны:^*
+heroinfo_mana_cost	^cМана:^*
 
 
 
-heroinfo_cooldown							^cCD:^* {time} секунды
+heroinfo_cooldown	^cПерезарядка:^* {time} сек.
 
 
 
