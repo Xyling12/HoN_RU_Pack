@@ -44,7 +44,8 @@ $programTemplate = [System.IO.File]::ReadAllText($templatePath, [System.Text.Enc
 
 # Inject version
 $version = (Get-Content (Join-Path $PackageRoot "version.txt") -Raw).Trim()
-$versionFull = "$version.0"
+$versionNumeric = $version -replace '[a-zA-Z]+$', ''  # strip letter suffix for AssemblyVersion
+$versionFull = "$versionNumeric.0"
 $programCode = $programTemplate.Replace("__VERSION__", $version).Replace("__VERSION_FULL__", $versionFull)
 
 # Find csc.exe
