@@ -33,10 +33,10 @@ def sanitize_file(filepath):
     # 3) Specific Interface fixes
     if filename == 'interface_en.str':
         # Version bump
-        if b'1.9.9b' in data:
-            data = data.replace(b'1.9.9b', b'1.9.9c')
+        if b'1.9.9c' in data:
+            data = data.replace(b'1.9.9c', b'1.9.9d')
             changed = True
-            print(f"Bumped version to 1.9.9c in {filename}")
+            print(f"Bumped version to 1.9.9d in {filename}")
 
         # Corrupted Brightness/Vibrance Labels
         vibrance_pattern = b'options_label_vibrance[^\r\n]*\r\n'
