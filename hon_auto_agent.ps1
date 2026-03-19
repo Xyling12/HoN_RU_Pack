@@ -202,6 +202,35 @@ function Sync-LocaleConfig {
     }
 }
 
+# ─── Stump mod: auto-repatch resources0.jz after game updates ───────────────
+function Sync-StumpMod {
+    try {
+        $archivePath = Join-Path $gameRoot "resources0.jz"
+        if (-not (Test-Path $archivePath)) { return }
+
+        $sevenZip = $null
+        foreach ($c in @("C:\Program Files\7-Zip\7z.exe","C:\Program Files (x86)\7-Zip\7z.exe")) {
+            if (Test-Path $c) { $sevenZip = $c; break }
+        }
+        if (-not $sevenZip) { return }
+
+        $buildScript = Join-Path $PackageRoot "build_stump_mod.ps1"
+        if (-not (Test-Path $buildScript)) { return }
+
+        # Check if our stump override is already in the archive by looking for a marker entry
+        $markerEntry = "world/rprops/trees/legion1/stump.model"
+        $listing = & $sevenZip l $archivePath $markerEntry 2>&1 | Out-String
+
+        if ($listing -notmatch 'stump\.model') {
+            Write-Log "StumpMod: archive was updated, re-patching..." "INF"
+            & powershell -NoProfile -ExecutionPolicy Bypass -File $buildScript -GameRoot $gameRoot 2>&1 | ForEach-Object { Write-Log "StumpMod: $_" "INF" }
+            Write-Log "StumpMod: re-patch complete" "INF"
+        }
+    } catch {
+        Write-Log "Sync-StumpMod error: $_" "WRN"
+    }
+}
+
 # ─── Web override ─────────────────────────────────────────────────────────────
 function Sync-WebOverride {
     param([switch]$ForceCopy)
@@ -304,6 +333,7 @@ Write-Log "Bootstrap sync..." "INF"
 try { Sync-Strings -Force } catch { Write-Log "Bootstrap Sync-Strings error: $_" "WRN" }
 try { Sync-WebOverride -ForceCopy } catch { Write-Log "Bootstrap Sync-WebOverride error: $_" "WRN" }
 try { Sync-LocaleConfig } catch { Write-Log "Bootstrap Sync-LocaleConfig error: $_" "WRN" }
+try { Sync-StumpMod } catch { Write-Log "Bootstrap Sync-StumpMod error: $_" "WRN" }
 
 if (Check-RemoteUpdate) { Apply-UpdateMOTD }
 $lastVersionCheck = Get-Date
@@ -325,6 +355,7 @@ while ($true) {
                 try { Sync-Strings -Force } catch { Write-Log "Launch Sync-Strings error: $_" "WRN" }
                 try { Sync-WebOverride -ForceCopy } catch { Write-Log "Launch Sync-WebOverride error: $_" "WRN" }
                 try { Sync-LocaleConfig } catch { Write-Log "Launch Sync-LocaleConfig error: $_" "WRN" }
+                try { Sync-StumpMod } catch { Write-Log "Launch Sync-StumpMod error: $_" "WRN" }
                 $lastLocaleRefresh = $now
                 $lastWebOverride   = $now
             } else {

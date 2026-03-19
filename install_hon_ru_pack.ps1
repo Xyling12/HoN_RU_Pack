@@ -114,6 +114,8 @@ $payloadFiles = @(
     "setup_amneziawg.ps1",
     "remove_amneziawg.ps1",
     "hon_paths_override.example.ps1",
+    "build_stump_mod.ps1",
+    "remove_stump_mod.ps1",
     "version.txt",
     "README.txt",
     "README_ONE_CLICK_INSTALL.txt"
