@@ -33031,233 +33031,231 @@ store_avatar_marketplace	Маркетплейс аватаров
 
 vanity_emote_wheel_setup_title	Настройка колеса эмоций
 
-vanity_emote_wheel_setup_desc	Назначь эмоции на позиции колеса для быстрого использования в игре
+vanity_emote_wheel_setup_desc	Назначь эмоции на позиции колеса для быстрого использования в игре
 // === NEW KEYS v1.9.9m (game update tutorial NPE + marketplace + options) ===
-filter_search_tip	РџРѕРёСЃРє РіРµСЂРѕРµРІ
-game_shop_auto_level_classic	РђРІС‚Рѕ-РїСЂРѕРєР°С‡РєР° СѓРјРµРЅРёР№
-game_shop_auto_level_classic_top	РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРё РїСЂРѕРєР°С‡РёРІР°С‚СЊ СѓРјРµРЅРёСЏ РїРѕ РјРµСЂРµ РёС… РѕС‚РєСЂС‹С‚РёСЏ.
-general_equip	РќР°РґРµС‚СЊ
-general_mins	РњРёРЅ
-general_previous	РќР°Р·Р°Рґ
-general_secs	РЎРµРє
-marketplace_claim_button	РџРѕР»СѓС‡РёС‚СЊ РЅР°РіСЂР°РґСѓ
-marketplace_claimed_button	РџРѕР»СѓС‡РµРЅРѕ!
-marketplace_event_ended	РЎРѕР±С‹С‚РёРµ Р·Р°РІРµСЂС€РµРЅРѕ
-marketplace_marketplace_button	РџРµСЂРµР№С‚Рё РЅР° РјР°СЂРєРµС‚РїР»РµР№СЃ
-marketplace_play_games_claim_desc	Р“РѕС‚РѕРІРѕ Рє РїРѕР»СѓС‡РµРЅРёСЋ! РќР°Р¶РјРёС‚Рµ РЅРёР¶Рµ, С‡С‚РѕР±С‹ Р·Р°Р±СЂР°С‚СЊ РЅР°РіСЂР°РґСѓ.
+filter_search_tip	Поиск героев
+game_shop_auto_level_classic	Авто-прокачка умений
+game_shop_auto_level_classic_top	Автоматически прокачивать умения по мере их открытия.
+general_equip	Надеть
+general_mins	Мин
+general_previous	Назад
+general_secs	Сек
+marketplace_claim_button	Получить награду
+marketplace_claimed_button	Получено!
+marketplace_event_ended	Событие завершено
+marketplace_marketplace_button	Перейти на маркетплейс
+marketplace_play_games_claim_desc	Готово к получению! Нажмите ниже, чтобы забрать награду.
 marketplace_play_games_progress_demo	5/15
-marketplace_reward_claimed	РќР°РіСЂР°РґР° РїРѕР»СѓС‡РµРЅР°
-options_btn_restart_tutorial	РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ СЂСѓРєРѕРІРѕРґСЃС‚РІРѕ
-options_btn_restart_tutorial_tip	РџРѕРІС‚РѕСЂРЅРѕ РѕС‚РєСЂС‹РІР°РµС‚ РѕР±СѓС‡Р°СЋС‰РёРµ СЃР»Р°Р№РґС‹ РґР»СЏ РЅРѕРІС‹С… РёРіСЂРѕРєРѕРІ.
-options_label_shop_search_keybind	РџРѕРёСЃРє РїСЂРµРґРјРµС‚РѕРІ
-options_restart_confirm_body	РћРґРЅРѕ РёР»Рё РЅРµСЃРєРѕР»СЊРєРѕ РёР·РјРµРЅРµРЅРёР№ С‚СЂРµР±СѓСЋС‚ РїРµСЂРµР·Р°РїСѓСЃРєР°. РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ СЃРµР№С‡Р°СЃ?
-options_restart_confirm_restart	РџРµСЂРµР·Р°РїСѓСЃС‚РёС‚СЊ СЃРµР№С‡Р°СЃ
-options_restart_confirm_title	РўСЂРµР±СѓРµС‚СЃСЏ РїРµСЂРµР·Р°РїСѓСЃРє
-options_simple_shop_search_text	Р“РѕСЂСЏС‡Р°СЏ РєР»Р°РІРёС€Р° РґР»СЏ С„РѕРєСѓСЃР° СЃС‚СЂРѕРєРё РїРѕРёСЃРєР° РІ РјР°РіР°Р·РёРЅРµ
-options_slider_max_ingame_framerate	РњР°РєСЃ. FPS РІ РёРіСЂРµ
-options_slider_max_ingame_framerate_tip	РќР°СЃС‚СЂР°РёРІР°РµС‚ РјР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РєР°РґСЂРѕРІ РІ СЃРµРєСѓРЅРґСѓ РІРѕ РІСЂРµРјСЏ РёРіСЂС‹. Р‘РѕР»РµРµ РІС‹СЃРѕРєРёРµ Р·РЅР°С‡РµРЅРёСЏ РґРµР»Р°СЋС‚ Р°РЅРёРјР°С†РёСЋ Рё РґРІРёР¶РµРЅРёРµ РєСѓСЂСЃРѕСЂР° РїР»Р°РІРЅРµРµ, Р° РЅРёР·РєРёРµ вЂ” СЃРЅРёР¶Р°СЋС‚ РЅР°РіСЂСѓР·РєСѓ РЅР° СЃРёСЃС‚РµРјСѓ. Р•СЃР»Рё РµСЃС‚СЊ СЂС‹РІРєРё РёР»Рё РІС‹СЃРѕРєР°СЏ РЅР°РіСЂСѓР·РєР° РЅР° GPU, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРёР·РёС‚СЊ СЌС‚РѕС‚ РїР°СЂР°РјРµС‚СЂ.
-shop_cat_title_combative	Р‘РѕРµРІС‹Рµ
-shop_cat_title_legendary	Р›РµРіРµРЅРґР°СЂРЅС‹Рµ
-shop_cat_title_morphattack	РђС‚Р°РєСѓСЋС‰РёРµ (РјРѕСЂС„)
-shop_cat_title_protective	Р—Р°С‰РёС‚РЅС‹Рµ
-shop_keybinds_toggle	РџРµСЂРµРєР»СЋС‡РёС‚СЊ РіРѕСЂСЏС‡РёРµ РєР»Р°РІРёС€Рё РјР°РіР°Р·РёРЅР°
-shop_shoplayout_toggle	РџРµСЂРµРєР»СЋС‡РёС‚СЊ С‚РёРї РєР°С‚РµРіРѕСЂРёР№ (Р‘Р°Р·РѕРІС‹Р№ / РљР»Р°СЃСЃРёС‡РµСЃРєРёР№)
-store_buy_from_marketplace_for	РљСѓРїРёС‚СЊ РЅР° РјР°СЂРєРµС‚РїР»РµР№СЃРµ Р·Р°:
-store_cat_featured	Р РµРєРѕРјРµРЅРґСѓРµРјС‹Рµ С‚РѕРІР°СЂС‹
-store_list_item	Р’С‹СЃС‚Р°РІРёС‚СЊ С‚РѕРІР°СЂ
-store_marketplace_fee	РљРѕРјРёСЃСЃРёСЏ:
-store_marketplace_hide_my_listings	РЎРєСЂС‹С‚СЊ РјРѕРё Р»РѕС‚С‹
-store_marketplace_hide_sales_history	РЎРєСЂС‹С‚СЊ РёСЃС‚РѕСЂРёСЋ РїСЂРѕРґР°Р¶
-store_marketplace_list_my	Р’С‹СЃС‚Р°РІРёС‚СЊ {item} РЅР° РїСЂРѕРґР°Р¶Сѓ
-store_marketplace_listed	Р’С‹СЃС‚Р°РІР»РµРЅРѕ: {count}
-store_marketplace_page	РЎС‚СЂР°РЅРёС†Р° {page}
-store_marketplace_purchase	РљСѓРїРёС‚СЊ {item}
-store_marketplace_show_my_listings	РџРѕРєР°Р·Р°С‚СЊ РјРѕРё Р»РѕС‚С‹
-store_marketplace_show_sales_history	РџРѕРєР°Р·Р°С‚СЊ РёСЃС‚РѕСЂРёСЋ РїСЂРѕРґР°Р¶
-store_marketplace_update_my_listing	РћР±РЅРѕРІРёС‚СЊ РјРѕР№ Р»РѕС‚
-store_marketplace_viewing_history	РСЃС‚РѕСЂРёСЏ РїСЂРѕСЃРјРѕС‚СЂРѕРІ
-store_marketplace_you_own	РЈ РІР°СЃ: {count}
-store_model_viewer_prompt	Р’С‹Р±РµСЂРёС‚Рµ С‚РѕРІР°СЂ РґР»СЏ РїСЂРµРґРїСЂРѕСЃРјРѕС‚СЂР°
-store_no_listings	РќРµС‚ Р»РѕС‚РѕРІ
-store_no_listings_available	РќРµС‚ РґРѕСЃС‚СѓРїРЅС‹С… Р»РѕС‚РѕРІ
-store_no_listings_tip	Р­С‚РѕС‚ Р°РІР°С‚Р°СЂ РјРѕР¶РЅРѕ РїСЂРёРѕР±СЂРµСЃС‚Рё С‚РѕР»СЊРєРѕ РЅР° РјР°СЂРєРµС‚РїР»РµР№СЃРµ, РѕРґРЅР°РєРѕ СЃРµР№С‡Р°СЃ РЅРёРєС‚Рѕ РµРіРѕ РЅРµ РїСЂРѕРґР°С‘С‚. РћРЅ РјРѕР¶РµС‚ Р±С‹С‚СЊ РґРѕСЃС‚СѓРїРµРЅ РІ РџР»РёРЅРєРѕ РёР»Рё РїРѕРїСЂРѕР±СѓР№С‚Рµ Р·Р°Р№С‚Рё РїРѕР·Р¶Рµ.
-store_powered_by	РќРђ РџР›РђРўР¤РћР РњР•
-store_set_marketplace_price	РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С†РµРЅСѓ РЅР° РјР°СЂРєРµС‚РїР»РµР№СЃРµ
-store_show_listings	РџРѕРєР°Р·Р°С‚СЊ Р»РѕС‚С‹
-store_show_sell_item	РџСЂРѕРґР°С‚СЊ РјРѕР№ С‚РѕРІР°СЂ
-store_sort_direction_tip	РР·РјРµРЅРёС‚СЊ РЅР°РїСЂР°РІР»РµРЅРёРµ СЃРѕСЂС‚РёСЂРѕРІРєРё
-store_sort_dropdown_tip	РЎРѕСЂС‚РёСЂРѕРІР°С‚СЊ С‚РѕРІР°СЂС‹
-store_toggle_ward	РџРµСЂРµРєР»СЋС‡РёС‚СЊ РІР°СЂРґ
-store_unavailable	РќРµРґРѕСЃС‚СѓРїРЅРѕ
-store_unavailable_tip	Р­С‚РѕС‚ С‚РѕРІР°СЂ РІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ РЅРµРґРѕСЃС‚СѓРїРµРЅ РґР»СЏ РїРѕРєСѓРїРєРё.
-store_unequip	РЎРЅСЏС‚СЊ
-store_you_receive	Р’С‹ РїРѕР»СѓС‡Р°РµС‚Рµ:
-
-// Tutorial / New Player Experience (NPE)
-tutorial_category_gameplay	Р“РµР№РјРїР»РµР№
-tutorial_library_list_title	Р Р°Р·РґРµР»С‹ РїРѕРјРѕС‰Рё
-tutorial_npe_complete_hint	Р§С‚РѕР±С‹ РїСЂРѕСЃРјРѕС‚СЂРµС‚СЊ СЃР»Р°Р№РґС‹ СЃРЅРѕРІР°, РїРµСЂРµР№РґРёС‚Рµ РІ РћР±СѓС‡РµРЅРёРµ > Р Р°Р·РґРµР»С‹ РїРѕРјРѕС‰Рё.
-tutorial_npe_complete_message	Р§С‚Рѕ РґР°Р»СЊС€Рµ?
-tutorial_npe_complete_message_hon	Р’С‹ РІ РєСѓСЂСЃРµ РїРѕСЃР»РµРґРЅРёС… РёР·РјРµРЅРµРЅРёР№. РЈРґР°С‡Рё!
-tutorial_npe_complete_message_moba	Р’С‹ РѕСЃРІРѕРёР»Рё РѕСЃРЅРѕРІС‹ Heroes of Newerth: Reborn. РџРѕСЂР° РґРѕРјРёРЅРёСЂРѕРІР°С‚СЊ!
-tutorial_npe_complete_message_new	Р’С‹ РѕСЃРІРѕРёР»Рё РѕСЃРЅРѕРІС‹ Heroes of Newerth: Reborn. РЈРґР°С‡Рё!
-tutorial_npe_complete_title	Р“РѕС‚РѕРІРѕ!
-tutorial_npe_complete_title_hon	РЎ РІРѕР·РІСЂР°С‰РµРЅРёРµРј!
-tutorial_npe_complete_title_moba	Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ РќРµРІРµСЂС‚!
-tutorial_npe_complete_title_new	Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ РќРµРІРµСЂС‚!
-tutorial_npe_skill_lvl_feedback_hon	РљР°Рє РѕРїС‹С‚РЅС‹Р№ РёРіСЂРѕРє HoN, РІС‹ СѓР·РЅР°РµС‚Рµ, С‡С‚Рѕ РЅРѕРІРѕРіРѕ РІ Reborn.
-tutorial_npe_skill_lvl_feedback_moba	РљР°Рє РёРіСЂРѕРє РІ MOBA, РІС‹ СѓР·РЅР°РµС‚Рµ РѕС‚Р»РёС‡РёСЏ HoN РѕС‚ РґСЂСѓРіРёС… РёРіСЂ Р¶Р°РЅСЂР°.
-tutorial_npe_skill_lvl_feedback_new	РљР°Рє РЅРѕРІС‹Р№ РёРіСЂРѕРє, РІС‹ РїСЂРѕР№РґС‘С‚Рµ РїРѕР»РЅРѕРµ РѕР±СѓС‡РµРЅРёРµ.
-tutorial_slide_auto_level	РђРІС‚Рѕ-РїСЂРѕРєР°С‡РєР°
-tutorial_slide_auto_level_desc	Р¤СѓРЅРєС†РёСЏ Р°РІС‚Рѕ-РїСЂРѕРєР°С‡РєРё Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РїРѕРІС‹С€Р°РµС‚ СѓСЂРѕРІРµРЅСЊ СѓРјРµРЅРёР№ Р·Р° РІР°СЃ, РїРѕР·РІРѕР»СЏСЏ СЃРѕСЃСЂРµРґРѕС‚РѕС‡РёС‚СЊСЃСЏ РЅР° РёРіСЂРµ, РЅРµ Р±РµСЃРїРѕРєРѕСЏСЃСЊ РѕР± РѕС‡РєР°С… СѓРјРµРЅРёР№.
-tutorial_slide_cosmetics	РљРѕСЃРјРµС‚РёРєР°
-tutorial_slide_courier_control	РЈРїСЂР°РІР»РµРЅРёРµ РєСѓСЂСЊРµСЂРѕРј
-tutorial_slide_courier_control_desc	Р’Р°С€ РєСѓСЂСЊРµСЂ РґРѕСЃС‚Р°РІР»СЏРµС‚ РєСѓРїР»РµРЅРЅС‹Рµ РїСЂРµРґРјРµС‚С‹ РїСЂСЏРјРѕ РЅР° РїРѕР»Рµ Р±РѕСЏ.\\n\\nРљРѕРіРґР° РІС‹ РЅРµ Сѓ Р±Р°Р·С‹, С‡С‚РѕР±С‹ Р·Р°Р±СЂР°С‚СЊ РїСЂРµРґРјРµС‚С‹, РЅР°Р¶РјРёС‚Рµ РєРЅРѕРїРєСѓ РєСѓСЂСЊРµСЂР° РёР»Рё РёСЃРїРѕР»СЊР·СѓР№С‚Рµ РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ РґР»СЏ РґРѕСЃС‚Р°РІРєРё.
-tutorial_slide_courier_delivery	Р”РѕСЃС‚Р°РІРєР° РєСѓСЂСЊРµСЂРѕРј
-tutorial_slide_courier_delivery_desc	РљРѕРіРґР° РєСѓСЂСЊРµСЂ РїСЂРёР±СѓРґРµС‚, РѕРЅ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РїРѕРјРµСЃС‚РёС‚ РїСЂРµРґРјРµС‚С‹ РІ РІР°С€ РёРЅРІРµРЅС‚Р°СЂСЊ Рё РІРµСЂРЅС‘С‚СЃСЏ РЅР° Р±Р°Р·Сѓ.
-tutorial_slide_courier_unit	Р•РґРёРЅРёС†Р° РєСѓСЂСЊРµСЂР°
-tutorial_slide_courier_unit_desc	Р’Р°С€ РєСѓСЂСЊРµСЂ РЅР°РїСЂР°РІРёС‚СЃСЏ Рє РІР°Рј СЃ Р±Р°Р·С‹ СЃ РєСѓРїР»РµРЅРЅС‹РјРё РїСЂРµРґРјРµС‚Р°РјРё.\\n\\nРЈС‡С‚РёС‚Рµ, С‡С‚Рѕ РєСѓСЂСЊРµСЂР° РјРѕР¶РЅРѕ СѓР±РёС‚СЊ Рё РЅР° РІСЂРµРјСЏ РІС‹РІРµСЃС‚Рё РёР· СЃС‚СЂРѕСЏ, РїРѕСЌС‚РѕРјСѓ РѕС‚РїСЂР°РІР»СЏР№С‚Рµ РµРіРѕ СЃ СѓРјРѕРј!
-tutorial_slide_creeps	РљСЂРёРїС‹
-tutorial_slide_creeps_desc	РљСЂРёРїС‹ РїРѕСЏРІР»СЏСЋС‚СЃСЏ СЃ РѕР±РµРёС… СЃС‚РѕСЂРѕРЅ РєР°Р¶РґС‹Рµ 30 СЃРµРєСѓРЅРґ.\\n\\nРЈР±РёР№СЃС‚РІРѕ РєСЂРёРїРѕРІ РїСЂРёРЅРѕСЃРёС‚ Р·РѕР»РѕС‚Рѕ (РµСЃР»Рё РІС‹ РЅР°РЅРµСЃР»Рё РїРѕСЃР»РµРґРЅРёР№ СѓРґР°СЂ) Рё РѕРїС‹С‚ (РґРµР»РёС‚СЃСЏ СЃ СЃРѕСЋР·РЅРёРєР°РјРё РїРѕР±Р»РёР·РѕСЃС‚Рё).
-tutorial_slide_custom_games	РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ РёРіСЂС‹
-tutorial_slide_custom_games_desc_bottom	Р’С‹ С‚Р°РєР¶Рµ РјРѕР¶РµС‚Рµ РІРѕР№С‚Рё РІ СЂРµР¶РёРј С‚СЂРµРЅРёСЂРѕРІРєРё, РІС‹Р±СЂР°РІ РїРµСЂРµРєР»СЋС‡Р°С‚РµР»СЊ В«РўСЂРµРЅРёСЂРѕРІРєР°В».
-tutorial_slide_custom_games_desc_top	РџРµСЂРµР№РґРёС‚Рµ РЅР° РІРєР»Р°РґРєСѓ В«РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ РёРіСЂС‹В», С‡С‚РѕР±С‹ СЃРѕР·РґР°С‚СЊ РёР»Рё РїСЂРёСЃРѕРµРґРёРЅРёС‚СЊСЃСЏ Рє Р»РѕР±Р±Рё СЃ РЅР°СЃС‚СЂР°РёРІР°РµРјС‹РјРё РїР°СЂР°РјРµС‚СЂР°РјРё.
-tutorial_slide_custom_lobby	РџРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРµ Р»РѕР±Р±Рё
-tutorial_slide_custom_lobby_desc_bottom	вЂ”
-tutorial_slide_custom_lobby_desc_top	РќР° СЌС‚РѕРј СЌРєСЂР°РЅРµ РѕС‚РѕР±СЂР°Р¶Р°СЋС‚СЃСЏ СЃР»РѕС‚С‹ РёРіСЂРѕРєРѕРІ Рё РІСЃРµ РїР°СЂР°РјРµС‚СЂС‹ Р»РѕР±Р±Рё Рё РЅР°СЃС‚СЂРѕР№РєРё РёРіСЂС‹.
-tutorial_slide_custom_lobby_info	РРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р»РѕР±Р±Рё
-tutorial_slide_custom_lobby_player_pod	РЎР»РѕС‚ РёРіСЂРѕРєР°
-tutorial_slide_emoteshop	РњР°РіР°Р·РёРЅ СЌРјРѕС†РёР№
-tutorial_slide_emoteuse	РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ СЌРјРѕС†РёР№
-tutorial_slide_fountain	Р¤РѕРЅС‚Р°РЅ
-tutorial_slide_fountain_desc	Р¤РѕРЅС‚Р°РЅ вЂ” Р±РµР·РѕРїР°СЃРЅРѕРµ РјРµСЃС‚Рѕ РґР»СЏ РІРѕСЃРїРѕР»РЅРµРЅРёСЏ Р¶РёР·РЅРё Рё РјР°РЅС‹ Р±РµР· Р·Р°С‚СЂР°С‚ Рё РІРѕСЃРєСЂРµС€РµРЅРёСЏ РїРѕСЃР»Рµ СЃРјРµСЂС‚Рё. Р’СЂР°РіРё, РїСЂРёР±Р»РёР¶Р°СЋС‰РёРµСЃСЏ Рє РІР°С€РµРјСѓ С„РѕРЅС‚Р°РЅСѓ, Р±СѓРґСѓС‚ Р°С‚Р°РєРѕРІР°РЅС‹. Р—РґРµСЃСЊ Р¶Рµ РЅР°С…РѕРґСЏС‚СЃСЏ С‚РѕСЂРіРѕРІС†С‹, Сѓ РєРѕС‚РѕСЂС‹С… РјРѕР¶РЅРѕ РєСѓРїРёС‚СЊ РјРѕС‰РЅС‹Рµ РїСЂРµРґРјРµС‚С‹ Р·Р° Р·РѕР»РѕС‚Рѕ.
-tutorial_slide_fountain_title	Р¤РѕРЅС‚Р°РЅ
-tutorial_slide_game_info_overview	РРЅС„РѕСЂРјР°С†РёСЏ РѕР± РёРіСЂРµ
-tutorial_slide_gold	Р—РѕР»РѕС‚Рѕ
-tutorial_slide_gold_desc	Р—РѕР»РѕС‚Рѕ Р·Р°СЂР°Р±Р°С‚С‹РІР°РµС‚СЃСЏ СЂР°Р·РЅС‹РјРё СЃРїРѕСЃРѕР±Р°РјРё: РїР°СЃСЃРёРІРЅРѕ СЃРѕ РІСЂРµРјРµРЅРµРј, Р·Р° СѓР±РёР№СЃС‚РІРѕ РєСЂРёРїРѕРІ Рё РІР·СЏС‚РёРµ С†РµР»РµР№, Р° С‚Р°РєР¶Рµ Р·Р° СѓР±РёР№СЃС‚РІР° Рё РїРѕРјРѕС‰СЊ РІ СѓР±РёР№СЃС‚РІРµ РІСЂР°Р¶РµСЃРєРёС… РіРµСЂРѕРµРІ.
-tutorial_slide_hero_abilities	РЈРјРµРЅРёСЏ РіРµСЂРѕСЏ
-tutorial_slide_hero_abilities_basic_abilities	Р‘Р°Р·РѕРІС‹Рµ СѓРјРµРЅРёСЏ (Q W E)
-tutorial_slide_hero_abilities_basic_max	РњР°РєСЃРёРјСѓРј 4 СѓСЂРѕРІРЅСЏ
-tutorial_slide_hero_abilities_basic_upgradable	Р”РѕСЃС‚СѓРїРЅС‹ РґР»СЏ РїСЂРѕРєР°С‡РєРё СЃ 1-РіРѕ СѓСЂРѕРІРЅСЏ РіРµСЂРѕСЏ
-tutorial_slide_hero_abilities_desc	РЈ РєР°Р¶РґРѕРіРѕ РіРµСЂРѕСЏ РµСЃС‚СЊ СѓРЅРёРєР°Р»СЊРЅС‹Р№ РЅР°Р±РѕСЂ Р±Р°Р·РѕРІС‹С… СѓРјРµРЅРёР№ Рё СѓР»СЊС‚РёРјР°С‚РёРІРЅРѕРµ СѓРјРµРЅРёРµ.\\nРљР°Р¶РґС‹Р№ СѓСЂРѕРІРµРЅСЊ РіРµСЂРѕСЏ РґР°С‘С‚ 1 РѕС‡РєРѕ РїСЂРѕРєР°С‡РєРё вЂ” РЅР°Р¶РјРёС‚Рµ РєРЅРѕРїРєСѓ РџР›Р®РЎ РёР»Рё used РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ РґР»СЏ РїСЂРѕРєР°С‡РєРё.
-tutorial_slide_hero_abilities_ultimate_ability	РЈР»СЊС‚РёРјР°С‚РёРІРЅРѕРµ СѓРјРµРЅРёРµ (R)
-tutorial_slide_hero_abilities_ultimate_max	РњР°РєСЃРёРјСѓРј 3 СѓСЂРѕРІРЅСЏ
-tutorial_slide_hero_abilities_ultimate_upgradable	Р”РѕСЃС‚СѓРїРЅРѕ РґР»СЏ РїСЂРѕРєР°С‡РєРё РЅР° СѓСЂРѕРІРЅСЏС… 6, 11 Рё 16
-tutorial_slide_hero_attributes	РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РіРµСЂРѕСЏ
-tutorial_slide_hero_attributes_agility	Р›РѕРІРєРѕСЃС‚СЊ
-tutorial_slide_hero_attributes_agility_desc	РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєР° Р›РѕРІРєРѕСЃС‚СЊ РґР°С‘С‚ +0,14 Р±СЂРѕРЅРё Рё +0,01 СЃРєРѕСЂРѕСЃС‚Рё Р°С‚Р°РєРё Р·Р° РєР°Р¶РґСѓСЋ РµРґРёРЅРёС†Сѓ.
-tutorial_slide_hero_attributes_desc	РљР°Р¶РґС‹Р№ РіРµСЂРѕР№ СЃРїРµС†РёР°Р»РёР·РёСЂСѓРµС‚СЃСЏ РЅР° РѕРґРЅРѕР№ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРµ: РЎРёР»Рµ, Р›РѕРІРєРѕСЃС‚Рё РёР»Рё РРЅС‚РµР»Р»РµРєС‚Рµ вЂ” СЌС‚Рѕ РґР°С‘С‚ Р±РѕРЅСѓСЃ Рє СѓСЂРѕРЅСѓ Рё СѓРЅРёРєР°Р»СЊРЅС‹Рµ РїСЂРµРёРјСѓС‰РµСЃС‚РІР°.\\nРћСЃРЅРѕРІРЅР°СЏ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєР° РіРµСЂРѕСЏ, РєР°Рє РїСЂР°РІРёР»Рѕ, СЃРІСЏР·Р°РЅР° СЃ РµРіРѕ СЂРѕР»СЊСЋ, С…РѕС‚СЏ Р±С‹РІР°СЋС‚ РёСЃРєР»СЋС‡РµРЅРёСЏ.
-tutorial_slide_hero_attributes_example_prefix	РџРѕСЃРєРѕР»СЊРєСѓ ALUNA СЏРІР»СЏРµС‚СЃСЏ
-tutorial_slide_hero_attributes_example_suffix	^369РРЅС‚РµР»Р»РµРєС‚СѓР°Р»СЊРЅС‹Рј^* РіРµСЂРѕРµРј, РѕРЅР° С‚Р°РєР¶Рµ РїРѕР»СѓС‡Р°РµС‚ 1 РЈСЂРѕРЅ Р·Р° РєР°Р¶РґС‹Р№ ^369РРЅС‚РµР»Р»РµРєС‚^*
-tutorial_slide_hero_attributes_intelligence	РРЅС‚РµР»Р»РµРєС‚
-tutorial_slide_hero_attributes_intelligence_desc	РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєР° РРЅС‚РµР»Р»РµРєС‚ РґР°С‘С‚ +13 РјР°РєСЃ. РјР°РЅС‹ Рё 0,04 СЂРµРіРµРЅРµСЂР°С†РёРё РјР°РЅС‹ Р·Р° РєР°Р¶РґСѓСЋ РµРґРёРЅРёС†Сѓ.
-tutorial_slide_hero_attributes_strength	РЎРёР»Р°
-tutorial_slide_hero_attributes_strength_desc	РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєР° РЎРёР»Р° РґР°С‘С‚ +21 РјР°РєСЃ. HP Рё 0,08 СЂРµРіРµРЅРµСЂР°С†РёРё Р·РґРѕСЂРѕРІСЊСЏ Р·Р° РєР°Р¶РґСѓСЋ РµРґРёРЅРёС†Сѓ.
-tutorial_slide_hero_interface_ability_level	РЈСЂРѕРІРµРЅСЊ СѓРјРµРЅРёСЏ
-tutorial_slide_hero_interface_ability_mana_cost	РЎС‚РѕРёРјРѕСЃС‚СЊ СѓРјРµРЅРёСЏ (РјР°РЅР°)
-tutorial_slide_hero_interface_base_attributes	Р‘Р°Р·РѕРІС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РіРµСЂРѕСЏ
-tutorial_slide_hero_interface_consumable_slot	РЎР»РѕС‚ СЂР°СЃС…РѕРґРЅРёРєРѕРІ
-tutorial_slide_hero_interface_courier_status	РЎС‚Р°С‚СѓСЃ РєСѓСЂСЊРµСЂР°
-tutorial_slide_hero_interface_desc	РќРёР¶РЅСЏСЏ С†РµРЅС‚СЂР°Р»СЊРЅР°СЏ РѕР±Р»Р°СЃС‚СЊ РѕС‚РѕР±СЂР°Р¶Р°РµС‚ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё, РёРЅРІРµРЅС‚Р°СЂСЊ Рё СѓРјРµРЅРёСЏ РІР°С€РµРіРѕ РіРµСЂРѕСЏ вЂ” РІСЃС‘ РЅРµРѕР±С…РѕРґРёРјРѕРµ РґР»СЏ СѓРїСЂР°РІР»РµРЅРёСЏ РїРµСЂСЃРѕРЅР°Р¶РµРј.
-tutorial_slide_hero_interface_experience_bar	РџРѕР»РѕСЃР° РѕРїС‹С‚Р°
-tutorial_slide_hero_interface_gold_owned	РРјРµСЋС‰РµРµСЃСЏ Р·РѕР»РѕС‚Рѕ
-tutorial_slide_hero_interface_health_bar	РџРѕР»РѕСЃР° Р·РґРѕСЂРѕРІСЊСЏ
-tutorial_slide_hero_interface_hero_ability	РЈРјРµРЅРёРµ РіРµСЂРѕСЏ
-tutorial_slide_hero_interface_hero_level	РЈСЂРѕРІРµРЅСЊ РіРµСЂРѕСЏ
-tutorial_slide_hero_interface_hero_stats	РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РіРµСЂРѕСЏ
-tutorial_slide_hero_interface_item_inventory	РРЅРІРµРЅС‚Р°СЂСЊ РїСЂРµРґРјРµС‚РѕРІ
-tutorial_slide_hero_interface_levelup_ability	РџСЂРѕРєР°С‡РєР° СѓРјРµРЅРёР№
-tutorial_slide_hero_interface_levelup_stats	РџСЂРѕРєР°С‡РєР° С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє
-tutorial_slide_hero_interface_mana_bar	РџРѕР»РѕСЃР° РјР°РЅС‹
-tutorial_slide_hero_interface_overview	РРЅС‚РµСЂС„РµР№СЃ РіРµСЂРѕСЏ
-tutorial_slide_hero_interface_raven	Р’РѕСЂРѕРЅ
-tutorial_slide_hero_interface_taunt	РќР°СЃРјРµС€РєР° (РєРѕСЃРјРµС‚РёРєР°)
-tutorial_slide_hero_interface_teleport	РўРµР»РµРїРѕСЂС‚
-tutorial_slide_hero_stats	РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РіРµСЂРѕСЏ
-tutorial_slide_hero_stats_alt_info	РЈРґРµСЂР¶Р°РЅРёРµ ALT РІ РёРіСЂРµ РїРѕРєР°Р·С‹РІР°РµС‚ РїРѕРґСЂРѕР±РЅСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ РїРѕ РєР°Р¶РґРѕР№ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРµ.
-tutorial_slide_hero_stats_armor	Р‘СЂРѕРЅСЏ
-tutorial_slide_hero_stats_armor_desc	РЎРЅРёР¶Р°РµС‚ РїРѕР»СѓС‡Р°РµРјС‹Р№ С„РёР·РёС‡РµСЃРєРёР№ СѓСЂРѕРЅ РЅР° РїСЂРѕС†РµРЅС‚.
-tutorial_slide_hero_stats_attack	РЈСЂРѕРЅ Р°С‚Р°РєРё
-tutorial_slide_hero_stats_attack_desc	РћРїСЂРµРґРµР»СЏРµС‚ РєРѕР»РёС‡РµСЃС‚РІРѕ СѓСЂРѕРЅР°, РЅР°РЅРѕСЃРёРјРѕРіРѕ СЋРЅРёС‚РѕРј РїСЂРё Р°РІС‚РѕР°С‚Р°РєРµ.
-tutorial_slide_hero_stats_desc	РќР°С‡Р°Р»СЊРЅС‹Рµ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РіРµСЂРѕСЏ СЂР°Р·Р»РёС‡Р°СЋС‚СЃСЏ Сѓ СЂР°Р·РЅС‹С… РіРµСЂРѕРµРІ.\\nРС… РјРѕР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ РїСѓС‚С‘Рј РїРѕРІС‹С€РµРЅРёСЏ СѓСЂРѕРІРЅСЏ, РїСЂРѕРєР°С‡РєРё СѓРјРµРЅРёР№ РёР»Рё РїСЂРёРѕР±СЂРµС‚РµРЅРёСЏ РїСЂРµРґРјРµС‚РѕРІ.
-tutorial_slide_hero_stats_magic_armor	РњР°РіРёС‡РµСЃРєР°СЏ Р±СЂРѕРЅСЏ
-tutorial_slide_hero_stats_magic_armor_desc	РЎРЅРёР¶Р°РµС‚ РїРѕР»СѓС‡Р°РµРјС‹Р№ РјР°РіРёС‡РµСЃРєРёР№ СѓСЂРѕРЅ РЅР° РїСЂРѕС†РµРЅС‚.
-tutorial_slide_hero_stats_move_speed	РЎРєРѕСЂРѕСЃС‚СЊ РїРµСЂРµРґРІРёР¶РµРЅРёСЏ
-tutorial_slide_hero_stats_move_speed_desc	РћРїСЂРµРґРµР»СЏРµС‚ СЃРєРѕСЂРѕСЃС‚СЊ РїРµСЂРµРґРІРёР¶РµРЅРёСЏ РІР°С€РµРіРѕ РіРµСЂРѕСЏ РїРѕ РєР°СЂС‚Рµ.
-tutorial_slide_honor_rating	Р РµР№С‚РёРЅРі С‡РµСЃС‚Рё
-tutorial_slide_honor_rating_desc	Р—РґРµСЃСЊ РІС‹ РЅР°Р№РґС‘С‚Рµ СЃРІРѕР№ СЂРµР№С‚РёРЅРі С‡РµСЃС‚Рё вЂ” СЃРёСЃС‚РµРјР°, РєРѕС‚РѕСЂР°СЏ РІРѕР·РЅР°РіСЂР°Р¶РґР°РµС‚ С…РѕСЂРѕС€РµРµ РїРѕРІРµРґРµРЅРёРµ СѓР»СѓС‡С€РµРЅРЅС‹Рј РёРіСЂРѕРІС‹Рј РѕРїС‹С‚РѕРј.
-tutorial_slide_ingame_shop	Р’РЅСѓС‚СЂРёРёРіСЂРѕРІРѕР№ РјР°РіР°Р·РёРЅ
-tutorial_slide_ingame_shop_classic	РљР»Р°СЃСЃРёС‡РµСЃРєРёР№
-tutorial_slide_ingame_shop_classic_desc	РљР»Р°СЃСЃРёС‡РµСЃРєРёР№ РёРЅС‚РµСЂС„РµР№СЃ РјР°РіР°Р·РёРЅР° РґР»СЏ РІРµС‚РµСЂР°РЅРѕРІ HoN, РїСЂРµРґРїРѕС‡РёС‚Р°СЋС‰РёС… РѕСЂРёРіРёРЅР°Р»СЊРЅС‹Р№ РѕРїС‹С‚.
-tutorial_slide_ingame_shop_desc	Р’С‹Р±РµСЂРёС‚Рµ РёРЅС‚РµСЂС„РµР№СЃ РјР°РіР°Р·РёРЅР° РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІРѕ РІСЂРµРјСЏ РёРіСЂ.
-tutorial_slide_ingame_shop_desc2	Р’С‹ РјРѕР¶РµС‚Рµ РёР·РјРµРЅРёС‚СЊ РІС‹Р±РѕСЂ РІ Р»СЋР±РѕРµ РІСЂРµРјСЏ РІ РјРµРЅСЋ РЅР°СЃС‚СЂРѕРµРє.
-tutorial_slide_ingame_shop_modern	РЎРѕРІСЂРµРјРµРЅРЅС‹Р№
-tutorial_slide_ingame_shop_modern_desc	РЈРїСЂРѕС‰С‘РЅРЅС‹Р№ РёРЅС‚РµСЂС„РµР№СЃ РјР°РіР°Р·РёРЅР° СЃ СѓР»СѓС‡С€РµРЅРЅС‹Рј РїРѕРІРµРґРµРЅРёРµРј Рё РјРµРЅСЊС€РёРј Р·Р°РЅРёРјР°РµРјС‹Рј РїСЂРѕСЃС‚СЂР°РЅСЃС‚РІРѕРј РЅР° СЌРєСЂР°РЅРµ.
-tutorial_slide_invite_teammates_desc_top	РҐРѕС‚РёС‚Рµ РёРіСЂР°С‚СЊ СЃ РґСЂСѓР·СЊСЏРјРё?\\nРќР°Р¶РјРёС‚Рµ В«РџСЂРёРіР»Р°СЃРёС‚СЊ РёРіСЂРѕРєР°В», С‡С‚РѕР±С‹ РґРѕР±Р°РІРёС‚СЊ РёС… РІ РіСЂСѓРїРїСѓ Рё Р·Р°Р№С‚Рё РІ РѕС‡РµСЂРµРґСЊ РІРјРµСЃС‚Рµ.
-tutorial_slide_keybinds	Р“РѕСЂСЏС‡РёРµ РєР»Р°РІРёС€Рё
-tutorial_slide_keybinds_options	Р’С‹ РјРѕР¶РµС‚Рµ РёР·РјРµРЅРёС‚СЊ РёС… РІ Р»СЋР±РѕРµ РІСЂРµРјСЏ РІ РјРµРЅСЋ РЅР°СЃС‚СЂРѕРµРє.
-tutorial_slide_keybinds_skip	РџСЂРѕРїСѓСЃС‚РёС‚СЊ СЌС‚РѕС‚ С€Р°Рі (РєР»Р°РІРёС€Рё РЅРµ РёР·РјРµРЅСЏС‚СЃСЏ)
-tutorial_slide_keybinds_success	Р’Р°С€Рё РіРѕСЂСЏС‡РёРµ РєР»Р°РІРёС€Рё РЅР°СЃС‚СЂРѕРµРЅС‹!
-tutorial_slide_limited_hero_pool_desc_bottom	РџРѕСЃР»Рµ Р·Р°РІРµСЂС€РµРЅРёСЏ РїРµСЂРёРѕРґР° РЅРѕРІРѕРіРѕ РёРіСЂРѕРєР°, РІС‹Р±РѕСЂ РіРµСЂРѕРµРІ Р±РѕР»СЊС€Рµ РЅРµ Р±СѓРґРµС‚ РѕРіСЂР°РЅРёС‡РµРЅ РЅР°Р·РЅР°С‡РµРЅРЅРѕР№ СЂРѕР»СЊСЋ.
-tutorial_slide_limited_hero_pool_desc_top	РќРѕРІС‹Рµ РёРіСЂРѕРєРё РІ РїРµСЂРІС‹С… 100 РёРіСЂР°С… РјРѕРіСѓС‚ РІС‹Р±РёСЂР°С‚СЊ С‚РѕР»СЊРєРѕ РіРµСЂРѕРµРІ РґР»СЏ СЂРѕР»Рё, РЅР°Р·РЅР°С‡РµРЅРЅРѕР№ РёРј РІ РєР°Р¶РґРѕРј РјР°С‚С‡Рµ.
-tutorial_slide_mini_map	РњРёРЅРё-РєР°СЂС‚Р°
-tutorial_slide_mini_map_desc	РњРёРЅРё-РєР°СЂС‚Р° РІ РЅРёР¶РЅРµРј Р»РµРІРѕРј СѓРіР»Сѓ РїРѕРєР°Р·С‹РІР°РµС‚ РѕР±Р·РѕСЂ РІСЃРµР№ РєР°СЂС‚С‹.\\n\\nРљРЅРѕРїРєР° СѓРєСЂРµРїР»РµРЅРёСЏ СЂСЏРґРѕРј СЃ РЅРµР№ РїРѕР·РІРѕР»СЏРµС‚ РІСЂРµРјРµРЅРЅРѕ СЃРґРµР»Р°С‚СЊ РІР°С€Рё РїРѕСЃС‚СЂРѕР№РєРё РЅРµСѓСЏР·РІРёРјС‹РјРё РґР»СЏ Р·Р°С‰РёС‚С‹ РѕС‚ РѕСЃР°РґС‹. РЈ РЅРµС‘ РѕР±С‰РёР№ РєСѓР»РґР°СѓРЅ 5 РјРёРЅСѓС‚ СЃРѕ РІСЃРµР№ РєРѕРјР°РЅРґРѕР№.
-tutorial_slide_neutrals	РќРµР№С‚СЂР°Р»С‹
-tutorial_slide_neutrals_ancient	Р”СЂРµРІРЅРёР№ Р»Р°РіРµСЂСЊ
-tutorial_slide_neutrals_desc	РќРµР№С‚СЂР°Р»С‹ РЅР°С…РѕРґСЏС‚СЃСЏ РІ Р»РµСЃСѓ РІ Р±РµР·РґРµР№СЃС‚РІРёРё. РћРЅРё РїСЂРёРЅРѕСЃСЏС‚ Р·РѕР»РѕС‚Рѕ Рё РѕРїС‹С‚, РєР°Рє РѕР±С‹С‡РЅС‹Рµ РєСЂРёРїС‹, РЅРѕ РјРѕРіСѓС‚ Р±С‹С‚СЊ РѕРїР°СЃРЅРµРµ. РќР° РєР°Р¶РґРѕР№ СЃС‚РѕСЂРѕРЅРµ РµСЃС‚СЊ РїРѕ 5 Р»Р°РіРµСЂРµР№ РЅРµР№С‚СЂР°Р»РѕРІ вЂ” Сѓ ^495Р›Р•Р“РРћРќРђ^* Рё Сѓ ^955РџР Р•РРЎРџРћР”РќР•Р™^*.
-tutorial_slide_neutrals_easy	Р›С‘РіРєРёР№ Р»Р°РіРµСЂСЊ
-tutorial_slide_neutrals_hard	РЎР»РѕР¶РЅС‹Р№ Р»Р°РіРµСЂСЊ
-tutorial_slide_neutrals_medium	РЎСЂРµРґРЅРёР№ Р»Р°РіРµСЂСЊ
-tutorial_slide_neutrals_title	Р”Р¶СѓРЅРіР»Рё: Р›Р°РіРµСЂСЏ РЅРµР№С‚СЂР°Р»РѕРІ
-tutorial_slide_quick_buy	Р‘С‹СЃС‚СЂР°СЏ РїРѕРєСѓРїРєР°
-tutorial_slide_quick_buy_desc	Р‘С‹СЃС‚СЂР°СЏ РїРѕРєСѓРїРєР° РїРѕР·РІРѕР»СЏРµС‚ СЃРѕС…СЂР°РЅРёС‚СЊ РїСЂРµРґРјРµС‚С‹ РґР»СЏ Р±С‹СЃС‚СЂРѕРіРѕ РїСЂРёРѕР±СЂРµС‚РµРЅРёСЏ.\\n\\nShift + Р›РљРњ вЂ” РґРѕР±Р°РІРёС‚СЊ РїСЂРµРґРјРµС‚, Shift + РџРљРњ вЂ” СѓР±СЂР°С‚СЊ.\\n\\nР—Р°С‚РµРј РёСЃРїРѕР»СЊР·СѓР№С‚Рµ РіРѕСЂСЏС‡СѓСЋ РєР»Р°РІРёС€Сѓ РґР»СЏ РјРіРЅРѕРІРµРЅРЅРѕР№ РїРѕРєСѓРїРєРё.
-tutorial_slide_ravens	Р’РѕСЂРѕРЅС‹
-tutorial_slide_ravens_desc	Р’РѕСЂРѕРЅ вЂ” РІСЃС‚СЂРѕРµРЅРЅС‹Р№ РёРЅСЃС‚СЂСѓРјРµРЅС‚ СЂР°Р·РІРµРґРєРё, РґРѕСЃС‚СѓРїРЅС‹Р№ РІСЃРµРј РёРіСЂРѕРєР°Рј.\\nР Р°Р·РјРµСЃС‚РёС‚Рµ РµРіРѕ РЅР° РґРµСЂРµРІРµ, С‡С‚РѕР±С‹ РІСЂРµРјРµРЅРЅРѕ РїРѕР»СѓС‡РёС‚СЊ РѕР±Р·РѕСЂ РєР»СЋС‡РµРІС‹С… Р·РѕРЅ.
-tutorial_slide_rax	РљР°Р·Р°СЂРјС‹
-tutorial_slide_rax_desc	Р­С‚Рё РїРѕСЃС‚СЂРѕР№РєРё РЅР°С…РѕРґСЏС‚СЃСЏ РІ РіР»СѓР±РёРЅРµ Р±Р°Р·С‹ Рё РЅРµРѕР±С…РѕРґРёРјС‹ РґР»СЏ СѓРЅРёС‡С‚РѕР¶РµРЅРёСЏ СЃРІСЏС‚С‹РЅРё РІСЂР°РіР°. РЈРЅРёС‡С‚РѕР¶РµРЅРёРµ РєР°Р·Р°СЂРј Р·РЅР°С‡РёС‚РµР»СЊРЅРѕ СѓСЃРёР»РёС‚ РєСЂРёРїРѕРІ РІР°С€РµР№ РєРѕРјР°РЅРґС‹ РІ РґР°РЅРЅРѕР№ Р»РёРЅРёРё. Р’ РєР°Р¶РґРѕР№ Р»РёРЅРёРё РїРѕ 2 РЅР°Р±РѕСЂР° РєР°Р·Р°СЂРј (РґР°Р»СЊРЅРµРіРѕ Рё Р±Р»РёР¶РЅРµРіРѕ Р±РѕСЏ), РёС… РЅРµР»СЊР·СЏ Р°С‚Р°РєРѕРІР°С‚СЊ, РїРѕРєР° РЅРµ СѓРЅРёС‡С‚РѕР¶РµРЅС‹ Р±Р°С€РЅРё РІ Р»РёРЅРёРё.
-tutorial_slide_rax_title	РљР°Р·Р°СЂРјС‹
-tutorial_slide_rune_desc	РњРѕС‰РЅС‹Рµ СЂСѓРЅС‹ РїРѕСЏРІР»СЏСЋС‚СЃСЏ РІ РѕРґРЅРѕРј РёР· РґРІСѓС… РјРµСЃС‚ СЃР»СѓС‡Р°Р№РЅРѕ РєР°Р¶РґС‹Рµ РґРІРµ РјРёРЅСѓС‚С‹, РЅР°С‡РёРЅР°СЏ СЃ 4-Р№ РјРёРЅСѓС‚С‹
-tutorial_slide_rune_double_dmg	Р”РІРѕР№РЅРѕР№ СѓСЂРѕРЅ
-tutorial_slide_rune_double_dmg_desc	РџСЂРё Р°РєС‚РёРІР°С†РёРё РґР°С‘С‚ РіРµСЂРѕСЋ Р±Р°С„С„ +100% Рє Р±Р°Р·РѕРІРѕРјСѓ СѓСЂРѕРЅСѓ РЅР° 45 СЃРµРєСѓРЅРґ.
-tutorial_slide_rune_gold	Р—РѕР»РѕС‚Рѕ
-tutorial_slide_rune_gold_desc	Р”Р°С‘С‚ Р±РѕРЅСѓСЃРЅРѕРµ Р·РѕР»РѕС‚Рѕ РіРµСЂРѕСЋ Рё СЃРѕСЋР·РЅРёРєР°Рј.
-tutorial_slide_rune_haste	РЈСЃРєРѕСЂРµРЅРёРµ
-tutorial_slide_rune_haste_desc	Р”Р°С‘С‚ РіРµСЂРѕСЋ РјР°РєСЃРёРјР°Р»СЊРЅСѓСЋ СЃРєРѕСЂРѕСЃС‚СЊ РїРµСЂРµРґРІРёР¶РµРЅРёСЏ Рё РёРјРјСѓРЅРёС‚РµС‚ Рє Р·Р°РјРµРґР»РµРЅРёСЋ РЅР° 30 СЃРµРєСѓРЅРґ.
-tutorial_slide_rune_illusion	РР»Р»СЋР·РёСЏ
-tutorial_slide_rune_illusion_desc	РЎРѕР·РґР°С‘С‚ 2 СЃР»Р°Р±С‹Рµ РёР»Р»СЋР·РёРё Рё СЃРЅРёР¶Р°РµС‚ РєСѓР»РґР°СѓРЅ Рё СЃС‚РѕРёРјРѕСЃС‚СЊ СѓРјРµРЅРёР№ РЅР° 30% РЅР° 45 СЃРµРєСѓРЅРґ.
-tutorial_slide_rune_invis	РќРµРІРёРґРёРјРѕСЃС‚СЊ
-tutorial_slide_rune_invis_desc	Р”Р°С‘С‚ СЃРєСЂС‹С‚РЅРѕСЃС‚СЊ РЅР° 60 СЃРµРєСѓРЅРґ. РЎРєСЂС‹С‚РЅРѕСЃС‚СЊ СЃРЅРёРјР°РµС‚СЃСЏ РїСЂРё Р°С‚Р°РєРµ, РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРё СѓРјРµРЅРёР№ РёР»Рё РїСЂРµРґРјРµС‚РѕРІ.
-tutorial_slide_rune_regeneration	Р РµРіРµРЅРµСЂР°С†РёСЏ
-tutorial_slide_rune_regeneration_desc	Р‘С‹СЃС‚СЂРѕ РІРѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ Р·РґРѕСЂРѕРІСЊРµ Рё РјР°РЅСѓ Р·Р° РєРѕСЂРѕС‚РєРѕРµ РІСЂРµРјСЏ.
-tutorial_slide_rune_title	Р СѓРЅС‹
-tutorial_slide_runes	Р СѓРЅС‹
-tutorial_slide_shop_ui	РРЅС‚РµСЂС„РµР№СЃ РјР°РіР°Р·РёРЅР°
-tutorial_slide_shop_ui_desc	Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ РјР°РіР°Р·РёРЅ! Р—РґРµСЃСЊ РІС‹ С‚СЂР°С‚РёС‚Рµ Р·РѕР»РѕС‚Рѕ РЅР° РїСЂРµРґРјРµС‚С‹.\\n\\nРџСЂРѕСЃРјР°С‚СЂРёРІР°Р№С‚Рµ РєР°С‚РµРіРѕСЂРёРё СЃ РїРѕРјРѕС‰СЊСЋ РІРєР»Р°РґРѕРє СЃР»РµРІР° РёР»Рё РёСЃРїРѕР»СЊР·СѓР№С‚Рµ СЃС‚СЂРѕРєСѓ РїРѕРёСЃРєР°.
-tutorial_slide_shrine	РЎРІСЏС‚С‹РЅСЏ
-tutorial_slide_shrine_desc	Р“Р»Р°РІРЅР°СЏ С†РµР»СЊ РёРіСЂС‹ Рё СЃРµСЂРґС†Рµ РѕР±РѕСЂРѕРЅС‹ Р›РµРіРёРѕРЅР° Рё РџСЂРµРёСЃРїРѕРґРЅРµР№. РРіСЂР° Р·Р°РєРѕРЅС‡РёС‚СЃСЏ, РµСЃР»Рё РІС‹ СѓРЅРёС‡С‚РѕР¶РёС‚Рµ СЃРІСЏС‚С‹РЅСЋ РїСЂРѕС‚РёРІРЅРёРєР°.
-tutorial_slide_shrine_title	РЎРІСЏС‚С‹РЅСЏ
-tutorial_slide_sideshops	Р‘РѕРєРѕРІС‹Рµ РјР°РіР°Р·РёРЅС‹
-tutorial_slide_sideshops_desc	Р‘РѕРєРѕРІС‹Рµ РјР°РіР°Р·РёРЅС‹ РІ Р»РёРЅРёСЏС… РїСЂРµРґР»Р°РіР°СЋС‚ Р±С‹СЃС‚СЂС‹Р№ РґРѕСЃС‚СѓРї Рє РєР»СЋС‡РµРІС‹Рј РїСЂРµРґРјРµС‚Р°Рј, РЅРµ С‚СЂРµР±СѓСЏ РєСѓСЂСЊРµСЂР°.
-tutorial_slide_sideshops_title	Р‘РѕРєРѕРІС‹Рµ РјР°РіР°Р·РёРЅС‹
-tutorial_slide_teleport	РўРµР»РµРїРѕСЂС‚
-tutorial_slide_teleport_desc	РЈ РєР°Р¶РґРѕРіРѕ РіРµСЂРѕСЏ РµСЃС‚СЊ РІСЃС‚СЂРѕРµРЅРЅС‹Р№ РєР°РјРµРЅСЊ С‚РµР»РµРїРѕСЂС‚Р°С†РёРё.\\nР’С‹ РјРѕР¶РµС‚Рµ С‚РµР»РµРїРѕСЂС‚РёСЂРѕРІР°С‚СЊСЃСЏ Рє Р»СЋР±РѕР№ РїРѕСЃС‚СЂРѕР№РєРµ РІР°С€РµР№ РєРѕРјР°РЅРґС‹, РІРєР»СЋС‡Р°СЏ С„РѕРЅС‚Р°РЅ.
-tutorial_slide_top_center_assists	РџРѕРјРѕС‰СЊ
-tutorial_slide_top_center_creeps_denied	РљСЂРёРїРѕРІ РґРѕР±РёС‚Рѕ
-tutorial_slide_top_center_creeps_killed	РљСЂРёРїРѕРІ СѓР±РёС‚Рѕ
-tutorial_slide_top_center_day_night_indicator	РРЅРґРёРєР°С‚РѕСЂ РґРЅСЏ/РЅРѕС‡Рё
-tutorial_slide_top_center_deaths	РЎРјРµСЂС‚Рё
-tutorial_slide_top_center_desc	Р’РµСЂС…РЅСЏСЏ С†РµРЅС‚СЂР°Р»СЊРЅР°СЏ РѕР±Р»Р°СЃС‚СЊ РїРѕРєР°Р·С‹РІР°РµС‚ РѕР±С‰СѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ, РїРѕР»РµР·РЅСѓСЋ РІ С…РѕРґРµ РјР°С‚С‡Р°.
-tutorial_slide_top_center_game_timer	РўР°Р№РјРµСЂ РёРіСЂС‹
-tutorial_slide_top_center_hellbourne_kills	РЈР±РёР№СЃС‚РІР° РџСЂРµРёСЃРїРѕРґРЅРµР№
-tutorial_slide_top_center_hero_level	РЈСЂРѕРІРµРЅСЊ РіРµСЂРѕСЏ
-tutorial_slide_top_center_hero_skills	РЈРјРµРЅРёСЏ РіРµСЂРѕСЏ
-tutorial_slide_top_center_hero_ultimate_bar	РџРѕР»РѕСЃР° СѓР»СЊС‚РёРјР°С‚РёРІРЅРѕРіРѕ СѓРјРµРЅРёСЏ
-tutorial_slide_top_center_kills	РЈР±РёР№СЃС‚РІР°
-tutorial_slide_top_center_legion_kills	РЈР±РёР№СЃС‚РІР° Р›РµРіРёРѕРЅР°
-tutorial_slide_towers	Р‘Р°С€РЅРё
-tutorial_slide_towers_desc	Р‘Р°С€РЅРё СЂР°СЃРїРѕР»РѕР¶РµРЅС‹ РІ Р»РёРЅРёСЏС… РїРѕ РІСЃРµР№ РєР°СЂС‚Рµ. Р­С‚Рѕ РѕС‡РµРЅСЊ РїСЂРѕС‡РЅС‹Рµ РѕР±РѕСЂРѕРЅРёС‚РµР»СЊРЅС‹Рµ СЃРѕРѕСЂСѓР¶РµРЅРёСЏ СЃ РІС‹СЃРѕРєРёРј СѓСЂРѕРЅРѕРј РЅР° СЂР°РЅРЅРёС… СЌС‚Р°РїР°С…. РС… РЅСѓР¶РЅРѕ СѓРЅРёС‡С‚РѕР¶РёС‚СЊ РїРµСЂРµРґ Р·Р°С…РІР°С‚РѕРј РІСЂР°Р¶РµСЃРєРѕР№ Р±Р°Р·С‹.\\n\\nРљР°Р¶РґР°СЏ РєРѕРјР°РЅРґР° Р·Р°С‰РёС‰Р°РµС‚ 11 Р±Р°С€РµРЅ РЅР° РїРѕР»Рµ Р±РѕСЏ.
-tutorial_slide_towers_title	Р‘Р°С€РЅРё
-ui_staff_spectate_placeholder	Р’РІРµРґРёС‚Рµ РёРјСЏ РёРіСЂРѕРєР°...
-vanity_cat_account_vanity	РљРѕСЃРјРµС‚РёРєР° Р°РєРєР°СѓРЅС‚Р°
-vanity_emote_wheel_setup_disabled_desc	Р’С‹ СЃРµР№С‡Р°СЃ РІ РёРіСЂРµ. Р”Р»СЏ РЅР°СЃС‚СЂРѕР№РєРё РєРѕР»РµСЃР° СЌРјРѕС†РёР№ РёСЃРїРѕР»СЊР·СѓР№С‚Рµ РІРЅСѓС‚СЂРёРёРіСЂРѕРІРѕР№ РёРЅС‚РµСЂС„РµР№СЃ.
-vanity_emote_wheel_setup_disabled_title	РРіСЂР° РІ РїСЂРѕС†РµСЃСЃРµ
+marketplace_reward_claimed	Награда получена
+options_btn_restart_tutorial	Перезапустить руководство
+options_btn_restart_tutorial_tip	Повторно открывает обучающие слайды для новых игроков.
+options_label_shop_search_keybind	Поиск предметов
+options_restart_confirm_body	Одно или несколько изменений требуют перезапуска. Перезапустить сейчас?
+options_restart_confirm_restart	Перезапустить сейчас
+options_restart_confirm_title	Требуется перезапуск
+options_simple_shop_search_text	Горячая клавиша для поиска в магазине
+options_slider_max_ingame_framerate	Макс. FPS в игре
+options_slider_max_ingame_framerate_tip	Настраивает максимальное количество кадров во время игры. Высокие значения делают игру плавнее, низкие снижают нагрузку. При рывках или высокой нагрузке GPU попробуйте снизить.
+shop_cat_title_combative	Боевые
+shop_cat_title_legendary	Легендарные
+shop_cat_title_morphattack	Атакующие (морф)
+shop_cat_title_protective	Защитные
+shop_keybinds_toggle	Переключить горячие клавиши магазина
+shop_shoplayout_toggle	Переключить тип категорий (Базовый / Классический)
+store_buy_from_marketplace_for	Купить на маркетплейсе за:
+store_cat_featured	Рекомендуемые товары
+store_list_item	Выставить товар
+store_marketplace_fee	Комиссия:
+store_marketplace_hide_my_listings	Скрыть мои лоты
+store_marketplace_hide_sales_history	Скрыть историю продаж
+store_marketplace_list_my	Выставить {item} на продажу
+store_marketplace_listed	Выставлено: {count}
+store_marketplace_page	Страница {page}
+store_marketplace_purchase	Купить {item}
+store_marketplace_show_my_listings	Показать мои лоты
+store_marketplace_show_sales_history	Показать историю продаж
+store_marketplace_update_my_listing	Обновить мой лот
+store_marketplace_viewing_history	История просмотров
+store_marketplace_you_own	У вас: {count}
+store_model_viewer_prompt	Выберите товар для предпросмотра
+store_no_listings	Нет лотов
+store_no_listings_available	Нет доступных лотов
+store_no_listings_tip	Этот аватар можно купить только на маркетплейсе, но сейчас никто его не продаёт. Возможно, он есть в Плинко — или попробуйте позже.
+store_powered_by	НА ПЛАТФОРМЕ
+store_set_marketplace_price	Установить цену на маркетплейсе
+store_show_listings	Показать лоты
+store_show_sell_item	Продать мой товар
+store_sort_direction_tip	Изменить направление сортировки
+store_sort_dropdown_tip	Сортировать товары
+store_toggle_ward	Переключить вард
+store_unavailable	Недоступно
+store_unavailable_tip	Этот товар в данный момент недоступен для покупки.
+store_unequip	Снять
+store_you_receive	Вы получаете:
+tutorial_category_gameplay	Геймплей
+tutorial_library_list_title	Разделы помощи
+tutorial_npe_complete_hint	Чтобы просмотреть слайды снова, перейдите в Обучение > Разделы помощи.
+tutorial_npe_complete_message	Что дальше?
+tutorial_npe_complete_message_hon	Вы в курсе последних изменений. Удачи!
+tutorial_npe_complete_message_moba	Вы освоили основы Heroes of Newerth: Reborn. Пора доминировать!
+tutorial_npe_complete_message_new	Вы освоили основы Heroes of Newerth: Reborn. Удачи!
+tutorial_npe_complete_title	Готово!
+tutorial_npe_complete_title_hon	С возвращением!
+tutorial_npe_complete_title_moba	Добро пожаловать в Неверт!
+tutorial_npe_complete_title_new	Добро пожаловать в Неверт!
+tutorial_npe_skill_lvl_feedback_hon	Как опытный игрок HoN, вы узнаете, что нового в Reborn.
+tutorial_npe_skill_lvl_feedback_moba	Как игрок в MOBA, вы узнаете отличия HoN от других игр жанра.
+tutorial_npe_skill_lvl_feedback_new	Как новый игрок, вы пройдёте полное обучение.
+tutorial_slide_auto_level	Авто-прокачка
+tutorial_slide_auto_level_desc	Функция авто-прокачки автоматически повышает уровень умений, позволяя сосредоточиться на игре без беспокойства об очках умений.
+tutorial_slide_cosmetics	Косметика
+tutorial_slide_courier_control	Управление курьером
+tutorial_slide_courier_control_desc	Ваш курьер доставляет купленные предметы прямо на поле боя.\n\nКогда вы не у базы, нажмите кнопку курьера или используйте горячую клавишу для доставки.
+tutorial_slide_courier_delivery	Доставка курьером
+tutorial_slide_courier_delivery_desc	Когда курьер прибудет, он автоматически поместит предметы в ваш инвентарь и вернётся на базу.
+tutorial_slide_courier_unit	Единица курьера
+tutorial_slide_courier_unit_desc	Ваш курьер направится к вам с базы с купленными предметами.\n\nКурьера можно убить и на время вывести из строя — отправляйте его с умом!
+tutorial_slide_creeps	Крипы
+tutorial_slide_creeps_desc	Крипы появляются с обеих сторон каждые 30 секунд.\n\nУбийство крипов приносит золото (если вы нанесли последний удар) и опыт (делится с союзниками рядом).
+tutorial_slide_custom_games	Пользовательские игры
+tutorial_slide_custom_games_desc_bottom	Вы также можете войти в режим тренировки, выбрав переключатель «Тренировка».
+tutorial_slide_custom_games_desc_top	Перейдите на вкладку «Пользовательские игры», чтобы создать или присоединиться к лобби с настраиваемыми параметрами.
+tutorial_slide_custom_lobby	Пользовательское лобби
+tutorial_slide_custom_lobby_desc_bottom	—
+tutorial_slide_custom_lobby_desc_top	На этом экране показаны слоты игроков, параметры лобби и настройки игры.
+tutorial_slide_custom_lobby_info	Информация о лобби
+tutorial_slide_custom_lobby_player_pod	Слот игрока
+tutorial_slide_emoteshop	Магазин эмоций
+tutorial_slide_emoteuse	Использование эмоций
+tutorial_slide_fountain	Фонтан
+tutorial_slide_fountain_desc	Фонтан — безопасное место для восполнения жизни и маны и воскрешения после смерти. Враги у вашего фонтана будут атакованы. Здесь же торговцы, у которых можно купить предметы за золото.
+tutorial_slide_fountain_title	Фонтан
+tutorial_slide_game_info_overview	Информация об игре
+tutorial_slide_gold	Золото
+tutorial_slide_gold_desc	Золото зарабатывается passively со временем, за убийство крипов и захват целей, а также за убийства и помощь в убийстве вражеских героев.
+tutorial_slide_hero_abilities	Умения героя
+tutorial_slide_hero_abilities_basic_abilities	Базовые умения (Q W E)
+tutorial_slide_hero_abilities_basic_max	Максимум 4 уровня
+tutorial_slide_hero_abilities_basic_upgradable	Доступны для прокачки с 1-го уровня героя
+tutorial_slide_hero_abilities_desc	У каждого героя есть уникальные базовые умения и ультимативное умение.\nКаждый уровень даёт 1 очко — нажмите ПЛЮС или горячую клавишу для прокачки.
+tutorial_slide_hero_abilities_ultimate_ability	Ультимативное умение (R)
+tutorial_slide_hero_abilities_ultimate_max	Максимум 3 уровня
+tutorial_slide_hero_abilities_ultimate_upgradable	Доступно на уровнях 6, 11 и 16
+tutorial_slide_hero_attributes	Характеристики героя
+tutorial_slide_hero_attributes_agility	Ловкость
+tutorial_slide_hero_attributes_agility_desc	Ловкость даёт +0,14 брони и +0,01 скорости атаки за каждую единицу.
+tutorial_slide_hero_attributes_desc	Каждый герой специализируется на одной характеристике: Силе, Ловкости или Интеллекте.\nОсновная характеристика, как правило, связана с ролью, хотя бывают исключения.
+tutorial_slide_hero_attributes_example_prefix	Поскольку ALUNA является
+tutorial_slide_hero_attributes_example_suffix	^369Интеллектуальным^* героем, она получает 1 Урон за каждый ^369Интеллект^*
+tutorial_slide_hero_attributes_intelligence	Интеллект
+tutorial_slide_hero_attributes_intelligence_desc	Интеллект даёт +13 макс. маны и 0,04 регенерации маны за каждую единицу.
+tutorial_slide_hero_attributes_strength	Сила
+tutorial_slide_hero_attributes_strength_desc	Сила даёт +21 макс. HP и 0,08 регенерации здоровья за каждую единицу.
+tutorial_slide_hero_interface_ability_level	Уровень умения
+tutorial_slide_hero_interface_ability_mana_cost	Стоимость умения (мана)
+tutorial_slide_hero_interface_base_attributes	Базовые характеристики героя
+tutorial_slide_hero_interface_consumable_slot	Слот расходников
+tutorial_slide_hero_interface_courier_status	Статус курьера
+tutorial_slide_hero_interface_desc	Нижняя центральная область отображает характеристики, инвентарь и умения вашего героя.
+tutorial_slide_hero_interface_experience_bar	Полоса опыта
+tutorial_slide_hero_interface_gold_owned	Имеющееся золото
+tutorial_slide_hero_interface_health_bar	Полоса здоровья
+tutorial_slide_hero_interface_hero_ability	Умение героя
+tutorial_slide_hero_interface_hero_level	Уровень героя
+tutorial_slide_hero_interface_hero_stats	Характеристики героя
+tutorial_slide_hero_interface_item_inventory	Инвентарь предметов
+tutorial_slide_hero_interface_levelup_ability	Прокачка умений
+tutorial_slide_hero_interface_levelup_stats	Прокачка характеристик
+tutorial_slide_hero_interface_mana_bar	Полоса маны
+tutorial_slide_hero_interface_overview	Интерфейс героя
+tutorial_slide_hero_interface_raven	Ворон
+tutorial_slide_hero_interface_taunt	Насмешка (косметика)
+tutorial_slide_hero_interface_teleport	Телепорт
+tutorial_slide_hero_stats	Характеристики героя
+tutorial_slide_hero_stats_alt_info	ALT в игре показывает подробную информацию по каждой характеристике.
+tutorial_slide_hero_stats_armor	Броня
+tutorial_slide_hero_stats_armor_desc	Снижает получаемый физический урон на процент.
+tutorial_slide_hero_stats_attack	Урон атаки
+tutorial_slide_hero_stats_attack_desc	Определяет количество урона при автоатаке.
+tutorial_slide_hero_stats_desc	Начальные характеристики различаются у разных героев.\nИх можно изменить через повышение уровня, прокачку умений или покупку предметов.
+tutorial_slide_hero_stats_magic_armor	Магическая броня
+tutorial_slide_hero_stats_magic_armor_desc	Снижает получаемый магический урон на процент.
+tutorial_slide_hero_stats_move_speed	Скорость передвижения
+tutorial_slide_hero_stats_move_speed_desc	Определяет скорость передвижения вашего героя по карте.
+tutorial_slide_honor_rating	Рейтинг чести
+tutorial_slide_honor_rating_desc	Здесь вы найдёте свой рейтинг чести — система вознаграждает хорошее поведение улучшенным игровым опытом.
+tutorial_slide_ingame_shop	Внутриигровой магазин
+tutorial_slide_ingame_shop_classic	Классический
+tutorial_slide_ingame_shop_classic_desc	Классический интерфейс магазина для ветеранов HoN, предпочитающих оригинальный опыт.
+tutorial_slide_ingame_shop_desc	Выберите интерфейс магазина для использования в играх.
+tutorial_slide_ingame_shop_desc2	Вы можете изменить выбор в любое время в меню настроек.
+tutorial_slide_ingame_shop_modern	Современный
+tutorial_slide_ingame_shop_modern_desc	Упрощённый интерфейс магазина с улучшенным поведением и меньшим занимаемым пространством на экране.
+tutorial_slide_invite_teammates_desc_top	Хотите играть с друзьями?\nНажмите «Пригласить игрока», чтобы добавить их в группу и зайти в очередь вместе.
+tutorial_slide_keybinds	Горячие клавиши
+tutorial_slide_keybinds_options	Вы можете изменить их в любое время в меню настроек.
+tutorial_slide_keybinds_skip	Пропустить этот шаг (клавиши не изменятся)
+tutorial_slide_keybinds_success	Ваши горячие клавиши настроены!
+tutorial_slide_limited_hero_pool_desc_bottom	После завершения периода нового игрока выбор героев больше не будет ограничен назначенной ролью.
+tutorial_slide_limited_hero_pool_desc_top	Новые игроки в первых 100 играх могут выбирать только героев для назначенной им роли.
+tutorial_slide_mini_map	Мини-карта
+tutorial_slide_mini_map_desc	Мини-карта в нижнем левом углу показывает обзор всей карты.\n\nКнопка укрепления рядом с ней временно делает ваши постройки неуязвимыми. Кулдаун — 5 минут, общий для всей команды.
+tutorial_slide_neutrals	Нейтралы
+tutorial_slide_neutrals_ancient	Древний лагерь
+tutorial_slide_neutrals_desc	Нейтралы находятся в лесу в бездействии. Приносят золото и опыт, но могут быть опаснее обычных крипов. На каждой стороне по 5 лагерей — у ^495ЛЕГИОНА^* и у ^955ПРЕИСПОДНЕЙ^*.
+tutorial_slide_neutrals_easy	Лёгкий лагерь
+tutorial_slide_neutrals_hard	Сложный лагерь
+tutorial_slide_neutrals_medium	Средний лагерь
+tutorial_slide_neutrals_title	Джунгли: Лагеря нейтралов
+tutorial_slide_quick_buy	Быстрая покупка
+tutorial_slide_quick_buy_desc	Быстрая покупка позволяет сохранить предметы для мгновенного приобретения.\n\nShift+ЛКМ — добавить, Shift+ПКМ — убрать.\n\nЗатем используйте горячую клавишу для покупки.
+tutorial_slide_ravens	Вороны
+tutorial_slide_ravens_desc	Ворон — встроенный инструмент разведки для всех игроков.\nРазместите на дереве для временного обзора ключевых зон.
+tutorial_slide_rax	Казармы
+tutorial_slide_rax_desc	Эти постройки в глубине базы необходимы для уничтожения святыни врага. Уничтожение казарм усилит крипов вашей команды в линии. В каждой линии 2 набора казарм — их нельзя атаковать, пока не уничтожены башни.
+tutorial_slide_rax_title	Казармы
+tutorial_slide_rune_desc	Мощные руны появляются в одном из двух мест случайно каждые 2 минуты, начиная с 4-й минуты
+tutorial_slide_rune_double_dmg	Двойной урон
+tutorial_slide_rune_double_dmg_desc	При активации даёт герою +100% к базовому урону на 45 секунд.
+tutorial_slide_rune_gold	Золото
+tutorial_slide_rune_gold_desc	Даёт бонусное золото герою и союзникам.
+tutorial_slide_rune_haste	Ускорение
+tutorial_slide_rune_haste_desc	Даёт герою максимальную скорость и иммунитет к замедлению на 30 секунд.
+tutorial_slide_rune_illusion	Иллюзия
+tutorial_slide_rune_illusion_desc	Создаёт 2 слабые иллюзии и снижает кулдаун и стоимость умений на 30% на 45 секунд.
+tutorial_slide_rune_invis	Невидимость
+tutorial_slide_rune_invis_desc	Даёт скрытность на 60 секунд. Снимается при атаке, использовании умений или предметов.
+tutorial_slide_rune_regeneration	Регенерация
+tutorial_slide_rune_regeneration_desc	Быстро восстанавливает здоровье и ману за короткое время.
+tutorial_slide_rune_title	Руны
+tutorial_slide_runes	Руны
+tutorial_slide_shop_ui	Интерфейс магазина
+tutorial_slide_shop_ui_desc	Добро пожаловать в магазин! Здесь вы тратите золото на предметы.\n\nПросматривайте категории с помощью вкладок слева или используйте строку поиска.
+tutorial_slide_shrine	Святыня
+tutorial_slide_shrine_desc	Главная цель игры. Игра закончится, если вы уничтожите святыню противника.
+tutorial_slide_shrine_title	Святыня
+tutorial_slide_sideshops	Боковые магазины
+tutorial_slide_sideshops_desc	Боковые магазины в линиях дают быстрый доступ к ключевым предметам без курьера.
+tutorial_slide_sideshops_title	Боковые магазины
+tutorial_slide_teleport	Телепорт
+tutorial_slide_teleport_desc	У каждого героя есть встроенный камень телепортации.\nМожно телепортироваться к любой постройке команды, включая фонтан.
+tutorial_slide_top_center_assists	Помощь
+tutorial_slide_top_center_creeps_denied	Крипов добито
+tutorial_slide_top_center_creeps_killed	Крипов убито
+tutorial_slide_top_center_day_night_indicator	Индикатор дня/ночи
+tutorial_slide_top_center_deaths	Смерти
+tutorial_slide_top_center_desc	Верхняя центральная область показывает общую информацию, полезную в ходе матча.
+tutorial_slide_top_center_game_timer	Таймер игры
+tutorial_slide_top_center_hellbourne_kills	Убийства Преисподней
+tutorial_slide_top_center_hero_level	Уровень героя
+tutorial_slide_top_center_hero_skills	Умения героя
+tutorial_slide_top_center_hero_ultimate_bar	Полоса ульта
+tutorial_slide_top_center_kills	Убийства
+tutorial_slide_top_center_legion_kills	Убийства Легиона
+tutorial_slide_towers	Башни
+tutorial_slide_towers_desc	Башни расположены в линиях по всей карте. Прочные оборонительные сооружения с высоким уроном на ранних этапах. Уничтожьте их перед атакой на базу.\n\nКаждая команда защищает 11 башен.
+tutorial_slide_towers_title	Башни
+ui_staff_spectate_placeholder	Введите имя игрока...
+vanity_cat_account_vanity	Косметика аккаунта
+vanity_emote_wheel_setup_disabled_desc	Вы сейчас в игре. Для настройки колеса эмоций используйте внутриигровой интерфейс.
+vanity_emote_wheel_setup_disabled_title	Игра в процессе
