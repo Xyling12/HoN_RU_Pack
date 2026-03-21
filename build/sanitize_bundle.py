@@ -1,7 +1,7 @@
 import os
 import re
 
-bundle_dir = r'd:\HoN_RU_Pack\bundle'
+bundle_dir = r'd:\Projects\HoN_RU_Pack\bundle'
 
 def sanitize_file(filepath):
     filename = os.path.basename(filepath)
@@ -35,7 +35,7 @@ def sanitize_file(filepath):
         # Version bump
         # Version bump — replace ANY 1.9.x version with the current target
         import re as _re
-        TARGET_VERSION = b'1.9.9m'
+        TARGET_VERSION = b'1.9.9n'
         new_data = _re.sub(rb'1\.9\.\d+[a-z]?', TARGET_VERSION, data)
         if new_data != data:
             data = new_data
