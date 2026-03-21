@@ -108,6 +108,32 @@ if (-not $KeepFiles -and (Test-Path $dataRoot)) {
     }
 }
 
+# ─── Remove .str files from ALL game stringtable locations ──────────────────
+if (-not $KeepFiles) {
+    $strBases    = @("entities", "interface", "client_messages", "game_messages", "bot_messages")
+    $strSuffixes = @(".str", "_en.str", "_ru.str", "_th.str")
+
+    $docsRoot = Join-Path $env:USERPROFILE "Documents\Juvio\Heroes of Newerth"
+    $strDirs = @(
+        (Join-Path $InstallRoot "stringtables"),
+        (Join-Path $InstallRoot "game\stringtables"),
+        (Join-Path $docsRoot   "stringtables"),
+        (Join-Path $docsRoot   "game\stringtables")
+    )
+    foreach ($dir in $strDirs) {
+        if (-not (Test-Path $dir)) { continue }
+        foreach ($base in $strBases) {
+            foreach ($suf in $strSuffixes) {
+                $f = Join-Path $dir ($base + $suf)
+                if (Test-Path $f) {
+                    Remove-Item $f -Force -ErrorAction SilentlyContinue
+                    Write-Host "[Cleanup] Removed: $f"
+                }
+            }
+        }
+    }
+}
+
 Write-Host "Uninstall completed."
 Write-Host "Scheduled task removed: HoN_RU_Pack_AutoAgent"
 if ($KeepFiles) {
