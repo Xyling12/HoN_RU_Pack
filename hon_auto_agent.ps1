@@ -202,6 +202,63 @@ function Sync-LocaleConfig {
     }
 }
 
+# ─── Nav patch: auto-repatch nav tab names in resources0.jz ─────────────────
+function Sync-NavPatch {
+    try {
+        $archivePath = Join-Path $gameRoot "resources0.jz"
+        if (-not (Test-Path $archivePath)) { return }
+
+        $sevenZip = $null
+        foreach ($c in @("C:\Program Files\7-Zip\7z.exe","C:\Program Files (x86)\7-Zip\7z.exe")) {
+            if (Test-Path $c) { $sevenZip = $c; break }
+        }
+        if (-not $sevenZip) { return }
+
+        # Extract stringtables/interface_en.str to temp
+        $tmpDir = Join-Path ([System.IO.Path]::GetTempPath()) "hon_nav_patch"
+        if (Test-Path $tmpDir) { Remove-Item $tmpDir -Recurse -Force -ErrorAction SilentlyContinue }
+        New-Item -ItemType Directory $tmpDir -Force | Out-Null
+
+        & $sevenZip e $archivePath "stringtables/interface_en.str" "-o$tmpDir" -y 2>&1 | Out-Null
+        $strFile = Join-Path $tmpDir "interface_en.str"
+        if (-not (Test-Path $strFile)) { return }
+
+        # Check marker: is ЛЕСТНИЦА already in the file?
+        $bytes = [System.IO.File]::ReadAllBytes($strFile)
+        $content = [System.Text.Encoding]::UTF8.GetString($bytes)
+        if ($content -match "ЛЕСТНИЦА") {
+            Remove-Item $tmpDir -Recurse -Force -ErrorAction SilentlyContinue
+            return  # already patched
+        }
+
+        Write-Log "NavPatch: archive was updated, re-patching nav tabs..." "INF"
+
+        # Apply Russian nav tab names
+        $content = $content -replace '(?m)^(main_menu_ladder\t+)LADDER\r?$',        '${1}ЛЕСТНИЦА'
+        $content = $content -replace '(?m)^(main_menu_leanatorium\t+)LEARN\r?$',    '${1}ОБУЧЕНИЕ'
+        $content = $content -replace '(?m)^(main_menu_plinko\t+)PLINKO\r?$',        '${1}ПЛИНКО'
+        $content = $content -replace '(?m)^(main_menu_store\t+)STORE\r?$',          '${1}МАГАЗИН'
+
+        $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+        [System.IO.File]::WriteAllText($strFile, $content, $utf8NoBom)
+
+        # Stage and update archive
+        $stagingDir = Join-Path $tmpDir "staging"
+        $stTablesDir = Join-Path $stagingDir "stringtables"
+        New-Item -ItemType Directory $stTablesDir -Force | Out-Null
+        Copy-Item $strFile (Join-Path $stTablesDir "interface_en.str") -Force
+
+        Push-Location $stagingDir
+        & $sevenZip u $archivePath "stringtables\interface_en.str" -r 2>&1 | Out-Null
+        Pop-Location
+
+        Write-Log "NavPatch: re-patch complete (ЛЕСТНИЦА/ОБУЧЕНИЕ/ПЛИНКО/МАГАЗИН)" "INF"
+        Remove-Item $tmpDir -Recurse -Force -ErrorAction SilentlyContinue
+    } catch {
+        Write-Log "Sync-NavPatch error: $_" "WRN"
+    }
+}
+
 # ─── Stump mod: auto-repatch resources0.jz after game updates ───────────────
 function Sync-StumpMod {
     try {
@@ -334,6 +391,7 @@ try { Sync-Strings -Force } catch { Write-Log "Bootstrap Sync-Strings error: $_"
 try { Sync-WebOverride -ForceCopy } catch { Write-Log "Bootstrap Sync-WebOverride error: $_" "WRN" }
 try { Sync-LocaleConfig } catch { Write-Log "Bootstrap Sync-LocaleConfig error: $_" "WRN" }
 try { Sync-StumpMod } catch { Write-Log "Bootstrap Sync-StumpMod error: $_" "WRN" }
+try { Sync-NavPatch } catch { Write-Log "Bootstrap Sync-NavPatch error: $_" "WRN" }
 
 if (Check-RemoteUpdate) { Apply-UpdateMOTD }
 $lastVersionCheck = Get-Date
@@ -356,6 +414,7 @@ while ($true) {
                 try { Sync-WebOverride -ForceCopy } catch { Write-Log "Launch Sync-WebOverride error: $_" "WRN" }
                 try { Sync-LocaleConfig } catch { Write-Log "Launch Sync-LocaleConfig error: $_" "WRN" }
                 try { Sync-StumpMod } catch { Write-Log "Launch Sync-StumpMod error: $_" "WRN" }
+                try { Sync-NavPatch } catch { Write-Log "Launch Sync-NavPatch error: $_" "WRN" }
                 $lastLocaleRefresh = $now
                 $lastWebOverride   = $now
             } else {
