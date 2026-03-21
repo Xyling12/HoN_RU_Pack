@@ -32815,3 +32815,206 @@ mm_region_code_cis	CIS
 
 
 hselect_label_hd_attack_speed		Скор. атак.
+
+tutorial_npe_welcome_title	Добро пожаловать в Heroes of Newerth
+
+tutorial_npe_welcome_message	Прежде чем начать, расскажи нам о своём игровом опыте
+
+
+
+
+tutorial_npe_skill_lvl_new	Новичок
+
+tutorial_npe_skill_lvl_moba	Знаток MOBA
+
+tutorial_npe_skill_lvl_hon	Ветеран HoN
+
+tutorial_npe_skill_lvl_desc_new	Я новичок в MOBA и хочу начать с основ
+
+tutorial_npe_skill_lvl_desc_moba	У меня есть опыт в других MOBA-играх
+
+tutorial_npe_skill_lvl_desc_hon	Я уже играл в HoN и знаю как всё устроено
+
+tutorial_npe_skill_lvl_feedback_unset	Не указан
+
+tutorial_npe_reset	Сбросить обучение
+
+
+
+
+tutorial_category_ingame_shop	Магазин
+
+tutorial_category_map_foc	Карта: FoC
+
+tutorial_category_map_mw	Карта: MW
+
+tutorial_category_vanity	Косметика
+
+tutorial_category_ui	Интерфейс
+
+tutorial_category_pregame	До игры
+
+tutorial_category_customgame	Пользовательская игра
+
+
+
+
+tutorial_slide_keybinds_desc	Настройки клавиш по умолчанию для каждой раскладки
+
+
+
+
+tutorial_slide_foc_objective	Цели на карте
+
+tutorial_slide_foc_objective_title	Разрушь Трон Конклейва!
+
+tutorial_slide_foc_objective_obj_1	Уничтожай вражеские башни на линиях
+
+tutorial_slide_foc_objective_obj_2	Снеси казарму, чтобы открыть путь к трону
+
+tutorial_slide_foc_objective_obj_3	Убивай вражеских героев, мешающих продвижению
+
+tutorial_slide_foc_objective_obj_4	Разрушь трон — и победа за тобой!
+
+tutorial_slide_roles_foc	Роли на линиях
+
+tutorial_slide_roles_foc_instruction	Нажми на роль, чтобы посмотреть подробности
+
+
+
+
+tutorial_slide_boss_phoenix	Феникс
+
+tutorial_slide_boss_kongor	Конгор
+
+tutorial_slide_phoenix_title	Огненный Феникс
+
+tutorial_slide_phoenix_desc	Феникс появляется в начале матча и возрождается каждые несколько минут
+
+tutorial_slide_phoenix_egg	Яйцо Феникса
+
+tutorial_slide_phoenix_egg_desc	Подбери яйцо, чтобы получить мощный бафф для команды
+
+tutorial_slide_phoenix_token	Жетон Феникса
+
+tutorial_slide_phoenix_token_desc	Ценная валюта, получаемая за убийство Феникса
+
+
+
+
+tutorial_slide_kongor_title	Конгор
+
+tutorial_slide_kongor_desc	Конгор — мощный нейтральный монстр в центре джунглей
+
+tutorial_slide_kongor_summon	Призыв Конгора
+
+tutorial_slide_kongor_summon_desc	Убери Конгора, чтобы призвать его на помощь своей команде
+
+
+
+
+tutorial_slide_mw_objective	Цели на карте
+
+tutorial_slide_mw_objective_title	Захвати контрольные точки и уничтожь замок!
+
+tutorial_slide_mw_objective_obj_1	Захватывай точки, чтобы набирать очки
+
+tutorial_slide_mw_objective_obj_2	Держи больше точек — набирай очки быстрее соперника
+
+tutorial_slide_mw_objective_obj_3	Первая команда с нужным количеством очков побеждает
+
+
+
+
+tutorial_slide_cosmetics_desc	Персонализируй игровой опыт с помощью косметических предметов
+
+tutorial_slide_emoteshop_desc	Покупай наборы эмоций в магазине за талоны или Нефрит
+
+tutorial_slide_emoteuse_desc	Используй эмоции в игре для общения с союзниками и противниками
+
+tutorial_slide_emoteuse_tickets	Талоны позволяют открывать наборы эмоций
+
+tutorial_slide_emoteuse_jade	Нефрит — премиум-валюта для покупки эксклюзивной косметики
+
+tutorial_slide_emoteuse_press	Удерживай кнопку, чтобы вызвать колесо эмоций
+
+
+
+
+tutorial_slide_learn	Страница обучения
+
+tutorial_slide_learn_desc_bottom	Посети вкладку «Обучение» для гайдов, видео и справочных материалов
+
+tutorial_slide_ladder	Рейтинговая таблица
+
+tutorial_slide_ladder_desc_bottom	Следи за своим местом в рейтинге игроков
+
+tutorial_slide_plinko	Плинко
+
+tutorial_slide_plinko_desc	Бросай жетоны в Плинко, чтобы выиграть призы и косметику
+
+tutorial_slide_plinko_drops	Дропы — случайные награды за бросок
+
+tutorial_slide_plinko_tickets	Талоны используются для бросков в Плинко
+
+
+
+
+tutorial_slide_bans	Баны героев
+
+tutorial_slide_bans_desc_top	Нажми «Играть», чтобы открыть меню подбора матча
+
+tutorial_slide_bans_desc_bottom	Выбери до трёх героев, которых хочешь заблокировать в матче
+
+tutorial_slide_role_priority	Приоритет ролей
+
+tutorial_slide_role_priority_desc_top	Нажми «Играть», чтобы открыть меню подбора матча
+
+tutorial_slide_role_priority_desc_bottom	Расставь роли в предпочтительном порядке для подбора
+
+tutorial_slide_game_modes	Режимы игры
+
+tutorial_slide_game_modes_desc_top	Нажми «Играть», чтобы открыть меню подбора матча
+
+tutorial_slide_game_modes_desc_bottom	Выбери режим: Рейтинговый или Обычный матч
+
+tutorial_slide_matchmaking_tuning	Настройка подбора матча
+
+tutorial_slide_matchmaking_tuning_desc_top	Нажми «Играть», чтобы открыть меню подбора матча
+
+tutorial_slide_matchmaking_tuning_desc_bottom	Выбери скорость или точность при поиске матча
+
+tutorial_slide_invite_teammates	Пригласи друзей в команду
+
+tutorial_slide_limited_hero_pool	Ограниченный выбор героев
+
+tutorial_slide_bonus_rating	Бонусный рейтинг
+
+
+
+
+marketplace_header_title	Маркетплейс выходного дня
+
+marketplace_header_subtitle	Ограниченное время!
+
+marketplace_fees_waived_title	Без комиссии!
+
+marketplace_fees_waived_desc	Торговые сборы отменены на период акции
+
+marketplace_visit_ingame_store	Открыть магазин
+
+marketplace_play_games_title	Играй и зарабатывай жетоны
+
+marketplace_play_games_desc	Сыграй игры, чтобы получить жетон маркетплейса
+
+marketplace_play_button	Играть
+
+marketplace_buy_jade_skin_title	Скин «Нефрит»
+
+marketplace_buy_jade_bonus_title	Бонус набора «Нефрит»
+
+marketplace_buy_jade_desc	Приобрети набор Нефрита и получи эксклюзивный скин в подарок
+
+marketplace_buy_jade_desc2	Скин доступен только в течение этих выходных
+
+marketplace_purchase_jade_button	Купить набор «Нефрит»
