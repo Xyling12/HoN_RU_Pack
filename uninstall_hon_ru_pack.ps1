@@ -28,15 +28,14 @@ if (Test-Path $startupCmd) {
 
 Unregister-ScheduledTask -TaskName "HoN_RU_Pack_AutoAgent" -Confirm:$false -ErrorAction SilentlyContinue
 
-$runningAgents = Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" |
+# Kill agent: search by script name (any path), also kill cmd wrappers
+$runningAgents = Get-CimInstance Win32_Process |
     Where-Object {
-        $_.CommandLine -and (
-            $_.CommandLine -match [regex]::Escape($agentScriptData) -or
-            $_.CommandLine -match [regex]::Escape($agentScriptMod)
-        )
+        $_.CommandLine -and $_.CommandLine -match "hon_auto_agent"
     }
 foreach ($proc in $runningAgents) {
     Stop-Process -Id $proc.ProcessId -Force -ErrorAction SilentlyContinue
+    Write-Host "[Agent] Killed process: $($proc.Name) (PID $($proc.ProcessId))"
 }
 
 # Remove AmneziaWG tunnel if installed (also cleans up legacy WireGuard)
