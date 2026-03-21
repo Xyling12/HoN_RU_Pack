@@ -33031,8 +33031,8 @@ store_avatar_marketplace	Маркетплейс аватаров
 
 vanity_emote_wheel_setup_title	Настройка колеса эмоций
 
-vanity_emote_wheel_setup_desc	Назначь эмоции на позиции колеса для быстрого использования в игре
-// === NEW KEYS v1.9.9m (game update tutorial NPE + marketplace + options) ===
+vanity_emote_wheel_setup_desc	Назначь эмоции на позиции колеса для быстрого использования в игре
+// === NEW KEYS v1.9.9n (game update tutorial NPE + marketplace + options) ===
 filter_search_tip	Поиск героев
 game_shop_auto_level_classic	Авто-прокачка умений
 game_shop_auto_level_classic_top	Автоматически прокачивать умения по мере их открытия.
@@ -33258,4 +33258,4 @@ tutorial_slide_towers_title	Башни
 ui_staff_spectate_placeholder	Введите имя игрока...
 vanity_cat_account_vanity	Косметика аккаунта
 vanity_emote_wheel_setup_disabled_desc	Вы сейчас в игре. Для настройки колеса эмоций используйте внутриигровой интерфейс.
-vanity_emote_wheel_setup_disabled_title	Игра в процессе
+vanity_emote_wheel_setup_disabled_title	Игра в процессе
