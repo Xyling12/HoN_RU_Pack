@@ -122,6 +122,7 @@ function Sync-Strings {
 
 # ─── FileSystemWatcher: instantly restore overwritten .str files ─────────────
 $watchers = [System.Collections.Generic.List[object]]::new()
+$script:fswLastWrite = @{}  # debounce: track last write time per file
 
 foreach ($target in $strTargets) {
     if (-not (Test-Path $target)) {
@@ -152,8 +153,13 @@ foreach ($target in $strTargets) {
                         $srcInfo = ($using:capturedSrcMeta)[$base]
                         if ($srcInfo) {
                             try {
+                                # Debounce: skip if we wrote this file within last 10s (prevents feedback loop)
+                                $lastWrite = $script:fswLastWrite[$changedFile]
+                                if ($lastWrite -and ((Get-Date) - $lastWrite).TotalSeconds -lt 10) { break }
+
                                 $curLen = (Get-Item $changedFile -ErrorAction SilentlyContinue).Length
                                 if ($curLen -ne $srcInfo.Length) {
+                                    $script:fswLastWrite[$changedFile] = Get-Date
                                     Copy-Item -Path $srcInfo.Path -Destination $changedFile -Force -ErrorAction SilentlyContinue
                                     $ts = Get-Date -Format "HH:mm:ss"
                                     Add-Content -Path $using:capturedLog -Value "[$ts][INF] FSW restored: $changedName" -Encoding UTF8 -ErrorAction SilentlyContinue
@@ -391,7 +397,6 @@ try { Sync-Strings -Force } catch { Write-Log "Bootstrap Sync-Strings error: $_"
 try { Sync-WebOverride -ForceCopy } catch { Write-Log "Bootstrap Sync-WebOverride error: $_" "WRN" }
 try { Sync-LocaleConfig } catch { Write-Log "Bootstrap Sync-LocaleConfig error: $_" "WRN" }
 try { Sync-StumpMod } catch { Write-Log "Bootstrap Sync-StumpMod error: $_" "WRN" }
-try { Sync-NavPatch } catch { Write-Log "Bootstrap Sync-NavPatch error: $_" "WRN" }
 
 if (Check-RemoteUpdate) { Apply-UpdateMOTD }
 $lastVersionCheck = Get-Date
@@ -414,7 +419,6 @@ while ($true) {
                 try { Sync-WebOverride -ForceCopy } catch { Write-Log "Launch Sync-WebOverride error: $_" "WRN" }
                 try { Sync-LocaleConfig } catch { Write-Log "Launch Sync-LocaleConfig error: $_" "WRN" }
                 try { Sync-StumpMod } catch { Write-Log "Launch Sync-StumpMod error: $_" "WRN" }
-                try { Sync-NavPatch } catch { Write-Log "Launch Sync-NavPatch error: $_" "WRN" }
                 $lastLocaleRefresh = $now
                 $lastWebOverride   = $now
             } else {
