@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$PackageRoot = (Split-Path -Parent $MyInvocation.MyCommand.Path),
     [int]$LaunchSyncDelayMilliseconds = 300,
     [int]$RunningSyncDelayMilliseconds = 2000,
@@ -454,3 +454,4 @@ while ($true) {
         Start-Sleep -Milliseconds 3000
     }
 }
+

@@ -1,4 +1,4 @@
-param(
+﻿param(
     [Alias("PackageRoot")]
     [string]$SourceRoot = (Split-Path -Parent $MyInvocation.MyCommand.Path),
     [string]$InstallRoot = "",
@@ -336,3 +336,4 @@ Write-Host "ModRoot: $modRoot"
 Write-Host "Autostart: $autoStartStatus"
 $agentLog = Join-Path $dataRoot "agent.log"
 Write-Host "Agent log: $agentLog"
+
