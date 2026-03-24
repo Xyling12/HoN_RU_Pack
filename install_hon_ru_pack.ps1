@@ -61,7 +61,6 @@ if ((-not (Test-Path $archivePathJZ)) -and (-not (Test-Path $archivePathS2Z))) {
 
 $dataRoot = Join-Path $env:LOCALAPPDATA "HoN_RU_Pack"
 $dataBundle = Join-Path $dataRoot "bundle"
-$webOverrideRoot = Join-Path $dataRoot "web_override"
 $modRoot = Join-Path $InstallRoot "mod\HoN_RU_Pack"
 $bundleSrc = Join-Path $SourceRoot "bundle"
 $bundleDst = Join-Path $modRoot "bundle"
@@ -92,7 +91,6 @@ if (-not (Test-Path $bundleSrc)) {
 New-Item -ItemType Directory -Path $InstallRoot -Force | Out-Null
 New-Item -ItemType Directory -Path $dataRoot -Force | Out-Null
 New-Item -ItemType Directory -Path $dataBundle -Force | Out-Null
-New-Item -ItemType Directory -Path $webOverrideRoot -Force | Out-Null
 New-Item -ItemType Directory -Path $modRoot -Force | Out-Null
 New-Item -ItemType Directory -Path $bundleDst -Force | Out-Null
 
@@ -227,17 +225,6 @@ foreach ($cacheRoot in @($docsRoot, (Join-Path $docsRoot "game")) | Select-Objec
     }
 }
 
-$webOverridePrepared = Prepare-HoNWebOverride -GameRoot $InstallRoot -OutputRoot $webOverrideRoot
-if ($webOverridePrepared) {
-    $webOverrideSynced = Sync-HoNWebOverride -SourceRoot $webOverrideRoot -GameRoot $InstallRoot
-    if ($webOverrideSynced) {
-        Write-Host "[Install] Placed web override files in game root."
-    } else {
-        Write-Host "[Install] Web override files already present in game root."
-    }
-} else {
-    Write-Host "[Install] Web override preparation skipped."
-}
 
 $bannerScript = Join-Path $dataRoot "set_login_banner.ps1"
 if (Test-Path $bannerScript) {

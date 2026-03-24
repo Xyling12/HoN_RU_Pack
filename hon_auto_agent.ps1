@@ -48,7 +48,7 @@ if ($allGameRoots.Count -gt 1) {
 }
 
 $dataBundle      = Join-Path $PackageRoot "bundle"
-$webOverrideRoot = Join-Path $PackageRoot "web_override"
+# webOverrideRoot removed (Web UI not translated)
 $localeVariants  = @(".str", "_en.str", "_ru.str", "_th.str")
 $strBases        = @("entities", "interface", "client_messages", "game_messages", "bot_messages")
 
@@ -294,19 +294,7 @@ function Sync-StumpMod {
     }
 }
 
-# ─── Web override ─────────────────────────────────────────────────────────────
-function Sync-WebOverride {
-    param([switch]$ForceCopy)
-    try {
-        if (-not (Test-Path (Join-Path $webOverrideRoot "index.html"))) {
-            Prepare-HoNWebOverride -GameRoot $gameRoot -OutputRoot $webOverrideRoot | Out-Null
-        }
-        $changed = Sync-HoNWebOverride -SourceRoot $webOverrideRoot -GameRoot $gameRoot -ForceCopy:$ForceCopy
-        if ($changed) { Write-Log "Sync-WebOverride: files updated (ForceCopy=$ForceCopy)" "INF" }
-    } catch {
-        Write-Log "Sync-WebOverride error: $_" "WRN"
-    }
-}
+# Sync-WebOverride removed (Web UI not translated, caused ZStd errors)
 
 function Test-JuvioRunning {
     return [bool](Get-Process -Name "juvio" -ErrorAction SilentlyContinue | Select-Object -First 1)
@@ -387,14 +375,12 @@ function Apply-UpdateMOTD {
 
 # ─── Bootstrap ────────────────────────────────────────────────────────────────
 $lastLocaleRefresh = [DateTime]::MinValue
-$lastWebOverride   = [DateTime]::MinValue
 $launchBurstUntil  = [DateTime]::MinValue
 $lastIdleSync      = [DateTime]::MinValue
 $wasRunning        = $false
 
 Write-Log "Bootstrap sync..." "INF"
 try { Sync-Strings -Force } catch { Write-Log "Bootstrap Sync-Strings error: $_" "WRN" }
-try { Sync-WebOverride -ForceCopy } catch { Write-Log "Bootstrap Sync-WebOverride error: $_" "WRN" }
 try { Sync-LocaleConfig } catch { Write-Log "Bootstrap Sync-LocaleConfig error: $_" "WRN" }
 try { Sync-StumpMod } catch { Write-Log "Bootstrap Sync-StumpMod error: $_" "WRN" }
 
@@ -416,22 +402,12 @@ while ($true) {
                 $launchBurstUntil = $now.AddSeconds($LaunchBurstSeconds)
                 # Force-write all strings immediately on launch (catch any FSW miss)
                 try { Sync-Strings -Force } catch { Write-Log "Launch Sync-Strings error: $_" "WRN" }
-                try { Sync-WebOverride -ForceCopy } catch { Write-Log "Launch Sync-WebOverride error: $_" "WRN" }
                 try { Sync-LocaleConfig } catch { Write-Log "Launch Sync-LocaleConfig error: $_" "WRN" }
                 try { Sync-StumpMod } catch { Write-Log "Launch Sync-StumpMod error: $_" "WRN" }
                 $lastLocaleRefresh = $now
-                $lastWebOverride   = $now
             } else {
                 # Running: size-check sync (FSW handles instant restores)
                 try { Sync-Strings } catch {}
-
-                $inBurst = ($now -lt $launchBurstUntil)
-                if ($inBurst -and ($now - $lastWebOverride).TotalSeconds -ge 10) {
-                    try { Sync-WebOverride -ForceCopy } catch {}
-                    $lastWebOverride = $now
-                } elseif (-not $inBurst) {
-                    try { Sync-WebOverride } catch {}
-                }
 
                 if (($now - $lastLocaleRefresh).TotalSeconds -ge $LocaleRefreshSeconds) {
                     try { Sync-LocaleConfig } catch {}
@@ -444,10 +420,8 @@ while ($true) {
             if ($wasRunning) {
                 Write-Log "Juvio STOPPED - final sync" "INF"
                 try { Sync-Strings -Force } catch {}
-                try { Sync-WebOverride -ForceCopy } catch {}
                 try { Sync-LocaleConfig } catch {}
                 $lastLocaleRefresh = $now
-                $lastWebOverride   = $now
             } else {
                 # Idle: size-check sync, but throttled to once every 30s to avoid feedback loop
                 if (($now - $lastIdleSync).TotalSeconds -ge 30) {
