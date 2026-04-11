@@ -1,0 +1,35 @@
+# Compression Report — entities_en.str
+Lines changed: 31
+Bytes saved: 571
+
+  [Ability_Adrenaline4_description_simple] -13b
+  [Ability_Adrenaline4_IMPACT_effect] -13b
+  [State_Adrenaline_Ability4_Self_FRAME_effect] -13b
+  [Ability_Aluna4_description_simple] -21b
+  [Ability_Arachna4_description_simple] -21b
+  [Ability_Artesia4_description_simple] -21b
+  [Ability_Artillery3_FRAME_effect] -21b
+  [Ability_Artillery4_description_simple] -21b
+  [Ability_Berzerker4_IMPACT_effect] -23b
+  [Ability_Calamity4_description_simple] -21b
+  [Ability_Chipper4_description_simple] -21b
+  [Ability_PlagueRider2_description_simple] -13b
+  [Ability_PlagueRider2_IMPACT_effect] -13b
+  [Ability_Blacksmith2_description_simple] -13b
+  [Ability_Goldenveil2_description_simple] -21b
+  [Ability_Goldenveil2_IMPACT_effect] -21b
+  [State_Grinex_Ability2_FRAME_effect] -9b
+  [Ability_KingKlout3_description_simple] -13b
+  [Ability_KingKlout3_ATTACK_IMPACT_effect] -13b
+  [Ability_Legionnaire2_IMPACT_effect] -13b
+  [Ability_Lodestone4_description_simple] -13b
+  [Ability_Moira2_description] -13b
+  [Ability_Riftwalker4_description_simple] -21b
+  [Ability_ShadowBlade1_description_simple] -13b
+  [Ability_ShadowBlade1_IMPACT_effect] -13b
+  [Ability_Shellshock2_description_simple] -21b
+  [Ability_Skrap2_IMPACT_effect] -21b
+  [Item_JadeSpire_description] -42b
+  [Item_DesertScream_description] -42b
+  [Item_OpheliasPact_description] -21b
+  [Item_BurningTemper_FRAME_effect] -13b

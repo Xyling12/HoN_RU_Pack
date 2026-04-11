@@ -1,0 +1,75 @@
+/* ═══════════════════════════════════════════════════════
+   HoN MOTD — Design tokens (Sciter-compatible)
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  /* Core backgrounds */
+  --bg-body: #000000;
+  --bg-primary: #0b0c10;
+  --bg-card: #1a1a1a;
+  --bg-surface: #111111;
+  --bg-surface-alt: rgba(17, 17, 17, 0.88);
+
+  /* Accent */
+  --accent-orange: #ff8c00;
+  --accent-orange-glow: rgba(255, 140, 0, 0.35);
+  --accent-green: #43cd2c;
+  --accent-green-dark: #37a524;
+  --accent-gold: #ffd700;
+  --accent-cyan: #4de3ff;
+
+  /* Text */
+  --text-primary: #e5e5e5;
+  --text-secondary: #9ca3af;
+  --text-muted: #666;
+  --text-highlight: #ff8c00;
+
+  /* Borders */
+  --border-color: #333;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --font-stack: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* Shadows */
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-glow-orange: 0 0 20px rgba(255, 140, 0, 0.15);
+  --shadow-glow-green: 0 0 20px rgba(67, 205, 44, 0.15);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* ─── Base (Sciter-safe) ────────────────────────────── */
+
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  font-family: var(--font-stack);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-stack);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}

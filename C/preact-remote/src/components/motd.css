@@ -1,0 +1,416 @@
+/* ═══════════════════════════════════════════════════════
+   MOTD Screen — Message of the Day (Sciter-compatible)
+   ═══════════════════════════════════════════════════════ */
+
+.motd {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ─── Header (pinned) ──────────────────────────────── */
+
+.motd-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 28px 16px;
+  border-bottom: 1px solid var(--border-color);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* ─── Scrollable body ──────────────────────────────── */
+
+.motd-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-scrollbar: motd-scrollbar;
+  padding: 20px 28px;
+  box-sizing: border-box;
+}
+
+.motd-header-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.2) 0%, rgba(255, 140, 0, 0.05) 100%);
+  border: 1px solid rgba(255, 140, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.motd-header-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--accent-orange);
+}
+
+.motd-header-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  flex: 1 1 auto;
+}
+
+.motd-header-date {
+  flex-shrink: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+/* ─── Featured Banner ───────────────────────────────── */
+
+.motd-banner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 140, 0, 0.2);
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.08) 0%, rgba(255, 100, 0, 0.03) 100%);
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.motd-banner:hover {
+  border-color: rgba(255, 140, 0, 0.35);
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.12) 0%, rgba(255, 100, 0, 0.05) 100%);
+}
+
+.motd-banner-tag {
+  display: block;
+  width: 100%;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #000;
+  background: var(--accent-orange);
+  padding: 3px 12px;
+  box-sizing: border-box;
+}
+
+.motd-banner-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.motd-banner-content {
+  flex: 1 1 auto;
+}
+
+.motd-banner-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.motd-banner-subtitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.motd-banner-arrow {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-left: 16px;
+  opacity: 0.4;
+}
+
+.motd-banner-arrow svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--accent-orange);
+}
+
+.motd-banner-btn {
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+/* ─── News Cards ────────────────────────────────────── */
+
+.motd-section-title {
+  width: 100%;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.motd-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.motd-card {
+  display: flex;
+  width: 100%;
+  gap: 16px;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.7), rgba(10, 10, 10, 0.8));
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  cursor: default;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.motd-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow-card);
+}
+
+.motd-card-accent {
+  width: 3px;
+  min-width: 3px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.motd-card-accent--orange { background: var(--accent-orange); }
+.motd-card-accent--green { background: var(--accent-green); }
+.motd-card-accent--cyan { background: var(--accent-cyan); }
+.motd-card-accent--gold { background: var(--accent-gold); }
+
+.motd-card-body {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.motd-card-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.motd-card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+}
+
+.motd-card-tag--balance { color: var(--accent-orange); background: rgba(255, 140, 0, 0.1); }
+.motd-card-tag--feature { color: var(--accent-green); background: rgba(67, 205, 44, 0.1); }
+.motd-card-tag--event { color: var(--accent-gold); background: rgba(255, 215, 0, 0.1); }
+.motd-card-tag--community { color: var(--accent-cyan); background: rgba(77, 227, 255, 0.1); }
+
+.motd-card-timestamp {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.motd-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.motd-card-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ─── CTA Button ────────────────────────────────────── */
+
+.motd-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 7px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(to bottom, var(--accent-green-dark) 0%, var(--accent-green) 100%);
+  border: 1px solid rgba(67, 205, 44, 0.4);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-glow-green);
+  text-decoration: none;
+}
+
+.motd-cta:hover {
+  background: linear-gradient(to bottom, var(--accent-green) 0%, #5aff40 100%);
+  box-shadow: 0 0 24px rgba(67, 205, 44, 0.3);
+}
+
+.motd-cta:active {
+}
+
+.motd-cta--orange {
+  background: linear-gradient(to bottom, #e67e00 0%, var(--accent-orange) 100%);
+  border: 1px solid rgba(255, 140, 0, 0.4);
+  box-shadow: var(--shadow-glow-orange);
+}
+
+.motd-cta--orange:hover {
+  background: linear-gradient(to bottom, var(--accent-orange) 0%, #ffab40 100%);
+  box-shadow: 0 0 24px rgba(255, 140, 0, 0.3);
+}
+
+.motd-cta--small {
+  padding: 5px 12px;
+  font-size: 11px;
+}
+
+.motd-cta svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+/* ─── Player Link ───────────────────────────────────── */
+
+.player-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent-orange);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast), text-shadow var(--transition-fast);
+}
+
+.player-link:hover {
+  color: #ffab40;
+  text-shadow: 0 0 8px rgba(255, 140, 0, 0.4);
+}
+
+.player-link svg {
+  width: 11px;
+  height: 11px;
+  fill: currentColor;
+  opacity: 0.7;
+}
+
+/* ─── Quick Links ───────────────────────────────────── */
+
+.motd-links {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.motd-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  min-width: 160px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+  text-decoration: none;
+  color: inherit;
+}
+
+.motd-link:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+}
+
+.motd-link-icon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.motd-link-icon--discord {
+  background: rgba(88, 101, 242, 0.2);
+  color: #5865F2;
+}
+
+.motd-link-icon--web {
+  background: rgba(255, 140, 0, 0.15);
+  color: var(--accent-orange);
+}
+
+.motd-link-icon--support {
+  background: rgba(67, 205, 44, 0.15);
+  color: var(--accent-green);
+}
+
+.motd-link-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.motd-link-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.motd-link-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ─── Footer ────────────────────────────────────────── */
+
+.motd-footer {
+  width: 100%;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" style="background: transparent;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HoN Remote</title>
+    <style>
+      /* Sciter MOTD scrollbar — dark glass with subtle orange accent */
+      @set motd-scrollbar {
+        .prev, .next {
+          height: 0;
+          width: 0;
+          border: none;
+          background: transparent;
+        }
+        .base, .prev-page, .next-page {
+          background-color: rgba(0, 0, 0, 0.15);
+          width: 8dip;
+          border-radius: 4dip;
+        }
+        .slider {
+          background-color: rgba(255, 140, 0, 0.18);
+          border: 1dip solid rgba(255, 140, 0, 0.08);
+          border-radius: 4dip;
+          width: 8dip;
+        }
+        .slider:hover {
+          background-color: rgba(255, 140, 0, 0.35);
+          border-color: rgba(255, 140, 0, 0.15);
+        }
+        .slider:active {
+          background-color: rgba(255, 140, 0, 0.50);
+          border-color: rgba(255, 140, 0, 0.25);
+        }
+        .corner {
+          background-color: transparent;
+        }
+      }
+    </style>
+    <script type="module" crossorigin src="/src/main.tsx"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>

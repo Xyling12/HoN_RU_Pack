@@ -1,0 +1,24 @@
+# Glossary Application Report
+Total replacements: 0
+
+### entities_en.str: 0 замен
+  (ничего не изменилось)
+
+### interface_en.str: 0 замен
+  (ничего не изменилось)
+
+### game_messages_en.str: 0 замен
+  (ничего не изменилось)
+
+### client_messages_en.str: 0 замен
+  (ничего не изменилось)
+
+### bot_messages_en.str: 0 замен
+  (ничего не изменилось)
+
+### BOM проверка
+  entities_en.str: BOM=True, expected=True -> OK
+  interface_en.str: BOM=False, expected=False -> OK
+  game_messages_en.str: BOM=False, expected=False -> OK
+  client_messages_en.str: BOM=False, expected=False -> OK
+  bot_messages_en.str: BOM=False, expected=False -> OK

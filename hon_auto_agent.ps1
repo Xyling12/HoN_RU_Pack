@@ -25,6 +25,20 @@ try {
     }
 } catch {}
 
+# Single-instance guard: prevent duplicate agents from running simultaneously
+$mutexName = "Local\HoN_RU_Pack_AutoAgent_$($env:USERNAME)"
+$script:agentMutex = $null
+$createdNew = $false
+try {
+    $script:agentMutex = New-Object System.Threading.Mutex($false, $mutexName, [ref]$createdNew)
+    if (-not $createdNew) {
+        Write-Log "Another agent instance is already running. Exiting duplicate instance." "WRN"
+        exit 0
+    }
+} catch {
+    # If mutex cannot be created, continue running to avoid breaking startup.
+    Write-Log "Single-instance guard setup failed: $_" "WRN"
+}
 Write-Log "Agent started. PackageRoot=$PackageRoot" "INF"
 
 try {
@@ -454,4 +468,5 @@ while ($true) {
         Start-Sleep -Milliseconds 3000
     }
 }
+
 

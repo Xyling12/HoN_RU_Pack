@@ -1,0 +1,81 @@
+Mode_SameHeroDraft												Same Hero Draft
+Ability_Artesia4_description_simple 							Target a location to summon a Projection for ^o20 seconds^* that grants nearby ally heroes ^o{20,30,40} Health^* or ^oMana^* per second in Healing or Damage Mode, respectively.\n\nIn addition, it will mirror your ^494Arcane Missile^* casts and gain charges of ^494Arcane Bolts^* as you do.\n\nThe Projection ^ocan be moved^* on an 8 second cooldown.\n\n^gStaff of the Master^* increases cast range to Global, reduces cooldown to 60 seconds, and reduces the relocation cooldown to 4 seconds (+2 seconds if too close to enemy Well).
+State_Circe_Ability1_Immobilized_name							Entrapment
+State_Circe_Ability1_Immobilized_description					
+State_Circe_Ability1_Immobilized_description2					
+State_Circe_Ability1_Immobilized_description_simple				
+State_Circe_Ability1_Immobilized_FRAME_effect					On expiration, jumps to the nearest enemy hero within 350 units, dealing {80,140,200,260} Magic Damage and Immobilize for {2,2.5,3,3.5} seconds.
+Ability_Cthulhuphant1_description2:ult_boost					\r
+Ability_Cthulhuphant1_description_simple:ult_boost				Charge in target direction, dealing ^o{80,140,200,260} Magic Damage^* and a ^o{1.25,1.5,1.75,2} second Stun^* to enemy units.\n\nNon-hero units hit will be shot forward, acting as projectiles that deal ^o{12,16,20,24} Magic Damage^* and a ^o{1.25,1.5,1.75,2} second Stun^* to enemy heroes.
+Ability_Cthulhuphant2_description2:ult_boost					^gThis ability can be boosted by Staff of the Master.^*\n\n^gStaff Effect:^* Reduces cooldown by 3 seconds.							
+Ability_Cthulhuphant2_description_simple:ult_boost				Unleash a salvo of water pulses in front of you every second for ^o4 seconds^*.\n\nDamage from each pulse starts at ^o{30,40,50,60} Magic Damage^* and deals an additional ^o{5,10,15,20} Magic damage^* every second. Max total Magic Damage of ^o{200,300,400,500}^*.
+Ability_Cthulhuphant3_name:ult_boost							^gTimes of the End^*
+Ability_Cthulhuphant3_description2:ult_boost					^gWhenever you deal damage to an enemy hero with Trample, Obliterate or Dreams of Madness, your Strength increases by 2 for 24 seconds. This effect stacks, but each stack has a separate timer.^*								
+Ability_Cthulhuphant3_description_simple:ult_boost				Whenever you receive non-DoT Physical Damage from an enemy within radius, you deal ^oPhysical Damage to the attacker^* equal to ^o{20,30,40,50}% of your Strength^* (2x to non-hero units, 0.33x power from illusions).\n\nAttackers also have -{30,40,50,60}% Healing Received for 0.1 seconds upon attacking you. Gain ^o{5,10,15,20} Health Regeneration per second for 2 seconds^* upon receiving damage from the front.\n\n^gIncreases your Strength by 2 for 24 seconds whenever you deal damage to an enemy hero with Trample, Obliterate or Dreams of Madness. This effect stacks, but each stack has a separate timer.^*
+State_Ctuhlhuphant_Ability3_Strength_name						Times of the End
+Ability_Deadwood2_name:ult_boost								^gOakbolt*^*
+Ability_Deadwood2_description:ult_boost							Deadwood ^gpermanently holds a tree, that^* he can throw at an enemy ^g(without losing it)^*, mini-stunning and snaring them.
+Ability_Deadwood2_description2:ult_boost						^gAttacks now deal 50% Physical Splash Damage in a radius around the target^*
+Ability_Deadwood2_description_simple:ult_boost					^gPermanently holds a tree that increases^* ^o{15,30,45,60} Damage.^*\n\n^gAttacks now deal 50% Physical Splash Damage in a radius around the target^*\n\n^gEvery 4th attack, mini-stuns and applies a 1 second tapering slow to the target^*.\n\nTarget an enemy unit to throw the tree at it, dealing Physical Damage equal to your Attack Damage, a ^oMini-Stun^*, and tapering ^o-75% Movement Speed^*.\n\n^gThrowing a tree at a target does not destroys Deadwood's tree^*.
+Ability_Deadwood2_effect_header:ult_boost						Son of a Birch Effect
+Ability_Deadwood2_IMPACT_effect:ult_boost						Throws your tree at the target, stunning it for 0.1 seconds, dealing Physical Damage equal to your Attack Damage, and applies Son of a Birch for {1.5,2,2.5,3} seconds. Does not stun or slow Magic Immune units.
+Ability_Deadwood2_tooltip_flavor:ult_boost						Inspired by Stormbolt.
+State_Deadwood_Ability2_name:ult_boost							Now I have a Stronger tree!
+State_Deadwood_Ability2_description:ult_boost					Attacks now deal 50% Physical Splash Damage in 300 radius around the target\n\nEvery 4th attack, mini-stuns and applies a tappering slow for 0.75 seconds on the target
+State_Electrician_Ability4_Immobilized_name						Shocked
+State_Electrician_Ability4_Immobilized_FRAME_effect				
+State_EmeraldWarden_Ability3_Immobilized_name					Overgrowth
+State_EmeraldWarden_Ability3_Immobilized_FRAME_effect			{60,70,80,90} Magic Damage per second (1.5x against non-hero units)
+State_Goldenveil_Ability2_Immobilized_name						Plunge
+Ability_Kinesis2_Lift_name										Lift
+Ability_Kinesis2_Lift_description_simple						Lift the ^oclosest tree or creep^* into the air, making them invulnerable for ^o8 seconds^*.\n\nThis ability holds up to ^o{1,2,3,4} charges, which refresh at a pace of one per ^o{4,3.3,2.6,2} seconds^*.
+Ability_Kinesis2_Launch_name									Launch
+Ability_Kinesis2_Launch_description_simple						Throw all of the lifted objects, dealing ^o{85,90,95,100} Magic Damage^* per object to the target and applying a ^o{10,15,20,25}% Movement Speed Slow for 2 Seconds^*
+State_Pearl_Ability3_Dazed_name									Dazed
+State_Pearl_Ability3_Dazed_description							Pearl's jump range is reduced by 50% for 3 seconds.
+Ability_AmunRa2_description_simple:ult_boost						^rCosts 10% Max Health to cast.^* Grants ^o{0.7,1.4,2.1,2.8} Health Regeneration^*.\n\nShoot 8 projectiles in a star pattern, each dealing ^o{10,20,30,40} + {1.2,1.3,1.4,1.5}% of your Max Health as Magic Damage^*, reduced by ^o10%^* per projectile after the first, and applying a ^ostacking -0.5 Magic Armor and -3% Movement Speed^* debuff for 3 seconds to enemies they pass through, then remaining there for 2 seconds, after which they return, dealing damage and applying debuffs again.\n\n^gAlso passively fire Burning Projectiles at random nearby enemies at a pace of 1 projectile per 1 second, prioritizing heroes, if Ashes to Ashes is fully charged.^*
+Ability_AmunRa3_description_simple:ult_boost						Grants ^o{0.7,1.4,2.1,2.8} Health Regeneration^*.\n\nWhenever you take damage, you deal up to ^o{20,30,40,50} Magic Damage per second^* to nearby enemy units, based on the amount of damage taken. Gradually removed after not taking damage for 4 seconds.\n\n^gWhen fully charged, fire a single Burning Star Projectile at a random nearby enemy at a pace of 1 projectile per 1 second, prioritizing heroes^*
+State_Riftwalker_Ability2_Immobilized_name						Shared Existence
+Ability_Riptide1_name:ult_boost									^gWatery Tomb^*
+Ability_Riptide1_description2									^gThis ability can be boosted by Staff of the Master.^*\n\n^gStaff Effect:^* Bounces to two additional targets.
+Ability_Riptide1_description2:ult_boost							\r
+Ability_Riptide1_IMPACT_effect:ult_boost						Deals ^o{95,170,250,330} Magic Damage^* and ^oSlows Movement Speed by 50% and Attack Speed by 20%^* for ^o{2,2.5,3,3.5} seconds^*^g, bouncing twice^*.
+Ability_Riptide3_name:ult_boost									^gIn My Domain^*
+Ability_Riptide3_description2									^gThis ability can be boosted by Staff of the Master.^*\n\n^gStaff Effect:^* Causes you to generate a shield at a pace of 20 Health per second, up to 340, while standing in the water. While you have this shield, you are considered to be in water.
+Ability_Riptide3_description2:ult_boost							\r
+Ability_Riptide3_description_simple:ult_boost					Gain the following buffs ^owhile on water^*:\n- Agility: ^o{20,30,40,50}^*\n- Movement Speed: ^o{15,30,45,60}^*\n- Unitwalking\n^g- Generate a Shield at a pace of 20 Health per second, up to 340. While you have this shield, you are considered to be in water.^*\n\nUpon use, ^ospawn a permanent puddle of water with Clearvision^* at your feet. Can ^oonly have 1 permanent puddle^* at a time.
+State_Riptide_Ability3_FRAME_effect:ult_boost					Standing in water generates a Shield at a pace of 20 Health per second, up to 340. While the shield persists, you are considered standing in water.
+State_Riptide_Ability3_Staff_name								Water Shield
+State_Riptide_Ability3_Staff_FRAME_effect						Shield increases by 20 per second while standing in the water, up to 340.\nWhile the shield persists, you are considered standing in water.
+Ability_ShadowBlade1_description_simple 						Activate to deal ^o{70,120,170,220} Magic Damage and apply a 25% Movement Speed Slow^* for ^o{2.5,3,3.5,4} seconds^* to enemies in radius.\n\nGargantuan form lasts 15 seconds or until another form is summoned.\nGargantuan Form grants ^o{4,8,12,16} Strength^*. Also grants you ^o{3,6,9,12} Armor and {1,2,3,4} Magic Armor^* for the first 3.5 seconds of the form.
+State_Energizer_Active_Unitwalking_name							Energizer Cooldown
+State_Energizer_Buff_Unitwalking_name							Energized
+State_Energizer_Buff_Unitwalking_name							Energized
+Item_AbyssalFlower_name												Abyssal Flower
+Item_AbyssalFlower_description										This item can be ^tdisassembled^*.
+Item_AbyssalFlower_description_simple								Cast to Silence an enemy.
+Item_AbyssalFlower_search_terms										abyssalflower,flower,abyssal,orchidmalevolence,orchid,malevolence,af,om,intelligence,damage,dmg,attackspeed,as,manaregeneration,silence,amplify,regeneration
+Item_AbyssalFlower_effect_header									Abyssal Flower Effect(s)
+Item_AbyssalFlower_shop_flavor										Harvested in lands untouched by Newerth's sun, Hellflowers stink of death and are covered in burning thorns. They are prized despite this because the aroma heightens the intellect and induces a sort of battle-frenzy of rapid, powerful attacks. Moreover, the thorns' prick hastens the recovery of magical powers, and when the flower blooms, it sears an enemy's very soul.
+Item_AbyssalFlower_shop_categories									Filter_Intelligence,Filter_Damage,Filter_AttackSpeed,Filter_Regeneration,Filter_Activatable
+Item_AbyssalFlower_IMPACT_effect									Applies ^oAbyssal Flower^* to target for ^o3 seconds^*.
+Item_AbyssalFlower_tooltip_flavor										
+State_AbyssalFlower_name											Abyssal Flower
+State_AbyssalFlower_FRAME_effect									Leaves a visible trail behind afflicted target
+State_Stunned_name												Stunned
+State_Stunned_Knockdown_name									Stunned
+Shout_MyTeamSucks_name											My Team Sucks
+Shout_MyTeamSucks_description									Ugh...My team sucks!
+Shout_MyTeamSucks_description_simple							My team sucks!
+Gesture_IQTest_name												IQ Test
+Gesture_IQTest_description										Test someone's IQ using this highly accurate device!
+Gesture_IQTest_description_simple								Test someone's IQ!
+Gesture_Questionmarks_name										Question Mark
+Gesture_Questionmarks_description								Confusing behavior, what are you doing??
+Gesture_Questionmarks_description_simple						What are you doing??
+Roast_Watergun_name												Water Gun
+Roast_Watergun_description										Celebrate songkran with a water fight!
+Roast_Watergun_description_simple								Water fight!
+Shout_SabaiSabai_name											Sabai Sabai!
+Shout_SabaiSabai_description									Sabai Sabai!
+Shout_SabaiSabai_description_simple								Sabai Sabai!

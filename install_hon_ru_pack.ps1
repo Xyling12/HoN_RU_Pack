@@ -300,12 +300,24 @@ try {
 }
 
 if ((-not $scheduledTaskRegistered) -and $legacyCmd) {
-    @(
-        "@echo off"
-        "start """" /b powershell.exe $agentArgs"
-    ) | Set-Content -Path $legacyCmd -Encoding ASCII
-    $startupCmd = $legacyCmd
-    $autoStartStatus = "StartupCmd: $startupCmd"
+    $taskAlreadyExists = $false
+    try {
+        $taskQuery = schtasks /Query /TN $taskName 2>$null
+        if ($LASTEXITCODE -eq 0 -and $taskQuery) {
+            $taskAlreadyExists = $true
+        }
+    } catch {}
+
+    if ($taskAlreadyExists) {
+        $autoStartStatus = "ScheduledTaskDetected: $taskName"
+    } else {
+        @(
+            "@echo off"
+            "start """" /b powershell.exe $agentArgs"
+        ) | Set-Content -Path $legacyCmd -Encoding ASCII
+        $startupCmd = $legacyCmd
+        $autoStartStatus = "StartupCmd: $startupCmd"
+    }
 }
 
 if (-not $NoStart) {
@@ -336,4 +348,5 @@ Write-Host "ModRoot: $modRoot"
 Write-Host "Autostart: $autoStartStatus"
 $agentLog = Join-Path $dataRoot "agent.log"
 Write-Host "Agent log: $agentLog"
+
 
