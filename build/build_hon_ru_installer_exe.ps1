@@ -129,13 +129,7 @@ $dumpPlain = Join-Path $distRoot "installer_program.cs"
 Build-InstallerExe -Code $codePlain -OutExe $exePlain -SourceDumpPath $dumpPlain
 Write-Host "Plain installer built: $exePlain"
 
-# --- Build 2: installer + DNS bypass ---
-$exeDns = Join-Path $distRoot "HoN_RU_Pack_Installer_Bypass.exe"
-$codeDns = $programBase.Replace("__DNS_VISIBLE__", "true")
-$dumpDns = Join-Path $distRoot "installer_program_dns.cs"
-Build-InstallerExe -Code $codeDns -OutExe $exeDns -SourceDumpPath $dumpDns
-Write-Host "DNS bypass installer built: $exeDns"
 
 Write-Host ""
 Write-Host "Payload zip: $payloadZip"
-Write-Host "Done. Two installers produced."
+Write-Host "Done. Installer produced."
