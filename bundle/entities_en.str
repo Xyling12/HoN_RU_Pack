@@ -9174,7 +9174,7 @@ Ability_Armadon4_description2:ult_boost							Увеличивает сумми�
 
 
 
-Ability_Armadon4_description_simple								Увеличивает доп. урон ^oSpine Burst^* на ^o{10,14,18}^*.\n\nПри использовании ^oзаклинания^* дает ^o{10,20,30} урона от атаки^* и ^o{4,5,6}% скор. движ.^*, плюс суммируемый бафф ^o{10,14,18} Атака Урон^* и ^o{1,2,3}% Скор. движ.^* на ^o10 сек.^*.\n\n^gЭффект посоха:^* Бросает в указанное место, оно превратилось в шар, и катитесь туда. В это время вы невосприимчивы к эффектам контроля толпы, а Бро нежило в это время действует во всех направлениях. По достижении пункта назначения ^oSnot Storm и Spine Burst^* применяются к вражеским юнитам в радиусе действия.
+Ability_Armadon4_description_simple								Increases ^oSpine Burst's^* additional damage by ^o{10,14,18}^*.\n\nOn ^ospell cast^*, grants ^o{10,20,30} Attack Damage^* and ^o{4,5,6}% Movement Speed^*, plus a stacking bonus ^o{8,12,16} Attack Damage^* and ^o{1,2,3}% Movement Speed^* for ^o10 seconds^*.\n\n^gStaff Effect:^* Target a location to become a ball and roll there. You are immune to Crowd Control effects during this time, and Armordillo applies in all directions during this time. Upon reaching the destination, ^oSnot Storm and Spine Burst^* are applied to enemy units within radius.
 
 
 
@@ -9182,7 +9182,7 @@ Ability_Armadon4_description_simple								Увеличивает доп. уро
 
 
 
-Ability_Armadon4_description_simple:ult_boost					Увеличивает доп. урон ^oSpine Burst^* на ^o{10,14,18}^*.\n\nПри использовании ^oзаклинания^* дает ^o{10,20,30} урона от атаки^* и ^o{4,5,6}% скор. движ.^*, плюс суммируемый бафф ^o{10,14,18} Атака Урон^* и ^o{1,2,3}% Скор. движ.^* в течение ^o10 сек.^*.\n\n^gМяч и катимся в заданное место. В это время вы невосприимчивы к эффектам контроля толпы, а Бро нежило в это время действует во всех направлениях. По достижении пункта назначения Snot Storm и Spine Burst применяются к вражеским юнитам в радиусе действия.^*
+Ability_Armadon4_description_simple:ult_boost					Increases ^oSpine Burst's^* additional damage by ^o{10,14,18}^*.\n\nOn ^ospell cast^*, grants ^o{10,20,30} Attack Damage^* and ^o{4,5,6}% Movement Speed^*, plus a stacking bonus ^o{8,12,16} Attack Damage^* and ^o{1,2,3}% Movement Speed^* for ^o10 seconds^*.\n\n^gBall and roll to target location. You are immune to Crowd Control effects during this time, and Armordillo applies in all directions during this time. Upon reaching destination, Snot Storm and Spine Burst are applied to enemy units within radius.^*
 
 
 
@@ -19374,7 +19374,7 @@ Ability_Cthulhuphant4_description2:ult_boost	^gЭта способность м�
 
 
 
-Ability_Cthulhuphant4_description_simple						Даёт ауру на 6 сек., которая замедляет скор. движ. на ^o{20,35,50}%^* к вражеским юнитам.\n\nВраги, которые смотрят на вас на 2 сек., сходят с ума, ^oатакуя Ктулху фанта на {2,2.5,3} сек.^*.\n\n^gПосох Мастера:^* Враги больше не нужно смотреть тебе в глаза, чтобы начать сходить с ума.
+Ability_Cthulhuphant4_description_simple						Channel for up to 2 seconds, ^otaunting^* all enemies within ^o525 radius^*.\n\nWhen the channel finishes or is interrupted, deal ^o{120,185,250} Magic damage^* to enemies within radius, ^oincreased by 1% per 0.5% of Health lost during the channel, up to {240,370,500} Magic damage^*. While channeling, you receive {40,45,50}% less damage from all sources.
 
 
 
@@ -19414,7 +19414,7 @@ Ability_Cthulhuphant4_tooltip_flavor
 
 
 
-Ability_Cthulhuphant4_IMPACT_effect								Даёт ауру на 6 сек., которая замедляет скор. движ. на ^o{20,35,50}%^* к вражеским юнитам. \n\nВражеские юниты, которые смотрят на вас на 2 сек., сойдут с ума, ^oатакуя Ктулху фанта на {2,2.5,3} сек.^*.
+Ability_Cthulhuphant4_IMPACT_effect								Channel for up to 2 seconds, ^otaunting^* all enemies within ^o525 radius^*.\n\nWhen the channel finishes or is interrupted, deal ^o{120,185,250} Magic damage^* to enemies within radius, ^oincreased by 1% per 0.5% of Health lost during the channel, up to {240,370,500} Magic damage^*. While channeling, you receive {40,45,50}% less damage from all sources.
 
 
 
@@ -19806,7 +19806,7 @@ Ability_Dampeer2_description									Дампир взлетает к цели, 
 
 
 
-Ability_Dampeer2_description_simple								Летит к врагу,. Каждый раз, когда Дампир проходит сквозь врага, он наносит ему ^o{50,90,130,170} маг. урона^* и ^oисцеляется на {12,18,24,30}^*.\n\nУвеличивает урон на 30 и исцеляет на 10 за каждую ^rEssence^*, которой обладает Дампир.
+Ability_Dampeer2_description_simple								Take flight towards an enemy. Every time you pass through an enemy, deal ^o{80,110,140,170} Magic Damage^* to them and you are ^ohealed for {16,22,28,34}^*.\n\nIncreases the damage by 30 and heal by 10 for each ^rEssence^* you possess.
 
 
 
@@ -24918,7 +24918,7 @@ Ability_Blacksmith1_description									Blacksmith обрушивает пыла
 
 
 
-Ability_Blacksmith1_description_simple							Бросок палящего ^oОгненного шара^* во врага, нанося ^o{100,150,200,275} маг. урона^* и оглушая его на ^o1,5 сек.^*. Увеличивает длительность ^oоглушения на 0,3^* за каждую многоадресную передачу.
+Ability_Blacksmith1_description_simple							Hurl a scorching ^oFireball^* at an enemy, dealing ^o{95,155,215,275} Magic Damage^* and stunning for ^o1.5 seconds^*. Increase ^ostun duration by 0.3^* per multicast.
 
 
 
@@ -24934,7 +24934,7 @@ Ability_Blacksmith1_effect_header								Статусные эффекты
 
 
 
-Ability_Blacksmith1_IMPACT_effect								Наносит {100,150,200,275} маг. урона и оглушает цель на 1,5 сек.. ^oУвеличьте длительность оглушения на 0,3^* за каждую многоадресную передачу.
+Ability_Blacksmith1_IMPACT_effect								Deals {95,155,215,275} Magic Damage and Stuns target for 1.5 seconds. ^oIncrease stun duration by 0.3^* per multicast.
 
 
 
@@ -25182,7 +25182,7 @@ Ability_Blacksmith4_description									Blacksmith призывает огнен
 
 
 
-Ability_Blacksmith4_description_simple							Дает ^oFireball^* и ^oFrenzy^* шанс выполнить ^omulticast^* до ^o{2,3,4} раз^*.\n\n Уменьшает перезарядка ^oFireball^* на ^o{2,4,6} сек.^*, но увеличивает затраты маны на ^o{10,40,70}^*.\nУвеличивает область действия ^oFlaming Hammer^* на ^o{100,200,300}^*.\nУменьшает перезарядка ^oFrenzy^* на ^o{5,10,15} сек.^*.\n\n^gПосох Мастера^* добавляет ^oРискованное заклинание^* к этой способности, затрачивая 30 % от вашего максимального запаса маны на применение ^oэкземпляра огненного шара 4-го уровня^* на вражеский отряд.\n\nВаши ^oавтоатаки^* также имеют 15% шанс ^oкастовать Огненный шар, Пылающий молот и/или Бешенство^*. Эти заклинания не могут использоваться одновременно и не имеют общего времени восстановления с вашими обычными способностями.
+Ability_Blacksmith4_description_simple							Grants ^oFireball^* and ^oFrenzy^* a chance to ^omulticast^* up to ^o{2,3,4} times^*.\n\nDecreases ^oFireball's^* cooldown by ^o{1,2,3} seconds^* but increases Mana Cost by ^o{10,40,70}^*.\nIncreases ^oFlaming Hammer's^* AoE by ^o{100,200,300}^*.\nDecreases ^oFrenzy's^* cooldown by ^o{5,10,15} seconds^*.\n\n^gStaff of the Master^* adds ^oRisky Cast^* to this ability, costing 30% of your Max Mana to cast ^oan instance of level 4 Fireball^* on an enemy unit.\n\nYour ^oauto attacks^* also have a 15% chance to ^ocast Fireball, Flaming Hammer, and/or Frenzy^*. These casts cannot multi-cast and do not share cooldown with your normal abilities.
 
 
 
@@ -25206,7 +25206,7 @@ Ability_Blacksmith4_effect_header								Статусные эффекты
 
 
 
-Ability_Blacksmith4_IMPACT_effect								Дает Fireball и Frenzy возможность групповой передачи до {2,3,4} раз. Имеет ^o{30,35,35}% шанс выполнить мультик аст 2 раза^*, ^o{0,20,20}% шанс мультик аст 3 раза^* и ^o{0,0,15}% шанс выполнить мультик аст 4 раза^*.\n\n - Уменьшает перезарядка Огненного шара на {2,4,6} сек. и увеличивает затраты маны на {10,40,70}.\n\n-Увеличивает площадь действия Flaming Hammer на {100,200,300}\n\n-Уменьшает перезарядка Frenzy на {5,10,15} сек..
+Ability_Blacksmith4_IMPACT_effect								Grants Fireball and Frenzy a chance to multicast up to {2,3,4} times. Has a ^o{30,35,35}% chance to multi-cast 2 times^*, ^o{0,20,20}% chance to multi-cast 3 times^* and ^o{0,0,15}% chance to multicast 4 times^*.\n\n-Decreases Fireball's cooldown by {1,2,3} seconds and increases Mana Cost by {10,40,70}.\n\n-Increases Flaming Hammer's AoE by {100,200,300}\n\n-Decreases Frenzy's cooldown by {5,10,15} seconds.
 
 
 
@@ -25254,7 +25254,7 @@ Ability_Blacksmith4_description2:ult_boost						^gВаши автоатак те
 
 
 
-Ability_Blacksmith4_description_simple:ult_boost				^cЗатраты 30% от максимального количества маны.^*\n\n^gПримените на вражеский отряд, чтобы наложить на него экземпляр огненного шара 4-го уровня.^*\n\nДает ^oFireball^* и ^oFrenzy^* шанс ^omulticast^* до ^o{2,3,4} раз^*. Уменьшает перезарядка ^oFireball^* на ^o{2,4,6} сек.^*, но увеличивает затраты маны на ^o{10,40,70}^*, увеличивает область действия ^oFlaming Hammer^* на ^o{100,200,300}^* и уменьшает ^oПерез.: Безумия^* увеличивается на ^o{5,10,15} сек.^*.\n\n^gУ вас есть 15% шанс бесплатно применить любую способность при атаке врага, но они не могут использовать многоадресную передачу.^*
+Ability_Blacksmith4_description_simple:ult_boost				^cCosts 30% of Max Mana to cast.^*\n\n^gTarget an enemy unit to cast an instance of level 4 Fireball on them.^*\n\nGrants ^oFireball^* and ^oFrenzy^* a chance to ^omulticast^* up to ^o{2,3,4} times^*. Decreases ^oFireball's^* cooldown by ^o{1,2,3} seconds^* but increases Mana Cost by ^o{10,40,70}^*, increases ^oFlaming Hammer's^* AoE by ^o{100,200,300}^*, and decreases ^oFrenzy's^* cooldown by ^o{5,10,15} seconds^*.\n\n^gYou have a 15% chance to cast any ability for free when attacking an enemy, but they cannot multicast.^*
 
 
 
@@ -25262,7 +25262,7 @@ Ability_Blacksmith4_description_simple:ult_boost				^cЗатраты 30% от м
 
 
 
-Ability_Blacksmith4_IMPACT_effect:ult_boost						^cЗатраты 30% от максимального запаса маны.^*\n\n^gПримените на вражеский отряд, чтобы наложить на него экземпляр Огненного шара 4-го уровня.^*\n\nПассивно дает Огненный шар и Бешенство шанс применить несколько раз, до {2,3,4} раз. Имеет ^o{30,35,35}% шанс выполнить мультик аст 2 раза^*, ^o{0,20,20}% шанс мультик аст 3 раза^* и ^o{0,0,15}% шанс мультик аст 4 раза^*.\n\n - Уменьшает перезарядка Огненного шара на {2,4,6} сек. и увеличивает затраты маны на {10,40,70}.\n\n-Увеличивает площадь действия Flaming Hammer на {100,200,300}\n\n-Уменьшает перезарядка Frenzy на {5,10,15} сек..
+Ability_Blacksmith4_IMPACT_effect:ult_boost						^cCosts 30% of Max Mana to cast.^*\n\n^gTarget an enemy unit to cast an instance of level 4 Fireball on them.^*\n\nPassively grants Fireball and Frenzy a chance to cast multiple times, up to {2,3,4} times. Has a ^o{30,35,35}% chance to multi-cast 2 times^*, ^o{0,20,20}% chance to multi-cast 3 times^* and ^o{0,0,15}% chance to multicast 4 times^*.\n\n-Decreases Fireball's cooldown by {1,2,3} seconds and increases Mana Cost by {10,40,70}.\n\n-Increases Flaming Hammer's AoE by {100,200,300}\n\n-Decreases Frenzy's cooldown by {5,10,15} seconds.
 
 
 
@@ -28734,7 +28734,7 @@ Ability_Engineer2_description									Паровая турель - это чу�
 
 
 
-Ability_Engineer2_description_simple							Разверните ^oПаровую турель^* в выбранном месте, которая наносит ^o{26,44,62,80} физ. урона^* за попадание. Турель имеет ^o500 дальности атаки^* и наследует ваш инвентарь и 50% скор. атаки, полученной от вас от ловкости.\n\n^oПаровая турель^* не подвержена воздействию всех источников лечения, здоровья или реген. маны.\n\n^oПаровая турель^* умирает при 3 ударах от героев ближнего боя, боссов и вражеских зданий (6 ударов от героев дальний тип атаки и 12 ударов от других юнитов) и не агрит крипов на линии. Его здоровье полностью восстанавливается после отсутствия урона на 4 сек..\n\nВы можете уничтожить свою турель, атаковав ее.
+Ability_Engineer2_description_simple							Deploy a ^oSteam Turret^* at target location that deals ^o{26,44,62,80} Physical Damage^* per hit. The Turret has ^o{450,475,500,525} Attack Range^* and inherits your Inventory and 50% of the Attack Speed granted by Agility from you.\n\n^oSteam Turret^* is unaffected by all sources of heals, Health or Mana Regeneration.\n\n^oSteam Turret^* dies in 3 hits from melee heroes, Bosses and enemy buildings ( 6 from ranged heroes and 12 hits from other units) and does not aggro Lane Creeps. Its Health regenerates to full after not taking damage for 4 seconds.\n\nYou can destroy your own turret by attacking it.
 
 
 
@@ -28750,7 +28750,7 @@ Ability_Engineer2_effect_header
 
 
 
-Ability_Engineer2_IMPACT_effect									Разверните на своей позиции ^oПаровую турель^*, которая наносит ^o{26,44,62,80} физ. урона^* за выстрел. Турель имеет ^o500 дальности атаки^* и наследует ваш инвентарь и 50% скор. атак., полученной от вас от ловкости.\n\nНа турель не влияют все источники лечения, здоровья или регенерации маны.\n\nТурель умирает за 3 удара от героев, боссов и вражеских зданий (12 ударов от других юнитов) и не вызывает агрессии Лейн Крипс. Его здоровье полностью восстанавливается после отсутствия урона на 4 сек..\n\nВы можете уничтожить свою турель, атаковав ее.
+Ability_Engineer2_IMPACT_effect									Deploy a ^oSteam Turret^* at your position that does ^o{26,44,62,80} Physical Damage^* per shot. The Turret has ^o{450,475,500,525} Attack Range^* and inherits your Inventory and 50% of the Attack Speed granted by Agility from you.\n\nThe turret is unaffected by all sources of heals, Health or Mana Regeneration.\n\nThe Turret dies in 3 hits from heroes, Bosses and enemy buildings (12 hits from other units) and does not aggro Lane Creeps. Its Health regenerates to full after not taking damage for 4 seconds.\n\nYou can destroy your own turret by attacking it.
 
 
 
@@ -44534,7 +44534,7 @@ Ability_Kinesis1_description									Kinesis поднимает вражеско
 
 
 
-Ability_Kinesis1_description_simple								^oУкрадите первую способность^* у вражеского героя и ^oЗаставьте его замолчать на 2 сек.^*.\n\nУкраденная способность сохраняется на неопределенный срок, пока не будет удалена путем активации Внутренней защиты или после смерти.
+Ability_Kinesis1_description_simple								Places the target in a stasis for up to ^o{1,1.5,2,2.5} seconds^*. Target gains ^o40% damage reduction^* and is ^oStunned^* while in stasis. Activate again to end stasis early.\n\nWhen stasis expires, it takes ^o{60,120,180,240} Magic Damage^* if it's an enemy. Enemies around the target take up to ^o{60,120,180,240} Magic Damage^* and are ^oStunned^* for up to ^o{1,1.25,1.5,1.75} seconds^*. AoE damage and Stun scales with how long the target was placed in stasis.
 
 
 
@@ -44558,7 +44558,7 @@ Ability_Kinesis1_tooltip_flavor									У меня мозговой штурм
 
 
 
-Ability_Kinesis1_IMPACT_effect									^oУкрадите первую способность^* у вражеского героя и ^oЗаставьте его замолчать на 2 сек.^*.\n\nУкраденная способность сохраняется на неопределенный срок, пока не будет удалена путем активации Внутренней защиты или после смерти.
+Ability_Kinesis1_IMPACT_effect									Places the target in a stasis for up to ^o{1,1.5,2,2.5} seconds^*. Target gains ^o40% damage reduction^* and is ^oStunned^* while in stasis. Activate again to end stasis early.\n\nWhen stasis expires, it takes ^o{60,120,180,240} Magic Damage^* if it's an enemy. Enemies around the target take up to ^o{60,120,180,240} Magic Damage^* and are ^oStunned^* for up to ^o{1,1.25,1.5,1.75} seconds^*. AoE damage and Stun scales with how long the target was placed in stasis.
 
 
 
@@ -44590,7 +44590,7 @@ State_Kinesis_Ability1_name										Кража мыслей
 
 
 
-State_Kinesis_Ability1_FRAME_effect								Украдена способность.
+State_Kinesis_Ability1_FRAME_effect								Deals {60,120,180,240} Magic Damage to nearby enemies and Stuns for {1,1.25,1.5,1.75} seconds upon expiration
 
 
 
@@ -44686,7 +44686,7 @@ Ability_Kinesis2_description2
 
 
 
-Ability_Kinesis2_description_simple								Поднимите ближайшие ^o{1,2,3,4} деревья или крипов^* в воздух, сделав их неуязвимыми на ^o8 сек.^*. Если их недостаточно, вместо этого поднимаются куски земли.\n\n^oВы можете бросить их^*, нацеливаясь на врага, нанося ^o60 маг. урона^* за каждый объект и применяя ^o15% замедление скор. движ. на 2 сек.^*.
+Ability_Kinesis2_description_simple								Lift the ^oclosest tree or creep^* into the air, making them invulnerable for ^o8 seconds^*. ^oYou may throw them^* by targeting an enemy, dealing ^o{85,90,95,100} Magic Damage^* per object and applying a ^o{10,15,20,25}% Movement Speed Slow for 2 Seconds^*.\n\nThis ability holds up to ^o{1,2,3,4} charges, which refresh at a pace of one per ^o{4,3.3,2.6,2} seconds^*.
 
 
 
@@ -44710,7 +44710,7 @@ Ability_Kinesis2_tooltip_flavor									Иногда Хранитель Леса
 
 
 
-Ability_Kinesis2_IMPACT_effect									Поднимает ближайшие ^o{1,2,3,4} деревья или ползет ^* на срок до 8 сек.. Если их недостаточно, вместо этого поднимаются куски земли. Поднятые объекты неуязвимы и во время действия эффекта будут следовать за Кинезисом со скоростью 450.\n\n^oАктивируйте снова^*, нацелившись на врага, чтобы бросить в него все поднятые объекты, нанося ^o60 маг. урона^* за каждый объект и применяя ^o15% замедление скор. движ. на 2 сек.^*. Для броска объекты должны находиться в пределах 1500 единиц.
+Ability_Kinesis2_IMPACT_effect									Lift the ^oclosest tree or creep^* into the air, making them invulnerable for ^o8 seconds^*. ^oYou may throw them^* by targeting an enemy, dealing ^o{85,90,95,100} Magic Damage^* per object and applying a ^o{10,15,20,25}% Movement Speed Slow for 2 Seconds^*.\n\nThis ability holds up to ^o{1,2,3,4} charges, which refresh at a pace of one per ^o{4,3.3,2.6,2} seconds^*.
 
 
 
@@ -44774,7 +44774,7 @@ Ability_Kinesis3_name	Щит поглощения
 
 
 
-Ability_Kinesis3_description									Пассивно дает складывающийся ^oщит поглощения, который поглощает урон, равный {0,20,30,40,50}% от маг. урона, не связанного с DoT, нанесенного героям^*.\n\nПока щит концентрируетсяся, вы получаете доп. ^oСкор. движ.^* в зависимости от значения щита.\n\nМожно построить максимум 500 поглощающих щитов.
+Ability_Kinesis3_description									Passively grants a stacking ^oDamage Shield that absorbs Damage equal to {20,30,40,50}% of non-DoT Magic Damage attempted to heroes^*.\n\nWhile the shield holds, you gain additional ^oMovement Speed^* based on the shield's value.\n\nMaximum of 500 absorb shield may be built.
 
 
 
@@ -44790,7 +44790,7 @@ Ability_Kinesis3_description2
 
 
 
-Ability_Kinesis3_description_simple								Дает ^oЩит^*, который поглощает урон, равный ^o{0,20,30,40,50}% от маг. урона, не связанного с DoT^*, нанесенного героям, до максимума ^o500^*.\n\nПока ^oЩит^* концентрируетсяся, вы получаете ^o(10 + Shield/4) движения Скорость.^*\n\nВы можете активировать, чтобы ^oзабыть украденную способность из "Похищения мыслей"^*.
+Ability_Kinesis3_description_simple								Provides a ^oShield^* that absorbs Damage equal to ^o{20,30,40,50}% of non-DoT Magic Damage^* attempted to heroes, up to a maximum of ^o500^*.\n\nWhile the ^oShield^* holds, you gain ^o(10 + Shield/4) Movement Speed.^*
 
 
 
@@ -44910,7 +44910,7 @@ Ability_Kinesis4_description									Kinesis обрушивает сохране
 
 
 
-Ability_Kinesis4_description2									^gЭта способность может быть усилена Посохом Мастера.^*\n\n^gЭффект посоха:^* Увеличивает радиус до 600 и позволяет вам выбирать, где приземлится цель.
+Ability_Kinesis4_description2									^gThis ability can be boosted by Staff of the Master.^*\n\n^gStaff Effect:^* Increases number of entites lifted to {6,8,10}.
 
 
 
@@ -44934,7 +44934,7 @@ Ability_Kinesis4_description2:kinesis_ability4_BoostActive		\r
 
 
 
-Ability_Kinesis4_description_simple								^oПоднимите^* врага и окружающих врагов, не-героев, на срок до ^o{2,2.5,3} сек.^*. При приземлении они получают ^o{200,300,400} маг. урона^* и доп. ^o{20,30,40} доп. урона^* за каждый поднятый отряд. Враги в области действия получают замедление скор. движ. на ^o50% на 2 сек.^*. Только первоначальную цель ^oможно атаковать в воздухе^*.\n\nМожно ^oактивировать снова^*, чтобы досрочно прекратить эффект.\n\n^gПосох Мастера^* увеличивает радиус до 600 и позволяет вам выбрать, где приземлится цель.
+Ability_Kinesis4_description_simple								^oLifts^* the closest ^o{3,5,7} trees or creeps^* for up to ^o8 seconds^*. Creeps are invulnerable while Lifted. All currently Lifted objects will follow you at Max Movement Speed.\n\nActivate again to ^othrow^* all Lifted objects at target position, dealing ^o100 Magic Damage per lifted object^* in a ^o350 radius^*. Must be within 1200 units to throw a Lifted object.\n\n^gStaff of the Master^* increases the max number of entities lifted to {6,8,10}.
 
 
 
@@ -44942,7 +44942,7 @@ Ability_Kinesis4_description_simple								^oПоднимите^* врага и 
 
 
 
-Ability_Kinesis4_description_simple:ult_boost					^oПоднимите^* врага и окружающих врагов, не являющихся героями, на срок до ^o{2,2.5,3} сек.^*. При приземлении они получают ^o{200,300,400} маг. урона^* и доп. ^o{20,30,40} доп. урона^* за каждый поднятый отряд. Враги в области действия получают замедление скор. движ. на ^o50% на 2 сек.^*. Только первоначальную цель ^oможно атаковать, находясь в воздухе^*.\n\nСпособность можно ^oактивировать снова^*, чтобы ^gперебросить все поднятые юниты, включая цель, в выбранное вами место^*.
+Ability_Kinesis4_description_simple:ult_boost					^oLifts^* the closest ^g{6,8,10} trees or creeps^* for up to ^o8 seconds^*. Creeps are invulnerable while Lifted. All currently Lifted objects will follow you at Max Movement Speed.\n\nActivate again to ^othrow^* all Lifted objects at target position, dealing ^o100 Magic Damage per lifted object^* in a ^o350 radius^*. Must be within 1200 units to throw a Lifted object.
 
 
 
@@ -44974,7 +44974,7 @@ Ability_Kinesis4_tooltip_flavor									Я дам тебе ускоренный 
 
 
 
-Ability_Kinesis4_IMPACT_effect									Помещает цель в стазе и поднимает вокруг нее юнитов, не являющихся героями, на время до ^o{2,2.5,3} сек.^*. Цель ^oоглушена^* в ст азисе.\n\nКогда стазе истекает, цель получает ^o{200,300,400} маг. урона^* и доп. ^o{20,30,40} бонусного маг. урона^* за каждую другую поднятую единицу. Поднятые юниты получают одинаковый урон. Враги в области затем получают ^o50% замедление скор. движ. на 1,5 сек.^*.\n\nСпособность можно ^oактивировать снова^*, чтобы досрочно завершить эффект.\n\n- Юниты, брошенные в цель с помощью телекинетического контроля, также будут пойманы.
+Ability_Kinesis4_IMPACT_effect									^oLifts^* the closest ^o{3,5,7} trees or creeps^* for up to ^o8 seconds^*. Creeps are invulnerable while Lifted. All currently Lifted objects will follow you at Max Movement Speed.\n\nActivate again to ^othrow^* all Lifted objects at target position, dealing ^o100 Magic Damage per lifted object^* in a ^o350 radius^*. Must be within 1200 units to throw a Lifted object.\n\n^gStaff of the Master^* increases the max number of entities lifted to {6,8,10}.
 
 
 
@@ -44990,7 +44990,7 @@ Ability_Kinesis4_IMPACT_effect:kinesis_ability4_Active			Помещает цел
 
 
 
-Ability_Kinesis4_IMPACT_effect:ult_boost						Помещает цель в стазе и поднимает вокруг нее юнитов, не являющихся героями, на время до ^o{2,2.5,3} сек.^*. Цель ^oоглушена^* в ст азисе.\n\nКогда стазе истекает, цель получает ^o{200,300,400} маг. урона^* и доп. ^o{20,30,40} бонусного маг. урона^* за каждую другую поднятую единицу. Поднятые юниты получают одинаковый урон. Враги в области затем получают ^o50% замедление скор. движ. на 1,5 сек.^*.\n\nСпособность можно ^oактивировать снова^*, чтобы ^gперебросить все поднятые юниты, включая цель, в выбранное вами место^*. Невозможно бросить дальше, чем на расстояние 1200.\n\n- Юниты, брошенные в цель с помощью телекинетического контроля, также будут пойманы.
+Ability_Kinesis4_IMPACT_effect:ult_boost						^oLifts^* the closest ^{6,8,10} trees or creeps^* for up to ^o8 seconds^*. Creeps are invulnerable while Lifted. All currently Lifted objects will follow you at Max Movement Speed.\n\nActivate again to ^othrow^* all Lifted objects at target position, dealing ^o100 Magic Damage per lifted object^* in a ^o350 radius^*. Must be within 1200 units to throw a Lifted object.
 
 
 
@@ -45622,7 +45622,7 @@ Ability_KingKlout4_description2									^gЭта способность може
 
 
 
-Ability_KingKlout4_description_simple							Высвободите волну страха, которая прокатится по карте. Любое попадание врага наносит до ^o{150,250,350} маг. урона^*, а юниты, под управлением игрока, подвергаются страху до {1.5,2,2.5} сек.^*.\n\nСнова активируйте способность, чтобы ^oтелепортироваться^* туда, куда вы телепортировались, отправив еще один ^oПарад силы^* туда, куда вы телепортировались. from.\n\nУлучшает миньона за каждого пораженного вражеского героя в первой волне.\n\n^gПосох Мастера Эффект:^* перезарядка уменьшено до ^o{100,80,60} сек.^*.
+Ability_KingKlout4_description_simple							Unleash a wave of fear that sweeps across the map. Any enemy hit takes up to ^o{200,300,400} Magic Damage^* and player-controlled units are ^oFeared for up to {1.5,2,2.5} seconds^*.\n\nActivate the ability again to ^oteleport^* to its location, sending another ^oParade of Power^* back to where you teleported from.\n\nUpgrades a Minion for each enemy hero hit on the first wave.\n\n^gStaff of the Master Effect:^* cooldown reduced to ^o{100,80,60} seconds^*.
 
 
 
@@ -45638,7 +45638,7 @@ Ability_KingKlout4_effect_header								Эффект(ы) парада Корол
 
 
 
-Ability_KingKlout4_IMPACT_effect								Настройте поддержание, чтобы запустить мяч по линии. Любое попадание врага наносит до ^o{150,250,350} маг. урона^*, а юниты, под управлением игрока, испытывают страх до {1.5,2,2.5} сек.^*.\n\nАктивируйте способность снова, чтобы телепортироваться в свое место, отправляя еще один ^oПарад силы^* обратно туда, откуда вы телепортировались.\n\nПопадание по вражеским героям улучшает ваш Миньоны.\n\n-Для каждого вражеского героя, пораженного первым мячом, вы либо создаете нового ^rRED^* Миньона, если у вас нет 7, либо он улучшает одного из ваших существующих миньонов до лучшего.\n-Парад силы движется со скоростью 1750\n-Начинается с {75,125,175} маг. урона и добавляет доп. {75,125,175} при дальнейшем они от тебя. На расстоянии 3500 единиц они получают максимальный урон.\n-Длит.: страха составляет минимум {0.5} сек., добавляя доп. {1,1.5,2} сек. по мере удаления от вас. На расстоянии 3500 единиц они вызывают страх на максимальную длительность.\n-Страх проходит через иммунитет к магии.
+Ability_KingKlout4_IMPACT_effect								Target a direction to fire a ball in a line. Any enemy hit takes up to ^o{200,300,400} Magic Damage^* and player-controlled units are ^oFeared for up to {1.5,2,2.5} seconds^*.\n\nActivate the ability again to teleport to its location, sending another ^oParade of Power^* back to where you teleported from.\n\nHitting enemy heroes upgrades your Minions.\n\n-For every enemy hero hit by the initial ball, you either spawn a new ^rRED^* Minion if you don't have 7, or it upgrades one of your existing Minions to a better one.\n-Parade of Power moves at 1750 speed\n-Starts at {100,150,200} Magic Damage and adds an additional {100,150,200} the further they are from you. At 3500 units away, they take maximum damage.\n-Fear duration is {0.5} second minimum, adding an additional {1,1.5,2} second(s) the further they are from you. At 3500 units away, they are Feared for the max duration.\n-Fear goes through Magic Immunity
 
 
 
@@ -45646,7 +45646,7 @@ Ability_KingKlout4_IMPACT_effect								Настройте поддержани�
 
 
 
-Ability_KingKlout4_description_simple:kingkloutultactive		При использовании телепортирует вас к месту вашего Парада Силы.\n\nСоздает второй Парад Силы, который возвращается к вашей текущей позиции.\n\nЛюбой враг, пораженный волной, получает до ^o{150,250,350} Маг. урона^*, а юниты, управляемые игроком, вызывают ^oУстрашение на срок до {1.5,2,2.5} сек.^*.
+Ability_KingKlout4_description_simple:kingkloutultactive		On use, teleports you to the location of your Parade of Power.\n\nCreates a second Parade of Power that travels back to your current position.\n\nAny enemy hit by the wave takes up to ^o{200,300,400} Magic Damage^* and player-controlled units are ^oFeared for up to {1.5,2,2.5} seconds^*.
 
 
 
@@ -45654,7 +45654,7 @@ Ability_KingKlout4_description_simple:kingkloutultactive		При использ�
 
 
 
-Ability_KingKlout4_IMPACT_effect:kingkloutultactive				При использовании телепортирует вас к месту вашего Парада Силы.\n\nСоздает второй Парад Силы, который возвращается к вашей текущей позиции.\n\nЛюбой враг, пораженный волной, получает до ^o{150,250,350} Маг. урона^*, а юниты, управляемые игроком, подвергаются страху до {1.5,2,2.5} сек.^*.\n - Парад силы движется при скорости 1750\n - начинается с {75,125,175} маг. урона и добавляет дополнительно {75,125,175} по мере удаления от вас. На расстоянии 3500 единиц они получают максимальный урон.\n-Длит.: страха составляет минимум {0.5} сек., добавляя дополнительно {1,1.5,2} сек. по мере удаления от вас. На расстоянии 3500 единиц они вызывают страх на максимальную длительность.\n-Страх проходит через иммунитет к магии.
+Ability_KingKlout4_IMPACT_effect:kingkloutultactive				On use, teleports you to the location of your Parade of Power.\n\nCreates a second Parade of Power that travels back to your current position.\n\nAny enemy hit by the wave takes up to ^o{200,300,400} Magic Damage^* and player-controlled units are ^oFeared for up to {1.5,2,2.5} seconds^*.\n-Parade of Power moves at 1750 speed\n-Starts at {100,150,200} Magic Damage and adds an additional {100,150,200} the further they are from you. At 3500 units away, they take maximum damage.\n-Fear duration is {0.5} second minimum, adding an additional {1,1.5,2} second(s) the further they are from you. At 3500 units away, they are Feared for the max duration.\n-Fear goes through Magic Immunity
 
 
 
@@ -45686,7 +45686,7 @@ Ability_KingKlout4_description2:ult_boost	^gЭта способность мож
 
 
 
-Ability_KingKlout4_description_simple:ult_boost					Высвободите волну страха, которая прокатится по карте. Любое попадание врага наносит до ^o{150,250,350} маг. урона^*, а юниты, контролируемые игроком, подвергаются страху до {1.5,2,2.5} сек.^*.\n\nСнова активируйте способность, чтобы ^oтелепортироваться^* туда, куда вы телепортировались, отправив еще один ^oПарад силы^* туда, куда вы телепортировались. from.\n\nУлучшает миньона за каждого вражеского героя, пораженного в первой волне.
+Ability_KingKlout4_description_simple:ult_boost					Unleash a wave of fear that sweeps across the map. Any enemy hit takes up to ^o{200,300,400} Magic Damage^* and player-controlled units are ^oFeared for up to {1.5,2,2.5} seconds^*.\n\nActivate the ability again to ^oteleport^* to its location, sending another ^oParade of Power^* back to where you teleported from.\n\nUpgrades a Minion for each enemy hero hit on the first wave.
 
 
 
@@ -45694,7 +45694,7 @@ Ability_KingKlout4_description_simple:ult_boost					Высвободите во�
 
 
 
-Ability_KingKlout4_IMPACT_effect:ult_boost						Настройте поддержание, чтобы запустить мяч по линии. Любое попадание врага наносит до ^o{150,250,350} маг. урона^*, а юниты, контролируемые игроком, испытывают страх до {1.5,2,2.5} сек.^*.\n\nАктивируйте способность снова, чтобы телепортироваться в свое место, отправляя еще один ^oПарад силы^* обратно туда, откуда вы телепортировались.\n\nПопадание по вражеским героям улучшает ваш Миньоны.\n\n-Для каждого вражеского героя, пораженного первым мячом, вы либо создаете нового ^rRED^* Миньона, если у вас нет 7, либо он улучшает одного из ваших существующих миньонов до лучшего.\n-Парад силы движется со скоростью 1750\n-Начинается с {75,125,175} маг. урона и добавляет доп. {75,125,175} при дальнейшем они от тебя. На расстоянии 3500 единиц они получают максимальный урон.\n-Длит.: страха составляет минимум {0.5} сек., добавляя доп. {1,1.5,2} сек. по мере удаления от вас. На расстоянии 3500 единиц они вызывают страх на максимальную длительность.\n-Страх проходит через иммунитет к магии.
+Ability_KingKlout4_IMPACT_effect:ult_boost						Target a direction to fire a ball in a line. Any enemy hit takes up to ^o{200,300,400} Magic Damage^* and player-controlled units are ^oFeared for up to {1.5,2,2.5} seconds^*.\n\nActivate the ability again to teleport to its location, sending another ^oParade of Power^* back to where you teleported from.\n\nHitting enemy heroes upgrades your Minions.\n\n-For every enemy hero hit by the initial ball, you either spawn a new ^rRED^* Minion if you don't have 7, or it upgrades one of your existing Minions to a better one.\n-Parade of Power moves at 1750 speed\n-Starts at {100,150,200} Magic Damage and adds an additional {100,150,200} the further they are from you. At 3500 units away, they take maximum damage.\n-Fear duration is {0.5} second minimum, adding an additional {1,1.5,2} second(s) the further they are from you. At 3500 units away, they are Feared for the max duration.\n-Fear goes through Magic Immunity
 
 
 
@@ -52239,7 +52239,7 @@ Ability_MasterOfArms3_tooltip_flavor							Красные против Сини�
 
 
 
-Ability_MasterOfArms3_description_simple						^bБульдозер^*\nБульдозер добавляет {90,105,120,135,150} дальность атаки и {0,8,16,24,32} урон от атаки.\n\n^rCheetah^*\nCheetah ^oуменьшает урон от атаки на 10%^* против героев и ^oувеличивает скор. атаки на {0,45,70,95,120}^*.\n\n^gПосох Мастера^* одновременно дает эффекты Бульдозера и Гепарда.
+Ability_MasterOfArms3_description_simple						^bBulldozer^*\nBulldozer adds ^o{0,105,120,135,150} Attack Range^* and ^o{0,8,16,24,32} Attack Damage^*.\n\n^rCheetah^*\nCheetah ^oreduces your Attack Damage by 10%^* against heroes and ^oincreases Attack Speed by {0,45,70,95,120}^*.\n\n^gStaff of the Master^* simultaneously grants the effects of both ^bBulldozer^* and ^rCheetah^*.
 
 
 
@@ -52247,7 +52247,7 @@ Ability_MasterOfArms3_description_simple						^bБульдозер^*\nБульд
 
 
 
-Ability_MasterOfArms3_description_simple:MasterOfArms_Electrical	^bБульдозер^*\nБульдозер добавляет {90,105,120,135,150} дальность атаки и {0,8,16,24,32} урон от атаки.\n\nПри активации: переключиться на пистолет-гепард.\n^bБульдозер^*\n\n^gПосох Мастера^* одновременно дает эффекты как Бульдозера, так и Гепард.
+Ability_MasterOfArms3_description_simple:MasterOfArms_Electrical	^bBulldozer^*\nBulldozer adds ^o{0,105,120,135,150} Attack Range^* and ^o{0,8,16,24,32} Attack Damage^*.\n\nActivate to swap to the Cheetah gun.\n^bBulldozer^*\n\n^gStaff of the master^* simultaneously grants the effects of both ^bBulldozer^* and ^rCheetah^*.
 
 
 
@@ -52263,7 +52263,7 @@ Ability_MasterOfArms3_description_simple:MasterOfArms_Magnetic	^rCheetah^*\nChee
 
 
 
-Ability_MasterOfArms3_IMPACT_effect:MasterOfArms_Electrical		^bБульдозер^*\nВытаскивая винтовку "Бульдозер", вы увеличиваете {90,105,120,135,150} дальность атаки и {0,8,16,24,32} урон от атаки.\n\nПри активации: переключиться на пистолет "Гепард".\n^bБульдозер^*\n\n^gПосох Мастера^* одновременно дает эффекты обоих Бульдозер и Гепард.
+Ability_MasterOfArms3_IMPACT_effect:MasterOfArms_Electrical		^bBulldozer^*\nPulling out his rifle, Bulldozer, adds {0,105,120,135,150} Attack Range and {0,8,16,24,32} Attack Damage.\n\nActivate to swap to the Cheetah gun.\n^bBulldozer^*\n\n^gStaff of the master^* simultaneously grants the effects of both Bulldozer and Cheetah.
 
 
 
@@ -52295,7 +52295,7 @@ Ability_MasterOfArms3_name:ult_boost							^gБульдозер-Гепард*^*
 
 
 
-Ability_MasterOfArms3_description2:ult_boost					^gПолучает эффекты как Бульдозера, так и Гепарда: ^* {90,105,120,135,150} Дальность атаки, {0,8,16,24,32} Урон от атаки, {0,45,70,95,120} Скор. атаки и -{0,22,18,14,10}% урона от атаки по героям.
+Ability_MasterOfArms3_description2:ult_boost					^gGains the effects of both Bulldozer and Cheetah:^* {0,105,120,135,150} Attack Range, {0,8,16,24,32} Attack Damage, {0,45,70,95,120} Attack Speed, and -{0,22,18,14,10}% Attack Damage against heroes.
 
 
 
@@ -52303,7 +52303,7 @@ Ability_MasterOfArms3_description2:ult_boost					^gПолучает эффект
 
 
 
-Ability_MasterOfArms3_description_simple:ult_boost				^gПолучает эффекты как Бульдозера, так и Гепарда: ^* {90,105,120,135,150} Дальность атаки, {0,8,16,24,32} Урон от атаки, {0,45,70,95,120} Скор. атаки и -{0,22,18,14,10}% урона от атаки по героям.
+Ability_MasterOfArms3_description_simple:ult_boost				^gGains the effects of both Bulldozer and Cheetah:^* {0,105,120,135,150} Attack Range, {0,8,16,24,32} Attack Damage, {0,45,70,95,120} Attack Speed, and -{0,22,18,14,10}% Attack Damage against heroes.
 
 
 
@@ -52807,7 +52807,7 @@ Ability_Midas4_description										Midas призывает золотую дл
 
 
 
-Ability_Midas4_description2										Этот навык можно ^oулучшить на уровнях 4, 8 и 12^*.\n\nВаши способности применяют реагент на 4 сек. к пораженным врагам. Объединение реагентов двух разных способностей активирует их, нанося ^o{100,200,300} маг. урона^* и применяя  сек. оглушения ^o2^*. Также дает Мидасу ^o{10,15,20} Gold^*. Пассивно ^o уменьшает перезарядка способностей:^*\nЗолотой залп на ^o{2,4,6} сек.^*\nLion's Pride на ^o{1,2,3} сек.^*\nСтихийное искажение на ^o{2,3,4} сек.^*.
+Ability_Midas4_description2										This skill can be ^oupgraded at levels 4, 8 and 12^*.\n\nYour abilities apply a Reagent for 4 seconds to enemies hit. Combining Reagents from two different abilities triggers them, dealing ^o{100,175,250} Magic Damage^* and applies a ^o2 second stun^*. Also grants Midas ^o{15,30,45} Gold^*. Passively ^odecreases ability cooldowns:^*\nGolden Salvo by ^o{2,4,6} seconds^*\nLion's Pride by ^o{1,2,3} seconds^*\nElemental Warp by ^o{2,3,4} seconds^*.
 
 
 
@@ -52815,7 +52815,7 @@ Ability_Midas4_description2										Этот навык можно ^oулучш
 
 
 
-Ability_Midas4_description_simple								Уменьшает перезарядка ^oGolden Salvo на {2,4,6} сек.^*, ^oLion's Pride на {1,2,3} сек.^* и ^oElemental Warp на {2,3,4}^*.\n\nЭтот навык можно ^oулучшить на уровнях 4, 8 и 12^*.\n\nНаделяет каждую из трех ваших базовых способностей 4-сек.ным ^oРеагентом^*. Объединение ^oРеагентов^* на враге нанесет ^o{100,200,300} маг. урона^*, оглушит ^o2 сек.^* и даст вам ^o{10,15,20} золота^*.
+Ability_Midas4_description_simple								Decreases cooldown of ^oGolden Salvo by {2,4,6} seconds^*, ^oLion's Pride by {1,2,3} seconds^* and ^oElemental Warp by {2,3,4}^*.\n\nThis skill can be ^oupgraded at levels 4, 8 and 12^*.\n\nImbues each of your three basic abilities with a 4 second ^oReagent^*. Combining ^oReagents^* on an enemy will inflict ^o{100,175,250} Magic Damage^*, a ^o2 second stun^* and grant you ^o{15,30,45} Gold^*.
 
 
 
@@ -56535,7 +56535,7 @@ Ability_Pharaoh4_description2										^gЭта способность може�
 
 
 
-Ability_Pharaoh4_description_simple	Выстрелите снаряд в заданном направлении. Если он попадает в ^oненейтрального врага^*, бросьтесь в него, ^oоглушив его на 0,5 сек.^*.\n\nВо время путешествия нанесите ^o{75,175,275} маг. урона^* врагам и ^oоглушите их на {1,1.5,2} сек.^*.\n\n^gПосох Мастер^* сокращает перезарядка до ^o20 сек.^* и предоставляет ^oсубспособность^*, которая поражает союзных героев.\n\n^gЭта способность может быть усилена Посохом Мастера.^*\n\n^gЭффект посоха:^* Дает доп. навык, который может поражать героев-союзников (разделяет перезарядка с основным навыком). Уменьшает перезарядка до 20 сек..
+Ability_Pharaoh4_description_simple	Shoot a projectile in target direction. If it hits a ^onon-neutral enemy^*, launch yourself at them, ^ostunning them for 0.5 seconds^*.\n\nWhile traveling, deal ^o{150,225,300} Magic Damage^* to enemies and ^ostun them for {1,1.5,2} seconds^*.\n\n^gStaff of the Master^* reduces the Cooldown to ^o20 seconds^* and grants a ^osubability^* that hit allied heroes.
 
 
 
@@ -56551,7 +56551,7 @@ Ability_Pharaoh4_effect_header									Статусные эффекты
 
 
 
-Ability_Pharaoh4_IMPACT_effect									Выпускает снаряд в заданном направлении, достигая максимальной дальности ^o {2000,2500,3000}^* за 0,5 сек.. При столкновении с не нейтральным вражеским юнитом ^oОглушает^* этот отряд на 0,5 сек. и тянет себя на 0,5 сек. к месту нахождения пораженного отряда. Во время перетаскивания любые юниты, проходящие в радиусе 200 от вас, будут ^oоглушены на {1,1.5,2} сек.^* и получат ^o{75,175,275} маг. урона^*.
+Ability_Pharaoh4_IMPACT_effect									Fires a projectile in target direction, taking 0.5 seconds to reach its ^omaximum range of {2000,2500,3000}^*. Upon impacting a non-neutral enemy unit, ^oStuns^* that unit for 0.5 seconds and drags self over 0.5 seconds toward the impacted unit's location. During the drag, any units that pass within a 200 radius of self will be ^oStunned for {1,1.5,2} second(s)^* and receive ^o{150,225,300} Magic Damage^*.
 
 
 
@@ -56567,7 +56567,7 @@ Ability_Pharaoh4_name:ult_boost									^gВозвращение фараона*
 
 
 
-Ability_Pharaoh4_description_simple:ult_boost					Выстрелите снарядом в заданном направлении. Если он попадает в ^oненейтрального врага^*, бросьтесь на него и примените ^o0,5-сек.ное оглушение^*.\n\nВо время путешествия нанесите врагам ^o{75,175,275} маг. урона^* и ^o{1,1.5,2} сек.ного оглушения^*.
+Ability_Pharaoh4_description_simple:ult_boost					Shoot a projectile in a target direction. If it hits a ^onon-neutral enemy^*, launch yourself at it and apply a ^o0.5 second Stun^*.\n\nWhile traveling, inflict ^o{150,225,300} Magic Damage^* and ^o{1,1.5,2} second Stun^* to enemies.
 
 
 
@@ -56639,7 +56639,7 @@ Ability_Pharaoh4_Ally_effect_header								Статусные эффекты
 
 
 
-Ability_Pharaoh4_Ally_IMPACT_effect								Выпускает снаряд в заданном направлении, достигая максимальной дальности ^o {2000,2500,3000}^* за 0,5 сек.. При столкновении с не нейтральным вражеским юнитом или ^gally героем^*, ^oоглушает^* этого отряда на 0,5 сек. и тянет себя на 0,5 сек. к местоположению пораженного отряда. Во время перетаскивания любые юниты, проходящие в радиусе 200 от вас, будут ^oоглушены на {1,1.5,2} сек.^* и получат ^o{75,175,275} маг. урона^*.
+Ability_Pharaoh4_Ally_IMPACT_effect								Fires a projectile in target direction, taking 0.5 seconds to reach its ^omaximum range of {2000,2500,3000}^*. Upon impacting a non-neutral enemy unit or ^gally hero^*, ^oStuns^* that unit for 0.5 seconds and drags self over 0.5 seconds toward the impacted unit's location. During the drag, any units that pass within a 200 radius of self will be ^oStunned for {1,1.5,2} second(s)^* and receive ^o{150,225,300} Magic Damage^*.
 
 
 
@@ -61655,7 +61655,7 @@ Ability_Pearl4_description2
 
 
 
-Ability_Pearl4_description_simple	^oОттолкнуть врагов^*, оглушение 1 сек. Пузырь снижает урон от врагов за пределами на ^o{45,60,75}%^* (работает в обе стороны).\n\nИсцеляет на ^o{150,250,350} ХП^* при применении. Длительность: ^o{7/8.5/10}^* сек.\n\n^gПосох Мастера:^* Перл может переместить пузырь 1 раз (50% исцеления).
+Ability_Pearl4_description_simple	^oPush nearby enemies^* away, stunning them over 1 second. Create an area for your allies that ^oreduces all incoming damage from enemies on the other side by {45,60,75}%^*. The damage reduction also applies if your ally is outside and enemy hero is inside the bubble.\n\nHeals allies for ^o{150,250,350} Health^* upon cast. Lasts for ^o{7,8.5,10}^* seconds.\n\n^gStaff of the Master:^* allows Pearl to reposition the bubble once after the initial cast, applying all of its effects (with a lesser healing amount of 50%).
 
 
 
@@ -62151,7 +62151,7 @@ Ability_Pestilence4_description2:ult_boost	^gЭта способность мо�
 
 
 
-Ability_Pestilence4_description_simple							Выпустите рой саранчи во врага, чтобы ^oПоказать^* его и применить ^o{-7,-14,-21} броню на 30 сек.^*.\n\n^gПосох Мастера^* дает возможность примениться к ^oвсем врагам^* в выбранной области конуса и наносит ^o{50,100,150} физ. урона воздействие^*.
+Ability_Pestilence4_description_simple							Release a swarm of locusts at an enemy to ^oReveal^* it and apply ^o{-7,-12,-17} Armor for {16,20,24} seconds^*.\n\n^gStaff of the Master^* causes the ability to apply to ^oall enemies^* in a targeted cone area, and deals ^o{50,100,150} Physical Damage on impact^*.
 
 
 
@@ -62159,7 +62159,7 @@ Ability_Pestilence4_description_simple							Выпустите рой сара�
 
 
 
-Ability_Pestilence4_description_simple:ult_boost				Выпустите рой саранчи во врага ^gили локацию, чтобы нанести {50,100,150} физ. урона в конусе^*. Раскрывает и применяет ^o{-7,-14,-21} броню на 30 сек.^* к любому удару.
+Ability_Pestilence4_description_simple:ult_boost				Release a swarm of locusts at an enemy ^gor location to deal {50,100,150} Physical Damage in a cone^*. Reveals and applies ^o{-7,-12,-17} Armor for {16,20,24} seconds^* to anyone hit.
 
 
 
@@ -63471,7 +63471,7 @@ Ability_Predator1_description									Predator выпускает ядовиты
 
 
 
-Ability_Predator1_description_simple							Атакует, прыгнуть к нему, нанося ^o{100,150,200,250} маг. урона^*, ^oСдерживание на {2.25,2.5,2.75,3} сек.^* и вызывая ^o40% замедление скор. движ.^* на ^o{2.75,3.5,4.25,5} сек.^*.\n\nТакже применяется ^o1 Стек ужаса^*.
+Ability_Predator1_description_simple							Target an enemy unit to leap to it, dealing ^o{100,150,200,250} Magic Damage^*, ^oRestraining for {1.6,1.9,2.2,2.5} seconds^*, and inflicting a ^o40% Movement Speed Slow^* for ^o{2.5,3,3.5,4} seconds^*.\n\nAlso applies ^o1 Terror stack^*.
 
 
 
@@ -63487,7 +63487,7 @@ Ability_Predator1_effect_header									Эффект(ы) яда
 
 
 
-Ability_Predator1_IMPACT_effect									Прыгает к цели, нанося {100,150,200,250} маг. урона, ^o концентрируясь ее на 2 сек.^* и применяя ядовитость на {2.75,3.5,4.25,5} сек..
+Ability_Predator1_IMPACT_effect									Leaps toward target, dealing {100,150,200,250} Magic Damage, ^oRestraining them for {1.6,1.9,2.2,2.5} seconds^*, and applying Venomous for {2.5,3,3.5,4} seconds.
 
 
 
@@ -66463,7 +66463,7 @@ Ability_AmunRa2_description_simple									^rСтоит 10% от макс. зд�
 
 
 
-Ability_AmunRa2_IMPACT_effect										Выстреливает 8 снарядов звездой, каждый наносит ^o{10,20,30,40} + {1.2,1.3,1.4,1.5}% от вашего макс. здоровья ед. маг. урона^* (-^o10%^* за каждый след. снаряд), накладывая ^o-0.5 маг. брони и -3% скор. движ.^* на 3 сек. Снаряды останавливаются на 2 сек. и возвращаются.
+Ability_AmunRa2_IMPACT_effect										^rCosts 10% Max Health to cast.^* Grants ^o{0.7,1.4,2.1,2.8} Health Regeneration^*.\n\nShoot 8 projectiles in a star pattern, each dealing ^o{10,20,30,40} + {1.2,1.3,1.4,1.5}% of your Max Health as Magic Damage^*, reduced by ^o10%^* per projectile after the first, and applying a ^ostacking -0.5 Magic Armor and -3% Movement Speed^* debuff for 3 seconds to enemies they pass through, then remaining there for 2 seconds, after which they return, dealing damage and applying debuffs again.
 
 
 
@@ -67727,7 +67727,7 @@ State_Rampage_Ability2_name										Мощь стада
 
 
 
-State_Rampage_Ability2_FRAME_effect								Испускает ударные волны каждые 300 пройденных единиц, каждая из которых наносит {35,75,115,155} + 40% вашего урона от атаки в виде физ. урона.
+State_Rampage_Ability2_FRAME_effect								Emitting shockwaves every 300 units travelled, each dealing {15,30,45,60} + 25% of your Attack Damage as Physical Damage.
 
 
 
@@ -71287,7 +71287,7 @@ Ability_Riptide1_description									Рипт посылает взрыв вод
 
 
 
-Ability_Riptide1_description_simple								Наносит ^o{95,170,250,330} маг. урона^* и ^oЗамедлить его скор. движ. на 50% и скор. атаки на 20%^* на ^o{2,2.5,3,3.5} сек.^*.
+Ability_Riptide1_description_simple								Drench an enemy unit with a blast of water, dealing ^o{100,175,250,325} Magic Damage^* and ^oSlowing their Movement Speed by 50% and Attack Speed by 20%^* for ^o{2,2.5,3,3.5} seconds^*.\n\n^gStaff of the Master^*: Bounces 2 times.
 
 
 
@@ -71295,7 +71295,7 @@ Ability_Riptide1_description_simple								Наносит ^o{95,170,250,330} м�
 
 
 
-Ability_Riptide1_IMPACT_effect									Наносит ^o{95,170,250,330} маг. урона^* и ^oСнижает скор. движ. на 50% и скор. атак. на 20%^* на ^o{2,2.5,3,3.5} сек.^*.
+Ability_Riptide1_IMPACT_effect									Drench an enemy unit with a blast of water, dealing ^o{100,175,250,325} Magic Damage^* and ^oSlowing their Movement Speed by 50% and Attack Speed by 20%^* for ^o{2,2.5,3,3.5} seconds^*.
 
 
 
@@ -75823,7 +75823,7 @@ Ability_DementedShaman3_description										Demented Shaman исцеляет и
 
 
 
-Ability_DementedShaman3_description_simple								Примените ^oUnbreakable^* к союзнику на ^o5 сек.^*, предоставляя ему ^o{20,30,40,50} дополнительной силы атаки^*. При получении ^oфатального урона^* здоровье цели устанавливается на ^o{140,220,300,380} + ^o{3,4,5,6}% от ее макс. здоровья^*.\n\nКогда перезарядка истекло, ^oНеуязвимый всегда активен на вас^*, пока вы не получите смертельный урон, сработав его обычные эффекты, ^oбез предоставления вам бонуса урон^*.
+Ability_DementedShaman3_description_simple								Apply ^oUnbreakable^* to an ally for ^o5 seconds^*, granting them ^o{20,30,40,50} bonus Attack Damage^*. When receiving ^ofatal damage^*, the target has their health set to ^o{100,180,260,340} + ^o{3,4,5,6}% of their Max Health^*.\n\nWhen off cooldown, ^oUnbreakable is always active on yourself^* until you take fatal damage, proccing its regular effects, ^owithout granting you the bonus damage^*.
 
 
 
@@ -75839,7 +75839,7 @@ Ability_DementedShaman3_effect_header									Эффект(ы) несокруш�
 
 
 
-Ability_DementedShaman3_IMPACT_effect									Примените ^oUnbreakable^* к союзнику на ^o5 сек.^*, предоставляя ему ^o{20,30,40,50} дополнительной силы атаки^*. При получении ^oфатального урона^* здоровье цели устанавливается на ^o{140,220,300,380} + ^o{3,4,5,6}% от ее макс. здоровья^*.\n\nКогда перезарядка истекло, ^oНеуязвимый всегда активен на вас^*, пока вы не получите смертельный урон, сработав его обычные эффекты, ^oбез предоставления вам бонуса урон^*.
+Ability_DementedShaman3_IMPACT_effect									Apply ^oUnbreakable^* to an ally for ^o5 seconds^*, granting them ^o{20,30,40,50} bonus Attack Damage^*. When receiving ^ofatal damage^*, the target has their health set to ^o{100,180,260,340} + ^o{3,4,5,6}% of their Max Health^*.\n\nWhen off cooldown, ^oUnbreakable is always active on yourself^* until you take fatal damage, proccing its regular effects, ^owithout granting you the bonus damage^*.
 
 
 
@@ -75879,7 +75879,7 @@ State_DementedShaman_Ability3_name										Несокрушимый
 
 
 
-State_DementedShaman_Ability3_FRAME_effect								При получении смертельного урона ваше здоровье устанавливается на ^o{140,220,300,380}*.
+State_DementedShaman_Ability3_FRAME_effect								Upon receiving fatal damage, your health is set to ^o{100,180,260,340}^* + ^o{3,4,5,6}% of your Max Health^*.
 
 
 
@@ -102071,7 +102071,7 @@ Item_Codex_shop_categories										Filter_Strength,Filter_Agility,Filter_Intell
 
 
 
-Item_Codex_IMPACT_effect											Наносит ^o{350,450,600,750,900} маг. урона^* цели.
+Item_Codex_IMPACT_effect											Deals ^o{375,500,625,750,875} Magic Damage^* to target.
 
 
 
