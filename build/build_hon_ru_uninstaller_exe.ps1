@@ -12,9 +12,7 @@ New-Item -ItemType Directory -Path $distRoot -Force | Out-Null
 # Scripts needed for uninstall
 $uninstallScripts = @(
     "uninstall_hon_ru_pack.ps1",
-    "hon_common.ps1",
-    "remove_amneziawg.ps1",
-    "restore_dns.ps1"
+    "hon_common.ps1"
 )
 
 foreach ($name in $uninstallScripts) {

@@ -1,84 +1,23 @@
-<div align="center">
+# HoN RU Pack
 
-# 🇷🇺 HoN RU Pack
+**Русский перевод Heroes of Newerth (HoN Reborn)**
 
-**Полный русский перевод Heroes of Newerth**
+[Скачать](https://github.com/Xyling12/HoN_RU_Pack/releases/latest) · [Boosty](https://boosty.to/xyling)
 
-[![⬇️ Скачать](https://img.shields.io/github/v/tag/Xyling12/HoN_RU_Pack?label=%E2%AC%87%EF%B8%8F%20%D0%A1%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C&color=brightgreen&style=for-the-badge&sort=semver)](https://github.com/Xyling12/HoN_RU_Pack/releases/latest)
-&nbsp;
-[![Boosty](https://img.shields.io/badge/☕%20Поддержать-Boosty-orange?style=for-the-badge)](https://boosty.to/xyling)
+## Установка
 
-</div>
+1. Скачай **HoN_RU_Pack_Installer.exe**
+2. Запусти — папка игры найдётся автоматически
+3. Запускай Juvio/HoN — перевод активен
 
----
+> При первом запуске лаунчер может попросить **Update Now** — нажми 1-2 раза. Агент восстановит перевод.
 
-## ⬇️ Установка
+**Удаление:** HoN_RU_Pack_Uninstaller.exe
 
-1. Скачай **[HoN_RU_Pack_Installer.exe](https://github.com/Xyling12/HoN_RU_Pack/releases/latest)**
-2. Запусти — папка игры определится автоматически
-3. Запускай Juvio/HoN как обычно — перевод активен
+## Что переведено
 
-> Не подключается к серверам? Скачай **`HoN_RU_Pack_Installer_Bypass.exe`** — с обходом блокировок (Zapret).
+Имена героев, предметов и способностей — на английском. Всё остальное — на русском.
 
-**Удаление:** [HoN_RU_Pack_Uninstaller.exe](https://github.com/Xyling12/HoN_RU_Pack/releases/latest)
+## Помочь с переводом
 
----
-
-<details>
-<summary>📦 Что включено</summary>
-
-| Компонент | Статус |
-|---|---|
-| Имена умений всех героев | ✅ |
-| Описания умений (тултипы) | ✅ |
-| Предметы — названия и описания | ✅ |
-| Интерфейс (меню, настройки) | ✅ |
-| Системные сообщения | ✅ |
-| Обход DPI-блокировок (Zapret) | ✅ В Bypass-версии |
-| Автообновление перевода | ✅ |
-
-</details>
-
-<details>
-<summary>⚙️ Нестандартный путь к игре</summary>
-
-Если игра не в стандартной папке, открой:
-```
-%LOCALAPPDATA%\HoN_RU_Pack\hon_paths_override.ps1
-```
-И укажи пути вручную: `$HoNDocsRoot`, `$HoNLocalRoot`, `$HoNArchivePath`.
-
-</details>
-
-<details>
-<summary>📜 История версий</summary>
-
-| Версия | Что изменилось |
-|---|---|
-| **v1.9.9l** | 439 улучшений описаний, "Channel" → "концентрация" |
-| **v1.9.9k** | Убраны машинные фразы из тултипов |
-| **v1.9.9j** | 105 контекстных исправлений имён умений |
-| **v1.9.9i** | 176 исправлений имён, опечатки |
-| **v1.9.9h** | Восстановление текстов Посоха Мастера |
-
-[Все релизы →](https://github.com/Xyling12/HoN_RU_Pack/releases)
-
-</details>
-
-<details>
-<summary>🤝 Помочь с переводом</summary>
-
-- [Гид контрибьютора](CONTRIBUTING.md)
-- [Правила перевода и глоссарий](docs/TRANSLATION_GUIDE.md)
-- [Работа с предметами](docs/ITEMS_GUIDE.md)
-- [Сборка инсталлятора](docs/BUILD_GUIDE.md)
-
-</details>
-
----
-
-<div align="center">
-
-[boosty.to/xyling](https://boosty.to/xyling)
-
-</div>
+[Правила перевода](docs/TRANSLATION_GUIDE.md) · [Глоссарий](docs/GLOSSARY.md) · [Сборка](docs/BUILD_GUIDE.md)

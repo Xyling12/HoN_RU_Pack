@@ -1,4 +1,4 @@
-client_default_name				БезымянныйНовичок
+﻿client_default_name				БезымянныйНовичок
 
 
 
@@ -94,7 +94,7 @@ disconnect_server_full				Сервер заполнен.
 
 disconnect_snapshot_fragment		Слишком много фрагментов снимка.
 
-disconnect_staff_spec_not_staff		Вы можете быть наблюдателем персонала только на аккаунте персонала.
+disconnect_staff_spec_not_staff		быть наблюдателем персонала только на аккаунте персонала.
 
 disconnect_terminated				Вы превысили максимальное время отключения и больше не можете переподключиться к этой игре.
 
@@ -150,7 +150,7 @@ rejected_not_host				Вы должны иметь права хоста, что�
 
 rejected_missing_spectate_player			Не удалось найти игрока, за которым вы хотели наблюдать.
 
-rejected_spectate_not_friends   Вы не в друзьях с этим игроком.
+rejected_spectate_not_friends Вы не в друзьях с этим игроком.
 
 
 
@@ -200,7 +200,7 @@ chat_failed_invisible				^279* Вы не можете общаться в чат
 
 chat_mode_switch_fail				^279* Вы не можете изменить статус чата в невидимом режиме. Пожалуйста, выйдите и войдите снова, чтобы использовать эту функцию.
 
-chat_mode_switch_success            ^279* Ваш статус чата был успешно изменён.
+chat_mode_switch_success ^279* Ваш статус чата был успешно изменён.
 
 chat_mode_afk_auto_response			^099* Ваше сообщение было доставлено, но ^990{target}^279 в настоящее время отсутствует на клавиатуре: {message}
 
@@ -212,7 +212,7 @@ chat_mode_dnd_default_response		^279* {target} находится в режим�
 
 chat_mode_streaming_auto_response		^099 Ваше сообщение не доставлено, ^990{target}^279 идет потоковая передача: {message}
 
-chat_mode_streaming_default_response    ^279* {target} находится в режиме потоковой передачи и в настоящее время не может отправлять сообщения.
+chat_mode_streaming_default_response ^279* {target} находится в режиме потоковой передачи и в настоящее время не может отправлять сообщения.
 
 chat_user_offline					^279* Этот игрок не в сети.
 
@@ -442,7 +442,7 @@ chat_banned_from_channel			^279* Вы забанены на канале '^990{c
 
 chat_silenced						^279* Вы заглушены на этом канале и не можете говорить.
 
-chat_silence_lifted					^279* Ваше молчание снято на канале '^990{channel}^279'.
+chat_silence_lifted					^279* Ваше Безмолвие снято на канале '^990{channel}^279'.
 
 chat_silence_placed					^279* ^990{name}^279 заставил вас замолчать на канале '^990{channel}^279' на {duration} минут.
 
@@ -664,7 +664,7 @@ chat_unable_to_join_scheduled_match		Невозможно присоединит
 
 chat_group_queue_rejoin					^279* Ваша группа была возвращена в очередь с предыдущим временем ожидания лидера группы...
 
-chat_group_player_declined              ^990{name}^279 отклонил приглашение в группу подбора игроков.
+chat_group_player_declined ^990{name}^279 отклонил приглашение в группу подбора игроков.
 
 chat_group_player_joined				^279* ^990{name}^279 присоединился к группе подбора игроков.
 
@@ -700,9 +700,9 @@ chat_not_on_team						^900* Вы не можете писать в команд�
 
 chat_mods_detected						^900 ВНИМАНИЕ:^999 В вашей системе обнаружены моды, и вы не сможете играть в матче, пока они не будут удалены. Если вы не удалите их, игровой сервер отключит вас сразу после начала игры. Список всех обнаруженных модифицированных файлов можно увидеть, нажав на значок восклицательного знака (!) в правом верхнем углу экрана.
 
-chat_spectate_request_sent              ^900* Запуск наблюдения персонала....
+chat_spectate_request_sent ^900* Запуск наблюдения персонала....
 
-chat_spectate_lobby_error              	^900* Наблюдать за игроком можно только во время драфта или в игре, игрок сейчас в лобби...
+chat_spectate_lobby_error 	^900* Наблюдать за игроком можно только во время драфта или в игре, игрок сейчас в лобби...
 
 
 
@@ -722,9 +722,9 @@ chat_excessive_gameplay_unhealthy		Вы играете достаточно до
 
 chat_stats_header				^492* Статистика для ^982{name}^492
 
-chat_stats_body1				^492 Клан: ^999{clan_name} ^982||   ^492 Уровень: ^999{level} ^982||   ^492W: ^999{wins}^555({winpercent}) ^492L: ^999{losses} ^492Диск: ^999{disconnects}^555({leavepercent})
+chat_stats_body1				^492 Клан: ^999{clan_name} ^982|| ^492 Уровень: ^999{level} ^982|| ^492W: ^999{wins}^555({winpercent}) ^492L: ^999{losses} ^492Диск: ^999{disconnects}^555({leavepercent})
 
-chat_stats_body2				^492 К/Д/А: ^999{kills} ^492/ ^999{deaths} ^492/ ^999{assists} ^982||   ^492Exp/мин: ^999{expmin} ^982||   ^492PSR: ^999{psr}
+chat_stats_body2				^492 К/Д/А: ^999{kills} ^492/ ^999{deaths} ^492/ ^999{assists} ^982|| ^492Exp/мин: ^999{expmin} ^982|| ^492PSR: ^999{psr}
 
 
 
@@ -776,7 +776,7 @@ chat_notification_clan_kick_self		{changer} исключил вас из кла�
 
 chat_command_whisper				/whisper
 
-chat_command_whisper    			/w
+chat_command_whisper 			/w
 
 chat_command_whisper_info			^279*^707 /whisper <name> <message>.
 
@@ -790,7 +790,7 @@ chat_command_servermessage_info		^279*^707 /servermessage <message>.
 
 chat_command_reply					/reply
 
-chat_command_reply      			/r
+chat_command_reply 			/r
 
 chat_command_reply_invalid			^279* Вам никто не шептал!
 
@@ -890,7 +890,7 @@ chat_command_clear_short			/cl
 
 chat_command_join					/join
 
-chat_command_join_help				^279*^707 /join <channel> "password".  (surround password with quotes)
+chat_command_join_help				^279*^707 /join <channel> "password". (surround password with quotes)
 
 chat_command_join_short				/j
 
@@ -950,7 +950,7 @@ chat_command_kick					/kick
 
 chat_command_kick_short				/k
 
-chat_command_kick_info              /kick <user> (Requires channel admin privileges)
+chat_command_kick_info /kick <user> (Requires channel admin privileges)
 
 chat_command_ban					/ban
 
@@ -1228,53 +1228,53 @@ chat_command_invalid_command		^279* Неверная команда. Введи�
 
 chat_command_help_valid				^279* Доступные команды:
 
-chat_command_help_whisper			^279*^707 /whisper <nickname> <message>^279  — Шёпот пользователю.
+chat_command_help_whisper			^279*^707 /whisper <nickname> <message>^279 — Шёпот пользователю.
 
-chat_command_help_reply				^279*^707 /reply <message>^279               — Ответ на последний шёпот.
+chat_command_help_reply				^279*^707 /reply <message>^279 — Ответ на последний шёпот.
 
-chat_command_help_buddy				^279*^707 /friend <command> <arguments>^279   — Различные команды, связанные с друзьями.
+chat_command_help_buddy				^279*^707 /friend <command> <arguments>^279 — Различные команды, связанные с друзьями.
 
-chat_command_help_clan				^279*^707 /clan <command> <arguments>^279    — Различные команды, связанные с кланом.
+chat_command_help_clan				^279*^707 /clan <command> <arguments>^279 — Различные команды, связанные с кланом.
 
-chat_command_help_join				^279*^707 /join <channel> "password"^279     — Присоединяет к указанному каналу (опционально укажите пароль в кавычках).
+chat_command_help_join				^279*^707 /join <channel> "password"^279 — Присоединяет к указанному каналу (опционально укажите пароль в кавычках).
 
-chat_command_help_clear				^279*^707 /clear^279                         — Очищает буфер чата.
+chat_command_help_clear				^279*^707 /clear^279 — Очищает буфер чата.
 
-chat_command_help_invite			^279*^707 /invite <user>^279                 — Приглашает указанного пользователя в текущую игру.
+chat_command_help_invite			^279*^707 /invite <user>^279 — Приглашает указанного пользователя в текущую игру.
 
-chat_command_help_whois				^279*^707 /whois <user>^279                  — Получает информацию об указанном пользователе.
+chat_command_help_whois				^279*^707 /whois <user>^279 — Получает информацию об указанном пользователе.
 
-chat_command_help_stats				^279*^707 /stats <user> [pop]^279            — Получает статистику указанного пользователя (опционально добавьте «pop» для раскрытия).
+chat_command_help_stats				^279*^707 /stats <user> [pop]^279 — Получает статистику указанного пользователя (опционально добавьте «pop» для раскрытия).
 
-chat_command_help_joingame			^279*^707 /joingame <type> <param>^279       — Присоединиться к игре.
+chat_command_help_joingame			^279*^707 /joingame <type> <param>^279 — Присоединиться к игре.
 
-chat_command_help_topic				^279*^707 /topic [topic]^279                 — Показывает или задаёт тему канала
+chat_command_help_topic				^279*^707 /topic [topic]^279 — Показывает или задаёт тему канала
 
-chat_command_help_kick				^279*^707 /kick <user>^279                   — Исключает пользователя с канала (требуются права администратора).
+chat_command_help_kick				^279*^707 /kick <user>^279 — Исключает пользователя с канала (требуются права администратора).
 
-chat_command_help_ban				^279*^707 /ban <user>^279                    — Банит пользователя на канале (требуются права администратора).
+chat_command_help_ban				^279*^707 /ban <user>^279 — Банит пользователя на канале (требуются права администратора).
 
-chat_command_help_unban				^279*^707 /unban <user>^279                  — Разбанивает пользователя на канале (требуются права администратора).
+chat_command_help_unban				^279*^707 /unban <user>^279 — Разбанивает пользователя на канале (требуются права администратора).
 
-chat_command_help_silence			^279*^707 /silence <user> <duration>^279     — Заглушает пользователя на <duration> минут (требуются права администратора).
+chat_command_help_silence			^279*^707 /silence <user> <duration>^279 — Заглушает пользователя на <duration> минут (требуются права администратора).
 
-chat_command_help_promote			^279*^707 /promote <user>^279                — Повышает пользователя (требуются права администратора)
+chat_command_help_promote			^279*^707 /promote <user>^279 — Повышает пользователя (требуются права администратора)
 
-chat_command_help_demote			^279*^707 /demote <user>^279                 — Понижает пользователя (требуются права администратора)
+chat_command_help_demote			^279*^707 /demote <user>^279 — Понижает пользователя (требуются права администратора)
 
 chat_command_help_banlist			^279*^707 /banlist <command> <arguments>^279 — Команды управления бан-листом.
 
-chat_command_help_ignore			^279*^707 /ignore <command> <arguments>^279  — Команды управления списком игнорирования.
+chat_command_help_ignore			^279*^707 /ignore <command> <arguments>^279 — Команды управления списком игнорирования.
 
 chat_command_help_ignorechat		^279*^707 /ignorechat^279					 — Переключает игнорирование командного или общего чата.
 
 chat_command_help_friendlychat		^279*^707 /friendlychat^279					 — Переключает игнорирование сообщений от игроков не из клана или друзей.
 
-chat_command_help_notes				^279*^707 /notes <command> <arguments>^279   — Команды управления заметками.
+chat_command_help_notes				^279*^707 /notes <command> <arguments>^279 — Команды управления заметками.
 
-chat_command_help_auth				^279*^707 /auth <command> <arguments>^279    — Управление списком авторизованных пользователей канала (требуются права администратора)
+chat_command_help_auth				^279*^707 /auth <command> <arguments>^279 — Управление списком авторизованных пользователей канала (требуются права администратора)
 
-chat_command_help_password			^279*^707 /password <password>^279           — Устанавливает пароль канала (требуются права администратора)
+chat_command_help_password			^279*^707 /password <password>^279 — Устанавливает пароль канала (требуются права администратора)
 
 chat_command_help_password_clear	^279*^707 /password^279						 — Очищает текущий пароль канала (требуются права администратора)
 
@@ -1282,13 +1282,13 @@ chat_command_help_roll				^279*^707 /roll <low> <high>^279			 — Выдаёт �
 
 chat_command_help_emote				^279*^707 /emote <message>^279				 — Отправляет эмоцию от вашего имени.
 
-chat_command_help_time				^279*^707 /time^279                          — Показывает ваше текущее системное время.
+chat_command_help_time				^279*^707 /time^279 — Показывает ваше текущее системное время.
 
-chat_command_help_ping				^279*^707 /ping^279 (in game only)           — Показывает ваш текущий пинг до игрового сервера.
+chat_command_help_ping				^279*^707 /ping^279 (in game only) — Показывает ваш текущий пинг до игрового сервера.
 
-chat_command_help_matchup			^279*^707 /matchup^279 (in game only)        — Показывает команду/имя/цвет/героя игроков в текущей игре.
+chat_command_help_matchup			^279*^707 /matchup^279 (in game only) — Показывает команду/имя/цвет/героя игроков в текущей игре.
 
-chat_command_help_gameinfo			^279*^707 /gameinfo^279 (in game only)       — Показывает информацию о текущей игре.
+chat_command_help_gameinfo			^279*^707 /gameinfo^279 (in game only) — Показывает информацию о текущей игре.
 
 chat_command_help_available			^279*^707 /available^279					 — Переключает статус чата на «Доступен».
 
@@ -1296,7 +1296,7 @@ chat_command_help_afk				^279*^707 /afk <afk message>^279			 — Переклю�
 
 chat_command_help_dnd				^279*^707 /dnd <dnd message>^279			 — Переключает статус чата на «Не беспокоить», останавливает входящие шёпоты и автоматически отвечает на них указанным сообщением.
 
-chat_command_help_weather			^279*^707 /weather^279 (in game only)        — Установить погодный эффект
+chat_command_help_weather			^279*^707 /weather^279 (in game only) — Установить погодный эффект
 
 chat_command_help_misc				^279* Введите любую команду без аргументов для информации о её использовании.
 
@@ -1322,10 +1322,28 @@ chat_game_join				^279* {player} Подключение к игре...
 
 default_game_lobby			Игра
 
-chat_stream_error           ^279* Соединение с сервером чата потеряно: {error}
+chat_stream_error ^279* Соединение с сервером чата потеряно: {error}
 
 server_message				^yСообщение сервера:
 
 staff_message				^188[ПЕРСОНАЛ] ^r{player}^*:
 
 //End
+
+
+// === NEW KEYS FOR TRANSLATION ===
+chat_command_colors		Цветовая схема чата
+chat_command_colors_line_2		Доступные цвета: white, red, green, blue, yellow, cyan, magenta, orange, pink, purple
+chat_denying_buddy		Отказ напарника
+chat_command_colors_line_8		Сохранение цветов в профиль
+chat_command_colors_line_7		Просмотр текущих настроек: /colors
+chat_im_send_failed_rate_limited		Слишком много сообщений. Подождите.
+chat_command_colors_line_3		Используйте ^префиксы для цветов в сообщениях
+chat_command_colors_line_4		Удерживайте Shift при вводе для выбора цвета
+chat_command_colors_info		Используйте /colors для настройки цвета ника
+chat_im_send_failed_offline		Игрок не в сети
+chat_command_colors_line_6		Сброс цвета: /colors reset
+chat_command_colors_line_5		Цвет применяется ко всем последующим сообщениям
+chat_im_send_failed_generic		Не удалось отправить сообщение
+rejected_invalid_ward_location		Недопустимое место для варда
+chat_command_colors_line_1		/colors [цвет] [цель] [отправитель]

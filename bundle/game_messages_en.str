@@ -1,4 +1,4 @@
-отказ								{killer_color}{killer}^* отклонено {victim_color}{victim}^*!
+﻿отказ								{killer_color}{killer}^* отклонено {victim_color}{victim}^*!
 
 kill0								{killer_color}{killer}^* нанес удар по голове {victim_color}{victim}^*! за ^y{gold}^* золото!!
 
@@ -82,51 +82,51 @@ ping_target							{player_color}{player_name} ({player_hero_name})^*: {mode}{uni
 
 
 
-ping_ext_building_attack				            {player_color}{player_name} ({player_hero_name})^*: Атакуйте {unit_team_color}{tower_location}{tower_tier}^* по ^g{current_health}/{max_health}^* HP {backdoor_protected}
+ping_ext_building_attack				 {player_color}{player_name} ({player_hero_name})^*: Атакуйте {unit_team_color}{tower_location}{tower_tier}^* по ^g{current_health}/{max_health}^* HP {backdoor_protected}
 
-ping_ext_building_defend				            {player_color}{player_name} ({player_hero_name})^*: Защитите {unit_team_color}{tower_location}{tower_tier}^* на ^g{current_health}/{max_health}^* HP {backdoor_protected}
+ping_ext_building_defend				 {player_color}{player_name} ({player_hero_name})^*: Защитите {unit_team_color}{tower_location}{tower_tier}^* на ^g{current_health}/{max_health}^* HP {backdoor_protected}
 
-ping_ext_hero_attack					            {player_color}{player_name} ({player_hero_name})^*: Атакуйте {unit_team_color}{unit_name}^* в позиции {ping_tile}.
+ping_ext_hero_attack					 {player_color}{player_name} ({player_hero_name})^*: Атакуйте {unit_team_color}{unit_name}^* в позиции {ping_tile}.
 
-ping_ext_hero_get_back					            {player_color}{player_name} ({player_hero_name})^*: Возвращайтесь из {unit_team_color}{unit_name}^* в {ping_tile}.
+ping_ext_hero_get_back					 {player_color}{player_name} ({player_hero_name})^*: Возвращайтесь из {unit_team_color}{unit_name}^* в {ping_tile}.
 
-ping_ext_hero_missing					            {player_color}{player_name} ({player_hero_name})^*: {unit_color}{unit_name}^* отсутствует
+ping_ext_hero_missing					 {player_color}{player_name} ({player_hero_name})^*: {unit_color}{unit_name}^* отсутствует
 
-ping_ext_hero_missing_going_top			            {player_color}{player_name} ({player_hero_name})^*: {unit_color}{unit_name}^* отсутствует
+ping_ext_hero_missing_going_top			 {player_color}{player_name} ({player_hero_name})^*: {unit_color}{unit_name}^* отсутствует
 
-ping_ext_hero_missing_going_mid			            {player_color}{player_name} ({player_hero_name})^*: {unit_color}{unit_name}^* отсутствует
+ping_ext_hero_missing_going_mid			 {player_color}{player_name} ({player_hero_name})^*: {unit_color}{unit_name}^* отсутствует
 
-ping_ext_hero_missing_going_bot			            {player_color}{player_name} ({player_hero_name})^*: {unit_color}{unit_name}^* отсутствует
+ping_ext_hero_missing_going_bot			 {player_color}{player_name} ({player_hero_name})^*: {unit_color}{unit_name}^* отсутствует
 
-ping_ext_hero_coming_to_gank			            {player_color}{player_name} ({player_hero_name})^*: Собираюсь ганкнуть {unit_team_color}{unit_name}^* на {ping_tile}.
+ping_ext_hero_coming_to_gank			 {player_color}{player_name} ({player_hero_name})^*: Собираюсь ганкнуть {unit_team_color}{unit_name}^* на {ping_tile}.
 
-ping_ext_rune_present					            {player_color}{player_name} ({player_hero_name})^*: ^g{unit_name}^* доступен здесь
+ping_ext_rune_present					 {player_color}{player_name} ({player_hero_name})^*: ^g{unit_name}^* доступен здесь
 
-ping_ext_ctf_pick_up_enemy_flag			            {player_color}{player_name} ({player_hero_name})^*: возьмите {unit_color}{unit_name}^* в {ping_tile}.
+ping_ext_ctf_pick_up_enemy_flag			 {player_color}{player_name} ({player_hero_name})^*: возьмите {unit_color}{unit_name}^* в {ping_tile}.
 
-ping_ext_ctf_defend_ally_flag			            {player_color}{player_name} ({player_hero_name})^*: Защитите наш {unit_color}{unit_name}^* на {ping_tile}.
+ping_ext_ctf_defend_ally_flag			 {player_color}{player_name} ({player_hero_name})^*: Защитите наш {unit_color}{unit_name}^* на {ping_tile}.
 
-ping_ext_assist_ally_hero        			        {player_color}{player_name} ({player_hero_name})^*: Помогите нашему {unit_color}{unit_name}^* в {ping_tile}.
+ping_ext_assist_ally_hero 			 {player_color}{player_name} ({player_hero_name})^*: Помогите нашему {unit_color}{unit_name}^* в {ping_tile}.
 
-ping_ext_ground_ping					            {player_color}{player_name} ({player_hero_name})^*: Внимание! {ping_tile}!
+ping_ext_ground_ping					 {player_color}{player_name} ({player_hero_name})^*: Внимание! {ping_tile}!
 
-ping_ext_ground_get_back				            {player_color}{player_name} ({player_hero_name})^*: вернуться из {ping_tile}.
+ping_ext_ground_get_back				 {player_color}{player_name} ({player_hero_name})^*: вернуться из {ping_tile}.
 
-ping_ext_ground_danger_here				            {player_color}{player_name} ({player_hero_name})^*: Опасность на {ping_tile}
+ping_ext_ground_danger_here				 {player_color}{player_name} ({player_hero_name})^*: Опасность на {ping_tile}
 
-ping_ext_ground_need_help_here			            {player_color}{player_name} ({player_hero_name})^*: Нужна помощь на {ping_tile}.
+ping_ext_ground_need_help_here			 {player_color}{player_name} ({player_hero_name})^*: Нужна помощь на {ping_tile}.
 
-ping_ext_ground_hero_missing			            {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}.
+ping_ext_ground_hero_missing			 {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}.
 
-ping_ext_ground_hero_missing_going_top	            {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идет наверх
+ping_ext_ground_hero_missing_going_top	 {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идет наверх
 
-ping_ext_ground_hero_missing_going_mid	            {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идет на мид
+ping_ext_ground_hero_missing_going_mid	 {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идет на мид
 
-ping_ext_ground_hero_missing_going_bot	            {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идет на бот
+ping_ext_ground_hero_missing_going_bot	 {player_color}{player_name} ({player_hero_name})^*: Герой отсутствует в {ping_tile}. Идет на бот
 
-ping_ext_ground_fight_here				            {player_color}{player_name} ({player_hero_name})^*: Атакуйте {ping_tile}!
+ping_ext_ground_fight_here				 {player_color}{player_name} ({player_hero_name})^*: Атакуйте {ping_tile}!
 
-ping_ext_ground_coming_to_help			            {player_color}{player_name} ({player_hero_name})^*: Приду на помощь в {ping_tile}!
+ping_ext_ground_coming_to_help			 {player_color}{player_name} ({player_hero_name})^*: Приду на помощь в {ping_tile}!
 
 
 
@@ -152,7 +152,7 @@ ping_ext_ctf_pick_up_enemy_flag_lanes				not used.
 
 ping_ext_ctf_defend_ally_flag_lanes					not used.
 
-ping_ext_assist_ally_hero_lanes        			    {player_color}{player_name} ({player_hero_name})^*: Помогите нашему {unit_team_color}{unit_name}^* в {ping_tile}.
+ping_ext_assist_ally_hero_lanes 			 {player_color}{player_name} ({player_hero_name})^*: Помогите нашему {unit_team_color}{unit_name}^* в {ping_tile}.
 
 ping_ext_ground_ping_lanes							not used.
 
@@ -218,11 +218,11 @@ ping_ext_ground_fight_here_generic					{player_color}{player_name} ({player_hero
 
 ping_ext_ground_coming_to_help_generic				{player_color}{player_name} ({player_hero_name})^*: Иду на помощь
 
-ping_ext_assist_ally_hero_generic        			{player_color}{player_name} ({player_hero_name})^*: Помогите нашему {unit_team_color}{unit_name}^* на {ping_tile}!
+ping_ext_assist_ally_hero_generic 			{player_color}{player_name} ({player_hero_name})^*: Помогите нашему {unit_team_color}{unit_name}^* на {ping_tile}!
 
 
 
-ping_ext_alt_attribute                              {player_color}{player_name} ({player_hero_name})^*: у меня {attribute_value} {attribute_type}
+ping_ext_alt_attribute {player_color}{player_name} ({player_hero_name})^*: у меня {attribute_value} {attribute_type}
 
 ping_ext_alt_health									{player_color}{player_name} ({player_hero_name})^*: у меня ^g{param}^* здоровья
 
@@ -232,7 +232,7 @@ ping_ext_alt_buyback_enough_gold					{player_color}{player_name} ({player_hero_n
 
 ping_ext_alt_buyback_lack_of_gold					{player_color}{player_name} ({player_hero_name})^*: у меня есть ^y{param}^* золота, и я не могу выкупиться
 
-ping_ext_alt_selected_attribute                     {player_color}{player_name} ({player_hero_name})^*: ^199{selected_hero_name}^* имеет {attribute_value} {attribute_type}
+ping_ext_alt_selected_attribute {player_color}{player_name} ({player_hero_name})^*: ^199{selected_hero_name}^* имеет {attribute_value} {attribute_type}
 
 ping_ext_alt_selected_health 						{player_color}{player_name} ({player_hero_name})^*: ^199{selected_hero_name}^* имеет ^g{param}^* здоровья
 
@@ -316,7 +316,7 @@ ping_ext_alt_selected_level							{player_color}{player_name} ({player_hero_name
 
 ping_ext_alt_scoreboard_kda							{player_color}{player_name} ({player_hero_name})^*: ^199{hero_name}^* K/D/A - ^o{kills}^*/^o{deaths}^*/^o{assists}^*
 
-ping_ext_alt_scoreboard_kda_self                    {player_color}{player_name} ({player_hero_name})^*: Мой K/D/A - ^o{kills}^*/^o{deaths}^*/^o{assists}^*
+ping_ext_alt_scoreboard_kda_self {player_color}{player_name} ({player_hero_name})^*: Мой K/D/A - ^o{kills}^*/^o{deaths}^*/^o{assists}^*
 
 ping_ext_alt_scoreboard_ck							{player_color}{player_name} ({player_hero_name})^*: CS ^199{hero_name}^* - ^o{ck}^*/^o{cd}^*
 
@@ -324,7 +324,7 @@ ping_ext_alt_scoreboard_ck_self						{player_color}{player_name} ({player_hero_n
 
 ping_ext_alt_scoreboard_teamgold					{player_color}{player_name} ({player_hero_name})^*: {teamname} средний GPM составляет {teamgold}
 
-ping_ext_alt_scoreboard_vision					    {player_color}{player_name} ({player_hero_name})^*: {teamname} обзор составляет {vision}%
+ping_ext_alt_scoreboard_vision					 {player_color}{player_name} ({player_hero_name})^*: {teamname} обзор составляет {vision}%
 
 ping_ext_alt_scoreboard_boss_respawn_time			{player_color}{player_name} ({player_hero_name})^*: Конгор возродится в {boss_respawn_time}.
 
@@ -368,7 +368,7 @@ area_legion_top_jungle					Верхний джангл Легиона
 
 area_kongors_pit						Логово Конгора
 
-area_phoenix						    Гнездо Феникса
+area_phoenix						 Гнездо Феникса
 
 area_legion_ancient_spawn				Лагерь древних Легиона
 
@@ -584,7 +584,7 @@ hero_hidden_ban						{team_color}{team} ^*забанил ^r^*: ^885{hero}^*.
 
 hero_vote_ban						Следующие герои были забанены в этой игре: ^885{hero}^*.
 
-hero_picked_both_teams				Герой выбран обеими командами! {player_color}{player}^* получил героя ^885{hero_name}^* ко времени фазы добавлено 15 секунд!
+hero_picked_both_teams				Герой выбран обеими командами! {player_color}{player}^* получил героя ^885{hero_name}^* ко времени фазы добавлено 15 сек.!
 
 
 
@@ -602,7 +602,7 @@ filter_carry						Керри
 
 filter_support						Саппорт
 
-filter_flex					        Флекс
+filter_flex					 Флекс
 
 filter_offlane						Ганкер
 
@@ -798,7 +798,7 @@ move_speed_bonus					{value} Скорость движения
 
 move_speed_mult_bonus				{value}% Скорость движения
 
-move_speed_mult_bonus_per_charge	{value}% Скорость передвижения за заряд
+move_speed_mult_bonus_per_charge	{value}% скор. движ. за заряд
 
 slow_resistance_bonus				{value}% Сопротивление замедлению
 
@@ -806,11 +806,11 @@ move_speed_slow_bonus				{value}% Медленное движение
 
 move_speed_slow_bonus_per_charge	{value}% замедление движения за заряд
 
-attack_speed_bonus					{value} Скорость атаки
+attack_speed_bonus					{value} скор. атаки
 
-attack_speed_bonus_per_charge		{value} Скорость атаки за заряд
+attack_speed_bonus_per_charge		{value} скор. атаки за заряд
 
-attack_speed_mult_bonus				{value}% Скорость атаки
+attack_speed_mult_bonus				{value}% скор. атаки
 
 attack_speed_slow_bonus				{value}% Медленная атака
 
@@ -840,7 +840,7 @@ magic_armor_bonus_per_charge		{value} Магическая броня за за�
 
 magic_armor_bonus_multiplier		{value}% Магическая броня
 
-health_regen_percent_bonus			{value}% здоровья в секунду
+health_regen_percent_bonus			{value}% здоровья в сек.
 
 health_regen_bonus					{value} Регенерация здоровья
 
@@ -850,7 +850,7 @@ health_regen_bonus_per_charge		{value} Регенерация здоровья �
 
 experience_mult_bonus				{value}% Множитель опыта
 
-mana_regen_percent_bonus			{value}% маны в секунду
+mana_regen_percent_bonus			{value}% маны в сек.
 
 mana_regen_bonus					{value} Регенерация маны
 
@@ -934,7 +934,7 @@ health_regen_reduction_bonus		{value}% Снижение регенерации �
 
 mana_regen_reduction_bonus			{value}% Снижение регенерации маны
 
-incoming_lifesteal_mult_bonus       {value}% Снижение вампиризм
+incoming_lifesteal_mult_bonus {value}% Снижение вампиризм
 
 sighted_bonus						Обнаружен
 
@@ -1048,7 +1048,7 @@ attribute_health_bonus				{value} Максимальное здоровье
 
 attribute_health_regen_bonus		{value} Регенерация здоровья
 
-attribute_attack_speed_bonus		{value} Скорость атаки
+attribute_attack_speed_bonus		{value} скор. атаки
 
 attribute_armor_bonus				{value} Броня
 
@@ -1110,7 +1110,7 @@ vote_failed						Голосование провалено
 
 team_concede					{color}{team}^* сдал матч
 
-game_abandoned					Ваши товарищи по команде покинули вас; вы не будете наказаны за выход, и теперь вы можете сдаться.
+game_abandoned					Ваши товарищи по команде покинули вас; вы не будете наказаны за выход, и теперь сдаться.
 
 afk_warning						Вам грозит пометка как АФК
 
@@ -1158,13 +1158,13 @@ lobby_assign_first_ban				Хозяин назначил первый бан ко
 
 game_info_practice				Тренировка
 
-nosolo							Чтобы начать игру, у вас должен быть противник.  Запустите игру ^yPractice^*, если хотите играть в одиночку.
+nosolo							Чтобы начать игру, у вас должен быть противник. Запустите игру ^yPractice^*, если хотите играть в одиночку.
 
 warn_nomods					{slot_color}{player}^* использует модифицированные файлы, и ему будет разрешено только наблюдать за игрой.
 
-nomods						Не удалось запустить игру.  {slot_color}{player}^* использует модифицированные файлы и должен просмотреть или отключить ВСЕ моды (интерфейс, текстуру и т. д.), прежде чем ему будет разрешено играть в этой игре с правилами турнира.
+nomods						Не удалось запустить игру. {slot_color}{player}^* использует модифицированные файлы и должен просмотреть или отключить ВСЕ моды (интерфейс, текстуру и т. д.), прежде чем ему будет разрешено играть в этой игре с правилами турнира.
 
-game_unpause					{name} снял игру с паузы, игра возобновится через 5 секунд.
+game_unpause					{name} снял игру с паузы, игра возобновится через 5 сек..
 
 player_ping					{slot_color}{player}^* пинг: {ping}ms, потеря пакетов: {pktloss}%
 
@@ -1190,21 +1190,21 @@ pre_firstblood_reconnect_180		{player_color}{player}^* отключился до
 
 pre_firstblood_reconnect_120		{player_color}{player}^* отключился до первой крови, если он не подключится повторно в течение 2 минут, матч будет прерван.
 
-pre_firstblood_reconnect_60		    {player_color}{player}^* отключился до первой крови, если он не подключится повторно в течение 1 минуты, матч будет прерван.
+pre_firstblood_reconnect_60		 {player_color}{player}^* отключился до первой крови, если он не подключится повторно в течение 1 минуты, матч будет прерван.
 
-pre_firstblood_reconnect_30		    Матч будет прерван, если {player_color}{player}^* не подключится повторно в течение 30 секунд.
+pre_firstblood_reconnect_30		 Матч будет прерван, если {player_color}{player}^* не подключится повторно в течение 30 сек..
 
-pre_firstblood_reconnect_10		    Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 10 секунд.
+pre_firstblood_reconnect_10		 Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 10 сек..
 
-pre_firstblood_reconnect_5		    Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 5 секунд.
+pre_firstblood_reconnect_5		 Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 5 сек..
 
-pre_firstblood_reconnect_4		    Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 4 секунд.
+pre_firstblood_reconnect_4		 Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 4 сек..
 
-pre_firstblood_reconnect_3		    Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 3 секунд.
+pre_firstblood_reconnect_3		 Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 3 сек..
 
-pre_firstblood_reconnect_2		    Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 2 секунд.
+pre_firstblood_reconnect_2		 Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 2 сек..
 
-pre_firstblood_reconnect_1		    Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 1 секунды.
+pre_firstblood_reconnect_1		 Матч будет прервано, если {player_color}{player}^* не подключится повторно в течение 1 сек.ы.
 
 pre_firstblood_reconnect_lobby		Матч будет прерван, если {player_color}{player}^* не подключится повторно до окончания этапа драфта.
 
@@ -1584,13 +1584,13 @@ general_magic Магический
 
 vanity_msg_self						{ownerPlayer_color}{ownerPlayer} ^999играл ^o{ability}^*
 
-vanity_msg_dookie                   {ownerPlayer_color}{ownerPlayer} ^999выронил ^n кукушку!
+vanity_msg_dookie {ownerPlayer_color}{ownerPlayer} ^999выронил ^n кукушку!
 
-vanity_msg_dookie_count             {ownerPlayer_color}{ownerPlayer} ^999выронил ^n кукушку!
+vanity_msg_dookie_count {ownerPlayer_color}{ownerPlayer} ^999выронил ^n кукушку!
 
-vanity_msg_piss                   	{ownerPlayer_color}{ownerPlayer} ^999просто злился повсюду!
+vanity_msg_piss 	{ownerPlayer_color}{ownerPlayer} ^999просто злился повсюду!
 
-vanity_msg_bamf_welcometonewerth    {ownerPlayer_color}{ownerPlayer} ^999приветствует вас в мире Ньюерта
+vanity_msg_bamf_welcometonewerth {ownerPlayer_color}{ownerPlayer} ^999приветствует вас в мире Ньюерта
 
 vanity_msg_bamf_immortal			{ownerPlayer_color}{ownerPlayer} ^999это чертовски хорошо!
 
@@ -1598,15 +1598,15 @@ vanity_msg_bamf_genocide			{ownerPlayer_color}{ownerPlayer} ^999никто те�
 
 vanity_msg_bamf_smackdown			{ownerPlayer_color}{ownerPlayer} ^999садись, сынок!
 
-vanity_msg_dumpster                 {ownerPlayer_color}{ownerPlayer} ^999выкинул мусор
+vanity_msg_dumpster {ownerPlayer_color}{ownerPlayer} ^999выкинул мусор
 
-vanity_msg_kiss                     {ownerPlayer_color}{ownerPlayer} ^999подарил {targetPlayer_color}{targetPlayer} ^999большую, мокрую ^rпоцелуй
+vanity_msg_kiss {ownerPlayer_color}{ownerPlayer} ^999подарил {targetPlayer_color}{targetPlayer} ^999большую, мокрую ^rпоцелуй
 
-vanity_msg_kiss_owned               {ownerPlayer_color}{ownerPlayer} ^999подарил {targetPlayer_color}{targetPlayer} {ownedEntity_color}{ownedEntity} ^999большую, мокрую ^r поцелуй
+vanity_msg_kiss_owned {ownerPlayer_color}{ownerPlayer} ^999подарил {targetPlayer_color}{targetPlayer} {ownedEntity_color}{ownedEntity} ^999большую, мокрую ^r поцелуй
 
-vanity_msg_ballsofsteel             {ownerPlayer_color}{ownerPlayer} ^999JstJ рассылают спам, пока он может
+vanity_msg_ballsofsteel {ownerPlayer_color}{ownerPlayer} ^999JstJ рассылают спам, пока он может
 
-vanity_msg_forgottospecify          {ownerPlayer_color}{ownerPlayer} ^999забыл указать тщеславное сообщение!
+vanity_msg_forgottospecify {ownerPlayer_color}{ownerPlayer} ^999забыл указать тщеславное сообщение!
 
 vanity_msg_soap						{ownerPlayer_color}{ownerPlayer} ^999только что уронил мыло!
 
@@ -1616,11 +1616,11 @@ vanity_msg_clown					{ownerPlayer_color}{ownerPlayer} ^rc^gl^bo^rw^gn^be^rd {tar
 
 vanity_msg_clown_owned				{ownerPlayer_color}{ownerPlayer} ^rc^gl^bo^rw^gn^be^rd {targetPlayer_color}{targetPlayer} {ownedEntity_color}{ownedEntity}
 
-vanity_msg_thebest                  {ownerPlayer_color}{ownerPlayer} ^999присвоил {targetPlayer_color}{targetPlayer} ^999 звание ^yMVP
+vanity_msg_thebest {ownerPlayer_color}{ownerPlayer} ^999присвоил {targetPlayer_color}{targetPlayer} ^999 звание ^yMVP
 
-vanity_msg_thebest_owned            {ownerPlayer_color}{ownerPlayer} ^999наградил {targetPlayer_color}{targetPlayer} {ownedEntity_color}{ownedEntity} ^999самым ценным игроком ^y
+vanity_msg_thebest_owned {ownerPlayer_color}{ownerPlayer} ^999наградил {targetPlayer_color}{targetPlayer} {ownedEntity_color}{ownedEntity} ^999самым ценным игроком ^y
 
-vanity_msg_roulette                 {ownerPlayer_color}{ownerPlayer} ^999испытывает свою удачу!
+vanity_msg_roulette {ownerPlayer_color}{ownerPlayer} ^999испытывает свою удачу!
 
 vanity_msg_tv						{ownerPlayer_color}{ownerPlayer} ^999Последние новости! Местный ну замечен в Ньюерте!
 
@@ -1673,3 +1673,57 @@ vanity_msg_duncecap					{ownerPlayer_color}{ownerPlayer} ^999Думает {targe
 vanity_msg_participationtrophy		{ownerPlayer_color}{ownerPlayer} ^999Вы старались изо всех сил...
 
 // END
+
+
+// === NEW KEYS FOR TRANSLATION ===
+showdown_herodamage_victory_hellbourne		Хеллборн победил по урону героев!
+showdown_herodamage_victory_legion		Легион победил по урону героев!
+vanity_msg_pumpsomeiron		Покачал железо
+vanity_msg_noobspray		Спрей нуба
+total_mana_regen_mult_bonus		Общий бонус реген. маны
+rejected_invalid_ward_location		Недопустимое место для варда
+showdown_random_victory_legion		Легион победил по жребию!
+showdown_towerkill_victory_legion		Легион победил по снесённым башням!
+showdown_creepscore_victory_hellbourne		Хеллборн победил по добитым крипам!
+Onev1mid_creepdeny_victory_hellbourne		{player} победил по отказам!
+vanity_msg_watergun		Водяной пистолет
+vanity_msg_myteamsucks		Моя команда сосёт
+int_mult_bonus		Множитель интеллекта
+agi_mult_bonus		Множитель ловкости
+showdown_herokill_victory_legion		Легион победил по убийствам героев!
+showdown_towerdamage_victory_legion		Легион победил по урону башням!
+courier_msg_delivering		Курьер доставляет
+showdown_random_victory_hellbourne		Хеллборн победил по жребию!
+vanity_msg_sabaisabai		Сабай-сабай
+denytower		Отказ башни
+ping_ext_alt_courier_inventory_item		Предмет в инвентаре курьера
+str_mult_bonus		Множитель силы
+courier_msg_has_returned		Курьер вернулся
+vanity_msg_duncecap_owned		Колпак дурака надет
+vanity_msg_salt_owned		Соль рассыпана
+boughtwalkingcourier		Куплен наземный курьер
+vanity_msg_goal		ГОООЛ!
+item_ophelias_pact_quest_points		Очки квеста Договора Офелии
+killcourier		Убит курьер
+vanity_msg_iqtest_owned		IQ тест проведён
+courier_msg_returning		Курьер возвращается
+showdown_towerkill_victory_hellbourne		Хеллборн победил по снесённым башням!
+boughtflyingcourier		Куплен летающий курьер
+vanity_msg_iqtest		IQ тест
+vanity_msg_questionmark_owned		Вопросительный знак
+hero_random_favorites				{player_color}{player}^* has randomed ^885{hero_name}^* ^yusing favourites.
+Onev1mid_creepdeny_victory_legion		{player} победил по отказам!
+courier_msg_fetching		Курьер забирает предметы
+showdown_towerdamage_victory_hellbourne		Хеллборн победил по урону башням!
+error_courier_no_stash		У курьера нет тайника
+courier_msg_attacked				Courier is forced to return to the base
+vanity_msg_noobspray_owned			{ownerPlayer_color}{ownerPlayer} ^999Used noob spray on {targetPlayer_color}{targetPlayer}'s {ownedEntity_color}{ownedEntity}^999.
+vanity_msg_questionmark				^999What is {targetPlayer_color}{targetPlayer}^*^; ^999doing???
+showdown_herokill_victory_hellbourne		2 Legion deaths! Hellbourne wins!
+total_health_regen_mult_bonus		{value}% Total Health Regeneration
+courier_actions_queued				Delivering your items.
+teamdenytower						{denier} has ^444denied^* a {ping_tile} tower!
+courier_msg_following				Courier is following you to await item transfer.
+showdown_creepscore_victory_legion			Time limit reached. Legion wins by Creep Score!
+deny								{killer_color}{killer}^*^; denied {victim_color}{victim}^*^;!
+vanity_msg_ilovemyteam				{ownerPlayer_color}{ownerPlayer} ^999loves their team!

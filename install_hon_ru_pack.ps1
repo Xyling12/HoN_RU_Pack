@@ -2,13 +2,7 @@
     [Alias("PackageRoot")]
     [string]$SourceRoot = (Split-Path -Parent $MyInvocation.MyCommand.Path),
     [string]$InstallRoot = "",
-    [switch]$NoStart,
-    [switch]$SetupBypass,
-    [switch]$RouteHoN,
-    [switch]$RouteYouTube,
-    [switch]$RouteDiscord,
-    [switch]$RouteTelegram,
-    [switch]$RouteOpenAI
+    [switch]$NoStart
 )
 
 $ErrorActionPreference = "Stop"
@@ -107,10 +101,7 @@ $payloadFiles = @(
     "hon_common.ps1",
     "hon_auto_agent.ps1",
     "set_login_banner.ps1",
-    "setup_dns_bypass.ps1",
-    "restore_dns.ps1",
-    "setup_amneziawg.ps1",
-    "remove_amneziawg.ps1",
+    "patch_stringtables.ps1",
     "hon_paths_override.example.ps1",
     "build_stump_mod.ps1",
     "remove_stump_mod.ps1",
@@ -144,7 +135,7 @@ if (-not $docsRoot) {
 # Build strTargets from ALL found Juvio installations + docsRoot
 $allGameRoots = Find-AllHoNLocalRoots
 $strTargetsList = [System.Collections.Generic.List[string]]::new()
-$strTargetsList.Add((Join-Path $InstallRoot "stringtables"))  # always include primary
+$strTargetsList.Add((Join-Path $InstallRoot "stringtables"))
 foreach ($gr in $allGameRoots) {
     foreach ($sub in @("stringtables", "game\stringtables")) {
         $p = Join-Path $gr $sub
@@ -205,11 +196,13 @@ foreach ($startupCfg in $startupCfgTargets) {
     $cfgUpdated = [Regex]::Replace($cfgUpdated, '(?im)^SetSave\s+"host_backuplocale"\s+"[^"]*"', 'SetSave "host_backuplocale" "en"')
     $cfgUpdated = [Regex]::Replace($cfgUpdated, '(?im)^SetSave\s+"language"\s+"[^"]*"', 'SetSave "language" "en"')
     $cfgUpdated = [Regex]::Replace($cfgUpdated, '(?im)^set\s+host_locale\s+"[^"]*"', 'set host_locale "en"')
+    $cfgUpdated = [Regex]::Replace($cfgUpdated, '(?im)^SetSave\s+"fs_disablemods"\s+"[^"]*"', 'SetSave "fs_disablemods" "false"')
     if ($cfgUpdated -eq $cfgText) {
         if ($cfgUpdated.Length -gt 0 -and -not $cfgUpdated.EndsWith([Environment]::NewLine)) {
             $cfgUpdated += [Environment]::NewLine
         }
         $cfgUpdated += 'set host_locale "en"' + [Environment]::NewLine
+        $cfgUpdated += 'SetSave "fs_disablemods" "false"' + [Environment]::NewLine
     }
     [System.IO.File]::WriteAllText($startupCfg, $cfgUpdated, $utf8NoBom)
     Write-Host "[Install] startup.cfg locale set to English: $startupCfg"
@@ -256,43 +249,14 @@ $autoStartStatus = "Autostart disabled"
 $scheduledTaskRegistered = $false
 
 try {
-    $scheduledTaskUser = if (-not [string]::IsNullOrWhiteSpace($env:USERDOMAIN)) {
-        "$($env:USERDOMAIN)\$($env:USERNAME)"
+    # Use schtasks: ONLOGON trigger to start agent at login (always-running agent with FSW)
+    schtasks /Create /TN $taskName /SC ONLOGON /TR "powershell.exe $agentArgs" /F /DELAY 0000:30 2>&1 | Out-Null
+    if ($LASTEXITCODE -eq 0) {
+        $scheduledTaskRegistered = $true
+        $autoStartStatus = "ScheduledTask: $taskName (at logon)"
     } else {
-        $env:USERNAME
+        Write-Warning "schtasks failed with code $LASTEXITCODE"
     }
-
-    $action = New-ScheduledTaskAction `
-        -Execute "powershell.exe" `
-        -Argument $agentArgs
-
-    $trigger = New-ScheduledTaskTrigger -AtLogOn -User $env:USERNAME
-
-    $principal = New-ScheduledTaskPrincipal `
-        -UserId $scheduledTaskUser `
-        -LogonType Interactive `
-        -RunLevel Limited
-
-    $settings = New-ScheduledTaskSettingsSet `
-        -AllowStartIfOnBatteries `
-        -DontStopIfGoingOnBatteries `
-        -StartWhenAvailable `
-        -ExecutionTimeLimit ([TimeSpan]::Zero) `
-        -RestartCount 999 `
-        -RestartInterval (New-TimeSpan -Minutes 1)
-
-    Register-ScheduledTask `
-        -TaskName $taskName `
-        -Action $action `
-        -Trigger $trigger `
-        -Principal $principal `
-        -Settings $settings `
-        -Description "HoN RU Pack - background agent that keeps Russian translation files in sync." `
-        -ErrorAction Stop `
-        -Force | Out-Null
-
-    $scheduledTaskRegistered = $true
-    $autoStartStatus = "ScheduledTask: $taskName"
 } catch {
     if (-not $legacyCmd) {
         Write-Warning "Autostart registration skipped: $($_.Exception.Message)"
@@ -322,22 +286,6 @@ if ((-not $scheduledTaskRegistered) -and $legacyCmd) {
 
 if (-not $NoStart) {
     Start-Process -FilePath "powershell.exe" -ArgumentList $agentArgs -WindowStyle Hidden
-}
-
-if ($SetupBypass) {
-    $awgScript = Join-Path $SourceRoot "setup_amneziawg.ps1"
-    if (Test-Path $awgScript) {
-        Write-Host "Setting up bypass..."
-        $awgParams = @{ DataRoot = $dataRoot }
-        if ($RouteHoN)      { $awgParams["RouteHoN"] = $true }
-        if ($RouteYouTube)  { $awgParams["RouteYouTube"] = $true }
-        if ($RouteDiscord)  { $awgParams["RouteDiscord"] = $true }
-        if ($RouteTelegram) { $awgParams["RouteTelegram"] = $true }
-        if ($RouteOpenAI)   { $awgParams["RouteOpenAI"] = $true }
-        & $awgScript @awgParams
-    } else {
-        Write-Host "[Bypass] setup script not found, skipping."
-    }
 }
 
 Write-Host "install_ok"

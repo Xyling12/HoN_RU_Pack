@@ -38,7 +38,7 @@ python bump_version.py
 ## Шаг 3: Собрать инсталлятор
 
 ```powershell
-# Оба варианта: обычный + с DNS bypass
+# Собрать инсталлятор
 .\build_hon_ru_installer_exe.ps1
 
 # Только деинсталлятор
@@ -46,9 +46,8 @@ python bump_version.py
 ```
 
 Результат в `dist/`:
-- `HoN_RU_Pack_Installer.exe` — стандартный
-- `HoN_RU_Pack_Installer_Bypass.exe` — с настройкой обхода блокировок
-- `HoN_RU_Pack_Uninstaller.exe`
+- `HoN_RU_Pack_Installer.exe` — инсталлятор
+- `HoN_RU_Pack_Uninstaller.exe` — деинсталлятор
 
 ## Шаг 4: Тест локально
 

@@ -38,49 +38,10 @@ foreach ($proc in $runningAgents) {
     Write-Host "[Agent] Killed process: $($proc.Name) (PID $($proc.ProcessId))"
 }
 
-# Remove AmneziaWG tunnel if installed (also cleans up legacy WireGuard)
-$removeAmnezia = Join-Path $PSScriptRoot "remove_amneziawg.ps1"
-if (-not (Test-Path $removeAmnezia)) {
-    $removeAmnezia = Join-Path $dataRoot "remove_amneziawg.ps1"
-}
-if (Test-Path $removeAmnezia) {
-    Write-Host "Removing AmneziaWG tunnel..."
-    & powershell -NoProfile -ExecutionPolicy Bypass -File $removeAmnezia -DataRoot $dataRoot
-}
-
-# Legacy: Remove Zapret service if still installed from older version
-$zapretDir = Join-Path $dataRoot "zapret"
-if (Test-Path $zapretDir) {
-    $removeZapret = Join-Path $PSScriptRoot "remove_zapret.ps1"
-    if (-not (Test-Path $removeZapret)) {
-        $removeZapret = Join-Path $dataRoot "remove_zapret.ps1"
-    }
-    if (Test-Path $removeZapret) {
-        Write-Host "Removing legacy Zapret..."
-        & powershell -NoProfile -ExecutionPolicy Bypass -File $removeZapret -DataRoot $dataRoot
-    }
-}
-
-# Restore DNS settings if backup exists
-$dnsBackup = Join-Path $dataRoot "dns_backup.json"
-if (Test-Path $dnsBackup) {
-    $restoreScript = Join-Path $PSScriptRoot "restore_dns.ps1"
-    if (-not (Test-Path $restoreScript)) {
-        $restoreScript = Join-Path $dataRoot "restore_dns.ps1"
-    }
-    if (Test-Path $restoreScript) {
-        Write-Host "Restoring DNS settings..."
-        & powershell -NoProfile -ExecutionPolicy Bypass -File $restoreScript -DataRoot $dataRoot
-    } else {
-        Write-Host "[DNS] restore_dns.ps1 not found, skipping DNS restore."
-    }
-}
-
 if (-not $KeepFiles -and (Test-Path $modRoot)) {
     Remove-Item -Path $modRoot -Recurse -Force -ErrorAction SilentlyContinue
 }
 if (-not $KeepFiles -and (Test-Path $dataRoot)) {
-    # Retry with delay - Zapret cygwin1.dll may still be locked after service stop
     $maxRetries = 3
     for ($i = 1; $i -le $maxRetries; $i++) {
         try {

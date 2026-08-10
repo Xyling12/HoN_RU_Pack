@@ -88,7 +88,6 @@ internal class InstallerForm : Form
 
     private RadioButton rbAuto, rbManual;
     private TextBox txtPath;
-    private CheckBox cbHon, cbYoutube, cbDiscord, cbTelegram, cbOpenAI;
     private FlatButton btnBrowse, btnInstall;
     private Button btnClose, btnMin;
     private RichTextBox rtbLog;
@@ -155,62 +154,9 @@ internal class InstallerForm : Form
         btnBrowse.ForeColor = TEXT_PRIMARY;
         pnlOptions.Controls.AddRange(new Control[] { rbAuto, rbManual, txtPath, btnBrowse });
 
-        // Bypass checkboxes (per-service routing)
-        bool dnsVisible = __DNS_VISIBLE__;
-        int logTop = 225;
-        if (dnsVisible)
-        {
-            cbHon = new CheckBox
-            {
-                Text = "\u26a1 \u041e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438 HoN (\u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u0435\u0442\u0441\u044f \u0434\u043b\u044f \u0420\u0424)",
-                Checked = true,
-                ForeColor = Color.FromArgb(255, 200, 100),
-                Font = new Font("Segoe UI", 9.5f, FontStyle.Bold),
-                AutoSize = true,
-                Location = new Point(20, 220)
-            };
-            cbYoutube = new CheckBox
-            {
-                Text = "\ud83d\udcfa YouTube \u0447\u0435\u0440\u0435\u0437 \u043e\u0431\u0445\u043e\u0434",
-                Checked = false,
-                ForeColor = Color.FromArgb(200, 200, 220),
-                Font = new Font("Segoe UI", 9.5f),
-                AutoSize = true,
-                Location = new Point(20, 246)
-            };
-            cbDiscord = new CheckBox
-            {
-                Text = "\ud83d\udcac Discord \u0447\u0435\u0440\u0435\u0437 \u043e\u0431\u0445\u043e\u0434",
-                Checked = false,
-                ForeColor = Color.FromArgb(200, 200, 220),
-                Font = new Font("Segoe UI", 9.5f),
-                AutoSize = true,
-                Location = new Point(20, 272)
-            };
-            cbTelegram = new CheckBox
-            {
-                Text = "\u2708 Telegram \u0447\u0435\u0440\u0435\u0437 \u043e\u0431\u0445\u043e\u0434",
-                Checked = false,
-                ForeColor = Color.FromArgb(200, 200, 220),
-                Font = new Font("Segoe UI", 9.5f),
-                AutoSize = true,
-                Location = new Point(20, 298)
-            };
-            cbOpenAI = new CheckBox
-            {
-                Text = "\ud83e\udde0 ChatGPT/OpenAI \u0447\u0435\u0440\u0435\u0437 \u043e\u0431\u0445\u043e\u0434",
-                Checked = false,
-                ForeColor = Color.FromArgb(200, 200, 220),
-                Font = new Font("Segoe UI", 9.5f),
-                AutoSize = true,
-                Location = new Point(20, 324)
-            };
-            logTop = 352;
-        }
-
         // Log
-        int logHeight = 610 - logTop - 90;
-        rtbLog = new RichTextBox { Location = new Point(18, logTop), Size = new Size(604, logHeight), ReadOnly = true, BackColor = Color.FromArgb(8, 8, 18), ForeColor = Color.FromArgb(130, 220, 130), Font = new Font("Cascadia Mono,Consolas", 9f), BorderStyle = BorderStyle.None };
+        int logHeight = 610 - 225 - 90;
+        rtbLog = new RichTextBox { Location = new Point(18, 225), Size = new Size(604, logHeight), ReadOnly = true, BackColor = Color.FromArgb(8, 8, 18), ForeColor = Color.FromArgb(130, 220, 130), Font = new Font("Cascadia Mono,Consolas", 9f), BorderStyle = BorderStyle.None };
 
         // Install button
         btnInstall = new FlatButton { Text = "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c", Location = new Point(18, 610 - 58), Size = new Size(604, 44), Font = new Font("Segoe UI", 12f, FontStyle.Bold) };
@@ -220,7 +166,6 @@ internal class InstallerForm : Form
         btnInstall.ForeColor = TEXT_ON_ACCENT;
 
         Controls.AddRange(new Control[] { pnlHeader, lblVersion, lblSubtitle, pnlOptions, rtbLog, btnInstall });
-        if (dnsVisible) { Controls.Add(cbHon); Controls.Add(cbYoutube); Controls.Add(cbDiscord); Controls.Add(cbTelegram); Controls.Add(cbOpenAI); }
 
         rbManual.CheckedChanged += (s, e) => { txtPath.Enabled = rbManual.Checked; btnBrowse.Enabled = rbManual.Checked; };
         btnBrowse.Click += (s, e) => { using (var d = new FolderBrowserDialog()) { if (d.ShowDialog() == DialogResult.OK) txtPath.Text = d.SelectedPath; } };
@@ -247,17 +192,12 @@ internal class InstallerForm : Form
         rtbLog.Clear();
 
         string manualPath = rbManual.Checked ? txtPath.Text.Trim() : "";
-        bool routeHon = cbHon != null && cbHon.Checked;
-        bool routeYoutube = cbYoutube != null && cbYoutube.Checked;
-        bool routeDiscord = cbDiscord != null && cbDiscord.Checked;
-        bool routeTelegram = cbTelegram != null && cbTelegram.Checked;
-        bool routeOpenai = cbOpenAI != null && cbOpenAI.Checked;
-        var worker = new Thread(() => RunInstallThread(manualPath, routeHon, routeYoutube, routeDiscord, routeTelegram, routeOpenai));
+        var worker = new Thread(() => RunInstallThread(manualPath));
         worker.IsBackground = true;
         worker.Start();
     }
 
-    private void RunInstallThread(string manualPath, bool routeHon, bool routeYoutube, bool routeDiscord, bool routeTelegram, bool routeOpenai)
+    private void RunInstallThread(string manualPath)
     {
         string tempRoot = Path.Combine(Path.GetTempPath(), "HoN_RU_Pack_Install_" + Guid.NewGuid().ToString("N"));
         try
@@ -271,12 +211,6 @@ internal class InstallerForm : Form
 
             string args = "-NoProfile -EP Bypass -File \"" + script + "\" -SourceRoot \"" + tempRoot + "\"";
             if (!string.IsNullOrWhiteSpace(manualPath)) args += " -InstallRoot \"" + manualPath + "\"";
-            if (routeHon || routeYoutube || routeDiscord || routeTelegram || routeOpenai) args += " -SetupBypass";
-            if (routeHon) args += " -RouteHoN";
-            if (routeYoutube) args += " -RouteYouTube";
-            if (routeDiscord) args += " -RouteDiscord";
-            if (routeTelegram) args += " -RouteTelegram";
-            if (routeOpenai) args += " -RouteOpenAI";
 
             var psi = new ProcessStartInfo { FileName = "powershell.exe", Arguments = args, UseShellExecute = false, RedirectStandardOutput = true, RedirectStandardError = true, CreateNoWindow = true };
             var proc = Process.Start(psi);
@@ -297,6 +231,8 @@ internal class InstallerForm : Form
                     btnInstall.PressColor = Color.FromArgb(35, 140, 70);
                     btnInstall.ForeColor = Color.White;
                     Log("\n\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e!");
+                    Log("\u26a0 Launcher \u043c\u043e\u0436\u0435\u0442 \u043f\u0440\u0435\u0434\u043b\u043e\u0436\u0438\u0442\u044c Update Now \u043f\u0440\u0438 \u0437\u0430\u043f\u0443\u0441\u043a\u0435. \u041d\u0430\u0436\u043c\u0438\u0442\u0435 1-2 \u0440\u0430\u0437\u0430.");
+                    Log("\u0424\u043e\u043d\u043e\u0432\u044b\u0439 \u0430\u0433\u0435\u043d\u0442 \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442 \u043f\u0435\u0440\u0435\u0432\u043e\u0434 \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438.");
                     btnInstall.Click += (s2, e2) => Close();
                 }
                 else

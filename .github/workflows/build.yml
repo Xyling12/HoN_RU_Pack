@@ -30,7 +30,6 @@ jobs:
       run: |
         $files = @(
           "dist\HoN_RU_Pack_Installer.exe",
-          "dist\HoN_RU_Pack_Installer_Bypass.exe",
           "dist\HoN_RU_Pack_Uninstaller.exe"
         )
         foreach ($f in $files) {
@@ -48,12 +47,6 @@ jobs:
       with:
         name: HoN_RU_Pack_Installer
         path: dist/HoN_RU_Pack_Installer.exe
-
-    - name: Upload Installer (Bypass)
-      uses: actions/upload-artifact@v4
-      with:
-        name: HoN_RU_Pack_Installer_Bypass
-        path: dist/HoN_RU_Pack_Installer_Bypass.exe
 
     - name: Upload Uninstaller
       uses: actions/upload-artifact@v4
@@ -77,6 +70,5 @@ jobs:
       with:
         files: |
           HoN_RU_Pack_Installer/HoN_RU_Pack_Installer.exe
-          HoN_RU_Pack_Installer_Bypass/HoN_RU_Pack_Installer_Bypass.exe
           HoN_RU_Pack_Uninstaller/HoN_RU_Pack_Uninstaller.exe
         generate_release_notes: true

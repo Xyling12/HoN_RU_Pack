@@ -86,12 +86,11 @@ internal class UninstallerForm : Form
     [DllImport("user32.dll")]
     private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-    private CheckBox cbRuPack, cbBypass;
     private FlatButton btnUninstall;
     private Button btnClose, btnMin;
     private RichTextBox rtbLog;
-    private Panel pnlHeader, pnlOptions;
-    private Label lblTitle, lblVersion, lblChoose;
+    private Panel pnlHeader;
+    private Label lblTitle, lblVersion;
     private int exitCode = 0;
 
     private static readonly Color BG_DARK = Color.FromArgb(12, 12, 24);
@@ -106,7 +105,7 @@ internal class UninstallerForm : Form
     public UninstallerForm()
     {
         Text = "Удаление HoN RU Pack";
-        Size = new Size(640, 500);
+        Size = new Size(640, 400);
         StartPosition = FormStartPosition.CenterScreen;
         FormBorderStyle = FormBorderStyle.None;
         BackColor = BG_DARK;
@@ -135,51 +134,17 @@ internal class UninstallerForm : Form
         // Version
         lblVersion = new Label { Text = "v__VERSION__", Font = new Font("Segoe UI", 9f), ForeColor = TEXT_SECONDARY, AutoSize = true, Location = new Point(20, 62) };
 
-        // Choose label
-        lblChoose = new Label { Text = "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435, \u0447\u0442\u043e \u0443\u0434\u0430\u043b\u0438\u0442\u044c:", Font = new Font("Segoe UI", 10f, FontStyle.Bold), ForeColor = Color.FromArgb(255, 200, 100), AutoSize = true, Location = new Point(20, 88) };
-
-        // Options panel
-        pnlOptions = new Panel { BackColor = BG_CARD, Location = new Point(18, 116), Size = new Size(604, 100) };
-        pnlOptions.Paint += (s, e) => {
-            using (var pen = new Pen(Color.FromArgb(40, 44, 70))) { e.Graphics.DrawRectangle(pen, 0, 0, pnlOptions.Width - 1, pnlOptions.Height - 1); }
-        };
-
-        cbRuPack = new CheckBox
-        {
-            Text = "\u25cf  \u0420\u0443\u0441\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044f HoN RU Pack",
-            Checked = true,
-            ForeColor = TEXT_PRIMARY,
-            Font = new Font("Segoe UI", 10f),
-            AutoSize = true,
-            Location = new Point(15, 18)
-        };
-
-        cbBypass = new CheckBox
-        {
-            Text = "\u26a1 \u041e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438 (AmneziaWG)",
-            Checked = true,
-            ForeColor = TEXT_PRIMARY,
-            Font = new Font("Segoe UI", 10f),
-            AutoSize = true,
-            Location = new Point(15, 56)
-        };
-
-        pnlOptions.Controls.AddRange(new Control[] { cbRuPack, cbBypass });
-
         // Log
-        rtbLog = new RichTextBox { Location = new Point(18, 228), Size = new Size(604, 170), ReadOnly = true, BackColor = Color.FromArgb(8, 8, 18), ForeColor = Color.FromArgb(130, 220, 130), Font = new Font("Cascadia Mono,Consolas", 9f), BorderStyle = BorderStyle.None };
+        rtbLog = new RichTextBox { Location = new Point(18, 100), Size = new Size(604, 185), ReadOnly = true, BackColor = Color.FromArgb(8, 8, 18), ForeColor = Color.FromArgb(130, 220, 130), Font = new Font("Cascadia Mono,Consolas", 9f), BorderStyle = BorderStyle.None };
 
         // Button
-        btnUninstall = new FlatButton { Text = "\u274c  \u0423\u0434\u0430\u043b\u0438\u0442\u044c", Location = new Point(18, 500 - 58), Size = new Size(604, 44), Font = new Font("Segoe UI", 12f, FontStyle.Bold) };
+        btnUninstall = new FlatButton { Text = "\u274c  \u0423\u0434\u0430\u043b\u0438\u0442\u044c", Location = new Point(18, 400 - 58), Size = new Size(604, 44), Font = new Font("Segoe UI", 12f, FontStyle.Bold) };
         btnUninstall.NormalColor = ACCENT;
         btnUninstall.HoverColor = ACCENT_HOVER;
         btnUninstall.PressColor = ACCENT_PRESS;
         btnUninstall.ForeColor = Color.White;
 
-        Controls.AddRange(new Control[] { pnlHeader, lblVersion, lblChoose, pnlOptions, rtbLog, btnUninstall });
-
-        cbRuPack.CheckedChanged += (s, e) => UpdateButton();
-        cbBypass.CheckedChanged += (s, e) => UpdateButton();
+        Controls.AddRange(new Control[] { pnlHeader, lblVersion, rtbLog, btnUninstall });
         btnUninstall.Click += (s, e) => DoUninstall();
     }
 
@@ -187,11 +152,6 @@ internal class UninstallerForm : Form
     {
         base.OnPaint(e);
         using (var pen = new Pen(Color.FromArgb(50, 54, 80))) { e.Graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1); }
-    }
-
-    private void UpdateButton()
-    {
-        btnUninstall.Enabled = cbRuPack.Checked || cbBypass.Checked;
     }
 
     private void Log(string msg)
@@ -203,15 +163,8 @@ internal class UninstallerForm : Form
 
     private void DoUninstall()
     {
-        if (!cbRuPack.Checked && !cbBypass.Checked) return;
-
-        string what = "";
-        if (cbRuPack.Checked && cbBypass.Checked) what = "\u0420\u0443\u0441\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044e \u0438 \u043e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438";
-        else if (cbRuPack.Checked) what = "\u0420\u0443\u0441\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044e HoN RU Pack";
-        else what = "\u041e\u0431\u0445\u043e\u0434 \u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0438 (AmneziaWG)";
-
         var result = MessageBox.Show(
-            "\u0423\u0434\u0430\u043b\u0438\u0442\u044c: " + what + "?\n\n\u041f\u043e\u0441\u043b\u0435 \u0443\u0434\u0430\u043b\u0435\u043d\u0438\u044f \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u044d\u0442\u043e \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u0431\u0443\u0434\u0435\u0442 \u043d\u0435\u043b\u044c\u0437\u044f.",
+            "\u0423\u0434\u0430\u043b\u0438\u0442\u044c \u0440\u0443\u0441\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044e HoN RU Pack?\n\n\u041f\u043e\u0441\u043b\u0435 \u0443\u0434\u0430\u043b\u0435\u043d\u0438\u044f \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u044d\u0442\u043e \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u0431\u0443\u0434\u0435\u0442 \u043d\u0435\u043b\u044c\u0437\u044f.",
             "\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0438\u0435",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Warning
@@ -220,18 +173,14 @@ internal class UninstallerForm : Form
 
         btnUninstall.Enabled = false;
         btnUninstall.Text = "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435...";
-        cbRuPack.Enabled = false;
-        cbBypass.Enabled = false;
         rtbLog.Clear();
 
-        bool removeRu = cbRuPack.Checked;
-        bool removeBypass = cbBypass.Checked;
-        var worker = new Thread(() => RunUninstallThread(removeRu, removeBypass));
+        var worker = new Thread(() => RunUninstallThread());
         worker.IsBackground = true;
         worker.Start();
     }
 
-    private void RunUninstallThread(bool removeRu, bool removeBypass)
+    private void RunUninstallThread()
     {
         string tempRoot = Path.Combine(Path.GetTempPath(), "HoN_RU_Pack_Uninstall_" + Guid.NewGuid().ToString("N"));
         try
@@ -240,28 +189,13 @@ internal class UninstallerForm : Form
             ExtractPayload(tempRoot);
             Log("Пакет распакован.");
 
-            if (removeBypass)
+            string uninstScript = Path.Combine(tempRoot, "uninstall_hon_ru_pack.ps1");
+            if (File.Exists(uninstScript))
             {
-                string bypassScript = Path.Combine(tempRoot, "remove_amneziawg.ps1");
-                if (File.Exists(bypassScript))
-                {
-                    Log("\n--- Удаляю AmneziaWG ---");
-                    RunPS(bypassScript, "");
-                }
-                else { Log("[Bypass] remove_amneziawg.ps1 не найден, пропускаю."); }
+                Log("\n--- Удаляю HoN RU Pack ---");
+                RunPS(uninstScript, "");
             }
-
-            if (removeRu)
-            {
-                string uninstScript = Path.Combine(tempRoot, "uninstall_hon_ru_pack.ps1");
-                if (File.Exists(uninstScript))
-                {
-                    Log("\n--- Удаляю HoN RU Pack ---");
-                    string args = removeBypass ? "" : " -KeepFiles";
-                    RunPS(uninstScript, args);
-                }
-                else { Log("Ошибка: сценарий удаления не найден."); exitCode = 1; }
-            }
+            else { Log("Ошибка: сценарий удаления не найден."); exitCode = 1; }
 
             Invoke(new Action(() => {
                 btnUninstall.Enabled = true;

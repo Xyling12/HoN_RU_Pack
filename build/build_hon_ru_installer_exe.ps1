@@ -17,10 +17,7 @@ $requiredScripts = @(
     "hon_common.ps1",
     "hon_auto_agent.ps1",
     "set_login_banner.ps1",
-    "setup_dns_bypass.ps1",
-    "restore_dns.ps1",
-    "setup_amneziawg.ps1",
-    "remove_amneziawg.ps1",
+    "patch_stringtables.ps1",
     "hon_paths_override.example.ps1",
     "version.txt",
     "README.txt",
@@ -120,14 +117,13 @@ function Build-InstallerExe {
     if ($LASTEXITCODE -ne 0) { throw "csc.exe compilation failed for $OutExe (exit code $LASTEXITCODE)" }
 }
 
-# --- Build 1: plain installer (no DNS) ---
+# --- Build installer ---
 $exePlain = if ([string]::IsNullOrWhiteSpace($OutputExe)) {
     Join-Path $distRoot "HoN_RU_Pack_Installer.exe"
 } else { $OutputExe }
-$codePlain = $programBase.Replace("__DNS_VISIBLE__", "false")
 $dumpPlain = Join-Path $distRoot "installer_program.cs"
-Build-InstallerExe -Code $codePlain -OutExe $exePlain -SourceDumpPath $dumpPlain
-Write-Host "Plain installer built: $exePlain"
+Build-InstallerExe -Code $programBase -OutExe $exePlain -SourceDumpPath $dumpPlain
+Write-Host "Installer built: $exePlain"
 
 
 Write-Host ""

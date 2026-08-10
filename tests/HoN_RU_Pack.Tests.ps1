@@ -57,10 +57,6 @@ Describe "Project structure" {
         "install_hon_ru_pack.ps1",
         "hon_auto_agent.ps1",
         "set_login_banner.ps1",
-        "setup_dns_bypass.ps1",
-        "restore_dns.ps1",
-        "setup_amneziawg.ps1",
-        "remove_amneziawg.ps1",
         "uninstall_hon_ru_pack.ps1",
         "update.ps1",
         "build_hon_ru_installer_exe.ps1"
@@ -214,10 +210,6 @@ Describe "Build prerequisites" {
         "install_hon_ru_pack.ps1",
         "hon_auto_agent.ps1",
         "set_login_banner.ps1",
-        "setup_dns_bypass.ps1",
-        "restore_dns.ps1",
-        "setup_amneziawg.ps1",
-        "remove_amneziawg.ps1",
         "hon_paths_override.example.ps1",
         "version.txt",
         "README.txt",
@@ -274,54 +266,5 @@ Describe "Installer EXE" {
         $exe = Join-Path $ProjectRoot "dist\HoN_RU_Pack_Installer.exe"
         if (-not (Test-Path $exe)) { return }
         (Get-Item $exe).Length | Should BeGreaterThan 500000
-    }
-
-    It "dist/HoN_RU_Pack_Installer_Bypass.exe exists" {
-        $exe = Join-Path $ProjectRoot "dist\HoN_RU_Pack_Installer_Bypass.exe"
-        $exe | Should Exist
-    }
-
-    It "DNS installer EXE is at least 500 KB (contains payload)" {
-        $exe = Join-Path $ProjectRoot "dist\HoN_RU_Pack_Installer_Bypass.exe"
-        if (-not (Test-Path $exe)) { return }
-        (Get-Item $exe).Length | Should BeGreaterThan 500000
-    }
-}
-# ============================================================
-Describe "Bypass scripts" {
-
-    It "setup_dns_bypass.ps1 exists" {
-        Join-Path $ProjectRoot "setup_dns_bypass.ps1" | Should Exist
-    }
-
-    It "restore_dns.ps1 exists" {
-        Join-Path $ProjectRoot "restore_dns.ps1" | Should Exist
-    }
-
-    It "setup_amneziawg.ps1 exists" {
-        Join-Path $ProjectRoot "setup_amneziawg.ps1" | Should Exist
-    }
-
-    It "remove_amneziawg.ps1 exists" {
-        Join-Path $ProjectRoot "remove_amneziawg.ps1" | Should Exist
-    }
-
-    It "install_hon_ru_pack.ps1 accepts -SetupBypass parameter" {
-        $content = Get-Content (Join-Path $ProjectRoot "install_hon_ru_pack.ps1") -Raw
-        $content | Should Match 'SetupBypass'
-    }
-
-    It "install_hon_ru_pack.ps1 accepts routing parameters" {
-        $content = Get-Content (Join-Path $ProjectRoot "install_hon_ru_pack.ps1") -Raw
-        $content | Should Match 'RouteHoN'
-        $content | Should Match 'RouteYouTube'
-        $content | Should Match 'RouteDiscord'
-        $content | Should Match 'RouteTelegram'
-        $content | Should Match 'RouteOpenAI'
-    }
-
-    It "uninstall_hon_ru_pack.ps1 references amneziawg" {
-        $content = Get-Content (Join-Path $ProjectRoot "uninstall_hon_ru_pack.ps1") -Raw
-        $content | Should Match 'remove_amneziawg'
     }
 }
