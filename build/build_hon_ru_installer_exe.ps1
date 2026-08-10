@@ -18,10 +18,7 @@ $requiredScripts = @(
     "hon_auto_agent.ps1",
     "set_login_banner.ps1",
     "patch_stringtables.ps1",
-    "hon_paths_override.example.ps1",
-    "version.txt",
-    "README.txt",
-    "README_ONE_CLICK_INSTALL.txt"
+    "version.txt"
 )
 
 $requiredBundle = @(
